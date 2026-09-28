@@ -21,7 +21,7 @@ This folder is a **Lab #1 prototype**, deliberately small:
 | unit + end-to-end tests on a *synthetic* library (gate, matcher, outcome, forged frames, tree hash, timeouts, env failure, oracle, replay) | written, pass on Python 3.12 in the build sandbox |
 | the same tests on Python 3.8.10 / Windows 11 | pass (43 tests, 2026-09-29) |
 | real Jinja checkouts, Linux, Python 3.8.20 + MarkupSafe pin | run 2026-09-28: all 7 expected outcomes matched, claim provenance unverified (F-009, F-010); see `labs/jinja-843/results-linux-2026-09-28.md` |
-| same lab on Windows via `run_lab001.ps1` | **not run yet** |
+| same lab on Windows via `run_lab001.ps1`, with the raw issue body fetched and claim-check passed | run 2026-09-29: 52 unit tests OK, all 6 rows matched, provenance verified for jinja-843 (F-016) |
 | Docker / sandbox runner | **does not exist** |
 | environment trust, portable evidence, signing | not implemented (`environment_trust: UNVERIFIED`) |
 
