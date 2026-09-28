@@ -9,7 +9,7 @@ This folder is a **Lab #1 prototype**, deliberately small:
 
 - Python 3.8+ only, standard library only (no Go, no Docker, no pip install).
 - Exception-type claims only (`wrong_output` / `unexpected_exit` are not implemented).
-- Runs reproducers as **plain host processes - there is no sandbox** (see `THREAT_MODEL.md`).
+- Runs reproducers as plain host processes by default (no sandbox); `--sandbox docker` runs them in a network-less, read-only container (see `THREAT_MODEL.md`).
 - It is not the Go/Docker core described in the design file; it exists to answer one question
   with real data: does the verifier tell a real reproduction, a clean fix, an environment failure and
   gamed reproducers apart on pallets/jinja#843?
@@ -22,7 +22,7 @@ This folder is a **Lab #1 prototype**, deliberately small:
 | the same tests on Python 3.8.10 / Windows 11 | pass (43 tests, 2026-09-29) |
 | real Jinja checkouts, Linux, Python 3.8.20 + MarkupSafe pin | run 2026-09-28: all 7 expected outcomes matched, claim provenance unverified (F-009, F-010); see `labs/jinja-843/results-linux-2026-09-28.md` |
 | same lab on Windows via `run_lab001.ps1`, with the raw issue body fetched and claim-check passed | run 2026-09-29: 52 unit tests OK, all 6 rows matched, provenance verified for jinja-843 (F-016) |
-| Docker / sandbox runner | **does not exist** |
+| Docker sandbox runner (`--sandbox docker`) | works on Linux, all 5 labs give the same outcomes as host mode (F-017); the harness is still in-process with the reproducer; not tested on Windows/macOS |
 | environment trust, portable evidence, signing | not implemented (`environment_trust: UNVERIFIED`) |
 
 Five labs (jinja#843, tabulate x2, cachetools, more-itertools; see `labs/`) with predictions written before each run are not a benchmark. Provenance of the
@@ -51,7 +51,9 @@ python -m reprogate verify      --evidence evidence/case1 --repo <checkout> --py
 python -m reprogate inspect     --evidence evidence/case1
 ```
 
-`--allow-host-execution` is mandatory on purpose; without it the tool refuses to run anything.
+`--allow-host-execution` is mandatory on purpose for host mode; without it the tool refuses to run anything.
+
+Docker mode (Linux): `python -m reprogate run --sandbox docker --image <image with Python and the target's dependencies> --repo <checkout> --claim ... --reproducer ... --out ...` (no `--python`, no `--allow-host-execution`). Example images: `labs/jinja-843/docker/`.
 
 ## Layout
 

@@ -23,3 +23,9 @@ and all 7 rows of jinja-843 still match their predictions. Unit tests: 51 OK on 
 Prediction (committed first): single run gives SYMPTOM_REPRODUCED (known false positive), oracle fails.
 Actual: run = SYMPTOM_REPRODUCED (5/5 matching); oracle before=SYMPTOM_REPRODUCED, after=SYMPTOM_REPRODUCED,
 post-fix=STILL_FAILS, ORACLE FAIL. Prediction confirmed.
+
+## Docker sandbox re-run (F-017)
+
+All rows of labs 2-5 (including the F-015 fixture) and all 6 rows of jinja-843 give the same outcomes with
+`--sandbox docker` as in host mode. Image: `mirror.gcr.io/library/python:3.8-slim`; jinja-843 uses images
+with MarkupSafe 2.0.1 (pinned) and 2.1.5 (unpinned).

@@ -28,3 +28,10 @@ repository modification during a run (tree hash); hangs (timeout -> INCONCLUSIVE
 
 overbroad assertions; unrealistic setup or state; a semantically different bug with the same symptom;
 vacuous reproducers (a differential probe is a design item, not implemented here).
+
+## Docker sandbox (`--sandbox docker`, F-017)
+
+Adds: no network, read-only root filesystem and repository, `--cap-drop ALL`, `no-new-privileges`, uid 65534,
+memory/cpu/pids limits, tmpfs scratch, container killed on timeout. Does NOT add: a separate observer (the
+harness is in the reproducer's process; `/out` is writable), image content verification, protection against
+kernel-level container escapes (shared kernel, no gVisor/VM). Tested on Linux only.

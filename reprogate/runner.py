@@ -4,6 +4,7 @@ import os
 import subprocess
 import time
 
+from . import sandbox as sbx
 from .util import canonical_json, sha256_bytes, sha256_file
 
 HARNESS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "harness.py")
@@ -59,18 +60,24 @@ def _run_small(cmd, timeout=60):
         return None, "", str(e)
 
 
-def capture_environment(python):
+def capture_environment(python, sandbox=None):
     code = ("import sys, json, platform; print(json.dumps({'version': sys.version.split()[0], "
             "'implementation': sys.implementation.name, 'executable': sys.executable, "
             "'system': platform.system()}))")
-    rc, out, err = _run_small([python, "-c", code])
+    def inner(*args):
+        if sandbox is None:
+            return [python] + list(args)
+        return sbx.run_prefix(sandbox, sbx.new_name()) + [sandbox["python"]] + list(args)
+
+    rc, out, err = _run_small(inner("-c", code), timeout=120 if sandbox else 60)
     info = {"python": None, "packages": None, "errors": []}
     if rc == 0:
         info["python"] = json.loads(out)
     else:
         info["errors"].append("cannot run interpreter: " + err.strip()[:300])
         return info, None
-    rc, out, err = _run_small([python, "-m", "pip", "list", "--format=json", "--disable-pip-version-check"])
+    rc, out, err = _run_small(inner("-m", "pip", "list", "--format=json", "--disable-pip-version-check"),
+                              timeout=120 if sandbox else 60)
     if rc == 0:
         try:
             pk = json.loads(out)
@@ -81,6 +88,8 @@ def capture_environment(python):
         info["errors"].append("pip list failed: " + err.strip()[:300])
     fp = {"python_version": info["python"]["version"], "implementation": info["python"]["implementation"],
           "packages": info["packages"]}
+    if sandbox is not None:
+        fp["image_id"] = sbx.image_id(sandbox)[0]
     return info, sha256_bytes(canonical_json(fp).encode("utf-8"))
 
 
@@ -101,7 +110,7 @@ def _clip(b):
     return b[:MAX_CAPTURE] if b else b""
 
 
-def run_once(python, repo, repro_bytes, run_dir, timeout, seed, pythonpath_extra=None):
+def run_once(python, repo, repro_bytes, run_dir, timeout, seed, pythonpath_extra=None, sandbox=None):
     """Execute the harness once in a fresh process. Returns a raw result dict."""
     work = os.path.join(run_dir, "work")
     rdir = os.path.join(run_dir, "repro")
@@ -111,18 +120,40 @@ def run_once(python, repo, repro_bytes, run_dir, timeout, seed, pythonpath_extra
     with open(repro_copy, "wb") as f:
         f.write(repro_bytes)
     obs_path = os.path.join(run_dir, "observation.json")
-    cmd = [python, HARNESS, "--repo", os.path.abspath(repo), "--repro", repro_copy, "--out", obs_path]
+    container = None
+    if sandbox is None:
+        cmd = [python, HARNESS, "--repo", os.path.abspath(repo), "--repro", repro_copy, "--out", obs_path]
+        popen_env = build_env(seed)
+        popen_cwd = work
+    else:
+        out_dir = os.path.join(run_dir, "out")
+        os.makedirs(out_dir, exist_ok=True)
+        os.chmod(out_dir, 0o777)  # the container user (65534) must be able to write the observation
+        obs_path = os.path.join(out_dir, "observation.json")
+        container = sbx.new_name()
+        cenv = {k: v for k, v in build_env(seed).items() if k.startswith("PYTHON")}
+        mounts = [(os.path.abspath(repo), "/repo", "ro"), (HARNESS, "/rg/harness.py", "ro"),
+                  (repro_copy, "/rg/repro.py", "ro"), (out_dir, "/out", "rw")]
+        cmd = sbx.run_prefix(sandbox, container, mounts, cenv) + [
+            sandbox["python"], "/rg/harness.py", "--repo", "/repo", "--repro", "/rg/repro.py",
+            "--out", "/out/observation.json"]
+        popen_env = build_env(seed)
+        popen_cwd = None
     for e in pythonpath_extra or []:
         cmd += ["--pythonpath-extra", e]
     res = {"seed": seed, "timed_out": False, "launch_error": None, "returncode": None,
            "stdout": b"", "stderr": b"", "observation": None, "observation_error": None}
     start = time.time()
     try:
-        p = subprocess.run(cmd, cwd=work, env=build_env(seed), stdin=subprocess.DEVNULL,
+        p = subprocess.run(cmd, cwd=popen_cwd, env=popen_env, stdin=subprocess.DEVNULL,
                            stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout)
         res["returncode"], res["stdout"], res["stderr"] = p.returncode, p.stdout, p.stderr
+        if container and p.returncode in sbx.LAUNCH_ERROR_CODES and not os.path.exists(obs_path):
+            res["launch_error"] = "docker: " + p.stderr.decode("utf-8", "replace").strip()[:300]
     except subprocess.TimeoutExpired as e:
         res["timed_out"] = True
+        if container:
+            sbx.kill(container)
         res["stdout"], res["stderr"] = e.stdout or b"", e.stderr or b""
     except OSError as e:
         res["launch_error"] = str(e)

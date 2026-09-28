@@ -1,0 +1,2 @@
+FROM mirror.gcr.io/library/python:3.8-slim
+RUN pip install --no-cache-dir "MarkupSafe>=2.1,<2.2"

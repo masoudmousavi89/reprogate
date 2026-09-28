@@ -7,6 +7,7 @@ from . import __version__
 from .evidence import verify_hashes
 from .gate import gate_source
 from .pipeline import evaluate, oracle, replay
+from . import sandbox as sbx
 from .provenance import check_claim
 from .util import read_json, write_json
 
@@ -17,7 +18,25 @@ HOST_WARNING = (
 )
 
 
+def _sandbox(a):
+    if getattr(a, "sandbox", "none") != "docker":
+        return None
+    if not a.image:
+        raise ValueError("--sandbox docker needs --image")
+    return sbx.make(a.image)
+
+
+def _python(a):
+    if _sandbox(a) is not None:
+        return "python"
+    if not a.python:
+        raise ValueError("--python is required unless --sandbox docker is used")
+    return a.python
+
+
 def _need_host_flag(a):
+    if getattr(a, "sandbox", "none") == "docker":
+        return True
     if not a.allow_host_execution:
         print(HOST_WARNING, file=sys.stderr)
         return False
@@ -43,12 +62,19 @@ def _common_run_args(p):
                    choices=["ISSUE_VERBATIM_SNIPPET", "AGENT_ADAPTED", "AGENT_AUTHORED", "HUMAN_AUTHORED"])
     p.add_argument("--attempts", type=int, default=0)
     p.add_argument("--pythonpath-extra", action="append", default=[])
+    _sandbox_args(p)
+
+
+def _sandbox_args(p):
+    p.add_argument("--sandbox", choices=["none", "docker"], default="none",
+                   help="docker: run the reproducer in a network-less, read-only container (needs --image)")
+    p.add_argument("--image", help="docker image holding the target Python and the target's dependencies")
 
 
 def _kw(a):
     return dict(runs=a.runs, timeout=a.timeout, min_completed=a.min_completed,
                 allow_unverified_provenance=a.allow_unverified_provenance, origin=a.origin,
-                attempts=a.attempts, pythonpath_extra=a.pythonpath_extra)
+                attempts=a.attempts, pythonpath_extra=a.pythonpath_extra, sandbox=_sandbox(a))
 
 
 def cmd_claim_check(a):
@@ -76,7 +102,7 @@ def cmd_run(a):
     if not _need_host_flag(a):
         return 2
     try:
-        out = evaluate(a.repo, a.python, _load_claim(a.claim), a.reproducer, a.out, **_kw(a))
+        out = evaluate(a.repo, _python(a), _load_claim(a.claim), a.reproducer, a.out, **_kw(a))
     except ValueError as e:
         print("ERROR:", e, file=sys.stderr)
         return 2
@@ -91,7 +117,7 @@ def cmd_oracle(a):
     if not _need_host_flag(a):
         return 2
     try:
-        res = oracle(a.before_repo, a.after_repo, a.python, _load_claim(a.claim), a.reproducer, a.out,
+        res = oracle(a.before_repo, a.after_repo, _python(a), _load_claim(a.claim), a.reproducer, a.out,
                      after_python=a.after_python, **_kw(a))
     except ValueError as e:
         print("ERROR:", e, file=sys.stderr)
@@ -105,7 +131,11 @@ def cmd_oracle(a):
 def cmd_verify(a):
     if not _need_host_flag(a):
         return 2
-    rep = replay(a.evidence, a.repo, a.python, timeout=a.timeout)
+    try:
+        rep = replay(a.evidence, a.repo, _python(a), timeout=a.timeout, sandbox=_sandbox(a))
+    except ValueError as e:
+        print("ERROR:", e, file=sys.stderr)
+        return 2
     print(json.dumps(rep, indent=2))
     ok = rep["hashes_ok"] and rep.get("same_outcome") and rep.get("commit_matches") is not False
     print("VERIFY", "PASS" if ok else "FAIL")
@@ -143,7 +173,7 @@ def main(argv=None):
 
     p = sub.add_parser("run", help="evaluate one reproducer on one checkout")
     p.add_argument("--repo", required=True)
-    p.add_argument("--python", required=True, help="target interpreter (e.g. the venv python)")
+    p.add_argument("--python", help="target interpreter (e.g. the venv python); not needed with --sandbox docker")
     p.add_argument("--out", required=True)
     _common_run_args(p)
     p.set_defaults(fn=cmd_run)
@@ -151,7 +181,7 @@ def main(argv=None):
     p = sub.add_parser("oracle", help="before/after-fix oracle")
     p.add_argument("--before-repo", required=True)
     p.add_argument("--after-repo", required=True)
-    p.add_argument("--python", required=True)
+    p.add_argument("--python")
     p.add_argument("--after-python")
     p.add_argument("--out", required=True)
     _common_run_args(p)
@@ -160,9 +190,10 @@ def main(argv=None):
     p = sub.add_parser("verify", help="replay an evidence bundle")
     p.add_argument("--evidence", required=True)
     p.add_argument("--repo", required=True)
-    p.add_argument("--python", required=True)
+    p.add_argument("--python")
     p.add_argument("--timeout", type=float, default=30.0)
     p.add_argument("--allow-host-execution", action="store_true")
+    _sandbox_args(p)
     p.set_defaults(fn=cmd_verify)
 
     p = sub.add_parser("inspect", help="print a human-readable summary of a bundle")

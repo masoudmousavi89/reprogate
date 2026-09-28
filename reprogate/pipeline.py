@@ -10,11 +10,10 @@ from .gate import gate_source
 from .matcher import classify_run
 from .outcome import aggregate
 from .provenance import provenance_state
+from . import sandbox as sbx
 from .runner import (capture_environment, env_names, git_info, run_once, tree_hash)
 from .util import now_utc, read_json, sha256_bytes, write_json
 
-SANDBOX = {"kind": "HOST_PROCESS", "network_isolation": "NONE", "filesystem_isolation": "NONE",
-           "note": "prototype host mode: not a sandbox"}
 
 
 def _run_record(index, raw, claim, tree_before, tree_after_hash):
@@ -49,7 +48,7 @@ def _run_record(index, raw, claim, tree_before, tree_after_hash):
 
 def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, min_completed=3,
              gate=True, allow_unverified_provenance=False, origin="AGENT_ADAPTED", attempts=0,
-             base_seed=1000, pythonpath_extra=None):
+             base_seed=1000, pythonpath_extra=None, sandbox=None):
     """Evaluate one reproducer against one checkout. Returns the outcome dict (also written to out_dir)."""
     prov = provenance_state(claim_doc, allow_unverified_provenance)  # may raise ValueError
     os.makedirs(out_dir, exist_ok=True)
@@ -68,13 +67,14 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
                     "note": "GATE_SKIPPED_BY_CALLER (tests only)"}
     write_json(os.path.join(out_dir, "gate.json"), gate_res)
 
-    env_info, env_sha = capture_environment(python)
+    env_info, env_sha = capture_environment(python, sandbox)
+    sandbox_rec = sbx.record(sandbox)
     git = git_info(repo)
     tree_before, n_files = tree_hash(repo)
     write_json(os.path.join(out_dir, "environment.json"), {
         "interpreter": env_info, "environment_sha256": env_sha, "git": git,
         "repository_tree_sha256_before": tree_before, "repository_files_hashed": n_files,
-        "environment_variables_allowed": env_names(), "sandbox": SANDBOX,
+        "environment_variables_allowed": env_names(), "sandbox": sandbox_rec,
         "environment_trust": "UNVERIFIED",
     })
 
@@ -82,7 +82,7 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
     if gate_res["status"] == C.GATE_VALID and env_info["python"] is not None:
         for i in range(runs):
             run_dir = os.path.join(out_dir, "runs", "run-%02d" % (i + 1))
-            raw = run_once(python, repo, repro_bytes, run_dir, timeout, base_seed + i * 7919, pythonpath_extra)
+            raw = run_once(python, repo, repro_bytes, run_dir, timeout, base_seed + i * 7919, pythonpath_extra, sandbox)
             after, _ = tree_hash(repo)
             rec = _run_record(i + 1, raw, claim_doc["claim"], tree_before, after)
             write_json(os.path.join(run_dir, "run.json"), rec)
@@ -103,7 +103,7 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
         "min_completed": min_completed, "runs_requested": runs,
         "reproducer_origin": origin, "attempts_before_submission": attempts,
         "claim_faithfulness": "NOT_REVIEWED", "observation_integrity": C.OBSERVATION_INTEGRITY,
-        "environment_trust": "UNVERIFIED", "claim_provenance": prov, "sandbox": SANDBOX,
+        "environment_trust": "UNVERIFIED", "claim_provenance": prov, "sandbox": sandbox_rec,
         "repository": {"commit": git["commit"], "tree_sha256_before": tree_before},
         "environment_sha256": env_sha, "reproducer_name": repro_name,
         "reproducer_sha256": gate_res["reproducer_sha256"], "claim_sha256": claim_doc.get("claim_sha256"),
@@ -113,7 +113,7 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
     return outcome
 
 
-def replay(bundle, repo, python, runs=None, timeout=30):
+def replay(bundle, repo, python, runs=None, timeout=30, sandbox=None):
     """Re-run a bundle's reproducer and compare with the recorded outcome. Never trusts bundle code blindly:
     the reproducer goes through the gate again and runs in fresh processes."""
     ok, problems = verify_hashes(bundle)
@@ -127,14 +127,14 @@ def replay(bundle, repo, python, runs=None, timeout=30):
     report["recorded_outcome"] = [rec["outcome"], rec["outcome_reason"]]
     now_commit = git_info(repo)["commit"]
     report["commit_matches"] = (env["git"]["commit"] == now_commit) if env["git"]["commit"] else None
-    _, now_env_sha = capture_environment(python)
+    _, now_env_sha = capture_environment(python, sandbox)
     report["environment_matches"] = (now_env_sha == env.get("environment_sha256"))
     tmp = tempfile.mkdtemp(prefix="reprogate-verify-")
     try:
         new = evaluate(repo, python, claim, repro, os.path.join(tmp, "replay"),
                        runs=runs or rec["runs_requested"], timeout=timeout,
                        min_completed=rec["min_completed"], allow_unverified_provenance=True,
-                       origin=rec["reproducer_origin"], attempts=rec["attempts_before_submission"])
+                       origin=rec["reproducer_origin"], attempts=rec["attempts_before_submission"], sandbox=sandbox)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     report["replay_outcome"] = [new["outcome"], new["outcome_reason"]]
