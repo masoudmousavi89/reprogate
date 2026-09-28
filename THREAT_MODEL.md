@@ -18,7 +18,7 @@ Untrusted: the issue text, the investigator/agent, the reproducer, an evidence b
 
 ## What is mechanically checked (and tested on a synthetic library)
 
-direct `raise`; `eval/exec/compile/__import__`; mocking/monkeypatching names and attribute patching of
+`raise` outside a function body (module level, class body, except handlers; F-011); `eval/exec/compile/__import__`; mocking/monkeypatching names and attribute patching of
 imported names; `ctypes`, `subprocess`, `sys.settrace`, `os._exit` and friends; file-writing calls; size and
 readability limits; fake tracebacks on stdout (ignored); the same exception raised outside target code;
 callbacks and subclass overrides that raise from reproducer code; frames with forged filenames/globals;

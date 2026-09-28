@@ -66,6 +66,7 @@ class _Visitor(ast.NodeVisitor):
     def __init__(self):
         self.findings = []
         self.imported = set()
+        self.scopes = []  # "func" | "class" | "except", innermost last
 
     def add(self, code, node, detail):
         self.findings.append({"code": code, "line": getattr(node, "lineno", 0), "detail": detail})
@@ -93,8 +94,29 @@ class _Visitor(ast.NodeVisitor):
         self.generic_visit(node)
 
     def visit_Raise(self, node):
-        self.add("DIRECT_RAISE", node, "reproducer raises an exception itself")
+        # F-011: a raise inside a function body is a legitimate callback trigger (the matcher's origin
+        # rule still rejects reproducer frames after the first target frame). Module level, class body
+        # and except handlers (catch-and-reraise) stay rejected.
+        if not self.scopes or self.scopes[-1] != "func" or "except" in self.scopes:
+            self.add("DIRECT_RAISE", node, "reproducer raises an exception itself outside a function body")
         self.generic_visit(node)
+
+    def _scoped(self, kind, node):
+        self.scopes.append(kind)
+        self.generic_visit(node)
+        self.scopes.pop()
+
+    def visit_FunctionDef(self, node):
+        self._scoped("func", node)
+
+    def visit_AsyncFunctionDef(self, node):
+        self._scoped("func", node)
+
+    def visit_ClassDef(self, node):
+        self._scoped("class", node)
+
+    def visit_ExceptHandler(self, node):
+        self._scoped("except", node)
 
     def visit_Call(self, node):
         fn = node.func

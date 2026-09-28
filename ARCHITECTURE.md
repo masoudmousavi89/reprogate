@@ -22,6 +22,12 @@ reproducer --gate (AST, never executed)---> VALID | REJECTED | UNSAFE | NOT_AUDI
   TARGET frame. A frame is *authentic* only if its globals are the real module's `__dict__`, the module file
   equals the frame file, and the running bytecode equals a fresh compile of that file.
   (This catches direct raises, callbacks, overrides and `compile(..., fake_filename)` tricks.)
+- Exception (F-012): a PEP 479 conversion (`RuntimeError: generator raised StopIteration` and its coroutine /
+  async siblings, closed whitelist) has no target frame of its own; origin is then taken from its explicit
+  `__cause__`, which must have the expected type and an authentic TARGET frame, and the primary exception must
+  not have been raised by a `raise` line of the reproducer.
+- Gate (F-011): `raise` is allowed only inside a function body (callback triggers); module level, class
+  body and `except` handlers stay rejected.
 - Match = origin ok AND exception type equal AND (message contained OR location file+function matches).
   Exception type alone never matches. Line numbers are never used.
 - Import-phase `ImportError` / `ModuleNotFoundError` / `SyntaxError` that is not the claimed symptom is

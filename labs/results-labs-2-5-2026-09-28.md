@@ -12,3 +12,8 @@ Predictions were committed in 2addf33 before this run.
 The failure is a finding (F-011, F-012), not hidden. A variant without a raise statement was also tried
 (`labs/more-itertools-707/repro_no_raise_stmt.py`): the gate accepts it but the outcome is
 NO_MATCHING_REPRODUCTION_FOUND because the exception has no target frame.
+
+## Re-run after F-011 / F-012 fixes (same day)
+
+more-itertools-707 oracle: before SYMPTOM_REPRODUCED, after CLEAN_COMPLETION, PASS. All other rows of labs 2-5
+and all 7 rows of jinja-843 still match their predictions. Unit tests: 51 OK on Python 3.8.20.

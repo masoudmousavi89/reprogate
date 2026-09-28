@@ -153,15 +153,38 @@ def _safe_str(exc):
         return "<unprintable exception>"
 
 
-def _chain(exc):
+def _chain(exc, ctx, repo_real):
     out = []
     seen = set()
+    via = "cause" if exc.__cause__ is not None else "context"
     cur = exc.__cause__ or exc.__context__
     while cur is not None and id(cur) not in seen and len(out) < 3:
         seen.add(id(cur))
-        out.append({"type": type(cur).__name__, "message": _safe_str(cur)})
+        out.append({"type": type(cur).__name__, "message": _safe_str(cur), "via": via,
+                    "frames": _frames(cur.__traceback__, ctx, repo_real)})
+        via = "cause" if cur.__cause__ is not None else "context"
         cur = cur.__cause__ or cur.__context__
     return out
+
+
+def _raise_lines(src):
+    """Line numbers covered by `raise` statements of the reproducer source."""
+    lines = set()
+    try:
+        tree = ast.parse(src)
+    except SyntaxError:
+        return lines
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Raise):
+            lines.update(range(node.lineno, getattr(node, "end_lineno", node.lineno) + 1))
+    return lines
+
+
+def _raised_by_reproducer_statement(frames, src):
+    """True if the innermost traceback frame is a reproducer line holding a `raise` statement (F-012)."""
+    if not frames or frames[-1]["class"] != "REPRODUCER":
+        return False
+    return frames[-1]["lineno"] in _raise_lines(src)
 
 
 def _phase(frames, src):
@@ -248,7 +271,8 @@ def main(argv=None):
             "module": type(exc).__module__,
             "message": _safe_str(exc),
             "frames": frames,
-            "chain": _chain(exc),
+            "chain": _chain(exc, ctx, repo_real),
+            "raised_by_reproducer_statement": _raised_by_reproducer_statement(frames, src),
         }
     try:
         sys.stdout.flush()

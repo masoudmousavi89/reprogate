@@ -4,6 +4,36 @@ from .util import norm_path
 
 ENV_EXC_TYPES = ("ImportError", "ModuleNotFoundError", "SyntaxError")
 
+# F-012: exceptions the interpreter itself derives from an exception that escaped a generator/coroutine
+# (PEP 479). Their traceback holds no frame of the generator's module; the evidence is in the cause.
+INTERPRETER_CONVERSIONS = {
+    ("RuntimeError", "generator raised StopIteration"): "StopIteration",
+    ("RuntimeError", "coroutine raised StopIteration"): "StopIteration",
+    ("RuntimeError", "async generator raised StopIteration"): "StopIteration",
+    ("RuntimeError", "async generator raised StopAsyncIteration"): "StopAsyncIteration",
+}
+
+
+def _conversion_target_frames(exc):
+    """Authentic TARGET frames from the cause of a PEP 479 conversion, or None if it does not apply.
+
+    Only the closed whitelist above qualifies, the conversion must be an explicit cause link, the
+    primary exception must not have been raised by a `raise` line of the reproducer, and the cause
+    must be of the expected type with an authentic target frame and no forged one.
+    """
+    want = INTERPRETER_CONVERSIONS.get((exc.get("type"), (exc.get("message") or "").strip()))
+    chain = exc.get("chain") or []
+    if want is None or not chain or exc.get("raised_by_reproducer_statement", True):
+        return None
+    cause = chain[0]
+    if cause.get("via") != "cause" or cause.get("type") != want:
+        return None
+    frames = cause.get("frames") or []
+    if any(f["class"] == "FORGED_TARGET" for f in frames):
+        return None
+    target = [f for f in frames if f["class"] == "TARGET"]
+    return target or None
+
 
 def _loc_match(frame, loc):
     want_file = loc.get("file")
@@ -49,6 +79,13 @@ def classify_run(obs, claim):
     if repro_after:
         res["reasons"].append("REPRODUCER_FRAME_AFTER_TARGET")
     origin_ok = bool(target) and not forged and not repro_after
+    if not target and not forged:
+        via_cause = _conversion_target_frames(exc)
+        if via_cause:
+            target = via_cause
+            origin_ok = True
+            res["reasons"] = [r for r in res["reasons"] if r != "NO_TARGET_FRAME"]
+            res["reasons"].append("ORIGIN_FROM_INTERPRETER_CONVERSION")
 
     type_ok = exc.get("type") == claim.get("exception_type")
     want_msg = claim.get("message")

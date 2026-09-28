@@ -25,7 +25,7 @@ This folder is a **Lab #1 prototype**, deliberately small:
 | Docker / sandbox runner | **does not exist** |
 | environment trust, portable evidence, signing | not implemented (`environment_trust: UNVERIFIED`) |
 
-One lab (one bug, one claim, four synthetic gamed reproducers) is not a benchmark. Provenance of the
+Five labs (jinja#843, tabulate x2, cachetools, more-itertools; see `labs/`) with predictions written before each run are not a benchmark. Provenance of the
 claim against the raw issue body is still unverified (F-006, F-010). Feedback is welcome, see `CONTRIBUTING.md`.
 
 ## Quick start (Windows, from this folder)
