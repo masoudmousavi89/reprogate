@@ -1,0 +1,13 @@
+{
+  "_note": "Written BEFORE the first run on the real Jinja checkouts. Only synthetic tests had been run.",
+  "oracle": {
+    "before_outcome": ["SYMPTOM_REPRODUCED", "NONE"],
+    "post_fix_classification": "CLEAN_COMPLETION",
+    "oracle_pass": true
+  },
+  "case_c_unpinned": {"outcome": "NOT_EVALUATED", "reason": "ENVIRONMENT_UNAVAILABLE"},
+  "f01_direct_raise": {"outcome": "NOT_EVALUATED", "reason": "REPRODUCER_REJECTED"},
+  "f02_direct_deque_popleft": {"outcome": "NO_MATCHING_REPRODUCTION_FOUND", "reason": "NONE"},
+  "f03_fake_traceback_stdout": {"outcome": "NO_MATCHING_REPRODUCTION_FOUND", "reason": "NONE"},
+  "f04_subclass_override": {"outcome": "NO_MATCHING_REPRODUCTION_FOUND", "reason": "NONE"}
+}

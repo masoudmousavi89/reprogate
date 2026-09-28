@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+labs/jinja-843/evidence-*/
+labs/jinja-843/issue843.*
+labs/jinja-843/claim.frozen.json

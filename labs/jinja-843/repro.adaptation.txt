@@ -1,0 +1,9 @@
+Origin: AGENT_ADAPTED (adapted from the REPL transcript in pallets/jinja#843).
+
+Changes relative to the transcript in the issue:
+  - removed the ">>> " prompts
+  - wrapped nothing else; no imports were added except the one the transcript already used
+  - added a final print() so a clean completion shows the surviving key (capacity 1 => only 'blah')
+
+Note: the file used in the manual smoke test was written by PowerShell (CRLF line endings), so its
+SHA-256 (1E688F1A...) differs from this LF file. Line endings change the reproducer hash.
