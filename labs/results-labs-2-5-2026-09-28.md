@@ -17,3 +17,9 @@ NO_MATCHING_REPRODUCTION_FOUND because the exception has no target frame.
 
 more-itertools-707 oracle: before SYMPTOM_REPRODUCED, after CLEAN_COMPLETION, PASS. All other rows of labs 2-5
 and all 7 rows of jinja-843 still match their predictions. Unit tests: 51 OK on Python 3.8.20.
+
+## F-015 fixture (more-itertools-707, f04_throw_into_library_generator)
+
+Prediction (committed first): single run gives SYMPTOM_REPRODUCED (known false positive), oracle fails.
+Actual: run = SYMPTOM_REPRODUCED (5/5 matching); oracle before=SYMPTOM_REPRODUCED, after=SYMPTOM_REPRODUCED,
+post-fix=STILL_FAILS, ORACLE FAIL. Prediction confirmed.

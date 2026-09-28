@@ -111,6 +111,15 @@ class ConversionTests(unittest.TestCase):
                "list(iterate(func, 1))\n")
         self.assertEqual(self.run_case("f_cb", src)["outcome"], C.NO_MATCHING_REPRODUCTION_FOUND)
 
+    def test_throw_into_library_generator_is_accepted_alone_but_oracle_fails(self):
+        # F-015: known false positive of a single run; the before/after oracle must catch it.
+        from reprogate.pipeline import oracle
+        src = ("import genlib\n\ngen = genlib.iterate(lambda x: x * 2, 1)\nnext(gen)\ngen.throw(StopIteration)\n")
+        repro = H.write_repro(self.tmp, "f_throw.py", src)
+        res = oracle(self.buggy, self.fixed, H.PYTHON, CLAIM, repro, os.path.join(self.tmp, "ev-orc"),
+                     runs=3, timeout=20, min_completed=3, allow_unverified_provenance=True)
+        self.assertFalse(res["oracle_pass"])
+
 
 if __name__ == "__main__":
     unittest.main()
