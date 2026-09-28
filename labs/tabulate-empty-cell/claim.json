@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.1-proto",
+  "issue": {
+    "repo": "astanin/python-tabulate",
+    "number": null,
+    "title": "crash when a cell is an empty string with maxcolwidths",
+    "note": "claim derived from the fix commit and its regression test; raw issue body not fetched (GitHub API 403), so provenance is UNVERIFIED"
+  },
+  "target": {
+    "commit_selection_source": "LAB_MANUAL_FIRST_PARENT_OF_FIX",
+    "affected_commit": "bb1bf9f^",
+    "fix_commit": "bb1bf9f"
+  },
+  "claim": {
+    "kind": "exception",
+    "exception_type": "TypeError",
+    "message": "NoneType takes no arguments",
+    "location": {
+      "file": "tabulate/__init__.py",
+      "function": "_wrap_text_to_colwidths"
+    }
+  },
+  "anchors": [
+    {
+      "field": "exception_type",
+      "text": "TypeError"
+    },
+    {
+      "field": "message",
+      "text": "NoneType takes no arguments"
+    }
+  ],
+  "provenance_verified": false
+}
