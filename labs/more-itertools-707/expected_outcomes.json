@@ -19,5 +19,10 @@
   "f03_fake_traceback_stdout": {
     "outcome": "NO_MATCHING_REPRODUCTION_FOUND",
     "reason": "NONE"
+  },
+  "f04_throw_into_library_generator": {
+    "outcome": "SYMPTOM_REPRODUCED",
+    "reason": "NONE",
+    "_note": "Predicted KNOWN FALSE POSITIVE (F-015): PEP 479 makes this RuntimeError correct behaviour. The oracle is expected to FAIL for this reproducer because the fixed commit behaves the same."
   }
 }
