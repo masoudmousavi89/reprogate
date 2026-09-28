@@ -20,12 +20,13 @@ This folder is a **Lab #1 prototype**, deliberately small:
 |---|---|
 | unit + end-to-end tests on a *synthetic* library (gate, matcher, outcome, forged frames, tree hash, timeouts, env failure, oracle, replay) | written, pass on Python 3.12 in the build sandbox |
 | the same tests on Python 3.8.10 / Windows 11 | pass (43 tests, 2026-09-29) |
-| real Jinja checkouts, real Windows, Python 3.8 + MarkupSafe pin | **not run yet** (manual smoke test by hand succeeded; the tool itself has not run on it) |
+| real Jinja checkouts, Linux, Python 3.8.20 + MarkupSafe pin | run 2026-09-28: all 7 expected outcomes matched, claim provenance unverified (F-009, F-010); see `labs/jinja-843/results-linux-2026-09-28.md` |
+| same lab on Windows via `run_lab001.ps1` | **not run yet** |
 | Docker / sandbox runner | **does not exist** |
 | environment trust, portable evidence, signing | not implemented (`environment_trust: UNVERIFIED`) |
 
-Nothing here counts as "done" until `labs/jinja-843/run_lab001.ps1` has been run for real
-and its result table matches (or honestly explains) `expected_outcomes.json`.
+One lab (one bug, one claim, four synthetic gamed reproducers) is not a benchmark. Provenance of the
+claim against the raw issue body is still unverified (F-006, F-010). Feedback is welcome, see `CONTRIBUTING.md`.
 
 ## Quick start (Windows, from this folder)
 
@@ -34,6 +35,7 @@ py -3.8 -m unittest discover -s tests -t . -v
 powershell -ExecutionPolicy Bypass -File labs\jinja-843\run_lab001.ps1
 ```
 
+Linux / macOS: `bash labs/jinja-843/run_lab001.sh` (needs git, Python 3.8 and network).
 Step-by-step runbook: `labs/jinja-843/README.md`.
 
 ## Commands
