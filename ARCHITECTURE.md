@@ -51,3 +51,11 @@ necessary helper, not ground truth.
 
 `reproducer_origin`, `attempts_before_submission`, `claim_faithfulness` (NOT_REVIEWED),
 `observation_integrity`, `environment_trust`, `sandbox`, `claim_provenance`, `outcome_qualifier`.
+
+## Reading a result (F-015)
+
+A single-commit run only says "this reproducer produced the claimed symptom here". Some correct behaviours
+look like the symptom (for example `gen.throw(StopIteration)` into a library generator gives the PEP 479
+`RuntimeError`). Only a bundle whose before/after oracle PASSES (symptom before the fix, clean completion
+after it) may be read as evidence of a bug; without a passing oracle treat `SYMPTOM_REPRODUCED` as
+"needs review". `SYMPTOM_REPRODUCED != BUG_CONFIRMED` in every case.

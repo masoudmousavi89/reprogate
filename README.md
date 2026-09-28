@@ -3,7 +3,7 @@
 ReproGate turns "an agent says it reproduced the bug" into **replayable executable evidence**:
 the reproducer is treated as untrusted, executed by an independent verifier, observed structurally
 (not by reading logs), matched against a frozen claim, repeated in fresh processes, and written into
-an evidence bundle. It does **not** claim the bug is real: `SYMPTOM_REPRODUCED != BUG_CONFIRMED`.
+an evidence bundle. It does **not** claim the bug is real: `SYMPTOM_REPRODUCED != BUG_CONFIRMED`. A single run can be a false positive (F-015); only a passing before/after oracle counts as evidence.
 
 This folder is a **Lab #1 prototype**, deliberately small:
 
