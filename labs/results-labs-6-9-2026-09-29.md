@@ -8,3 +8,9 @@
 | more-itertools-falsy (ValueError; fix needs Python >= 3.10) | 3.12 | SYMPTOM_REPRODUCED | CLEAN_COMPLETION | PASS | as predicted |
 
 Selection bias: the bugs were picked by the author from fix commits with regression tests.
+
+## Docker sandbox re-run
+
+All 16 rows give the same outcomes with `--sandbox docker` as in host mode. Images: `python:3.8-slim`
+(sortedcontainers-eq, cachetools-27), `python:3.8-slim` plus `six` (dateutil-981, installed offline from a wheel),
+`python:3.12-slim` (more-itertools-falsy).
