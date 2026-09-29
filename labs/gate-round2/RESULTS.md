@@ -21,3 +21,5 @@ The miss (a10) exposes that the match rule is `type AND (message OR location)`: 
 `__setitem__` matches the claim by location even when the message differs, so the message anchor is weak.
 a04/a10 need no library defect at all (a user-supplied builtin callable fails), so a single run cannot separate
 them from a real bug; only the before/after oracle does (F-015 rule).
+
+Note: attack a10 was corrected after the predictions commit and before any run (the first version passed the message through the key, so it could not fail). The prediction text was left unchanged.
