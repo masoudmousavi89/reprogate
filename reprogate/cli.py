@@ -63,7 +63,13 @@ def _common_run_args(p):
                    choices=["ISSUE_VERBATIM_SNIPPET", "AGENT_ADAPTED", "AGENT_AUTHORED", "HUMAN_AUTHORED"])
     p.add_argument("--attempts", type=int, default=0)
     p.add_argument("--pythonpath-extra", action="append", default=[])
+    _env_template_arg(p)
     _sandbox_args(p)
+
+
+def _env_template_arg(p):
+    p.add_argument("--env-template", help="host mode: copy this environment directory afresh for every run "
+                                          "(--python must be inside it); aborts if the template changes")
 
 
 def _sandbox_args(p):
@@ -75,7 +81,8 @@ def _sandbox_args(p):
 def _kw(a):
     return dict(runs=a.runs, timeout=a.timeout, min_completed=a.min_completed,
                 allow_unverified_provenance=a.allow_unverified_provenance, origin=a.origin,
-                attempts=a.attempts, pythonpath_extra=a.pythonpath_extra, sandbox=_sandbox(a))
+                attempts=a.attempts, pythonpath_extra=a.pythonpath_extra, sandbox=_sandbox(a),
+                env_template=a.env_template)
 
 
 def cmd_claim_check(a):
@@ -138,7 +145,8 @@ def cmd_verify(a):
     if not _need_host_flag(a):
         return 2
     try:
-        rep = replay(a.evidence, a.repo, _python(a), timeout=a.timeout, sandbox=_sandbox(a))
+        rep = replay(a.evidence, a.repo, _python(a), timeout=a.timeout, sandbox=_sandbox(a),
+                     env_template=a.env_template)
     except ValueError as e:
         print("ERROR:", e, file=sys.stderr)
         return 2
@@ -205,6 +213,7 @@ def main(argv=None):
     p.add_argument("--python")
     p.add_argument("--timeout", type=float, default=30.0)
     p.add_argument("--allow-host-execution", action="store_true")
+    _env_template_arg(p)
     _sandbox_args(p)
     p.set_defaults(fn=cmd_verify)
 

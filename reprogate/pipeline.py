@@ -2,6 +2,7 @@
 import os
 import shutil
 import tempfile
+import time
 
 from . import SCHEMA_VERSION, __version__
 from . import constants as C
@@ -15,6 +16,37 @@ from . import sandbox as sbx
 from .runner import (capture_environment, env_names, git_info, run_once, tree_hash)
 from .util import now_utc, read_json, sha256_bytes, write_json
 
+
+
+ENV_FRESH = "FRESH_COPY_PER_RUN"
+ENV_SHARED = "SHARED_HOST_ENVIRONMENT"
+
+
+def _prepare_template(env_template, python, sandbox):
+    """F-032: validate --env-template (host mode only, python inside it) and take its tree hash."""
+    if not env_template:
+        return None
+    if sandbox is not None:
+        raise ValueError("--env-template is for host mode; Docker already gives every run a fresh container")
+    root = os.path.abspath(env_template)
+    if not os.path.isdir(root):
+        raise ValueError("--env-template is not a directory: %s" % env_template)
+    rel = os.path.relpath(os.path.abspath(python), root)
+    if rel.startswith("..") or os.path.isabs(rel):
+        raise ValueError("--python must live inside --env-template")
+    sha, files = tree_hash(root)
+    return {"root": root, "rel": rel, "sha": sha, "files": files}
+
+
+def _fresh_copy(template):
+    """Copy the template to a temp directory outside the evidence bundle; the template must be unchanged."""
+    now, _ = tree_hash(template["root"])
+    if now != template["sha"]:
+        raise ValueError("environment template changed during the evaluation (tree hash differs); aborting")
+    holder = tempfile.mkdtemp(prefix="reprogate-env-")
+    start = time.time()
+    shutil.copytree(template["root"], os.path.join(holder, "env"), symlinks=True)
+    return os.path.join(holder, "env", template["rel"]), holder, round(time.time() - start, 3)
 
 
 def _run_record(index, raw, claim, tree_before, tree_after_hash):
@@ -49,7 +81,7 @@ def _run_record(index, raw, claim, tree_before, tree_after_hash):
 
 def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, min_completed=3,
              gate=True, allow_unverified_provenance=False, origin="AGENT_ADAPTED", attempts=0,
-             base_seed=1000, pythonpath_extra=None, sandbox=None, in_oracle=False):
+             base_seed=1000, pythonpath_extra=None, sandbox=None, in_oracle=False, env_template=None):
     """Evaluate one reproducer against one checkout. Returns the outcome dict (also written to out_dir)."""
     prov = provenance_state(claim_doc, allow_unverified_provenance)  # may raise ValueError
     os.makedirs(out_dir, exist_ok=True)
@@ -68,6 +100,7 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
                     "note": "GATE_SKIPPED_BY_CALLER (tests only)"}
     write_json(os.path.join(out_dir, "gate.json"), gate_res)
 
+    template = _prepare_template(env_template, python, sandbox)
     env_info, env_sha = capture_environment(python, sandbox)
     sandbox_rec = sbx.record(sandbox)
     git = git_info(repo)
@@ -77,15 +110,28 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
         "repository_tree_sha256_before": tree_before, "repository_files_hashed": n_files,
         "environment_variables_allowed": env_names(), "sandbox": sandbox_rec,
         "environment_trust": "UNVERIFIED",
+        "environment_isolation": ({"mode": ENV_FRESH, "template_tree_sha256": template["sha"],
+                                   "template_files_hashed": template["files"]} if template
+                                  else {"mode": ENV_SHARED}),
     })
 
     run_records = []
     if gate_res["status"] == C.GATE_VALID and env_info["python"] is not None:
         for i in range(runs):
             run_dir = os.path.join(out_dir, "runs", "run-%02d" % (i + 1))
-            raw = run_once(python, repo, repro_bytes, run_dir, timeout, base_seed + i * 7919, pythonpath_extra, sandbox)
+            run_python, copy_dir, copy_s = python, None, None
+            if template:
+                run_python, copy_dir, copy_s = _fresh_copy(template)
+            try:
+                raw = run_once(run_python, repo, repro_bytes, run_dir, timeout, base_seed + i * 7919,
+                               pythonpath_extra, sandbox)
+            finally:
+                if copy_dir:
+                    shutil.rmtree(copy_dir, ignore_errors=True)
             after, _ = tree_hash(repo)
             rec = _run_record(i + 1, raw, claim_doc["claim"], tree_before, after)
+            if copy_s is not None:
+                rec["env_copy_seconds"] = copy_s
             write_json(os.path.join(run_dir, "run.json"), rec)
             run_records.append(rec)
     elif gate_res["status"] == C.GATE_VALID:
@@ -106,6 +152,7 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
         "claim_faithfulness": "NOT_REVIEWED", "observation_integrity": C.OBSERVATION_INTEGRITY,
         "environment_trust": "UNVERIFIED", "claim_provenance": prov, "sandbox": sandbox_rec,
         "repository": {"commit": git["commit"], "tree_sha256_before": tree_before},
+        "environment_mode": ENV_FRESH if template else ENV_SHARED,
         "environment_sha256": env_sha, "reproducer_name": repro_name,
         "reproducer_sha256": gate_res["reproducer_sha256"], "claim_sha256": claim_doc.get("claim_sha256"),
         # F-015/F-020: a single run can be a false positive; only a passing before/after oracle is evidence
@@ -116,7 +163,7 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
     return outcome
 
 
-def replay(bundle, repo, python, runs=None, timeout=30, sandbox=None):
+def replay(bundle, repo, python, runs=None, timeout=30, sandbox=None, env_template=None):
     """Re-run a bundle's reproducer and compare with the recorded outcome. Never trusts bundle code blindly:
     the reproducer goes through the gate again and runs in fresh processes."""
     ok, problems = verify_hashes(bundle)
@@ -143,7 +190,8 @@ def replay(bundle, repo, python, runs=None, timeout=30, sandbox=None):
         new = evaluate(repo, python, claim, repro, os.path.join(tmp, "replay"),
                        runs=runs or rec["runs_requested"], timeout=timeout,
                        min_completed=rec["min_completed"], allow_unverified_provenance=True,
-                       origin=rec["reproducer_origin"], attempts=rec["attempts_before_submission"], sandbox=sandbox)
+                       origin=rec["reproducer_origin"], attempts=rec["attempts_before_submission"], sandbox=sandbox,
+                       env_template=env_template)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     report["replay_outcome"] = [new["outcome"], new["outcome_reason"]]
