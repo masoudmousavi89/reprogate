@@ -18,3 +18,11 @@ All predictions held. Limits: the cost was measured on one small venv on an SSD-
 the copy is a full copy (no hard links or caching); Linux host mode with a template and a template that cannot be copied were not
 tested; the run of `run_fresh_env.ps1` printed the CLI outcome lines only after the script was fixed (`Measure-Command` swallowed
 them); the values above come from the evidence files.
+
+## F-038 test fix: results (predictions in PREDICTIONS.md, committed first as 90d2287)
+
+| item | prediction | observed |
+|---|---|---|
+| Windows, full suite | 136 OK, 11 skipped | 136 OK, 11 skipped |
+| Windows, `tests/test_fresh_env.py` | 7 of 7 OK | 7 of 7 OK |
+| Linux, `tests/test_fresh_env.py` and full suite | 7 of 7; 136 OK, 0 skipped | pending (Linux session) |

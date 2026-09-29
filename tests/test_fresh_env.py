@@ -46,7 +46,8 @@ class FreshEnvTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.base = tempfile.mkdtemp(prefix="rg-test-venv-")
-        venv.create(os.path.join(cls.base, "v"), with_pip=False)
+        # F-038: symlink on POSIX; a copied interpreter of a shared-library CPython (uv) cannot find libpython
+        venv.create(os.path.join(cls.base, "v"), with_pip=False, symlinks=(os.name != "nt"))
 
     @classmethod
     def tearDownClass(cls):
