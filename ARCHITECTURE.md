@@ -28,7 +28,8 @@ reproducer --gate (AST, never executed)---> VALID | REJECTED | UNSAFE | NOT_AUDI
   not have been raised by a `raise` line of the reproducer.
 - Gate (F-011): `raise` is allowed only inside a function body (callback triggers); module level, class
   body and `except` handlers stay rejected.
-- Match = origin ok AND exception type equal AND (message contained OR location file+function matches).
+- Match = origin ok AND exception type equal AND (message contained if the claim has a message, otherwise location
+  file+function matches) (F-020/F-021).
   Exception type alone never matches. Line numbers are never used.
 - Import-phase `ImportError` / `ModuleNotFoundError` / `SyntaxError` that is not the claimed symptom is
   `ENV_FAILURE`, never "no reproduction".

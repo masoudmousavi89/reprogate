@@ -109,6 +109,8 @@ def cmd_run(a):
     print("outcome:", out["outcome"], "| reason:", out["outcome_reason"],
           "| qualifier:", out["outcome_qualifier"])
     print("runs:", out["run_status"], "| counts:", out["counts"])
+    if out.get("oracle_required"):
+        print("oracle_required: yes (a single run can be a false positive; run `oracle` before reading this as evidence)")
     print("evidence:", a.out)
     return 0
 
@@ -152,6 +154,7 @@ def cmd_inspect(a):
     print("counts             :", o["counts"])
     print("claim provenance   :", o["claim_provenance"])
     print("observation        :", o["observation_integrity"], "| environment trust:", o["environment_trust"])
+    print("oracle required    :", o.get("oracle_required"))
     print("sandbox            :", o["sandbox"]["kind"])
     print("hashes             :", "OK" if ok else "PROBLEMS: %s" % problems)
     return 0

@@ -48,7 +48,7 @@ def _run_record(index, raw, claim, tree_before, tree_after_hash):
 
 def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, min_completed=3,
              gate=True, allow_unverified_provenance=False, origin="AGENT_ADAPTED", attempts=0,
-             base_seed=1000, pythonpath_extra=None, sandbox=None):
+             base_seed=1000, pythonpath_extra=None, sandbox=None, in_oracle=False):
     """Evaluate one reproducer against one checkout. Returns the outcome dict (also written to out_dir)."""
     prov = provenance_state(claim_doc, allow_unverified_provenance)  # may raise ValueError
     os.makedirs(out_dir, exist_ok=True)
@@ -107,6 +107,8 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
         "repository": {"commit": git["commit"], "tree_sha256_before": tree_before},
         "environment_sha256": env_sha, "reproducer_name": repro_name,
         "reproducer_sha256": gate_res["reproducer_sha256"], "claim_sha256": claim_doc.get("claim_sha256"),
+        # F-015/F-020: a single run can be a false positive; only a passing before/after oracle is evidence
+        "oracle_required": (not in_oracle) and agg["outcome"] in (C.SYMPTOM_REPRODUCED, C.SYMPTOM_REPRODUCED_FLAKY),
     }
     write_json(os.path.join(out_dir, "outcome.json"), outcome)
     write_hashes(out_dir)
@@ -145,8 +147,8 @@ def replay(bundle, repo, python, runs=None, timeout=30, sandbox=None):
 def oracle(before_repo, after_repo, python, claim_doc, repro_path, out_dir, after_python=None, **kw):
     """Before/after-fix oracle: the same reproducer must reproduce the symptom before the fix and
     complete CLEANLY after it ('no longer matches' is not enough: an ImportError is not a fix)."""
-    before = evaluate(before_repo, python, claim_doc, repro_path, os.path.join(out_dir, "before"), **kw)
-    after = evaluate(after_repo, after_python or python, claim_doc, repro_path, os.path.join(out_dir, "after"), **kw)
+    before = evaluate(before_repo, python, claim_doc, repro_path, os.path.join(out_dir, "before"), in_oracle=True, **kw)
+    after = evaluate(after_repo, after_python or python, claim_doc, repro_path, os.path.join(out_dir, "after"), in_oracle=True, **kw)
     ac = after["counts"]
     if ac["total"] and ac["clean_completion_runs"] == ac["total"] and ac["completed"] == ac["total"]:
         post = "CLEAN_COMPLETION"

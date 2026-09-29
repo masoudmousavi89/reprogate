@@ -54,7 +54,7 @@ def classify_run(obs, claim):
       * stdout/stderr are never used; only the harness observation.
       * origin: at least one authentic TARGET frame, no forged target frame, and no
         REPRODUCER frame *after* the first target frame (callback / direct raise / override tricks).
-      * match: origin ok AND type equal AND (message contained OR location matches).
+      * match: origin ok AND type equal AND (message contained if the claim has a message, else location matches).
       * an ImportError/SyntaxError in the import phase that is not the claimed symptom is ENV_FAILURE.
     """
     res = {"status": RUN_COMPLETED, "symptom_match": False, "clean_completion": False,
@@ -105,7 +105,10 @@ def classify_run(obs, claim):
     elif loc:
         res["reasons"].append("LOCATION_MISMATCH")
 
-    if origin_ok and type_ok and (msg_ok or loc_ok):
+    # F-020: when the claim carries a message it must match; location alone is only enough for claims
+    # without a message.
+    anchor_ok = msg_ok if want_msg else loc_ok
+    if origin_ok and type_ok and anchor_ok:
         res["symptom_match"] = True
         return res
 

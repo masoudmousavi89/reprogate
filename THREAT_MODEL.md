@@ -40,3 +40,4 @@ kernel-level container escapes (shared kernel, no gVisor/VM). Tested on Linux on
 
 Hidden dynamic code and raw file writes pass the gate but are stopped later (matcher, tree hash, read-only container).
 Known weakness: a builtin callable supplied by the reproducer can fail inside target code and satisfy `type AND location`; only the before/after oracle rejects it.
+Update: a message-mismatch attack (a10) no longer matches; `oracle_required` marks bundles that still need the before/after oracle.
