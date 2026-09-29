@@ -49,6 +49,20 @@ def _fresh_copy(template):
     return os.path.join(holder, "env", template["rel"]), holder, round(time.time() - start, 3)
 
 
+def _anchor_states(claim_doc):
+    """F-033 (decision B): evidence only. Which anchors are EXACT_QUOTE and the state of the others."""
+    verified, not_verified = [], {}
+    for a in claim_doc.get("anchors") or []:
+        field = a.get("field") if isinstance(a, dict) else None
+        if not field:
+            continue
+        if a.get("provenance") == "EXACT_QUOTE":
+            verified.append(field)
+        else:
+            not_verified[field] = a.get("reject_reason") or a.get("provenance") or "UNVERIFIED"
+    return sorted(verified), dict(sorted(not_verified.items()))
+
+
 def _run_record(index, raw, claim, tree_before, tree_after_hash):
     rec = {"index": index, "seed": raw["seed"], "duration_s": raw.get("duration_s"),
            "exit_code": None, "status": None, "symptom_match": False, "clean_completion": False,
@@ -72,7 +86,8 @@ def _run_record(index, raw, claim, tree_before, tree_after_hash):
         rec["reasons"].append(raw["observation_error"] or "")
         return rec
     verdict = classify_run(obs, claim)
-    rec.update({k: verdict[k] for k in ("status", "symptom_match", "clean_completion", "reasons")})
+    rec.update({k: verdict[k] for k in ("status", "symptom_match", "clean_completion", "reasons",
+                                        "exception_origin", "target_causal_frame")})
     rec["anchors_matched"] = verdict["anchors_matched"]
     rec["exit_code"] = obs.get("exit_code")
     rec["phase"] = obs.get("phase")
@@ -141,6 +156,7 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
 
     agg = aggregate(run_records, min_completed=min_completed, provenance=prov,
                     reproducer_status=gate_res["status"])
+    anchors_verified, anchors_not_verified = _anchor_states(claim_doc)
     outcome = {
         "schema_version": SCHEMA_VERSION, "tool_version": __version__, "created_at": now_utc(),
         "outcome": agg["outcome"], "outcome_reason": agg["outcome_reason"],
@@ -153,6 +169,7 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
         "environment_trust": "UNVERIFIED", "claim_provenance": prov, "sandbox": sandbox_rec,
         "repository": {"commit": git["commit"], "tree_sha256_before": tree_before},
         "environment_mode": ENV_FRESH if template else ENV_SHARED,
+        "anchors_verified": anchors_verified, "anchors_not_verified": anchors_not_verified,
         "environment_sha256": env_sha, "reproducer_name": repro_name,
         "reproducer_sha256": gate_res["reproducer_sha256"], "claim_sha256": claim_doc.get("claim_sha256"),
         # F-015/F-020: a single run can be a false positive; only a passing before/after oracle is evidence

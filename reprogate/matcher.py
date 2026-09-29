@@ -4,6 +4,9 @@ from .util import norm_path
 
 ENV_EXC_TYPES = ("ImportError", "ModuleNotFoundError", "SyntaxError")
 
+# F-033 (founder decision C): a claim message shorter than this (after strip) counts as no message for the matcher.
+MIN_MESSAGE_CHARS = 3
+
 # F-012: exceptions the interpreter itself derives from an exception that escaped a generator/coroutine
 # (PEP 479). Their traceback holds no frame of the generator's module; the evidence is in the cause.
 INTERPRETER_CONVERSIONS = {
@@ -35,6 +38,21 @@ def _conversion_target_frames(exc):
     return target or None
 
 
+def _frame_summary(f, via=None):
+    """Evidence-only view of a frame (no absolute paths)."""
+    if not f:
+        return None
+    out = {"index": f.get("index"), "class": f.get("class"), "function": f.get("function"),
+           "rel_path": f.get("rel_path")}
+    if via:
+        out["via"] = via
+    return out
+
+
+def _innermost(frames):
+    return max(frames, key=lambda f: f.get("index", -1)) if frames else None
+
+
 def _loc_match(frame, loc):
     want_file = loc.get("file")
     want_func = loc.get("function")
@@ -58,7 +76,7 @@ def classify_run(obs, claim):
       * an ImportError/SyntaxError in the import phase that is not the claimed symptom is ENV_FAILURE.
     """
     res = {"status": RUN_COMPLETED, "symptom_match": False, "clean_completion": False,
-           "reasons": [], "anchors_matched": []}
+           "reasons": [], "anchors_matched": [], "exception_origin": None, "target_causal_frame": None}
     exc = obs.get("exception")
     if exc is None:
         res["clean_completion"] = obs.get("exit_code") == 0
@@ -66,6 +84,7 @@ def classify_run(obs, claim):
         return res
 
     frames = exc.get("frames", [])
+    res["exception_origin"] = _frame_summary(_innermost(frames))
     target = [f for f in frames if f["class"] == "TARGET"]
     forged = [f for f in frames if f["class"] == "FORGED_TARGET"]
     first_t = min([f["index"] for f in target]) if target else None
@@ -79,19 +98,27 @@ def classify_run(obs, claim):
     if repro_after:
         res["reasons"].append("REPRODUCER_FRAME_AFTER_TARGET")
     origin_ok = bool(target) and not forged and not repro_after
+    via_conversion = False
     if not target and not forged:
         via_cause = _conversion_target_frames(exc)
         if via_cause:
             target = via_cause
             origin_ok = True
+            via_conversion = True
             res["reasons"] = [r for r in res["reasons"] if r != "NO_TARGET_FRAME"]
             res["reasons"].append("ORIGIN_FROM_INTERPRETER_CONVERSION")
 
+    # F-033: the innermost TARGET frame is the causal frame; `location` is compared only with it (decision A)
+    causal = _innermost(target)
+    res["target_causal_frame"] = _frame_summary(causal, "interpreter_conversion_cause" if via_conversion else None)
     type_ok = exc.get("type") == claim.get("exception_type")
     want_msg = claim.get("message")
+    if want_msg and len(str(want_msg).strip()) < MIN_MESSAGE_CHARS:
+        want_msg = None
+        res["reasons"].append("MESSAGE_TOO_SHORT_IGNORED")
     msg_ok = bool(want_msg) and want_msg in (exc.get("message") or "")
     loc = claim.get("location") or {}
-    loc_ok = any(_loc_match(f, loc) for f in target)
+    loc_ok = bool(causal) and _loc_match(causal, loc)
     if type_ok:
         res["anchors_matched"].append("exception_type")
     else:
