@@ -20,3 +20,10 @@ flag, qualifier `PROVENANCE_UNVERIFIED`. Evidence stayed outside the repository 
 
 ## NOT_RUN
 - Nothing skipped. Not covered: `claim.frozen.json`-based provenance verification (GitHub API 403), so `run_fresh_env.sh` uses `claim.json` with the unverified flag.
+
+## F-038 diagnosis: prediction (committed before the diagnostic run)
+Hypothesis H1: in the venv the tests create (venv.create, with_pip=False, uv CPython 3.8), the runs do not reach the reproducer
+body: every run is ENV_FAILURE or INVALID (import of `minilib` fails, or the worker cannot start with that interpreter), so no
+marker is written and nothing is written into the template. The run stderr names the cause.
+Hypothesis H2 (root user) is predicted NOT to be the cause: runner and harness never change privileges.
+Falsified if: runs are COMPLETED in the diagnostic (then the test itself differs), or the cause disappears as a non-root user.
