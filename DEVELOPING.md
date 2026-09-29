@@ -43,7 +43,7 @@ raw issue files are gitignored; keep them out of commits.
 
 ## 4. How the pieces fit
 
-`claim-check` (provenance: claim anchors must appear in the raw issue body) -> `gate` (static, first line only) ->
+`claim-check` (provenance: claim anchors must appear in the raw issue body) -> `gate` (static check, the first line of defence only, not a security boundary) ->
 `evaluate`: environment capture, tree hash, N fresh runs of `harness.py` (supervisor + worker, F-024) -> `matcher`
 per run (origin, type, message, location) -> `outcome` aggregation -> evidence bundle with hashes -> `oracle` combines
 a before and an after evaluation. Rules in the code, each backed by a finding: origin needs an authentic TARGET frame
