@@ -4,6 +4,9 @@ from .util import norm_path
 
 ENV_EXC_TYPES = ("ImportError", "ModuleNotFoundError", "SyntaxError")
 
+# F-034 (decision_056): only these code-object names, created by Python itself, may count as part of the enclosing function.
+NESTED_SCOPE_NAMES = ("<genexpr>", "<listcomp>", "<setcomp>", "<dictcomp>", "<lambda>")
+
 # F-033 (founder decision C): a claim message shorter than this (after strip) counts as no message for the matcher.
 MIN_MESSAGE_CHARS = 3
 
@@ -46,6 +49,8 @@ def _frame_summary(f, via=None):
            "rel_path": f.get("rel_path")}
     if via:
         out["via"] = via
+    if f.get("enclosing_function"):
+        out["enclosing_function"] = f["enclosing_function"]
     return out
 
 
@@ -53,7 +58,7 @@ def _innermost(frames):
     return max(frames, key=lambda f: f.get("index", -1)) if frames else None
 
 
-def _loc_match(frame, loc):
+def _loc_match(frame, loc, allow_nested=False):
     want_file = loc.get("file")
     want_func = loc.get("function")
     if not want_file and not want_func:
@@ -61,7 +66,10 @@ def _loc_match(frame, loc):
     if want_file and norm_path(frame.get("rel_path") or "") != norm_path(want_file):
         return False
     if want_func and frame.get("function") != want_func:
-        return False
+        nested = (allow_nested and frame.get("class") == "TARGET" and frame.get("function") in NESTED_SCOPE_NAMES
+                  and frame.get("enclosing_function") == want_func)
+        if not nested:
+            return False
     return True
 
 
@@ -118,7 +126,10 @@ def classify_run(obs, claim):
         res["reasons"].append("MESSAGE_TOO_SHORT_IGNORED")
     msg_ok = bool(want_msg) and want_msg in (exc.get("message") or "")
     loc = claim.get("location") or {}
-    loc_ok = bool(causal) and _loc_match(causal, loc)
+    loc_direct = bool(causal) and _loc_match(causal, loc)
+    loc_ok = bool(causal) and _loc_match(causal, loc, allow_nested=True)
+    if loc_ok and not loc_direct:
+        res["reasons"].append("LOCATION_VIA_NESTED_SCOPE")
     if type_ok:
         res["anchors_matched"].append("exception_type")
     else:

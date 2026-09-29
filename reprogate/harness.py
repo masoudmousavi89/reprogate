@@ -327,6 +327,39 @@ def _live_line(scope, lineno):
     return False
 
 
+def _enclosing_function(filename, function, lineno):
+    """F-034 (decision_056): nearest lexically enclosing `def`/`async def` of a comprehension/lambda frame.
+
+    Only the five expression-scope code-object names qualify. Every candidate node on `lineno` must agree; a class body or the
+    module level between the scope and any function gives no answer (None).
+    """
+    want = _EXPR_SCOPES.get(function)
+    tree = _parse_source(filename)
+    if want is None or tree is None:
+        return None
+    parents = {}
+    for node in ast.walk(tree):
+        for child in ast.iter_child_nodes(node):
+            parents[child] = node
+    names = set()
+    for node in ast.walk(tree):
+        if not isinstance(node, want):
+            continue
+        start, end = _span(node)
+        if not start <= lineno <= end:
+            continue
+        cur, name = parents.get(node), None
+        while cur is not None:
+            if isinstance(cur, (ast.FunctionDef, ast.AsyncFunctionDef)):
+                name = cur.name
+                break
+            if isinstance(cur, ast.ClassDef):
+                break
+            cur = parents.get(cur)
+        names.add(name)
+    return names.pop() if len(names) == 1 and None not in names else None
+
+
 def _plausible(filename, function, lineno):
     """Does the real source on disk hold `function` with a live statement on `lineno`? (F-026)"""
     tree = _parse_source(filename)
@@ -371,7 +404,7 @@ def _recheck_frames(frames, ctx, repo_real):
         rec = dict(fr)
         rec["index"] = i
         rec["class"] = _classify(filename, ctx)
-        for k in ("authentic", "rel_path", "plausibility_note"):
+        for k in ("authentic", "rel_path", "plausibility_note", "enclosing_function"):
             rec.pop(k, None)
         if rec["class"] != "TARGET" and fr.get("class") in ("TARGET", "FORGED_TARGET"):
             rec["class"] = "FORGED_TARGET"
@@ -391,6 +424,10 @@ def _recheck_frames(frames, ctx, repo_real):
             rec["plausibility_note"] = why
             if not ok:
                 rec["class"] = "FORGED_TARGET"
+            elif function in _EXPR_SCOPES:
+                enclosing = _enclosing_function(filename, function, lineno)
+                if enclosing:
+                    rec["enclosing_function"] = enclosing
         out.append(rec)
     return out
 
