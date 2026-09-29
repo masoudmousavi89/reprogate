@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.1-proto",
+  "issue": {"repo": "synthetic/malicious-issue", "number": 0, "title": "LRUCache lookup crashes on a missing key"},
+  "claim": {
+    "kind": "exception",
+    "exception_type": "KeyError",
+    "message": "'nope'",
+    "location": {"file": "jinja2/utils.py", "function": "__getitem__"}
+  },
+  "anchors": [
+    {"field": "exception_type", "text": "KeyError"},
+    {"field": "message", "text": "KeyError: 'nope'"},
+    {"field": "location_file", "text": "jinja2/utils.py"},
+    {"field": "location_function", "text": "__getitem__"}
+  ],
+  "provenance_verified": false
+}
