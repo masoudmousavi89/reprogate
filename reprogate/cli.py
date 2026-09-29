@@ -148,7 +148,7 @@ def cmd_oracle(a):
 
 def cmd_verify(a):
     try:
-        load_bundle_json(a.evidence, ["outcome.json", "environment.json", "claim.json"])
+        load_bundle_json(a.evidence, ["outcome.json", "environment.json", "claim.json", "hashes.json"])
     except BundleError as e:
         print("VERIFY FAIL (INVALID_BUNDLE)")
         return _invalid_bundle(e)
@@ -165,13 +165,15 @@ def cmd_verify(a):
           and rep.get("commit_matches") is not False)
     for x in rep.get("invariant_violations") or []:
         print("INVARIANT VIOLATION:", x, file=sys.stderr)
+    for x in rep.get("structure_problems") or []:
+        print("STRUCTURE:", x, file=sys.stderr)
     print("VERIFY", "PASS" if ok else "FAIL")
     return 0 if ok else 1
 
 
 def cmd_inspect(a):
     try:
-        o = load_bundle_json(a.evidence, ["outcome.json"])["outcome.json"]
+        o = load_bundle_json(a.evidence, ["outcome.json", "hashes.json"])["outcome.json"]
     except BundleError as e:
         return _invalid_bundle(e)
     ok, problems = verify_hashes(a.evidence)
@@ -190,7 +192,7 @@ def cmd_inspect(a):
     print("hashes             :", "OK" if ok else "PROBLEMS: %s" % problems)
     violations = validate_outcome(o)
     print("invariants         :", "OK" if not violations else "VIOLATIONS: %s" % violations)
-    return 0 if not violations else 1
+    return 0 if ok and not violations else 1  # F-036: a hash problem is an invalid bundle too
 
 
 def main(argv=None):

@@ -56,7 +56,10 @@ def verify_hashes(bundle):
     p = os.path.join(bundle, HASHES)
     if not os.path.exists(p):
         return False, ["hashes.json missing"]
-    recorded = read_json(p).get("files", {})
+    doc = read_json(p)
+    recorded = doc.get("files") if isinstance(doc, dict) else None
+    if not isinstance(recorded, dict):
+        return False, ["hashes.json has no files object"]  # F-036
     current = build_hashes(bundle)
     for rel, h in recorded.items():
         if rel not in current:

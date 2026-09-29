@@ -180,6 +180,34 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
     return outcome
 
 
+def _is_int(x, minimum):
+    return isinstance(x, int) and not isinstance(x, bool) and x >= minimum
+
+
+def structure_problems(bundle, rec, env, claim):
+    """F-036: the keys and files replay uses, checked before anything runs. Returns a list of problems."""
+    p = []
+    if not (isinstance(env, dict) and isinstance(env.get("git"), dict) and "commit" in env["git"]):
+        p.append("environment.json has no git.commit")
+    if not (isinstance(claim, dict) and isinstance(claim.get("claim"), dict)):
+        p.append("claim.json has no claim object")
+    name = rec.get("reproducer_name")
+    # a plain file name only: joined to reproducer/, it must not leave the bundle (no hash covers files outside it)
+    plain = (isinstance(name, str) and name not in ("", ".", "..") and not any(c in name for c in "/\\:")
+             and os.path.basename(name) == name)
+    if not plain:
+        p.append("outcome.json reproducer_name is not a plain file name: %r" % (name,))
+    elif not os.path.isfile(os.path.join(bundle, "reproducer", name)):
+        p.append("missing reproducer/" + name)
+    if not isinstance(rec.get("reproducer_origin"), str):
+        p.append("outcome.json reproducer_origin is not a string")
+    if not _is_int(rec.get("runs_requested"), 1):
+        p.append("outcome.json runs_requested is not an integer >= 1")
+    if not _is_int(rec.get("attempts_before_submission"), 0):
+        p.append("outcome.json attempts_before_submission is not an integer >= 0")
+    return p
+
+
 def replay(bundle, repo, python, runs=None, timeout=30, sandbox=None, env_template=None):
     """Re-run a bundle's reproducer and compare with the recorded outcome. Never trusts bundle code blindly:
     the reproducer goes through the gate again and runs in fresh processes."""
@@ -196,6 +224,9 @@ def replay(bundle, repo, python, runs=None, timeout=30, sandbox=None, env_templa
         return report
     env = read_json(os.path.join(bundle, "environment.json"))
     claim = read_json(os.path.join(bundle, "claim.json"))
+    report["structure_problems"] = structure_problems(bundle, rec, env, claim)
+    if report["structure_problems"]:
+        return report
     repro = os.path.join(bundle, "reproducer", rec["reproducer_name"])
     report["recorded_outcome"] = [rec["outcome"], rec["outcome_reason"]]
     now_commit = git_info(repo)["commit"]
