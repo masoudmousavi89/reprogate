@@ -5,28 +5,29 @@ the reproducer is treated as untrusted, executed by an independent verifier, obs
 (not by reading logs), matched against a frozen claim, repeated in fresh processes, and written into
 an evidence bundle. It does **not** claim the bug is real: `SYMPTOM_REPRODUCED != BUG_CONFIRMED`. A single run can be a false positive (F-015); only a passing before/after oracle counts as evidence.
 
-This folder is a **Lab #1 prototype**, deliberately small:
+This is an early **prototype**, deliberately small:
 
-- Python 3.8+ only, standard library only (no Go, no Docker, no pip install).
+- Python 3.8+ and the standard library only (Docker is optional and only used by the sandbox mode).
 - Exception-type claims only (`wrong_output` / `unexpected_exit` are not implemented).
-- Runs reproducers as plain host processes by default (no sandbox); `--sandbox docker` runs them in a network-less, read-only container (see `THREAT_MODEL.md`).
-- It is not the Go/Docker core described in the design file; it exists to answer one question
-  with real data: does the verifier tell a real reproduction, a clean fix, an environment failure and
-  gamed reproducers apart on pallets/jinja#843?
+- Runs reproducers as plain host processes by default (no sandbox); `--sandbox docker` runs them in a network-less,
+  read-only container (see `THREAT_MODEL.md`).
+- It exists to answer one question with real data: can an independent verifier tell a real reproduction, a clean fix,
+  an environment failure and gamed reproducers apart on real bugs?
 
 ## Honest status
 
 | item | state |
 |---|---|
-| unit + end-to-end tests on a *synthetic* library (gate, matcher, outcome, forged frames, tree hash, timeouts, env failure, oracle, replay) | written, pass on Python 3.12 in the build sandbox |
-| the same tests on Python 3.8.10 / Windows 11 | pass (43 tests, 2026-09-29) |
-| real Jinja checkouts, Linux, Python 3.8.20 + MarkupSafe pin | run 2026-09-28: all 7 expected outcomes matched, claim provenance unverified (F-009, F-010); see `labs/jinja-843/results-linux-2026-09-28.md` |
-| same lab on Windows via `run_lab001.ps1`, with the raw issue body fetched and claim-check passed | run 2026-09-29: 52 unit tests OK, all 6 rows matched, provenance verified for jinja-843 (F-016) |
-| Docker sandbox runner (`--sandbox docker`) | works on Linux, all 5 labs give the same outcomes as host mode (F-017); the harness is still in-process with the reproducer; not tested on Windows/macOS |
-| environment trust, portable evidence, signing | not implemented (`environment_trust: UNVERIFIED`) |
+| unit and end-to-end tests (synthetic libraries) | 64 tests pass on Linux, Python 3.8.20 (6 Docker tests skip when Docker or the image is missing); 52 tests passed on Windows 11 / Python 3.8 earlier (F-016) |
+| 9 hand-picked labs on real checkouts (jinja#843, tabulate x2, cachetools x2, more-itertools x2, sortedcontainers, dateutil) | predictions were committed before each run; one prediction missed (more-itertools#707, F-011/F-012, fixed); all rows match now (Linux host mode; jinja#843 also on Windows) |
+| claim provenance checked against the raw issue body | verified for jinja#843, tabulate#180, more-itertools#707; unverified for the other labs (their claims come from fix commits) (F-006, F-010, F-016) |
+| gate attack round 2 (10 attacks on one lab) | 9 of 10 predictions held; the miss led to a stricter message rule (F-020, F-021). Known weakness: a builtin callable supplied by the reproducer can produce a matching failure; only the before/after oracle rejects it (F-015) |
+| Docker sandbox runner (`--sandbox docker`) | Linux only; the 9 labs give the same outcomes as host mode (F-017); the harness still runs in the reproducer's process (`observation_integrity: BEST_EFFORT_IN_PROCESS`) |
+| random sample of bugs the maintainer did not choose (`labs/sample-2026-09/`) | protocol fixed before the draw; 4 issues drawn, 1 executed (click#942, inconclusive), 3 not evaluated (need network or unsafe input); says nothing about accuracy (F-022) |
+| environment trust, portable evidence, signing, other claim kinds | not implemented (`environment_trust: UNVERIFIED`) |
 
-Five labs (jinja#843, tabulate x2, cachetools, more-itertools; see `labs/`) with predictions written before each run are not a benchmark. Provenance of the
-claim against the raw issue body is still unverified (F-006, F-010). Feedback is welcome, see `CONTRIBUTING.md`.
+The hand-picked labs were chosen by the author, are pure-Python libraries and use exception claims only. They are not a
+benchmark and do not show how the tool behaves on arbitrary bugs. Feedback is welcome, see `CONTRIBUTING.md`.
 
 ## Quick start (Windows, from this folder)
 
@@ -62,8 +63,11 @@ reprogate/      gate.py (static gate) provenance.py (claim vs raw issue body) ha
                 TARGET interpreter, structured observation) matcher.py outcome.py runner.py (host runner,
                 tree hash, env capture) pipeline.py (evaluate / oracle / replay) evidence.py cli.py
 tests/          unit + end-to-end tests on a synthetic library
-tools/          fetch_issue.py (raw issue body via API), lab_summary.py
-labs/jinja-843/ claim, reproducer, 4 harmless negative fixtures, expected outcomes, runner, runbook
+tools/          fetch_issue.py (raw issue body via API), lab_summary.py, run_lab.py, sample_issues.py
+labs/<lab>/     claim, reproducer, negative fixtures, expected outcomes (written before the run), results
+labs/jinja-843/ also the runbook and the Windows / Linux runners
+labs/gate-round2/  attack reproducers, predictions and results
+labs/sample-2026-09/  random-sample protocol and draws
 findings.md     the only place architecture changes may originate
 ```
 
