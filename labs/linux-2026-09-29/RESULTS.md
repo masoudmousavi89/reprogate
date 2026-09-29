@@ -27,3 +27,24 @@ body: every run is ENV_FAILURE or INVALID (import of `minilib` fails, or the wor
 marker is written and nothing is written into the template. The run stderr names the cause.
 Hypothesis H2 (root user) is predicted NOT to be the cause: runner and harness never change privileges.
 Falsified if: runs are COMPLETED in the diagnostic (then the test itself differs), or the cause disappears as a non-root user.
+
+## F-038 diagnosis: result
+Diagnostic script outside the repository, run from the repo root with uv CPython 3.8.20 as root; nothing in `reprogate/`, `tests/` or labs changed.
+- **H1 held in substance, with a different mechanism than guessed.** With the test's venv (`venv.create(<tmp>/v, with_pip=False)`), (a) without a
+  template and (b) with a symlink-preserving copy as `--env-template`, the outcome is NOT_EVALUATED / ENVIRONMENT_UNAVAILABLE, counts
+  `env_failures 3, completed 0`, run_status `ENV_FAILURE` x3, and no `runs/` folder is written at all (the reproducer never starts). It is not an
+  import failure of `minilib`: the interpreter itself does not start. `environment.json` (`interpreter.errors`) names the cause:
+  `<tmp>/v/bin/python: error while loading shared libraries: <tmp>/v/bin/../lib/libpython3.8.so.1.0: cannot open shared object file`.
+- **Decisive evidence:** `<tmp>/v/bin/` holds three regular files of 20328 bytes (`python`, `python3`, `python3.8`), not symlinks: the API call
+  `venv.create()` defaults to `symlinks=False` on POSIX and copies the interpreter. The uv CPython 3.8 is a shared build (`libpython3.8.so`,
+  found through a path relative to the executable), so the copy cannot find its library; running it by hand gives exit code 127.
+  `pyvenv.cfg` points `home` at `<HOME>/.local/share/uv/python/.../bin`.
+- **Control:** the same evaluation with a venv made by the CLI (`python3.8 -m venv --without-pip`, which uses symlinks on POSIX, as in the runner
+  and in F-037): NO_MATCHING_REPRODUCTION_FOUND / NONE, 3 COMPLETED (`NO_EXCEPTION_OBSERVED`), interpreter starts (`pip list` reports only "No module named pip").
+- **H2 (root user) held: not the cause.** The stderr names the cause, so the non-root repeat was not needed and not run.
+- **Consequence for the 3 failing tests:** all three build their venv in `setUpClass` with the copying `venv.create`, so every run is ENV_FAILURE:
+  `completed 0 != 3`, no ValueError because the interpreter never reaches the template write, and no `marker.txt` in the control test.
+  This is a test-setup problem specific to a shared-library CPython (uv-managed, and likely other relocatable builds); Windows and static builds copy fine.
+- **Would fix (not applied):** in `tests/test_fresh_env.py` `setUpClass`, create the venv with `symlinks=(os.name != "nt")`
+  (or `venv.EnvBuilder(symlinks=True)`). No change to `reprogate/`. Optionally the fresh-env code could report the interpreter error text in the
+  outcome instead of only ENV_FAILURE.
