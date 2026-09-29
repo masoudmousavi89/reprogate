@@ -294,7 +294,131 @@ def worker_main(argv=None):
     return exit_code
 
 
-def _validate(path, rc):
+_SCOPE_CACHE = {}
+_EXPR_SCOPES = {"<lambda>": ast.Lambda, "<listcomp>": ast.ListComp, "<setcomp>": ast.SetComp,
+                "<dictcomp>": ast.DictComp, "<genexpr>": ast.GeneratorExp}
+_INERT = (ast.Pass, ast.Break, ast.Continue, ast.Global, ast.Nonlocal)
+
+
+def _parse_source(filename):
+    if filename not in _SCOPE_CACHE:
+        try:
+            with open(filename, "rb") as f:
+                _SCOPE_CACHE[filename] = ast.parse(f.read())
+        except Exception:
+            _SCOPE_CACHE[filename] = None
+    return _SCOPE_CACHE[filename]
+
+
+def _span(node):
+    return node.lineno, getattr(node, "end_lineno", node.lineno)
+
+
+def _live_line(scope, lineno):
+    """Is `lineno` covered by a statement of `scope` that can raise (not a docstring, pass, break, ...)?"""
+    for node in ast.walk(scope):
+        if not isinstance(node, ast.stmt) or node is scope or isinstance(node, _INERT):
+            continue
+        if isinstance(node, ast.Expr) and isinstance(node.value, ast.Constant) and isinstance(node.value.value, str):
+            continue
+        start, end = _span(node)
+        if start <= lineno <= end:
+            return True
+    return False
+
+
+def _plausible(filename, function, lineno):
+    """Does the real source on disk hold `function` with a live statement on `lineno`? (F-026)"""
+    tree = _parse_source(filename)
+    if tree is None:
+        return False, "source_unparsable"
+    if function == "<module>":
+        return (True, "ok") if _live_line(tree, lineno) else (False, "line_not_a_statement")
+    want = _EXPR_SCOPES.get(function)
+    found = False
+    for node in ast.walk(tree):
+        if want is not None:
+            match = isinstance(node, want)
+        else:
+            match = isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)) and node.name == function
+        if not match:
+            continue
+        found = True
+        start, end = _span(node)
+        if want is not None:
+            if start <= lineno <= end:
+                return True, "ok"
+            continue
+        # decorator and `def` header lines count: the interpreter can report them for the function's own frame
+        header = min([start] + [d.lineno for d in getattr(node, "decorator_list", [])])
+        if header <= lineno < node.body[0].lineno or (lineno <= end and _live_line(node, lineno)):
+            return True, "ok"
+    return False, ("line_outside_function" if found else "function_not_in_source")
+
+
+def _recheck_frames(frames, ctx, repo_real):
+    """Supervisor side: reclassify the worker's frames from their file names and check TARGET frames against
+    the source on disk. The worker's class/authentic/rel_path claims are never trusted, only its negatives."""
+    if not isinstance(frames, list):
+        return None
+    out = []
+    for i, fr in enumerate(frames):
+        if not isinstance(fr, dict):
+            return None
+        filename, function, lineno = fr.get("filename"), fr.get("function"), fr.get("lineno")
+        if not isinstance(filename, str) or not isinstance(function, str) or type(lineno) is not int:
+            return None
+        rec = dict(fr)
+        rec["index"] = i
+        rec["class"] = _classify(filename, ctx)
+        for k in ("authentic", "rel_path", "plausibility_note"):
+            rec.pop(k, None)
+        if rec["class"] != "TARGET" and fr.get("class") in ("TARGET", "FORGED_TARGET"):
+            rec["class"] = "FORGED_TARGET"
+            rec["authentic"] = False
+            rec["plausibility_note"] = "not_a_target_file"
+        elif rec["class"] == "TARGET":
+            rec["rel_path"] = _rel(filename, repo_real)
+            if fr.get("class") != "TARGET" or fr.get("authentic") is not True:
+                ok, why = False, "worker_reported_not_authentic"
+            elif fr.get("rel_path") != rec["rel_path"]:
+                ok, why = False, "rel_path_mismatch"
+            elif not os.path.isfile(filename):
+                ok, why = False, "file_missing"
+            else:
+                ok, why = _plausible(filename, function, lineno)
+            rec["authentic"] = ok
+            rec["plausibility_note"] = why
+            if not ok:
+                rec["class"] = "FORGED_TARGET"
+        out.append(rec)
+    return out
+
+
+def _recheck(obs, ctx, repo_real):
+    exc = obs.get("exception")
+    if exc is None:
+        return None
+    if not isinstance(exc, dict):
+        return "malformed exception record"
+    frames = _recheck_frames(exc.get("frames"), ctx, repo_real)
+    if frames is None:
+        return "malformed frame record"
+    exc["frames"] = frames
+    chain = exc.get("chain") or []
+    if not isinstance(chain, list):
+        return "malformed exception chain"
+    for link in chain:
+        if not isinstance(link, dict):
+            return "malformed exception chain"
+        link_frames = _recheck_frames(link.get("frames"), ctx, repo_real)
+        if link_frames is None:
+            return "malformed frame record"
+        link["frames"] = link_frames
+    return None
+
+
+def _validate(path, rc, ctx=None, repo_real=None):
     """Accept the worker's observation only if the worker ended normally and told one consistent story."""
     if rc is None or rc < 0:
         return None, "worker ended abnormally (return code %s)" % rc
@@ -311,6 +435,10 @@ def _validate(path, rc):
     code = obs.get("exit_code")
     if not isinstance(code, int) or not (code == rc or (os.name != "nt" and code % 256 == rc)):
         return None, "reported exit code %r does not match the worker exit code %r" % (code, rc)
+    if ctx is not None:
+        err = _recheck(obs, ctx, repo_real)
+        if err:
+            return None, err
     return obs, None
 
 
@@ -328,9 +456,10 @@ def supervisor_main(argv=None):
            "--result-file", result_file]
     for e in a.pythonpath_extra:
         cmd += ["--pythonpath-extra", e]
+    ctx = {"repo": _rp(a.repo), "repro": _rp(a.repro), "harness": _rp(__file__), "stdlib": _stdlib_roots()}
     try:
         rc = subprocess.Popen(cmd, stdin=subprocess.DEVNULL).wait()
-        obs, err = _validate(result_file, rc)
+        obs, err = _validate(result_file, rc, ctx, os.path.realpath(a.repo))
     finally:
         try:
             if os.path.exists(result_file):

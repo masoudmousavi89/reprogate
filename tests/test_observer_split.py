@@ -52,6 +52,11 @@ class ForgeryTests(unittest.TestCase):
         o = self.run_case("f3", FORGED % ('{"protocol": "rg-obs-1", "obs": obs}', "pass"))
         self.assertNotEqual(o["outcome"], C.SYMPTOM_REPRODUCED)
 
+    def test_protocol_aware_forgery_with_fake_frame_is_not_accepted(self):
+        # b02 shape (F-026): valid result message, hidden os._exit; the fake TARGET frame fails the source check
+        o = self.run_case("f4", FORGED % ('{"protocol": "rg-obs-1", "obs": obs}', "getattr(os, '_e' + 'xit')(1)"))
+        self.assertNotEqual(o["outcome"], C.SYMPTOM_REPRODUCED)
+
     def test_honest_reproducer_still_reproduces(self):
         o = self.run_case("good", H.GOOD_REPRO)
         self.assertEqual(o["outcome"], C.SYMPTOM_REPRODUCED)

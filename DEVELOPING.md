@@ -14,7 +14,7 @@ Windows, observation forgeable by a protocol-aware reproducer.
 ## 2. Working rules (these keep the evidence credible)
 
 1. Architecture changes only with a finding in `findings.md` that cites evidence. IDs are permanent; take the next
-   free id after `git pull` (last one at the time of writing: F-025).
+   free id after `git pull` (last one at the time of writing: F-026).
 2. Pre-registration: write `expected_outcomes.json` (or `PREDICTIONS.md`) and COMMIT it before the first run. Report
    every miss as a finding; never edit a reproducer, claim anchor or prediction to make a run pass. A fix to the
    environment (paths, interpreter) is allowed only as a separate, labelled second run; keep the first run's result.
@@ -69,14 +69,15 @@ when the harness exit code is 0 (F-024).
 - Docker mode is tested on Linux only. Behind a TLS-intercepting proxy `docker build` cannot reach PyPI: download the
   wheels on the host and install them with `--no-index`.
 - On Windows there are no POSIX signals or `/proc`: the forgery tests in `tests/test_observer_split.py` are skipped
-  there. Without Docker, 10 tests skip (6 Docker, 4 POSIX-only). The process-tree kill uses `taskkill`.
+  there. Without Docker, 11 tests skip (6 Docker, 5 POSIX-only). The process-tree kill uses `taskkill`.
 - GitHub API access is needed for raw issue bodies (`tools/fetch_issue.py`); without it provenance stays unverified.
 
 ## 7. Open technical work (highest value first)
 
-1. Observation can still be forged by a reproducer that re-implements the result protocol (attack b02, F-024).
-   Candidate: check that the claimed TARGET frames are plausible against the real source (line inside the named
-   function, consistent call chain). A sound fix needs kernel-level tracing or an unforgeable second signal.
+1. Observation can still be forged by a reproducer that re-implements the result protocol and names a real file,
+   function and line (attack b05, F-026; the fake-frame variant b02 is now rejected). A call-chain rule was tried on
+   paper and dropped (implicit calls make it unsound). A sound fix needs kernel-level tracing or an unforgeable
+   second signal.
 2. Provenance is verified for only 3 of the 9 hand-picked labs; the other claims come from fix commits.
 3. click#942 (random sample) was inconclusive: the reproducer used a completion protocol that does not fit the version
    under test. A corrected reproducer would be a new, labelled run.

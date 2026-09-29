@@ -61,11 +61,16 @@ look like the symptom (for example `gen.throw(StopIteration)` into a library gen
 after it) may be read as evidence of a bug; without a passing oracle treat `SYMPTOM_REPRODUCED` as
 "needs review". `SYMPTOM_REPRODUCED != BUG_CONFIRMED` in every case.
 
-## Observer design (F-023, F-024)
+## Observer design (F-023, F-024, F-026)
 
 `harness.py` runs as a supervisor plus a worker. The worker runs the reproducer under the target interpreter and
 creates a result file (`O_EXCL`). The supervisor accepts the observation only if the worker ended normally (no signal),
 the message is well formed and the reported exit code equals the worker's; it then writes `observation.json` itself.
 The runner trusts that file only when the harness exit code is 0 and kills the whole process tree on timeout.
-Limit: a reproducer that re-implements the protocol and exits through a hidden `os._exit` can still forge an
-observation (attack b02). Treat `observation_integrity: BEST_EFFORT_IN_PROCESS` as unchanged.
+Since F-026 the supervisor also reclassifies every frame from its file name (the worker's `class`, `authentic` and
+`rel_path` are not trusted, only its negatives) and checks each TARGET frame against the source on disk: the file is
+inside the repository, `rel_path` is the real one, the named function (or class body, lambda, comprehension) exists and
+`lineno` is on its header or on a live statement of it. A frame that fails becomes FORGED_TARGET with a
+`plausibility_note`. Limit: a reproducer that re-implements the protocol, exits through a hidden `os._exit` and names
+a real file, function and line can still forge an observation (attack b05). Treat
+`observation_integrity: BEST_EFFORT_IN_PROCESS` as unchanged.

@@ -43,3 +43,4 @@ Known weakness: a builtin callable supplied by the reproducer can fail inside ta
 Update: a message-mismatch attack (a10) no longer matches; `oracle_required` marks bundles that still need the before/after oracle.
 
 Observer split (F-024): closes cheap forgery of the observation file (b01, b03, b04). Still open: a protocol-aware reproducer (b02).
+Frame plausibility (F-026): a protocol-aware reproducer must now also name a real file, function and live line of the target (b02 with a fake frame is rejected). Still open: b05, which does exactly that.
