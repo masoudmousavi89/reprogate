@@ -1,0 +1,114 @@
+{
+  "seed": 20260929,
+  "pool": "APP",
+  "draws": [
+    {
+      "draw": 1,
+      "pool": "APP",
+      "meta": {
+        "repo": "fastapi/typer",
+        "total": 7,
+        "index": 4
+      },
+      "repo": "fastapi/typer",
+      "number": 207,
+      "title": "[BUG] AttributeError: partially initialized module 'typer' has no attribute 'Typer' ",
+      "url": "https://github.com/fastapi/typer/issues/207",
+      "exception": {
+        "type": "AttributeError",
+        "message": "partially initialized module 'typer' has no attribute 'Typer' (most likely due to a circular import)"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 2,
+      "pool": "APP",
+      "meta": {
+        "repo": "httpie/cli",
+        "total": 36,
+        "index": 10
+      },
+      "repo": "httpie/cli",
+      "number": 1388,
+      "title": "No such file or directory: '~/.config/httpie/version_info.json'",
+      "url": "https://github.com/httpie/cli/issues/1388",
+      "exception": {
+        "type": "FileNotFoundError",
+        "message": "[Errno 2] No such file or directory: '/Users/nico.arianto/.config/httpie/version_info.json'"
+      },
+      "closing_commit": "b0b0f3dc53faa86f36147b0237a4fff0ba2f7e29",
+      "fix_source": "merged_pr#1389",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 3,
+      "pool": "APP",
+      "meta": {
+        "repo": "TheR1D/shell_gpt",
+        "total": 2,
+        "index": 0
+      },
+      "repo": "TheR1D/shell_gpt",
+      "number": 459,
+      "title": "An issue with Python version < 3.8 (walrus operator)",
+      "url": "https://github.com/TheR1D/shell_gpt/issues/459",
+      "verdict": "INELIGIBLE_E1_NO_EXCEPTION_LINE"
+    },
+    {
+      "draw": 4,
+      "pool": "APP",
+      "meta": {
+        "repo": "nbedos/termtosvg",
+        "total": 5,
+        "index": 2
+      },
+      "repo": "nbedos/termtosvg",
+      "number": 6,
+      "title": "AttributeError: 'str' object has no attribute 'decode'",
+      "url": "https://github.com/nbedos/termtosvg/issues/6",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'str' object has no attribute 'decode'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 5,
+      "pool": "APP",
+      "meta": {
+        "repo": "pypa/pipx",
+        "total": 29,
+        "index": 13
+      },
+      "repo": "pypa/pipx",
+      "number": 278,
+      "title": "No module named pip",
+      "url": "https://github.com/pypa/pipx/issues/278",
+      "exception": {
+        "type": "ModuleNotFoundError",
+        "message": "No module named 'guessit'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 6,
+      "pool": "APP",
+      "meta": {
+        "repo": "pallets/click",
+        "total": 6,
+        "index": 5
+      },
+      "repo": "pallets/click",
+      "number": 942,
+      "title": "With argument autocompletion, context is not passed properly",
+      "url": "https://github.com/pallets/click/issues/942",
+      "exception": {
+        "type": "TypeError",
+        "message": "'NoneType' object is not subscriptable"
+      },
+      "closing_commit": "bc3dd4796f6db8a0fe6ee03872ecebbc0d06a576",
+      "fix_source": "merged_pr#1679",
+      "verdict": "ELIGIBLE"
+    }
+  ]
+}
