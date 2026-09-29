@@ -31,3 +31,12 @@ file hashes). Recorded as observed.
 - Unit tests: the existing ones pass; a new `tests/test_invariants.py` covers the 31 cases plus the schema-enum check.
 - Not predicted / open: bundles produced before F-021 (no `oracle_required` field) are not rejected for that field (the
   check runs only when the key exists); older bundles are not available here, so this is untested.
+
+## Linux jinja bundles (predictions committed BEFORE the run)
+
+`run_lab001.sh` on Linux (host mode, `--allow-unverified-provenance`, qualifier `PROVENANCE_UNVERIFIED`) writes 7
+bundle folders (oracle before/after/post-fix, case_c_unpinned, f01-f04 as they exist in the runner output).
+Prediction: `python3.8 -m reprogate inspect` exits 0 with the invariants reported OK for every bundle that has an
+`outcome.json`; `verify` on the oracle "before" bundle passes (hashes, outcome, commit and environment match) and its
+invariants are OK; `provenance_sufficient` stays False with the qualifier present (unverified provenance is a valid
+combination, rule QUALIFIER).
