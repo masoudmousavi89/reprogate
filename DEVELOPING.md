@@ -8,8 +8,8 @@ only source of truth; nothing important lives outside it.
 ReproGate checks a claim "this reproducer triggers exception X in project P at commit C". It reports
 `SYMPTOM_REPRODUCED`, never "bug confirmed". A single run can be a false positive; only a passing before/after oracle
 (symptom before the fix, clean completion after it) is evidence. Any text you write (README, results, reports) must
-stay inside that limit and must state limits (exception claims only, small hand-picked samples, no sandbox on
-Windows, observation forgeable by a protocol-aware reproducer).
+stay inside that limit and must state the limits: exception claims only, small hand-picked samples, no sandbox on
+Windows, observation forgeable by a protocol-aware reproducer.
 
 ## 2. Working rules (these keep the evidence credible)
 
@@ -18,13 +18,13 @@ Windows, observation forgeable by a protocol-aware reproducer).
 2. Pre-registration: write `expected_outcomes.json` (or `PREDICTIONS.md`) and COMMIT it before the first run. Report
    every miss as a finding; never edit a reproducer, claim anchor or prediction to make a run pass. A fix to the
    environment (paths, interpreter) is allowed only as a separate, labelled second run; keep the first run's result.
-3. Random-sample rules are in `labs/sample-2026-09/PROTOCOL.md`: draw once, first result counts, no redraws, hard cases
-   stay in the table as `NOT_EVALUATED` with a reason.
+3. Random-sample rules are in `labs/sample-2026-09/PROTOCOL.md`: draw once, the first result counts, no redraws, hard
+   cases stay in the table as `NOT_EVALUATED` with a reason.
 4. Never run a reproducer that needs a real network service or unsafe input on your own machine in host mode.
-5. Before every push: `git pull --rebase origin main`; run the tests; grep the diff and the log for personal paths,
-   user names, emails and tool names (`git diff origin/main..HEAD | grep -niE 'C:\\\\Users|@'`). Commits use the
-   maintainer's identity; no extra trailers. Never force-push `main`.
-6. Keep outputs of tools short in reports; summarise, do not paste logs.
+5. Before every push: `git pull --rebase origin main`; run the tests; check the diff and the log for personal paths,
+   user names and emails (for example `git diff origin/main..HEAD | grep -niE 'C:\\\\Users|@'`). Commits use the
+   maintainer's identity with no extra trailers. Never force-push `main`.
+6. Keep tool output short in reports; summarise, do not paste logs.
 
 ## 3. Commands
 
@@ -46,9 +46,9 @@ raw issue files are gitignored; keep them out of commits.
 `claim-check` (provenance: claim anchors must appear in the raw issue body) -> `gate` (static, first line only) ->
 `evaluate`: environment capture, tree hash, N fresh runs of `harness.py` (supervisor + worker, F-024) -> `matcher`
 per run (origin, type, message, location) -> `outcome` aggregation -> evidence bundle with hashes -> `oracle` combines
-a before and an after evaluation. Important rules in the code, each backed by a finding: origin needs an authentic
-TARGET frame and no REPRODUCER frame after it (F-011/F-012 for the PEP 479 exception); a claim with a message must match
-the message (F-020/F-021); `raise` is allowed only inside a function body (F-011); the observation file is trusted only
+a before and an after evaluation. Rules in the code, each backed by a finding: origin needs an authentic TARGET frame
+and no REPRODUCER frame after it (F-011/F-012 for the PEP 479 exception); a claim with a message must match the
+message (F-020/F-021); `raise` is allowed only inside a function body (F-011); the observation file is trusted only
 when the harness exit code is 0 (F-024).
 
 ## 5. Adding a lab
@@ -56,29 +56,29 @@ when the harness exit code is 0 (F-024).
 1. Pick the bug and write down how it was chosen (random draw or hand-picked; say so).
 2. `labs/<name>/claim.json`: `claim` (exception_type, optional message, optional location), `target`
    (affected_commit = first parent of the fix, fix_commit), `issue` (repo, number or null), optional `env`
-   (`pip`: explicit pinned packages only; `pythonpath`: e.g. `["src"]`). Never install the target repository itself.
+   (`pip`: explicit pinned packages only; `pythonpath`: for example `["src"]`). Never install the target repository itself.
 3. `repro.py` (from the issue text), `fixtures/` (direct raise, same exception type raised in user code, fake traceback
    on stdout, subclass override), `expected_outcomes.json` with predictions. Commit. Only then run.
 4. Record results in `labs/<name>/` or a `results-*.md`, and a finding for every surprise.
 
 ## 6. Environment notes
 
-- Target code must run on Python 3.8 (tests include a 3.8-syntax check). Some projects need a newer interpreter
+- Target code must run on Python 3.8 (the tests include a 3.8-syntax check). Some projects need a newer interpreter
   (recent more-itertools needs >= 3.10); say which interpreter was used.
 - Some projects use a `src/` layout: use `env.pythonpath`. Some need one extra package (for example `six`).
-- Docker mode is tested on Linux only. Behind a TLS-intercepting proxy `docker build` cannot reach PyPI: download wheels on
-  the host and install them with `--no-index`.
+- Docker mode is tested on Linux only. Behind a TLS-intercepting proxy `docker build` cannot reach PyPI: download the
+  wheels on the host and install them with `--no-index`.
 - On Windows there are no POSIX signals or `/proc`: the forgery tests in `tests/test_observer_split.py` are skipped
-  there (10 tests skip on a machine without Docker); the process-tree kill uses `taskkill`.
+  there. Without Docker, 10 tests skip (6 Docker, 4 POSIX-only). The process-tree kill uses `taskkill`.
 - GitHub API access is needed for raw issue bodies (`tools/fetch_issue.py`); without it provenance stays unverified.
 
 ## 7. Open technical work (highest value first)
 
 1. Observation can still be forged by a reproducer that re-implements the result protocol (attack b02, F-024).
-   Candidate: check that claimed TARGET frames are plausible against the real source (line inside the named function,
-   call chain consistent). Sound fix needs kernel-level tracing or an unforgeable second signal.
-2. Provenance is verified for only 3 of 9 hand-picked labs; the other claims come from fix commits.
-3. click#942 (random sample) was inconclusive because the reproducer used a completion protocol that does not fit the
-   version under test; a corrected reproducer would be a new, labelled run.
-4. Only exception claims; `wrong_output` is not implemented.
+   Candidate: check that the claimed TARGET frames are plausible against the real source (line inside the named
+   function, consistent call chain). A sound fix needs kernel-level tracing or an unforgeable second signal.
+2. Provenance is verified for only 3 of the 9 hand-picked labs; the other claims come from fix commits.
+3. click#942 (random sample) was inconclusive: the reproducer used a completion protocol that does not fit the version
+   under test. A corrected reproducer would be a new, labelled run.
+4. Only exception claims are supported; `wrong_output` is not implemented.
 5. Docker mode on Windows/macOS; a stronger sandbox (gVisor / VM) than a shared-kernel container.
