@@ -44,3 +44,5 @@ Update: a message-mismatch attack (a10) no longer matches; `oracle_required` mar
 
 Observer split (F-024): closes cheap forgery of the observation file (b01, b03, b04). Still open: a protocol-aware reproducer (b02).
 Frame plausibility (F-026): a protocol-aware reproducer must now also name a real file, function and live line of the target (b02 with a fake frame is rejected). Still open: b05, which does exactly that.
+
+Round 3 (F-028, `labs/adversarial-round3/`): in host mode a reproducer can modify installed dependencies and plant a `sitecustomize.py`; neither is detected (the environment fingerprint lists package names and versions, only the repository is content-hashed). Docker mode mounts the repository read-only and a read-only root filesystem, but was not re-run for these attacks. A malicious Issue can make a claim that describes intended behaviour; only the before/after oracle rejects it.
