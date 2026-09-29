@@ -25,4 +25,4 @@ them); the values above come from the evidence files.
 |---|---|---|
 | Windows, full suite | 136 OK, 11 skipped | 136 OK, 11 skipped |
 | Windows, `tests/test_fresh_env.py` | 7 of 7 OK | 7 of 7 OK |
-| Linux, `tests/test_fresh_env.py` and full suite | 7 of 7; 136 OK, 0 skipped | pending (Linux session) |
+| Linux, `tests/test_fresh_env.py` and full suite | 7 of 7; 136 OK, 0 skipped | 7 of 7 OK (1.1 s); full suite Ran 136, OK, 0 skipped (uv CPython 3.8.20, root, Docker image present) |
