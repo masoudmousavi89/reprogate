@@ -5,6 +5,7 @@ import tempfile
 import time
 
 from . import SCHEMA_VERSION, __version__
+from . import claims
 from . import constants as C
 from .evidence import verify_hashes, write_hashes
 from .gate import gate_source
@@ -99,6 +100,9 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
              base_seed=1000, pythonpath_extra=None, sandbox=None, in_oracle=False, env_template=None):
     """Evaluate one reproducer against one checkout. Returns the outcome dict (also written to out_dir)."""
     prov = provenance_state(claim_doc, allow_unverified_provenance)  # may raise ValueError
+    claim_status, claim_note = claims.support(claim_doc["claim"])  # F-039: unknown kinds are UNSUPPORTED
+    claim_kind = claims.kind(claim_doc["claim"])
+    watch = claims.watch_target(claim_doc["claim"]) if claim_kind == claims.KIND_WRONG_OUTPUT else None
     os.makedirs(out_dir, exist_ok=True)
     with open(repro_path, "rb") as f:
         repro_bytes = f.read()
@@ -131,7 +135,7 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
     })
 
     run_records = []
-    if gate_res["status"] == C.GATE_VALID and env_info["python"] is not None:
+    if gate_res["status"] == C.GATE_VALID and claim_status == claims.READY and env_info["python"] is not None:
         for i in range(runs):
             run_dir = os.path.join(out_dir, "runs", "run-%02d" % (i + 1))
             run_python, copy_dir, copy_s = python, None, None
@@ -139,7 +143,7 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
                 run_python, copy_dir, copy_s = _fresh_copy(template)
             try:
                 raw = run_once(run_python, repo, repro_bytes, run_dir, timeout, base_seed + i * 7919,
-                               pythonpath_extra, sandbox)
+                               pythonpath_extra, sandbox, watch)
             finally:
                 if copy_dir:
                     shutil.rmtree(copy_dir, ignore_errors=True)
@@ -149,19 +153,21 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
                 rec["env_copy_seconds"] = copy_s
             write_json(os.path.join(run_dir, "run.json"), rec)
             run_records.append(rec)
-    elif gate_res["status"] == C.GATE_VALID:
+    elif gate_res["status"] == C.GATE_VALID and claim_status == claims.READY:
         run_records = [{"index": i + 1, "seed": None, "status": C.RUN_ENV_FAILURE, "symptom_match": False,
                         "clean_completion": False, "reasons": ["INTERPRETER_LAUNCH_FAILED"],
                         "invalid_reason": None} for i in range(runs)]
 
     agg = aggregate(run_records, min_completed=min_completed, provenance=prov,
-                    reproducer_status=gate_res["status"])
+                    reproducer_status=gate_res["status"], claim_status=claim_status)
     anchors_verified, anchors_not_verified = _anchor_states(claim_doc)
     outcome = {
         "schema_version": SCHEMA_VERSION, "tool_version": __version__, "created_at": now_utc(),
         "outcome": agg["outcome"], "outcome_reason": agg["outcome_reason"],
         "outcome_qualifier": agg["outcome_qualifier"],
-        "claim_status": "READY", "reproducer_status": gate_res["status"],
+        "claim_status": claim_status, "reproducer_status": gate_res["status"],
+        "claim_kind": claim_kind, "claim_kind_maturity": claims.MATURITY.get(claim_kind),
+        "claim_support_note": claim_note,
         "run_status": [r["status"] for r in run_records], "counts": agg["counts"],
         "min_completed": min_completed, "runs_requested": runs,
         "reproducer_origin": origin, "attempts_before_submission": attempts,

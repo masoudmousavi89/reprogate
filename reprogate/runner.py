@@ -133,7 +133,7 @@ def _clip(b):
     return b[:MAX_CAPTURE] if b else b""
 
 
-def run_once(python, repo, repro_bytes, run_dir, timeout, seed, pythonpath_extra=None, sandbox=None):
+def run_once(python, repo, repro_bytes, run_dir, timeout, seed, pythonpath_extra=None, sandbox=None, watch=None):
     """Execute the harness once in a fresh process. Returns a raw result dict."""
     work = os.path.join(run_dir, "work")
     rdir = os.path.join(run_dir, "repro")
@@ -164,6 +164,8 @@ def run_once(python, repo, repro_bytes, run_dir, timeout, seed, pythonpath_extra
         popen_cwd = None
     for e in pythonpath_extra or []:
         cmd += ["--pythonpath-extra", e]
+    if watch:  # F-039: (file, function) of a wrong_output claim's target
+        cmd += ["--watch-file", watch[0], "--watch-function", watch[1]]
     res = {"seed": seed, "timed_out": False, "launch_error": None, "returncode": None,
            "stdout": b"", "stderr": b"", "observation": None, "observation_error": None}
     start = time.time()

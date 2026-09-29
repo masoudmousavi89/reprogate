@@ -1,4 +1,5 @@
-"""Compare one structured observation with the frozen claim (exception kind only)."""
+"""Compare one structured observation with the frozen claim (exception claims; wrong_output claims, F-039)."""
+from . import claims as K
 from .constants import RUN_COMPLETED, RUN_ENV_FAILURE
 from .util import norm_path
 
@@ -73,6 +74,51 @@ def _loc_match(frame, loc, allow_nested=False):
     return True
 
 
+def _classify_wrong_output(obs, claim):
+    """F-039 (EXPERIMENTAL): the verdict comes only from recorded returns of the target function, never from the
+    reproducer's output. A return counts only from an authentic TARGET frame of the claimed file and function that did
+    not end by an exception."""
+    res = {"status": RUN_COMPLETED, "symptom_match": False, "clean_completion": False,
+           "reasons": [], "anchors_matched": [], "exception_origin": None, "target_causal_frame": None}
+    want_file, want_func = K.watch_target(claim) or (None, None)
+    kept, forged = [], 0
+    for r in obs.get("returns") or []:
+        fr = r.get("frame") if isinstance(r, dict) else None
+        if not isinstance(fr, dict):
+            continue
+        if fr.get("class") != "TARGET":
+            forged += 1
+            continue
+        if norm_path(fr.get("rel_path") or "") != norm_path(want_file or "") or fr.get("function") != want_func:
+            continue
+        if r.get("raised") or r.get("value_truncated"):
+            continue
+        kept.append(r)
+    if forged:
+        res["reasons"].append("RETURNS_FROM_FORGED_FRAMES_IGNORED")
+    hit_actual = [r for r in kept if K.value_equals(r.get("value_repr"), claim.get("actual"))]
+    hit_expected = [r for r in kept if K.value_equals(r.get("value_repr"), claim.get("expected"))]
+    exc = obs.get("exception")
+    if exc:
+        res["exception_origin"] = _frame_summary(_innermost(exc.get("frames", [])))
+        res["reasons"].append("EXCEPTION_OBSERVED")
+    if not kept:
+        res["reasons"].append("NO_TARGET_RETURN_OBSERVED")
+    if hit_actual:
+        res["symptom_match"] = True
+        res["anchors_matched"].append("actual")
+        res["reasons"].append("RETURN_EQUALS_ACTUAL")
+        res["target_causal_frame"] = _frame_summary(hit_actual[0]["frame"])
+    if hit_expected:
+        res["anchors_matched"].append("expected")
+        res["reasons"].append("RETURN_EQUALS_EXPECTED")
+    res["clean_completion"] = (obs.get("exit_code") == 0 and not exc and bool(hit_expected) and not hit_actual)
+    if (not hit_actual and exc and exc.get("type") in ENV_EXC_TYPES and obs.get("phase") == "import"):
+        res["status"] = RUN_ENV_FAILURE
+        res["reasons"].append("IMPORT_PHASE_FAILURE")
+    return res
+
+
 def classify_run(obs, claim):
     """Return a per-run verdict dict.
 
@@ -83,6 +129,8 @@ def classify_run(obs, claim):
       * match: origin ok AND type equal AND (message contained if the claim has a message, else location matches).
       * an ImportError/SyntaxError in the import phase that is not the claimed symptom is ENV_FAILURE.
     """
+    if K.kind(claim) == K.KIND_WRONG_OUTPUT:
+        return _classify_wrong_output(obs, claim)
     res = {"status": RUN_COMPLETED, "symptom_match": False, "clean_completion": False,
            "reasons": [], "anchors_matched": [], "exception_origin": None, "target_causal_frame": None}
     exc = obs.get("exception")

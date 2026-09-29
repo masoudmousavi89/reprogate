@@ -31,7 +31,10 @@
     "oracle_required": {"type": "boolean"},
     "environment_mode": {"enum": ["FRESH_COPY_PER_RUN", "SHARED_HOST_ENVIRONMENT"]},
     "anchors_verified": {"type": "array", "items": {"type": "string"}, "description": "evidence only (F-033): claim anchor fields with an EXACT_QUOTE anchor; the verdict does not use it"},
-    "anchors_not_verified": {"type": "object", "description": "evidence only (F-033): anchor field -> INFERRED, UNVERIFIED or a reject_reason"}
+    "anchors_not_verified": {"type": "object", "description": "evidence only (F-033): anchor field -> INFERRED, UNVERIFIED or a reject_reason"},
+    "claim_kind": {"type": "string", "description": "F-039: exception (claims without a kind are exception claims), wrong_output, or an unsupported kind"},
+    "claim_kind_maturity": {"enum": ["STABLE_V0", "EXPERIMENTAL", null], "description": "F-039: EXPERIMENTAL for wrong_output; null for an unsupported kind"},
+    "claim_support_note": {"type": ["string", "null"], "description": "F-039: why a claim is UNSUPPORTED, else null"}
   },
   "x-invariants": [
     "COUNTS_TOTAL: counts.total equals len(run_status); when the gate passed and claim_status is READY it also equals runs_requested (when present)",

@@ -8,7 +8,7 @@ only source of truth; nothing important lives outside it.
 ReproGate checks a claim "this reproducer triggers exception X in project P at commit C". It reports
 `SYMPTOM_REPRODUCED`, never "bug confirmed". A single run can be a false positive; only a passing before/after oracle
 (symptom before the fix, clean completion after it) is evidence. Any text you write (README, results, reports) must
-stay inside that limit and must state the limits: exception claims only, small hand-picked samples, no sandbox on
+stay inside that limit and must state the limits: exception claims (wrong_output only experimental), small hand-picked samples, no sandbox on
 Windows, observation forgeable by a protocol-aware reproducer.
 
 ## 2. Working rules (these keep the evidence credible)
@@ -81,5 +81,6 @@ when the harness exit code is 0 (F-024).
 2. Provenance is verified for only 3 of the 9 hand-picked labs; the other claims come from fix commits.
 3. click#942 (random sample) was inconclusive: the reproducer used a completion protocol that does not fit the version
    under test. A corrected reproducer would be a new, labelled run.
-4. Only exception claims are supported; `wrong_output` is not implemented.
+4. `wrong_output` is EXPERIMENTAL (F-039): synthetic cases only, exact equality, a protocol-aware reproducer can still
+   forge a return (as for exceptions, F-026); no real bug has been evaluated with it.
 5. Docker mode on Windows/macOS; a stronger sandbox (gVisor / VM) than a shared-kernel container.

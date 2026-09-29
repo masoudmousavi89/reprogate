@@ -22,6 +22,8 @@ import traceback
 HARNESS_VERSION = "0.1-proto"
 PROTOCOL = "rg-obs-1"
 _CODE_CACHE = {}
+MAX_RETURNS = 50       # F-039: returns recorded per run for a wrong_output claim
+MAX_REPR = 2000        # characters kept of a repr; a longer one is cut and marked
 
 
 def _rp(p):
@@ -211,6 +213,65 @@ def _phase(frames, src):
     return "trigger"
 
 
+def _bounded_repr(value):
+    try:
+        text = repr(value)
+    except Exception:
+        return "<unrepresentable>", True
+    if len(text) > MAX_REPR:
+        return text[:MAX_REPR], True
+    return text, False
+
+
+def _return_watcher(watch_file, watch_function, ctx, repo_real, out):
+    """F-039: a trace function that records the returns of the watched target function (wrong_output claims).
+
+    Only frames whose code name is the watched function and whose file is the watched file are traced. A return that
+    follows an exception event in the same frame with the value None is marked as raised (the exception propagated or
+    the function returned None after handling it; either way it is not used as a returned value)."""
+    want = _rp(os.path.join(repo_real, watch_file))
+
+    def local(frame, event, arg):
+        state = calls.get(id(frame))
+        if state is None:
+            return local
+        if event == "exception":
+            state["exception_seen"] = True
+        elif event == "return":
+            calls.pop(id(frame), None)
+            if len(out) >= MAX_RETURNS:
+                return local
+            co = frame.f_code
+            rec = {"filename": co.co_filename, "function": co.co_name, "lineno": frame.f_lineno,
+                   "module": frame.f_globals.get("__name__"), "class": _classify(co.co_filename, ctx)}
+            if rec["class"] == "TARGET":
+                ok, why = _authentic(frame)
+                rec["authentic"] = ok
+                rec["authenticity_note"] = why
+                rec["rel_path"] = _rel(co.co_filename, repo_real)
+                if not ok:
+                    rec["class"] = "FORGED_TARGET"
+            value, cut = _bounded_repr(arg)
+            out.append({"frame": rec, "value_repr": value, "value_truncated": cut, "args_repr": state["args"],
+                        "raised": bool(state["exception_seen"] and arg is None)})
+        return local
+
+    calls = {}
+
+    def glob(frame, event, arg):
+        if event != "call":
+            return None
+        co = frame.f_code
+        if co.co_name != watch_function or _rp(co.co_filename) != want:
+            return None
+        n = co.co_argcount + co.co_kwonlyargcount
+        args = {name: frame.f_locals.get(name) for name in co.co_varnames[:n]}
+        calls[id(frame)] = {"args": _bounded_repr(args)[0], "exception_seen": False}
+        return local
+
+    return glob
+
+
 def worker_main(argv=None):
     """Runs the reproducer and hands its observation to the supervisor (F-023)."""
     ap = argparse.ArgumentParser()
@@ -218,6 +279,8 @@ def worker_main(argv=None):
     ap.add_argument("--repro", required=True)
     ap.add_argument("--result-file", required=True)
     ap.add_argument("--pythonpath-extra", action="append", default=[])
+    ap.add_argument("--watch-file")
+    ap.add_argument("--watch-function")
     a = ap.parse_args(argv)
 
     ctx = {
@@ -237,6 +300,9 @@ def worker_main(argv=None):
 
     exc = None
     exit_code = 0
+    returns = [] if a.watch_file and a.watch_function else None
+    if returns is not None:
+        sys.settrace(_return_watcher(a.watch_file, a.watch_function, ctx, repo_real, returns))
     try:
         runpy.run_path(a.repro, run_name="__main__")
     except SystemExit as e:
@@ -259,6 +325,8 @@ def worker_main(argv=None):
             traceback.print_exception(type(e), e, tb)
         except Exception:
             pass
+    if returns is not None:
+        sys.settrace(None)
 
     obs = {
         "harness_version": HARNESS_VERSION,
@@ -268,6 +336,8 @@ def worker_main(argv=None):
         "phase": None,
         "exception": None,
     }
+    if returns is not None:
+        obs["returns"] = returns
     if exc is not None:
         frames = _frames(exc.__traceback__, ctx, repo_real)
         obs["phase"] = _phase(frames, src)
@@ -432,7 +502,29 @@ def _recheck_frames(frames, ctx, repo_real):
     return out
 
 
+def _recheck_returns(obs, ctx, repo_real):
+    """F-039: the returns reported for a wrong_output claim get the same frame recheck as exception frames."""
+    returns = obs.get("returns")
+    if returns is None:
+        return None
+    if not isinstance(returns, list) or len(returns) > MAX_RETURNS:
+        return "malformed return record"
+    for r in returns:
+        if not isinstance(r, dict) or not isinstance(r.get("value_repr"), str) or len(r["value_repr"]) > MAX_REPR:
+            return "malformed return record"
+        frames = _recheck_frames([r.get("frame")], ctx, repo_real)
+        if frames is None:
+            return "malformed return record"
+        r["frame"] = frames[0]
+        r["raised"] = r.get("raised") is not False
+        r["value_truncated"] = r.get("value_truncated") is not False
+    return None
+
+
 def _recheck(obs, ctx, repo_real):
+    err = _recheck_returns(obs, ctx, repo_real)
+    if err:
+        return err
     exc = obs.get("exception")
     if exc is None:
         return None
@@ -486,6 +578,8 @@ def supervisor_main(argv=None):
     ap.add_argument("--repro", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--pythonpath-extra", action="append", default=[])
+    ap.add_argument("--watch-file")
+    ap.add_argument("--watch-function")
     a = ap.parse_args(argv)
     tmp = tempfile.mkdtemp(prefix="rg-obs-")
     result_file = os.path.join(tmp, "result.json")
@@ -493,6 +587,8 @@ def supervisor_main(argv=None):
            "--result-file", result_file]
     for e in a.pythonpath_extra:
         cmd += ["--pythonpath-extra", e]
+    if a.watch_file and a.watch_function:
+        cmd += ["--watch-file", a.watch_file, "--watch-function", a.watch_function]
     ctx = {"repo": _rp(a.repo), "repro": _rp(a.repro), "harness": _rp(__file__), "stdlib": _stdlib_roots()}
     try:
         rc = subprocess.Popen(cmd, stdin=subprocess.DEVNULL).wait()

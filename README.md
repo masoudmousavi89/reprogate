@@ -8,7 +8,8 @@ an evidence bundle. It does **not** claim the bug is real: `SYMPTOM_REPRODUCED !
 This is an early **prototype**, deliberately small:
 
 - Python 3.8+ and the standard library only (Docker is optional and only used by the sandbox mode).
-- Exception-type claims only (`wrong_output` / `unexpected_exit` are not implemented).
+- Exception-type claims; `wrong_output` claims (a function returns a wrong value) are EXPERIMENTAL, version 1, tested on
+  synthetic cases only (F-039, `labs/wrong-output/`); `unexpected_exit` and any other kind are UNSUPPORTED.
 - Runs reproducers as plain host processes by default (no sandbox); `--sandbox docker` runs them in a network-less,
   read-only container (see `THREAT_MODEL.md`).
 - It exists to answer one question with real data: can an independent verifier tell a real reproduction, a clean fix,
