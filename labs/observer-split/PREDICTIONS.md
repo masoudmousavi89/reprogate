@@ -35,3 +35,19 @@ forging anything (outcome NO_MATCHING_REPRODUCTION_FOUND). That run does not tes
   Prediction: NOT SYMPTOM_REPRODUCED in host and Docker mode (the supervisor writes the file afterwards).
 - b04: same, then `os.killpg(os.getpgrp(), 9)`. Prediction: NOT SYMPTOM_REPRODUCED in host mode (harness exit code
   is not 0, file not trusted); in Docker mode NOT SYMPTOM_REPRODUCED as well.
+
+## Frame plausibility check (predictions committed BEFORE the code change)
+Change: the supervisor stops trusting the worker's `class`, `authentic` and `rel_path` fields. It reclassifies every
+frame from its `filename` and, for every TARGET frame, checks against the real source on disk: the file exists inside
+the repository, `rel_path` equals the real relative path, a function with that name exists in the file's AST and
+`lineno` lies inside its body, and every TARGET frame that is not the innermost frame sits on a line holding a call.
+A frame that fails becomes FORGED_TARGET with a `plausibility_note`; the matcher already rejects those.
+
+- b02 (forged frame `filename: "x"`, `lineno: 1`): NOT SYMPTOM_REPRODUCED in host and Docker mode (FORGED_TARGET).
+- b05 (`attacks/b05_forge_plausible_frame.py`, same as b02 but the frame names the real file, the real function
+  and the real `raise` line of `Cache.__setitem__`): still SYMPTOM_REPRODUCED in host and Docker mode. The check
+  raises the cost again; it is not a security boundary and `observation_integrity` stays `BEST_EFFORT_IN_PROCESS`.
+- The 9 labs (host mode), b01, b03, b04 and the round-2 attacks: unchanged.
+- Unit tests: existing ones pass; new direct tests of the check pass on Windows and Linux.
+- b02 and b05 need `/proc/self/cmdline`, so they only run on Linux. On the Windows machine where the change is made
+  they are NOT run; only the unit tests are.
