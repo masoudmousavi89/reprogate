@@ -8,7 +8,8 @@ Protocol (fixed before the first draw, see labs/sample-2026-09/PROTOCOL.md):
             the application list; the RNG picks one repository and one random closed "bug" issue with a traceback.
 Mechanical eligibility (each draw is recorded, eligible or not, nothing is redrawn silently):
   E1 the last line of the traceback in the body names an exception type,
-  E2 the issue's `closed` event references a commit (so an affected/fix commit pair exists).
+  E2 a fix commit is identifiable: the `closed` event references a commit, or a merged PR of the same repository
+     cross-references the issue (its merge commit is the fix; the affected commit is the merge commit's first parent).
 Usage: python tools/sample_issues.py --seed 20260929 --pool LIB --eligible 3 --out draws.json
 Unauthenticated GitHub API (search 10/min, core 60/h): calls are counted and the script stops on rate limit.
 """
@@ -40,6 +41,23 @@ def last_exception(body):
     for m in TB.finditer(body[i:]):
         pass
     return (m.group(1), (m.group(2) or "").strip()) if m else None
+
+
+def find_fix(repo, number):
+    """E2 (amended, see PROTOCOL.md): a `closed` event with a commit, else the merge commit of a merged PR in the
+    same repository that cross-references the issue. Returns (sha, source) or None."""
+    tl = get("/repos/%s/issues/%d/timeline?per_page=100" % (repo, number))
+    for e in tl:
+        if e.get("event") == "closed" and e.get("commit_id"):
+            return e["commit_id"], "closed_event"
+    for e in tl:
+        src = (e.get("source") or {}).get("issue") or {}
+        pr = src.get("pull_request") or {}
+        if e.get("event") == "cross-referenced" and pr.get("merged_at") and src.get("repository_url", "").endswith("/" + repo):
+            p = get("/repos/%s/pulls/%d" % (repo, src["number"]))
+            if p.get("merged") and p.get("merge_commit_sha"):
+                return p["merge_commit_sha"], "merged_pr#%d" % src["number"]
+    return None
 
 
 def search(q, page=1):
@@ -96,12 +114,11 @@ def main():
                 rec["verdict"] = "INELIGIBLE_E1_NO_EXCEPTION_LINE"
             else:
                 rec["exception"] = {"type": exc[0], "message": exc[1]}
-                ev = get("/repos/%s/issues/%d/events" % (repo, it["number"]))
-                cl = [e for e in ev if e.get("event") == "closed" and e.get("commit_id")]
-                if not cl:
-                    rec["verdict"] = "INELIGIBLE_E2_NO_CLOSING_COMMIT"
+                fix = find_fix(repo, it["number"])
+                if not fix:
+                    rec["verdict"] = "INELIGIBLE_E2_NO_FIX_COMMIT"
                 else:
-                    rec["closing_commit"] = cl[-1]["commit_id"]
+                    rec["closing_commit"], rec["fix_source"] = fix
                     rec["verdict"] = "ELIGIBLE"
                     ok += 1
         draws.append(rec)

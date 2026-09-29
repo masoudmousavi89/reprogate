@@ -1,0 +1,172 @@
+{
+  "seed": 20260929,
+  "pool": "LIB",
+  "draws": [
+    {
+      "draw": 1,
+      "pool": "LIB",
+      "meta": {
+        "window": "2021-06-16..2021-06-29",
+        "total": 648
+      },
+      "repo": "RUCAIBox/RecBole",
+      "number": 848,
+      "title": "run full_sort_topk, sometimes ok and sometimes throw such follow exceptions",
+      "url": "https://github.com/RUCAIBox/RecBole/issues/848",
+      "exception": {
+        "type": "RuntimeError",
+        "message": "There were no tensor arguments to this function (e.g., you passed an empty list of Tensors), but no fallback function is registered for schema aten::_cat.  This usually means that this function requires a non-empty list of Tensors.  Available functions are [CPU, CUDA, QuantizedCPU, BackendSelect, Named, AutogradOther, AutogradCPU, AutogradCUDA, AutogradXLA, AutogradPrivateUse1, AutogradPrivateUse2, AutogradPrivateUse3, Tracer, Autocast, Batched, VmapMode]."
+      },
+      "verdict": "INELIGIBLE_E2_NO_CLOSING_COMMIT"
+    },
+    {
+      "draw": 2,
+      "pool": "LIB",
+      "meta": {
+        "window": "2025-04-26..2025-05-09",
+        "total": 1004
+      },
+      "repo": "theOehrly/Fast-F1",
+      "number": 748,
+      "title": "[BUG] Rate limit exceptions only seen when log level is DEBUG",
+      "url": "https://github.com/theOehrly/Fast-F1/issues/748",
+      "exception": {
+        "type": "fastf1.req.RateLimitExceededError",
+        "message": "any API: 500 calls/h"
+      },
+      "verdict": "INELIGIBLE_E2_NO_CLOSING_COMMIT"
+    },
+    {
+      "draw": 3,
+      "pool": "LIB",
+      "meta": {
+        "window": "2024-11-03..2024-11-16",
+        "total": 1054
+      },
+      "repo": "Qiskit/qiskit-ibm-catalog",
+      "number": 40,
+      "title": "IBM circuit function fails at level 3 only for simple circuit",
+      "url": "https://github.com/Qiskit/qiskit-ibm-catalog/issues/40",
+      "verdict": "INELIGIBLE_E1_NO_EXCEPTION_LINE"
+    },
+    {
+      "draw": 4,
+      "pool": "LIB",
+      "meta": {
+        "window": "2019-04-27..2019-05-10",
+        "total": 406
+      },
+      "repo": "taurus-org/taurus",
+      "number": 909,
+      "title": "ImportError: No module named curvesAppearanceChooserDlg (when using old .pck or .ini files from v<4.5)",
+      "url": "https://github.com/taurus-org/taurus/issues/909",
+      "exception": {
+        "type": "ImportError",
+        "message": "No module named curvesAppearanceChooserDlg"
+      },
+      "verdict": "INELIGIBLE_E2_NO_CLOSING_COMMIT"
+    },
+    {
+      "draw": 5,
+      "pool": "LIB",
+      "meta": {
+        "window": "2021-06-11..2021-06-24",
+        "total": 656
+      },
+      "repo": "ultralytics/yolov5",
+      "number": 3625,
+      "title": "RuntimeError: Sizes of tensors must match except in dimension 2. Got 25 and 26 (The offending index is 0)",
+      "url": "https://github.com/ultralytics/yolov5/issues/3625",
+      "exception": {
+        "type": "RuntimeError",
+        "message": "Sizes of tensors must match except in dimension 2. Got 25 and 26 (The offending index is 0)"
+      },
+      "verdict": "INELIGIBLE_E2_NO_CLOSING_COMMIT"
+    },
+    {
+      "draw": 6,
+      "pool": "LIB",
+      "meta": {
+        "window": "2022-09-03..2022-09-16",
+        "total": 871
+      },
+      "repo": "saltstack/salt",
+      "number": 62637,
+      "title": "[BUG] gitfs is suddenly a hassle with onedir package",
+      "url": "https://github.com/saltstack/salt/issues/62637",
+      "exception": {
+        "type": "_pygit2.GitError",
+        "message": "OpenSSL error: failed to load certificates: error:00000000:lib(0):func(0):reason(0)"
+      },
+      "verdict": "INELIGIBLE_E2_NO_CLOSING_COMMIT"
+    },
+    {
+      "draw": 7,
+      "pool": "LIB",
+      "meta": {
+        "window": "2019-08-24..2019-09-06",
+        "total": 422
+      },
+      "repo": "makeabilitylab/makeabilitylabwebsite",
+      "number": 815,
+      "title": "ValueError: Unable to configure handler 'file'",
+      "url": "https://github.com/makeabilitylab/makeabilitylabwebsite/issues/815",
+      "exception": {
+        "type": "ValueError",
+        "message": "Unable to configure handler 'file'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_CLOSING_COMMIT"
+    },
+    {
+      "draw": 8,
+      "pool": "LIB",
+      "meta": {
+        "window": "2025-06-26..2025-07-09",
+        "total": 985
+      },
+      "repo": "OpenHands/OpenHands-Cloud",
+      "number": 64,
+      "title": "[Bug] Slack integration does not work in shared channels",
+      "url": "https://github.com/OpenHands/OpenHands-Cloud/issues/64",
+      "exception": {
+        "type": "slack_sdk.errors.SlackApiError",
+        "message": "The request to the Slack API failed. (url: https://slack.com/api/conversations.replies)"
+      },
+      "verdict": "INELIGIBLE_E2_NO_CLOSING_COMMIT"
+    },
+    {
+      "draw": 9,
+      "pool": "LIB",
+      "meta": {
+        "window": "2020-08-28..2020-09-10",
+        "total": 598
+      },
+      "repo": "ultralytics/yolov5",
+      "number": 870,
+      "title": "'Detect' object has no attribute 'export'",
+      "url": "https://github.com/ultralytics/yolov5/issues/870",
+      "exception": {
+        "type": "torch.nn.modules.module.ModuleAttributeError",
+        "message": "'Detect' object has no attribute 'export'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_CLOSING_COMMIT"
+    },
+    {
+      "draw": 10,
+      "pool": "LIB",
+      "meta": {
+        "window": "2023-12-15..2023-12-28",
+        "total": 782
+      },
+      "repo": "explosion/confection",
+      "number": 54,
+      "title": "Error when pydantic validate outputs a dict",
+      "url": "https://github.com/explosion/confection/issues/54",
+      "exception": {
+        "type": "TypeError",
+        "message": "string indices must be integers, not 'str'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_CLOSING_COMMIT"
+    }
+  ]
+}
