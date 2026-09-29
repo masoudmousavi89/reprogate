@@ -51,3 +51,10 @@ A frame that fails becomes FORGED_TARGET with a `plausibility_note`; the matcher
 - Unit tests: existing ones pass; new direct tests of the check pass on Windows and Linux.
 - b02 and b05 need `/proc/self/cmdline`, so they only run on Linux. On the Windows machine where the change is made
   they are NOT run; only the unit tests are.
+
+### Deviation from the design above (recorded before the code and before any run)
+The rule "every TARGET frame that is not the innermost frame sits on a line holding a call" is dropped. Python code
+calls into Python code without an `ast.Call` node (subscripts, operators, truth tests, iteration, attribute access
+through properties), so the rule would mark honest frames as forged. It is replaced by a weaker rule for every TARGET
+frame: `lineno` must be covered by a statement of the named scope that is not a docstring, `pass`, `break`,
+`continue`, `global` or `nonlocal`. The predictions for b02, b05, the labs and the tests are unchanged.
