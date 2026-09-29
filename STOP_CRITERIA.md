@@ -47,3 +47,18 @@ A verdict is due by 2026-11-15 or after 20 new labs, whichever comes first.
 
 Until a BUILD verdict exists, no public text or application states an accuracy, precision or reliability figure; it
 may describe the tool and its limits only.
+
+## Change 2026-09-29: time limit
+
+What changes: the verdict is due by **2026-10-13** or after 20 new labs, whichever comes first (was 2026-11-15). The
+"one more round with a sample twice as large" of the combination rule moves to after the v0.1 alpha.
+
+Why: the maintainer set a 14-day schedule to finish the v0.1 alpha.
+
+What does not change: the metrics, their definitions, the thresholds, the sample minimums, the held-out rule, the
+combination rule and the rule on public claims.
+
+Disclosure: this change is made after data was seen. M4 was already measured (6 of 30 = 20 %, rescope; see
+`labs/sample-v3/CHECKLIST-WIDE.md`) and the M1/M2 labelling had already stopped with 6 evaluable bugs, below the sample
+minimum (see `labs/sample-v3/DEVIATIONS.md`). Only the date changes, so those results stand as measured. With the
+current sample the M1/M2 verdict at the new date is expected to be INCONCLUSIVE.
