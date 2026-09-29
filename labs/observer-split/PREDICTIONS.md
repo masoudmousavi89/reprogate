@@ -58,3 +58,25 @@ calls into Python code without an `ast.Call` node (subscripts, operators, truth 
 through properties), so the rule would mark honest frames as forged. It is replaced by a weaker rule for every TARGET
 frame: `lineno` must be covered by a statement of the named scope that is not a docstring, `pass`, `break`,
 `continue`, `global` or `nonlocal`. The predictions for b02, b05, the labs and the tests are unchanged.
+
+## Linux verification run (predictions committed BEFORE the run)
+
+Environment: Linux container, CPython 3.8.20 (uv), Docker with `mirror.gcr.io/library/python:3.8-slim`
+(images with `MarkupSafe` built from host-downloaded wheels, F-018). Provenance cannot be verified from this
+environment (GitHub API 403, F-010), so runs of the jinja lab use `--allow-unverified-provenance` and their
+outcomes carry the qualifier `PROVENANCE_UNVERIFIED`. The open F-026 predictions above are the ones tested here.
+
+Note on step 1 (unit tests): the full suite was already run once before this section was written
+(100 tests, OK, 0 skipped). That result is recorded in RESULTS.md as "run before the prediction was committed";
+the expectation given by the maintainer was: the 5 POSIX-only tests run, the 6 Docker tests run only with
+Docker and the image ready.
+
+| item | prediction |
+|---|---|
+| unit tests, Linux, Docker + image ready | `Ran 100`, `OK`, 0 skipped (the 5 POSIX-only and the 6 Docker tests run) |
+| b02 (`labs/cachetools-63`, host and Docker) | NOT SYMPTOM_REPRODUCED (FORGED_TARGET, `filename: "x"`) |
+| b05 (`labs/cachetools-63`, host and Docker) | SYMPTOM_REPRODUCED (real file, function and `raise` line) |
+| b01, b03, b04 (host and Docker) | not SYMPTOM_REPRODUCED (as recorded in F-024); b04 in Docker fails earlier with ProcessLookupError |
+| jinja-843 (`run_lab001.sh`, host, unverified provenance) | 6 of 6 rows of `expected_outcomes.json` as before, every outcome with qualifier `PROVENANCE_UNVERIFIED` |
+| more-itertools-falsy (Python 3.12, host) | all rows of its `expected_outcomes.json` match (oracle PASS; f01 REJECTED; f02, f03 NO_MATCHING_REPRODUCTION_FOUND) |
+| honest TARGET frames in these runs | none becomes FORGED_TARGET (no false positive from the plausibility check) |
