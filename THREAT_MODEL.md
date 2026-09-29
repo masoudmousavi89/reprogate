@@ -35,3 +35,8 @@ Adds: no network, read-only root filesystem and repository, `--cap-drop ALL`, `n
 memory/cpu/pids limits, tmpfs scratch, container killed on timeout. Does NOT add: a separate observer (the
 harness is in the reproducer's process; `/out` is writable), image content verification, protection against
 kernel-level container escapes (shared kernel, no gVisor/VM). Tested on Linux only.
+
+## Round 2 attacks (see `labs/gate-round2/RESULTS.md`)
+
+Hidden dynamic code and raw file writes pass the gate but are stopped later (matcher, tree hash, read-only container).
+Known weakness: a builtin callable supplied by the reproducer can fail inside target code and satisfy `type AND location`; only the before/after oracle rejects it.

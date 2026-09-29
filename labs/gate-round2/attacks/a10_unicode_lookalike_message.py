@@ -1,4 +1,4 @@
 import cachetools
 
 c = cachetools.LRUCache(maxsize=2, getsizeof=int)
-c['value too large'.replace('e', 'е')] = 1
+c[1] = 'value too large'.replace('e', 'е')
