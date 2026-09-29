@@ -28,3 +28,13 @@ shared environment); it is not re-run.
 
 Not covered: Linux host mode with a template (untested here), large environments, an environment that cannot be copied, network
 access during the copy (none is used), a reproducer that knows the template path and races the hash check.
+
+## F-038 test fix: predictions committed BEFORE the change
+
+Diagnosis (F-038, `labs/linux-2026-09-29/RESULTS.md`): `tests/test_fresh_env.py` builds its venv with `venv.create()`, which copies the
+interpreter on POSIX (`symlinks=False`); a shared-library CPython (uv-managed) cannot start from the copy, so every run is ENV_FAILURE.
+Founder decision (2026-09-29): change only the test setup to `venv.create(..., symlinks=(os.name != "nt"))`; no change in `reprogate/`.
+
+- Windows (`symlinks` stays False there, so nothing changes): 136 tests OK, 11 skipped; `tests/test_fresh_env.py` 7 of 7 OK.
+- Linux, uv CPython 3.8 as root (run by the Linux session after the push): `tests/test_fresh_env.py` 7 of 7 OK; full suite 136 OK,
+  0 failures, 0 errors, 0 skipped. Then F-038 is closed as a test-setup problem.
