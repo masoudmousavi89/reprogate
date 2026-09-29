@@ -6,6 +6,35 @@ from .util import read_json, sha256_file, write_json
 HASHES = "hashes.json"
 
 
+class BundleError(Exception):
+    """The bundle cannot be read (F-035): not a folder, or a required JSON file is missing or not valid JSON."""
+
+    def __init__(self, problems):
+        Exception.__init__(self, "; ".join(problems))
+        self.problems = problems
+
+
+def load_bundle_json(bundle, names):
+    """Read the JSON files a command needs, or raise BundleError naming every problem. Executes nothing."""
+    if not os.path.isdir(bundle):
+        raise BundleError(["evidence path is not a folder"])
+    docs, problems = {}, []
+    for name in names:
+        p = os.path.join(bundle, name)
+        if not os.path.isfile(p):
+            problems.append("missing " + name)
+            continue
+        try:
+            docs[name] = read_json(p)
+        except ValueError:
+            problems.append(name + " is not valid JSON")
+        except OSError:
+            problems.append(name + " cannot be read")
+    if problems:
+        raise BundleError(problems)
+    return docs
+
+
 def build_hashes(bundle):
     out = {}
     for dirpath, _dirs, files in os.walk(bundle):

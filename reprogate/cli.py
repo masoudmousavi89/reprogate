@@ -1,10 +1,9 @@
 import argparse
 import json
-import os
 import sys
 
 from . import __version__
-from .evidence import verify_hashes
+from .evidence import BundleError, load_bundle_json, verify_hashes
 from .gate import gate_source
 from .invariants import validate_outcome
 from .pipeline import evaluate, oracle, replay
@@ -42,6 +41,12 @@ def _need_host_flag(a):
         print(HOST_WARNING, file=sys.stderr)
         return False
     return True
+
+
+def _invalid_bundle(e):
+    # F-035: exit 2 = incomplete input; exit 1 stays for a readable bundle that is invalid or fails
+    print("INVALID_BUNDLE:", "; ".join(e.problems), file=sys.stderr)
+    return 2
 
 
 def _load_claim(path):
@@ -142,6 +147,11 @@ def cmd_oracle(a):
 
 
 def cmd_verify(a):
+    try:
+        load_bundle_json(a.evidence, ["outcome.json", "environment.json", "claim.json"])
+    except BundleError as e:
+        print("VERIFY FAIL (INVALID_BUNDLE)")
+        return _invalid_bundle(e)
     if not _need_host_flag(a):
         return 2
     try:
@@ -160,17 +170,23 @@ def cmd_verify(a):
 
 
 def cmd_inspect(a):
+    try:
+        o = load_bundle_json(a.evidence, ["outcome.json"])["outcome.json"]
+    except BundleError as e:
+        return _invalid_bundle(e)
     ok, problems = verify_hashes(a.evidence)
-    o = read_json(os.path.join(a.evidence, "outcome.json"))
-    print("outcome            :", o["outcome"], "(%s)" % o["outcome_reason"])
-    print("qualifier          :", o["outcome_qualifier"])
-    print("reproducer         :", o["reproducer_name"], o["reproducer_origin"], o["reproducer_status"])
-    print("runs               :", o["run_status"])
-    print("counts             :", o["counts"])
-    print("claim provenance   :", o["claim_provenance"])
-    print("observation        :", o["observation_integrity"], "| environment trust:", o["environment_trust"])
-    print("oracle required    :", o.get("oracle_required"))
-    print("sandbox            :", o["sandbox"]["kind"])
+    # print what is there; a field the validator does not require may be absent (shown as "-")
+    g = (lambda k: o.get(k, "-")) if isinstance(o, dict) else (lambda k: "-")
+    sandbox = g("sandbox")
+    print("outcome            :", g("outcome"), "(%s)" % g("outcome_reason"))
+    print("qualifier          :", g("outcome_qualifier"))
+    print("reproducer         :", g("reproducer_name"), g("reproducer_origin"), g("reproducer_status"))
+    print("runs               :", g("run_status"))
+    print("counts             :", g("counts"))
+    print("claim provenance   :", g("claim_provenance"))
+    print("observation        :", g("observation_integrity"), "| environment trust:", g("environment_trust"))
+    print("oracle required    :", o.get("oracle_required") if isinstance(o, dict) else None)
+    print("sandbox            :", sandbox.get("kind", "-") if isinstance(sandbox, dict) else sandbox)
     print("hashes             :", "OK" if ok else "PROBLEMS: %s" % problems)
     violations = validate_outcome(o)
     print("invariants         :", "OK" if not violations else "VIOLATIONS: %s" % violations)
