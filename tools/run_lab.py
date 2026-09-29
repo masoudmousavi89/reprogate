@@ -34,6 +34,7 @@ def main():
     ap.add_argument("--work", required=True)
     ap.add_argument("--python", default=sys.executable, help="interpreter used to create the venv")
     ap.add_argument("--no-fetch", action="store_true")
+    ap.add_argument("--origin", help="reproducer_origin recorded in the evidence (default: the tool default)")
     a = ap.parse_args()
     lab = os.path.abspath(a.lab)
     name = os.path.basename(lab)
@@ -81,6 +82,8 @@ def main():
     print("provenance:", "VERIFIED" if not extra else "UNVERIFIED", "| python", ver)
 
     base = [sys.executable, "-m", "reprogate"]
+    if a.origin:
+        extra = extra + ["--origin", a.origin]
     sh(base + ["oracle", "--before-repo", sides["before"][0], "--after-repo", sides["after"][0], "--python", py,
                "--claim", use_claim, "--reproducer", os.path.join(lab, "repro.py"), "--out", os.path.join(ev, "oracle"),
                "--allow-host-execution"] + extra, cwd=ROOT, check=False)
