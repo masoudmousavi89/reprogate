@@ -3,7 +3,8 @@
     python tools/run_lab.py labs/tabulate-180 --work <dir> [--python <target python>]
 
 The lab directory holds claim.json, repro.py, fixtures/*.py and expected_outcomes.json (written before the run).
-Optional claim.json field: "env": {"pip": ["pkg==1.0", ...]} installed into the venv used as the target python.
+Optional claim.json field: "env": {"pip": ["pkg==1.0", ...], "pythonpath": ["src"]}: pip packages are installed into the venv
+used as the target python; pythonpath entries (relative to the checkout) are put on sys.path (src layouts).
 If claim.json has an issue number, the raw issue body is fetched and claim-check is applied; when it does not
 pass, the run continues with the unverified claim and every outcome carries the provenance qualifier.
 WARNING: no sandbox, reproducers run on this machine.
@@ -82,6 +83,8 @@ def main():
     print("provenance:", "VERIFIED" if not extra else "UNVERIFIED", "| python", ver)
 
     base = [sys.executable, "-m", "reprogate"]
+    for e in claim.get("env", {}).get("pythonpath", []):
+        extra = extra + ["--pythonpath-extra", e]
     if a.origin:
         extra = extra + ["--origin", a.origin]
     sh(base + ["oracle", "--before-repo", sides["before"][0], "--after-repo", sides["after"][0], "--python", py,

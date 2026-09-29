@@ -23,5 +23,6 @@
     {"field": "exception_type", "text": "TypeError"},
     {"field": "message", "text": "'NoneType' object is not subscriptable"}
   ],
+  "env": {"pythonpath": ["src"]},
   "provenance_verified": false
 }
