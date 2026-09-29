@@ -6,6 +6,7 @@ import sys
 from . import __version__
 from .evidence import verify_hashes
 from .gate import gate_source
+from .invariants import validate_outcome
 from .pipeline import evaluate, oracle, replay
 from . import sandbox as sbx
 from .provenance import check_claim
@@ -142,7 +143,10 @@ def cmd_verify(a):
         print("ERROR:", e, file=sys.stderr)
         return 2
     print(json.dumps(rep, indent=2))
-    ok = rep["hashes_ok"] and rep.get("same_outcome") and rep.get("commit_matches") is not False
+    ok = (rep["hashes_ok"] and rep.get("invariants_ok") and rep.get("same_outcome")
+          and rep.get("commit_matches") is not False)
+    for x in rep.get("invariant_violations") or []:
+        print("INVARIANT VIOLATION:", x, file=sys.stderr)
     print("VERIFY", "PASS" if ok else "FAIL")
     return 0 if ok else 1
 
@@ -160,7 +164,9 @@ def cmd_inspect(a):
     print("oracle required    :", o.get("oracle_required"))
     print("sandbox            :", o["sandbox"]["kind"])
     print("hashes             :", "OK" if ok else "PROBLEMS: %s" % problems)
-    return 0
+    violations = validate_outcome(o)
+    print("invariants         :", "OK" if not violations else "VIOLATIONS: %s" % violations)
+    return 0 if not violations else 1
 
 
 def main(argv=None):

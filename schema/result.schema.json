@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "reprogate/result.schema.json",
+  "title": "ReproGate outcome.json (schema 0.1-proto, unstable)",
+  "description": "Contract for the recorded outcome of one evaluation. DOCUMENTATION ONLY: the runtime check is reprogate/invariants.py (stdlib, no jsonschema); tests keep the enums below equal to reprogate/constants.py. Cross-field rules are listed in x-invariants.",
+  "type": "object",
+  "required": ["outcome", "outcome_reason", "outcome_qualifier", "claim_status", "reproducer_status", "run_status", "counts", "min_completed", "claim_provenance"],
+  "properties": {
+    "outcome": {"enum": ["SYMPTOM_REPRODUCED", "SYMPTOM_REPRODUCED_FLAKY", "NO_MATCHING_REPRODUCTION_FOUND", "INCONCLUSIVE", "NOT_EVALUATED"]},
+    "outcome_reason": {"enum": ["NONE", "CLAIM_NEEDS_INFO", "CLAIM_UNSUPPORTED", "CLAIM_PROVENANCE_INSUFFICIENT", "REPRODUCER_REJECTED", "REPRODUCER_UNSAFE", "REPRODUCER_NOT_AUDITABLE", "ENVIRONMENT_UNAVAILABLE", "INSUFFICIENT_VALID_RUNS", "SINGLE_MATCH_ONLY", "TIMEOUT_NOT_CLAIMED", "REPOSITORY_MODIFIED", "VERIFIER_INTERNAL_ERROR"]},
+    "outcome_qualifier": {"enum": [null, "PROVENANCE_UNVERIFIED"]},
+    "claim_status": {"enum": ["READY", "NEEDS_INFO", "UNSUPPORTED"]},
+    "reproducer_status": {"enum": ["VALID", "REJECTED", "UNSAFE", "NOT_AUDITABLE"]},
+    "run_status": {"type": "array", "items": {"enum": ["COMPLETED", "ENV_FAILURE", "TIMEOUT", "INVALID"]}},
+    "counts": {
+      "type": "object",
+      "required": ["total", "completed", "env_failures", "timeouts", "invalid", "matching", "clean_completion_runs"],
+      "properties": {
+        "total": {"type": "integer", "minimum": 0},
+        "completed": {"type": "integer", "minimum": 0},
+        "env_failures": {"type": "integer", "minimum": 0},
+        "timeouts": {"type": "integer", "minimum": 0},
+        "invalid": {"type": "integer", "minimum": 0},
+        "matching": {"type": "integer", "minimum": 0},
+        "clean_completion_runs": {"type": "integer", "minimum": 0}
+      }
+    },
+    "min_completed": {"type": "integer", "minimum": 0},
+    "runs_requested": {"type": "integer", "minimum": 0},
+    "claim_provenance": {"enum": ["VERIFIED", "INSUFFICIENT", "UNVERIFIED_ALLOWED"]},
+    "oracle_required": {"type": "boolean"}
+  },
+  "x-invariants": [
+    "COUNTS_TOTAL: counts.total equals len(run_status); when the gate passed and claim_status is READY it also equals runs_requested (when present)",
+    "COUNTS_TALLY: counts.completed/env_failures/timeouts/invalid equal the tally of run_status",
+    "COUNTS_ORDER: matching <= completed; clean_completion_runs <= completed; per-outcome requirements (SYMPTOM_REPRODUCED: matching == completed >= max(2, min_completed); SYMPTOM_REPRODUCED_FLAKY: 2 <= matching < completed and completed >= min_completed; NO_MATCHING_REPRODUCTION_FOUND: matching == 0 and completed >= min_completed; INSUFFICIENT_VALID_RUNS: completed < min_completed; SINGLE_MATCH_ONLY: matching == 1)",
+    "REASON_OUTCOME: NONE only with SYMPTOM_REPRODUCED, SYMPTOM_REPRODUCED_FLAKY or NO_MATCHING_REPRODUCTION_FOUND; CLAIM_NEEDS_INFO, CLAIM_UNSUPPORTED, REPRODUCER_*, ENVIRONMENT_UNAVAILABLE only with NOT_EVALUATED; the remaining reasons only with INCONCLUSIVE",
+    "GATE_LINK: reproducer_status other than VALID requires NOT_EVALUATED, the matching REPRODUCER_* reason and no runs",
+    "CLAIM_LINK: claim_status other than READY (gate passed) requires NOT_EVALUATED with CLAIM_UNSUPPORTED or CLAIM_NEEDS_INFO",
+    "ENV_LINK: ENVIRONMENT_UNAVAILABLE requires at least one run and every run ENV_FAILURE",
+    "RUN_LINK: REPOSITORY_MODIFIED and VERIFIER_INTERNAL_ERROR require an INVALID run; TIMEOUT_NOT_CLAIMED requires no completed run and a TIMEOUT",
+    "PROVENANCE: SYMPTOM_REPRODUCED and SYMPTOM_REPRODUCED_FLAKY cannot be reported with claim_provenance INSUFFICIENT; CLAIM_PROVENANCE_INSUFFICIENT requires it",
+    "QUALIFIER: outcome_qualifier is PROVENANCE_UNVERIFIED exactly when claim_provenance is UNVERIFIED_ALLOWED",
+    "ORACLE: oracle_required true only for SYMPTOM_REPRODUCED or SYMPTOM_REPRODUCED_FLAKY (false inside an oracle bundle is allowed)"
+  ]
+}

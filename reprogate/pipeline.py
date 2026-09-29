@@ -7,6 +7,7 @@ from . import SCHEMA_VERSION, __version__
 from . import constants as C
 from .evidence import verify_hashes, write_hashes
 from .gate import gate_source
+from .invariants import validate_outcome
 from .matcher import classify_run
 from .outcome import aggregate
 from .provenance import provenance_state
@@ -123,6 +124,12 @@ def replay(bundle, repo, python, runs=None, timeout=30, sandbox=None):
     if not ok:
         return report
     rec = read_json(os.path.join(bundle, "outcome.json"))
+    # F-029: the recorded outcome must satisfy the cross-field invariants (hashes alone cannot catch an edited file
+    # whose hashes.json was regenerated); an invalid recorded outcome is not replayed
+    report["invariant_violations"] = validate_outcome(rec)
+    report["invariants_ok"] = not report["invariant_violations"]
+    if not report["invariants_ok"]:
+        return report
     env = read_json(os.path.join(bundle, "environment.json"))
     claim = read_json(os.path.join(bundle, "claim.json"))
     repro = os.path.join(bundle, "reproducer", rec["reproducer_name"])
@@ -141,6 +148,10 @@ def replay(bundle, repo, python, runs=None, timeout=30, sandbox=None):
         shutil.rmtree(tmp, ignore_errors=True)
     report["replay_outcome"] = [new["outcome"], new["outcome_reason"]]
     report["same_outcome"] = report["replay_outcome"] == report["recorded_outcome"]
+    replay_violations = validate_outcome(new)
+    if replay_violations:
+        report["invariant_violations"] += ["REPLAY: " + x for x in replay_violations]
+        report["invariants_ok"] = False
     return report
 
 

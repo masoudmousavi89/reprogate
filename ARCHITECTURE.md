@@ -74,3 +74,5 @@ inside the repository, `rel_path` is the real one, the named function (or class 
 `plausibility_note`. Limit: a reproducer that re-implements the protocol, exits through a hidden `os._exit` and names
 a real file, function and line can still forge an observation (attack b05). Treat
 `observation_integrity: BEST_EFFORT_IN_PROCESS` as unchanged.
+
+Result invariants (F-029): `reprogate/invariants.py` checks the cross-field consistency of a recorded `outcome.json` (outcome x reason, counts against `run_status`, gate/claim/environment links, provenance, qualifier, oracle flag). `schema/result.schema.json` documents the contract; the runtime check is stdlib only. `inspect` exits 1 and `verify` fails when an invariant is violated; an invalid recorded outcome is not replayed. It proves consistency, not truth.
