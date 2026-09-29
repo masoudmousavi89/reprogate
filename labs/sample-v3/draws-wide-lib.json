@@ -1,0 +1,354 @@
+{
+  "seed": 202609293,
+  "pool": "LIB",
+  "draws": [
+    {
+      "draw": 1,
+      "pool": "LIB",
+      "meta": {
+        "window": "2024-06-03..2024-06-16",
+        "total": 1059
+      },
+      "repo": "awslabs/gluonts",
+      "number": 3193,
+      "title": "Import error in pts module: gluonts/nursery/robust-mts-attack/pts/modules/distribution_output.py",
+      "url": "https://github.com/awslabs/gluonts/issues/3193",
+      "exception": {
+        "type": "ModuleNotFoundError",
+        "message": "No module named 'gluonts.torch.modules.distribution_output'"
+      },
+      "closing_commit": "36164f6f4d7c1d416aeec0949d61aa2d9f77a5f4",
+      "fix_source": "merged_pr#3194",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 2,
+      "pool": "LIB",
+      "meta": {
+        "window": "2019-09-14..2019-09-27",
+        "total": 393
+      },
+      "repo": "zopefoundation/RestrictedPython",
+      "number": 181,
+      "title": "Can't handle SyntaxError: can't assign to literal for compile_restricted_function",
+      "url": "https://github.com/zopefoundation/RestrictedPython/issues/181",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'NoneType' object has no attribute 'strip'"
+      },
+      "closing_commit": "9d0a217322092a1d07db7c84c40edc46a23c8adf",
+      "fix_source": "merged_pr#199",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 3,
+      "pool": "LIB",
+      "meta": {
+        "window": "2019-02-07..2019-02-20",
+        "total": 382
+      },
+      "repo": "szaghi/MaTiSSe",
+      "number": 41,
+      "title": "Support for non ascii text (encoding)",
+      "url": "https://github.com/szaghi/MaTiSSe/issues/41",
+      "exception": {
+        "type": "UnicodeEncodeError",
+        "message": "'ascii' codec can't encode characters in position 0-6: ordinal not in range(128)"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 4,
+      "pool": "LIB",
+      "meta": {
+        "window": "2023-05-23..2023-06-05",
+        "total": 994
+      },
+      "repo": "oobabooga/textgen",
+      "number": 2501,
+      "title": "OSError: exception: access violation writing 0x0000000001400000",
+      "url": "https://github.com/oobabooga/textgen/issues/2501",
+      "exception": {
+        "type": "OSError",
+        "message": "exception: access violation writing 0x0000000001400000"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 5,
+      "pool": "LIB",
+      "meta": {
+        "window": "2019-09-29..2019-10-12",
+        "total": 444
+      },
+      "repo": "abhinavsingh/proxy.py",
+      "number": 127,
+      "title": "[HttpParser] Handle invalid/malformed request chunks from client",
+      "url": "https://github.com/abhinavsingh/proxy.py/issues/127",
+      "exception": {
+        "type": "IndexError",
+        "message": "list index out of range"
+      },
+      "closing_commit": "c77f8b57894840f902fbdfaa18583c126e4fb9d2",
+      "fix_source": "merged_pr#137",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 6,
+      "pool": "LIB",
+      "meta": {
+        "window": "2021-07-03..2021-07-16",
+        "total": 654
+      },
+      "repo": "GlacioHack/geoutils",
+      "number": 231,
+      "title": "`Raster.data` is not consistently a masked_array",
+      "url": "https://github.com/GlacioHack/geoutils/issues/231",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'numpy.ndarray' object has no attribute 'mask'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 7,
+      "pool": "LIB",
+      "meta": {
+        "window": "2023-02-09..2023-02-22",
+        "total": 909
+      },
+      "repo": "home-assistant/operating-system",
+      "number": 2349,
+      "title": "Google Coral USB not detected after system reboot",
+      "url": "https://github.com/home-assistant/operating-system/issues/2349",
+      "verdict": "INELIGIBLE_E1_NO_EXCEPTION_LINE"
+    },
+    {
+      "draw": 8,
+      "pool": "LIB",
+      "meta": {
+        "window": "2023-03-26..2023-04-08",
+        "total": 1027
+      },
+      "repo": "getsentry/sentry-python",
+      "number": 1979,
+      "title": "Sentry SDK crashes in loop if `before_send` returns `None` or crashes",
+      "url": "https://github.com/getsentry/sentry-python/issues/1979",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'NoneType' object has no attribute 'get'"
+      },
+      "closing_commit": "2c3e8b2b000427d70cc41a5b1c5a1483f7202ddb",
+      "fix_source": "merged_pr#2045",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 9,
+      "pool": "LIB",
+      "meta": {
+        "window": "2024-12-03..2024-12-16",
+        "total": 1020
+      },
+      "repo": "cosmos1255/aoc_mod",
+      "number": 10,
+      "title": "Error print-out when running the aoc-mod setup script is a bit lengthy and may not be cleanly quitting.",
+      "url": "https://github.com/cosmos1255/aoc_mod/issues/10",
+      "exception": {
+        "type": "TypeError",
+        "message": "write() argument must be str, not None"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 10,
+      "pool": "LIB",
+      "meta": {
+        "window": "2020-07-05..2020-07-18",
+        "total": 634
+      },
+      "repo": "cornell-zhang/heterocl",
+      "number": 260,
+      "title": "Cannot quantize hcl tensors for Vitis",
+      "url": "https://github.com/cornell-zhang/heterocl/issues/260",
+      "exception": {
+        "type": "heterocl.tvm._ffi.base.TVMError",
+        "message": "[10:51:37] src/codegen/codegen_c.cc:446: Cannot convert type fixed16_12 to C type"
+      },
+      "closing_commit": "e3da4ec7f1cb43e113d2468b4df1a840d5b6256d",
+      "fix_source": "merged_pr#316",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 11,
+      "pool": "LIB",
+      "meta": {
+        "window": "2019-06-19..2019-07-02",
+        "total": 424
+      },
+      "repo": "giampaolo/psutil",
+      "number": 1547,
+      "title": "[MAC OS] Import Error (Python 3.7)",
+      "url": "https://github.com/giampaolo/psutil/issues/1547",
+      "exception": {
+        "type": "ImportError",
+        "message": "dlopen(/Users/wenlin.kwek/Documents/fp_churn/venv/lib/python3.7/site-packages/psutil/_psutil_osx.cpython-37m-darwin.so, 2): Symbol not found: _kIOMasterPortDefault"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 12,
+      "pool": "LIB",
+      "meta": {
+        "window": "2024-08-13..2024-08-26",
+        "total": 933
+      },
+      "repo": "ai2cm/ace",
+      "number": 426,
+      "title": "Power spectrum aggregator works only with one data grid",
+      "url": "https://github.com/ai2cm/ace/issues/426",
+      "verdict": "INELIGIBLE_E1_NO_EXCEPTION_LINE"
+    },
+    {
+      "draw": 13,
+      "pool": "LIB",
+      "meta": {
+        "window": "2019-07-07..2019-07-20",
+        "total": 442
+      },
+      "repo": "getsentry/sentry-python",
+      "number": 423,
+      "title": "Exception: raise OSError(\"handle is closed\")",
+      "url": "https://github.com/getsentry/sentry-python/issues/423",
+      "exception": {
+        "type": "OSError",
+        "message": "handle is closed"
+      },
+      "closing_commit": "5b3412ddbf8beb8961d873d84d60642b8738cfc6",
+      "fix_source": "merged_pr#434",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 14,
+      "pool": "LIB",
+      "meta": {
+        "window": "2019-01-23..2019-02-05",
+        "total": 395
+      },
+      "repo": "letuananh/intsem.fx",
+      "number": 5,
+      "title": "install error",
+      "url": "https://github.com/letuananh/intsem.fx/issues/5",
+      "exception": {
+        "type": "ModuleNotFoundError",
+        "message": "No module named 'lelesk'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 15,
+      "pool": "LIB",
+      "meta": {
+        "window": "2021-06-27..2021-07-10",
+        "total": 671
+      },
+      "repo": "tensorflow/model-optimization",
+      "number": 753,
+      "title": "Error processing property '_dropout_mask_cache' when using PrunableLayer with DropoutRNNCellMixin",
+      "url": "https://github.com/tensorflow/model-optimization/issues/753",
+      "exception": {
+        "type": "ValueError",
+        "message": "Error processing property '_dropout_mask_cache' of <ContextValueCache at 0x7f7a101647d0>"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 16,
+      "pool": "LIB",
+      "meta": {
+        "window": "2021-04-04..2021-04-17",
+        "total": 695
+      },
+      "repo": "fumitoh/modelx",
+      "number": 43,
+      "title": "Error with Interspatial Dependencies",
+      "url": "https://github.com/fumitoh/modelx/issues/43",
+      "exception": {
+        "type": "TypeError",
+        "message": "not all arguments converted during string formatting"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 17,
+      "pool": "LIB",
+      "meta": {
+        "window": "2024-04-27..2024-05-10",
+        "total": 1020
+      },
+      "repo": "datasciencecampus/transport-network-performance",
+      "number": 262,
+      "title": "html_report KeyError",
+      "url": "https://github.com/datasciencecampus/transport-network-performance/issues/262",
+      "exception": {
+        "type": "KeyError",
+        "message": "'multiple_stops_invalid'"
+      },
+      "closing_commit": "4300b4460adb653544849f2230ce8afcd200a186",
+      "fix_source": "merged_pr#248",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 18,
+      "pool": "LIB",
+      "meta": {
+        "window": "2024-10-15..2024-10-28",
+        "total": 1119
+      },
+      "repo": "canonical/service-mesh",
+      "number": 623,
+      "title": "[istio-k8s] Istio does not clean itself up properly",
+      "url": "https://github.com/canonical/service-mesh/issues/623",
+      "exception": {
+        "type": "lightkube.core.exceptions.ApiError",
+        "message": "Apply failed with 1 conflict: conflict with \"istio-k8s\": .metadata.labels.app.kubernetes.io/instance"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 19,
+      "pool": "LIB",
+      "meta": {
+        "window": "2024-01-07..2024-01-20",
+        "total": 995
+      },
+      "repo": "hummingbot/hummingbot",
+      "number": 6757,
+      "title": "Hyperliquid - Error on submit market order due to reduce only order would increase position.",
+      "url": "https://github.com/hummingbot/hummingbot/issues/6757",
+      "exception": {
+        "type": "OSError",
+        "message": "Error submitting order 0x981eef5312be54e87e24402a0222d43b: Reduce only order would increase position."
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 20,
+      "pool": "LIB",
+      "meta": {
+        "window": "2023-05-05..2023-05-18",
+        "total": 1018
+      },
+      "repo": "digitalfabrik/integreat-cms",
+      "number": 2284,
+      "title": "`TypeError` when non-staff user tries to grant page permissions",
+      "url": "https://github.com/digitalfabrik/integreat-cms/issues/2284",
+      "exception": {
+        "type": "TypeError",
+        "message": "argument of type 'ManyRelatedManager' is not iterable"
+      },
+      "closing_commit": "7aa63bc327569cde9541bb1a7a2ef6c4d896c4c7",
+      "fix_source": "merged_pr#2285",
+      "verdict": "ELIGIBLE"
+    }
+  ]
+}

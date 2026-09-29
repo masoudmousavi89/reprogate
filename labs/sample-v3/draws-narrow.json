@@ -1,0 +1,1171 @@
+{
+  "seed": 202609293,
+  "pool": "NARROW",
+  "draws": [
+    {
+      "draw": 1,
+      "pool": "NARROW",
+      "meta": {
+        "package": "werkzeug",
+        "rank": 153,
+        "repo": "pallets/werkzeug",
+        "total": 193,
+        "index": 173
+      },
+      "repo": "pallets/werkzeug",
+      "number": 215,
+      "title": "Cookie handling seems to chock on unicode values",
+      "url": "https://github.com/pallets/werkzeug/issues/215",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'unicode' object has no attribute 'items'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 2,
+      "pool": "NARROW",
+      "meta": {
+        "package": "rsa",
+        "rank": 145,
+        "repo": "sybrenstuvel/python-rsa",
+        "total": 18,
+        "index": 14
+      },
+      "repo": "sybrenstuvel/python-rsa",
+      "number": 30,
+      "title": "DeprecationWarning in load_pem",
+      "url": "https://github.com/sybrenstuvel/python-rsa/issues/30",
+      "verdict": "INELIGIBLE_E1_NO_EXCEPTION_LINE"
+    },
+    {
+      "draw": 3,
+      "pool": "NARROW",
+      "meta": {
+        "package": "factory-boy",
+        "rank": 933,
+        "repo": "FactoryBoy/factory_boy",
+        "total": 46,
+        "index": 32
+      },
+      "repo": "FactoryBoy/factory_boy",
+      "number": 313,
+      "title": "Cannot use list comprehension inside FuzzyChoice field with Django",
+      "url": "https://github.com/FactoryBoy/factory_boy/issues/313",
+      "exception": {
+        "type": "TypeError",
+        "message": "'choice' is an invalid keyword argument for this function"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 4,
+      "pool": "NARROW",
+      "meta": {
+        "package": "pytz",
+        "rank": 74,
+        "repo": "stub42/pytz",
+        "total": 5,
+        "index": 0
+      },
+      "repo": "stub42/pytz",
+      "number": 52,
+      "title": "AttributeError: 'America/Toronto' object has no attribute 'upper'",
+      "url": "https://github.com/stub42/pytz/issues/52",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'America/Toronto' object has no attribute 'upper'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 5,
+      "pool": "NARROW",
+      "meta": {
+        "package": "jedi",
+        "rank": 281,
+        "repo": "davidhalter/jedi",
+        "total": 272,
+        "index": 249
+      },
+      "repo": "davidhalter/jedi",
+      "number": 274,
+      "title": "AttributeError: 'NoneType' object has no attribute 'generate_call_path'",
+      "url": "https://github.com/davidhalter/jedi/issues/274",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'NoneType' object has no attribute 'generate_call_path'"
+      },
+      "closing_commit": "2dd9ad7864c76880da6e07b01f2067a5abb0c50c",
+      "fix_source": "closed_event",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 6,
+      "pool": "NARROW",
+      "meta": {
+        "package": "hyperlink",
+        "rank": 820,
+        "repo": "python-hyper/hyperlink",
+        "total": 7,
+        "index": 3
+      },
+      "repo": "python-hyper/hyperlink",
+      "number": 51,
+      "title": "Example does not work with python 2.7",
+      "url": "https://github.com/python-hyper/hyperlink/issues/51",
+      "exception": {
+        "type": "TypeError",
+        "message": "expected unicode for text, got 'http://github.com/mahmoud/hyperlink?utm_source=README'"
+      },
+      "closing_commit": "272d8012c98d38049dc7b461ce782a2be2dc65e4",
+      "fix_source": "closed_event",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 7,
+      "pool": "NARROW",
+      "meta": {
+        "package": "authlib",
+        "rank": 271,
+        "repo": "authlib/authlib",
+        "total": 64,
+        "index": 51
+      },
+      "repo": "authlib/authlib",
+      "number": 179,
+      "title": "JWT validation of exp claim doesn't work if exp is 0",
+      "url": "https://github.com/authlib/authlib/issues/179",
+      "exception": {
+        "type": "authlib.jose.errors.ExpiredTokenError",
+        "message": "expired_token: The token is expired"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 8,
+      "pool": "NARROW",
+      "meta": {
+        "package": "einops",
+        "rank": 815,
+        "repo": "arogozhnikov/einops",
+        "total": 15,
+        "index": 5
+      },
+      "repo": "arogozhnikov/einops",
+      "number": 320,
+      "title": "[BUG] Basic code from documentation does not work",
+      "url": "https://github.com/arogozhnikov/einops/issues/320",
+      "exception": {
+        "type": "TypeError",
+        "message": "repeat() got an unexpected keyword argument 'repeat'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 9,
+      "pool": "NARROW",
+      "meta": {
+        "package": "types-python-dateutil",
+        "rank": 557,
+        "repo": "python/typeshed",
+        "total": 75,
+        "index": 67
+      },
+      "repo": "python/typeshed",
+      "number": 1790,
+      "title": "BytesIO.name and StringIO.name should not be defined",
+      "url": "https://github.com/python/typeshed/issues/1790",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'_io.StringIO' object has no attribute 'name'"
+      },
+      "closing_commit": "6d7173b70b1db57bb0c65d0b4f2ce65151abae7a",
+      "fix_source": "merged_pr#1802",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 10,
+      "pool": "NARROW",
+      "meta": {
+        "package": "tifffile",
+        "rank": 810,
+        "repo": "cgohlke/tifffile",
+        "total": 29,
+        "index": 10
+      },
+      "repo": "cgohlke/tifffile",
+      "number": 253,
+      "title": "IndexError: index 1 is out of bounds for axis 0 with size 1",
+      "url": "https://github.com/cgohlke/tifffile/issues/253",
+      "exception": {
+        "type": "IndexError",
+        "message": "index 1 is out of bounds for axis 0 with size 1"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 11,
+      "pool": "NARROW",
+      "meta": {
+        "package": "sphinxcontrib-serializinghtml",
+        "rank": 838,
+        "repo": "sphinx-doc/sphinxcontrib-serializinghtml",
+        "total": 0
+      },
+      "verdict": "EMPTY_DRAW"
+    },
+    {
+      "draw": 12,
+      "pool": "NARROW",
+      "meta": {
+        "package": "pybreaker",
+        "rank": 715,
+        "repo": "danielfm/pybreaker",
+        "total": 1,
+        "index": 0
+      },
+      "repo": "danielfm/pybreaker",
+      "number": 47,
+      "title": "Exceptions in generators have wrong location",
+      "url": "https://github.com/danielfm/pybreaker/issues/47",
+      "verdict": "INELIGIBLE_E1_NO_EXCEPTION_LINE"
+    },
+    {
+      "draw": 13,
+      "pool": "NARROW",
+      "meta": {
+        "package": "pendulum",
+        "rank": 434,
+        "repo": "sdispater/pendulum",
+        "search_error": 422
+      },
+      "verdict": "EMPTY_DRAW"
+    },
+    {
+      "draw": 14,
+      "pool": "NARROW",
+      "meta": {
+        "package": "isort",
+        "rank": 278,
+        "repo": "PyCQA/isort",
+        "total": 78,
+        "index": 52
+      },
+      "repo": "PyCQA/isort",
+      "number": 1285,
+      "title": "isort 5.0.4 package includes `tests` directory",
+      "url": "https://github.com/PyCQA/isort/issues/1285",
+      "exception": {
+        "type": "builtins.ModuleNotFoundError",
+        "message": "No module named 'hypothesis_auto'"
+      },
+      "closing_commit": "a87efeaae24e9517a3d83b1dc712d9b1c1e5bde7",
+      "fix_source": "merged_pr#1266",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 15,
+      "pool": "NARROW",
+      "meta": {
+        "package": "jupyter-server-terminals",
+        "rank": 692,
+        "repo": "jupyter-server/jupyter_server_terminals",
+        "total": 0
+      },
+      "verdict": "EMPTY_DRAW"
+    },
+    {
+      "draw": 16,
+      "pool": "NARROW",
+      "meta": {
+        "package": "google-cloud-workflows",
+        "rank": 487,
+        "repo": "googleapis/google-cloud-python",
+        "total": 853,
+        "index": 547
+      },
+      "repo": "googleapis/google-cloud-python",
+      "number": 7584,
+      "title": "Synthesis failed for websecurityscanner",
+      "url": "https://github.com/googleapis/google-cloud-python/issues/7584",
+      "exception": {
+        "type": "KeyError",
+        "message": "'metadata'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 17,
+      "pool": "NARROW",
+      "meta": {
+        "package": "matplotlib-inline",
+        "rank": 287,
+        "repo": "ipython/matplotlib-inline",
+        "total": 2,
+        "index": 1
+      },
+      "repo": "ipython/matplotlib-inline",
+      "number": 11,
+      "title": "UnicodeDecodeError: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte",
+      "url": "https://github.com/ipython/matplotlib-inline/issues/11",
+      "exception": {
+        "type": "UnicodeDecodeError",
+        "message": "'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 18,
+      "pool": "NARROW",
+      "meta": {
+        "package": "pyasn1-modules",
+        "rank": 91,
+        "repo": "pyasn1/pyasn1-modules",
+        "total": 2,
+        "index": 0
+      },
+      "repo": "pyasn1/pyasn1-modules",
+      "number": 19,
+      "title": "`pyasn1.compat.octets` has been removed in 0.6.1",
+      "url": "https://github.com/pyasn1/pyasn1-modules/issues/19",
+      "exception": {
+        "type": "ModuleNotFoundError",
+        "message": "No module named 'pyasn1.compat.octets'"
+      },
+      "closing_commit": "b6738e0973f2026ace09d102ff0f6f846da9e515",
+      "fix_source": "merged_pr#22",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 19,
+      "pool": "NARROW",
+      "meta": {
+        "package": "google-cloud-automl",
+        "rank": 517,
+        "repo": "googleapis/google-cloud-python",
+        "total": 853,
+        "index": 48
+      },
+      "repo": "googleapis/google-cloud-python",
+      "number": 15072,
+      "title": "Invalid default value for timeout in PollingFuture",
+      "url": "https://github.com/googleapis/google-cloud-python/issues/15072",
+      "exception": {
+        "type": "TypeError",
+        "message": "'>' not supported between instances of 'int' and 'object'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 20,
+      "pool": "NARROW",
+      "meta": {
+        "package": "binaryornot",
+        "rank": 989,
+        "repo": "binaryornot/binaryornot",
+        "total": 2,
+        "index": 0
+      },
+      "repo": "binaryornot/binaryornot",
+      "number": 40,
+      "title": "test_never_crashes require a too large example",
+      "url": "https://github.com/binaryornot/binaryornot/issues/40",
+      "verdict": "INELIGIBLE_E1_NO_EXCEPTION_LINE"
+    },
+    {
+      "draw": 21,
+      "pool": "NARROW",
+      "meta": {
+        "package": "async-lru",
+        "rank": 611,
+        "repo": "aio-libs/async-lru",
+        "total": 2,
+        "index": 1
+      },
+      "repo": "aio-libs/async-lru",
+      "number": 158,
+      "title": "Using async_lru with tenacity @retry decorator",
+      "url": "https://github.com/aio-libs/async-lru/issues/158",
+      "exception": {
+        "type": "RuntimeError",
+        "message": "Coroutine function is required, got <function fetch at 0x1114c41e0>"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 22,
+      "pool": "NARROW",
+      "meta": {
+        "package": "html5lib",
+        "rank": 699,
+        "repo": "html5lib/html5lib-python",
+        "total": 22,
+        "index": 3
+      },
+      "repo": "html5lib/html5lib-python",
+      "number": 556,
+      "title": "ImportError: Can't determine version for html5lib",
+      "url": "https://github.com/html5lib/html5lib-python/issues/556",
+      "exception": {
+        "type": "ImportError",
+        "message": "Can't determine version for html5lib"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 23,
+      "pool": "NARROW",
+      "meta": {
+        "package": "pure-eval",
+        "rank": 295,
+        "repo": "alexmojaki/pure_eval",
+        "total": 1,
+        "index": 0
+      },
+      "repo": "alexmojaki/pure_eval",
+      "number": 11,
+      "title": "TypeError for malformed metaclass example",
+      "url": "https://github.com/alexmojaki/pure_eval/issues/11",
+      "exception": {
+        "type": "TypeError",
+        "message": "list indices must be integers or slices, not str"
+      },
+      "closing_commit": "84c34b6d63a57f5b02ac2bb8984c5252001c0add",
+      "fix_source": "merged_pr#12",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 24,
+      "pool": "NARROW",
+      "meta": {
+        "package": "sqlglot",
+        "rank": 375,
+        "repo": "tobymao/sqlglot",
+        "total": 256,
+        "index": 176
+      },
+      "repo": "tobymao/sqlglot",
+      "number": 2236,
+      "title": "bigquery regex containing parenthesis or square bracket not supported",
+      "url": "https://github.com/tobymao/sqlglot/issues/2236",
+      "verdict": "INELIGIBLE_E1_NO_EXCEPTION_LINE"
+    },
+    {
+      "draw": 25,
+      "pool": "NARROW",
+      "meta": {
+        "package": "pydantic-settings",
+        "rank": 83,
+        "repo": "pydantic/pydantic-settings",
+        "total": 69,
+        "index": 38
+      },
+      "repo": "pydantic/pydantic-settings",
+      "number": 408,
+      "title": "Order of alias given in AliasChoices yield different results",
+      "url": "https://github.com/pydantic/pydantic-settings/issues/408",
+      "exception": {
+        "type": "pydantic_core._pydantic_core.ValidationError",
+        "message": "1 validation error for MySettings"
+      },
+      "closing_commit": "fdd666bf94362f2303492369c0646f82fbdcbc4e",
+      "fix_source": "merged_pr#411",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 26,
+      "pool": "NARROW",
+      "meta": {
+        "package": "google-auth",
+        "rank": 71,
+        "repo": "googleapis/google-cloud-python",
+        "total": 853,
+        "index": 221
+      },
+      "repo": "googleapis/google-cloud-python",
+      "number": 2170,
+      "title": "'test_topic_iam_policy':  Authentication backend unavailable",
+      "url": "https://github.com/googleapis/google-cloud-python/issues/2170",
+      "verdict": "INELIGIBLE_E1_NO_EXCEPTION_LINE"
+    },
+    {
+      "draw": 27,
+      "pool": "NARROW",
+      "meta": {
+        "package": "aiofile",
+        "rank": 451,
+        "repo": "mosquito/aiofile",
+        "total": 10,
+        "index": 4
+      },
+      "repo": "mosquito/aiofile",
+      "number": 42,
+      "title": "AIOfile 3.0.0. raises (22, 'Invalid argument') if used on Ubuntu 18.4 ",
+      "url": "https://github.com/mosquito/aiofile/issues/42",
+      "exception": {
+        "type": "SystemError",
+        "message": "(22, 'Invalid argument')"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 28,
+      "pool": "NARROW",
+      "meta": {
+        "package": "argcomplete",
+        "rank": 397,
+        "repo": "kislyuk/argcomplete",
+        "total": 29,
+        "index": 18
+      },
+      "repo": "kislyuk/argcomplete",
+      "number": 273,
+      "title": "test/test_package missing from pypi tarball",
+      "url": "https://github.com/kislyuk/argcomplete/issues/273",
+      "exception": {
+        "type": "AssertionError",
+        "message": "\u001b[33mDEPRECATION: A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support\u001b[0m"
+      },
+      "closing_commit": "21edc74f3e62b7f6883268a12e5b8720f971431f",
+      "fix_source": "closed_event",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 29,
+      "pool": "NARROW",
+      "meta": {
+        "package": "fire",
+        "rank": 988,
+        "repo": "google/python-fire",
+        "total": 25,
+        "index": 14
+      },
+      "repo": "google/python-fire",
+      "number": 236,
+      "title": "fire raises \"preexec_fn is not supported on Windows platforms\" when using setuptools in windows",
+      "url": "https://github.com/google/python-fire/issues/236",
+      "exception": {
+        "type": "ValueError",
+        "message": "preexec_fn is not supported on Windows platforms"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 30,
+      "pool": "NARROW",
+      "meta": {
+        "package": "types-pyyaml",
+        "rank": 395,
+        "repo": "python/typeshed",
+        "total": 75,
+        "index": 13
+      },
+      "repo": "python/typeshed",
+      "number": 14297,
+      "title": "`ast.MatchStar.name` default value is not in \"ast.pyi\"",
+      "url": "https://github.com/python/typeshed/issues/14297",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'MatchStar' object has no attribute 'Beelzebub'"
+      },
+      "closing_commit": "ca543bf390af58ac40bdeebbde6c304622e87b60",
+      "fix_source": "merged_pr#14298",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 31,
+      "pool": "NARROW",
+      "meta": {
+        "package": "xlsxwriter",
+        "rank": 322,
+        "repo": "jmcnamara/XlsxWriter",
+        "total": 44,
+        "index": 16
+      },
+      "repo": "jmcnamara/XlsxWriter",
+      "number": 651,
+      "title": "The error ZIP does not support timestamps before 1980 is back",
+      "url": "https://github.com/jmcnamara/XlsxWriter/issues/651",
+      "exception": {
+        "type": "ValueError",
+        "message": "ZIP does not support timestamps before 1980"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 32,
+      "pool": "NARROW",
+      "meta": {
+        "package": "httpx2",
+        "rank": 221,
+        "repo": "pydantic/httpx2",
+        "total": 113,
+        "index": 33
+      },
+      "repo": "pydantic/httpx2",
+      "number": 510,
+      "title": "httpx.ConnectError: [SSL: UNSUPPORTED_PROTOCOL] unsupported protocol (_ssl.c:1108)",
+      "url": "https://github.com/pydantic/httpx2/issues/510",
+      "exception": {
+        "type": "httpx.ConnectError",
+        "message": "[SSL: UNSUPPORTED_PROTOCOL] unsupported protocol (_ssl.c:1108)`"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 33,
+      "pool": "NARROW",
+      "meta": {
+        "package": "feedparser",
+        "rank": 847,
+        "repo": "kurtmckee/feedparser",
+        "total": 28,
+        "index": 27
+      },
+      "repo": "kurtmckee/feedparser",
+      "number": 41,
+      "title": "Error installing in Ubuntu 15.04",
+      "url": "https://github.com/kurtmckee/feedparser/issues/41",
+      "exception": {
+        "type": "ImportError",
+        "message": "cannot import name 'IncompleteRead'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 34,
+      "pool": "NARROW",
+      "meta": {
+        "package": "asn1crypto",
+        "rank": 245,
+        "repo": "wbond/asn1crypto",
+        "total": 25,
+        "index": 17
+      },
+      "repo": "wbond/asn1crypto",
+      "number": 34,
+      "title": "Error encoding NameConstraints: UnicodeError: label empty or too long",
+      "url": "https://github.com/wbond/asn1crypto/issues/34",
+      "exception": {
+        "type": "UnicodeError",
+        "message": "encoding with 'idna' codec failed (UnicodeError: label empty or too long)"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 35,
+      "pool": "NARROW",
+      "meta": {
+        "package": "twine",
+        "rank": 784,
+        "repo": "pypa/twine",
+        "total": 57,
+        "index": 28
+      },
+      "repo": "pypa/twine",
+      "number": 729,
+      "title": "Conflicting requirements with keyring>=15.1 and importlib_metadata when Python<3.8",
+      "url": "https://github.com/pypa/twine/issues/729",
+      "verdict": "INELIGIBLE_E1_NO_EXCEPTION_LINE"
+    },
+    {
+      "draw": 36,
+      "pool": "NARROW",
+      "meta": {
+        "package": "opentelemetry-instrumentation-httpx",
+        "rank": 527,
+        "repo": "open-telemetry/opentelemetry-python-contrib",
+        "total": 91,
+        "index": 8
+      },
+      "repo": "open-telemetry/opentelemetry-python-contrib",
+      "number": 3730,
+      "title": "DB-API instrumentation errors if mysql-connector connection wrapper used for queries with sqlcomment enabled",
+      "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/issues/3730",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'CMySQLCursor' object has no attribute '_cnx'"
+      },
+      "closing_commit": "3b357c07a8999beea3356411c78cfa4114f70042",
+      "fix_source": "merged_pr#3729",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 37,
+      "pool": "NARROW",
+      "meta": {
+        "package": "pytest-xdist",
+        "rank": 250,
+        "repo": "pytest-dev/pytest-xdist",
+        "total": 68,
+        "index": 5
+      },
+      "repo": "pytest-dev/pytest-xdist",
+      "number": 773,
+      "title": "Import py problem",
+      "url": "https://github.com/pytest-dev/pytest-xdist/issues/773",
+      "exception": {
+        "type": "ModuleNotFoundError",
+        "message": "No module named 'py'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 38,
+      "pool": "NARROW",
+      "meta": {
+        "package": "traitlets",
+        "rank": 260,
+        "repo": "ipython/traitlets",
+        "total": 23,
+        "index": 19
+      },
+      "repo": "ipython/traitlets",
+      "number": 176,
+      "title": "IPython tests fail with traitlets master",
+      "url": "https://github.com/ipython/traitlets/issues/176",
+      "exception": {
+        "type": "TypeError",
+        "message": "object.__init__() takes no parameters"
+      },
+      "closing_commit": "eb432cf1795bdebf92941ad1c5fa2b829486b86b",
+      "fix_source": "merged_pr#177",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 39,
+      "pool": "NARROW",
+      "meta": {
+        "package": "aiosqlite",
+        "rank": 382,
+        "repo": "omnilib/aiosqlite",
+        "total": 6,
+        "index": 2
+      },
+      "repo": "omnilib/aiosqlite",
+      "number": 218,
+      "title": "sqlite3.OperationalError: unrecognized token: \":\"",
+      "url": "https://github.com/omnilib/aiosqlite/issues/218",
+      "exception": {
+        "type": "sqlite3.OperationalError",
+        "message": "unrecognized token: \":\""
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 40,
+      "pool": "NARROW",
+      "meta": {
+        "package": "python-utils",
+        "rank": 985,
+        "repo": "WoLpH/python-utils",
+        "total": 4,
+        "index": 0
+      },
+      "repo": "wolph/python-utils",
+      "number": 39,
+      "title": "ImportError: cannot import name 'Endpoint' from 'utils'",
+      "url": "https://github.com/wolph/python-utils/issues/39",
+      "exception": {
+        "type": "ImportError",
+        "message": "cannot import name 'Endpoint' from 'utils' (/.../.local/lib/python3.10/site-packages/utils/__init__.py)"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 41,
+      "pool": "NARROW",
+      "meta": {
+        "package": "twine",
+        "rank": 784,
+        "repo": "pypa/twine",
+        "total": 57,
+        "index": 11
+      },
+      "repo": "pypa/twine",
+      "number": 1007,
+      "title": "Connection Error on GCP when `--skip-existing`",
+      "url": "https://github.com/pypa/twine/issues/1007",
+      "exception": {
+        "type": "requests.exceptions.ConnectionError",
+        "message": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 42,
+      "pool": "NARROW",
+      "meta": {
+        "package": "google-cloud-storage-control",
+        "rank": 966,
+        "repo": "googleapis/google-cloud-python",
+        "total": 853,
+        "index": 698
+      },
+      "repo": "googleapis/google-cloud-python",
+      "number": 10278,
+      "title": "Synthesis failed for asset",
+      "url": "https://github.com/googleapis/google-cloud-python/issues/10278",
+      "exception": {
+        "type": "FileNotFoundError",
+        "message": "Unable to find generated output of artman: /home/kbuilder/.cache/synthtool/googleapis/artman-genfiles/python/cloudasset-v1p1beta1."
+      },
+      "closing_commit": "3e1257237699b504a68ea9f6a422e6316f01a7c5",
+      "fix_source": "merged_pr#10355",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 43,
+      "pool": "NARROW",
+      "meta": {
+        "package": "iniconfig",
+        "rank": 25,
+        "repo": "pytest-dev/iniconfig",
+        "total": 2,
+        "index": 0
+      },
+      "repo": "pytest-dev/iniconfig",
+      "number": 5,
+      "title": "Decode error in pytest.ini with chinese characters",
+      "url": "https://github.com/pytest-dev/iniconfig/issues/5",
+      "exception": {
+        "type": "UnicodeDecodeError",
+        "message": "'gbk' codec can't decode byte 0xad in position 259: illegal multibyte sequence"
+      },
+      "closing_commit": "5f617e30ac0c8512f13a0af44e0f94ddbddd4240",
+      "fix_source": "merged_pr#49",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 44,
+      "pool": "NARROW",
+      "meta": {
+        "package": "google-cloud-appengine-logging",
+        "rank": 535,
+        "repo": "googleapis/google-cloud-python",
+        "total": 853,
+        "index": 610
+      },
+      "repo": "googleapis/google-cloud-python",
+      "number": 9655,
+      "title": "Synthesis failed for cloudbuild",
+      "url": "https://github.com/googleapis/google-cloud-python/issues/9655",
+      "exception": {
+        "type": "jinja2.exceptions.TemplateAssertionError",
+        "message": "no filter named 'tobool'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 45,
+      "pool": "NARROW",
+      "meta": {
+        "package": "crashtest",
+        "rank": 448,
+        "repo": "sdispater/crashtest",
+        "search_error": 422
+      },
+      "verdict": "EMPTY_DRAW"
+    },
+    {
+      "draw": 46,
+      "pool": "NARROW",
+      "meta": {
+        "package": "ordered-set",
+        "rank": 709,
+        "repo": "rspeer/ordered-set",
+        "total": 4,
+        "index": 3
+      },
+      "repo": "rspeer/ordered-set",
+      "number": 5,
+      "title": "Pickling then unpickling fails for the empty OrderedSet().",
+      "url": "https://github.com/rspeer/ordered-set/issues/5",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'OrderedSet' object has no attribute 'items'"
+      },
+      "closing_commit": "7503d88c67b1bbf3eca4acb8b579ccec07176f89",
+      "fix_source": "closed_event",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 47,
+      "pool": "NARROW",
+      "meta": {
+        "package": "holidays",
+        "rank": 774,
+        "repo": "vacanza/holidays",
+        "total": 22,
+        "index": 7
+      },
+      "repo": "vacanza/holidays",
+      "number": 504,
+      "title": "ValueError: month must be in 1..12",
+      "url": "https://github.com/vacanza/holidays/issues/504",
+      "exception": {
+        "type": "ValueError",
+        "message": "month must be in 1..12"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 48,
+      "pool": "NARROW",
+      "meta": {
+        "package": "jsonschema",
+        "rank": 54,
+        "repo": "python-jsonschema/jsonschema",
+        "total": 83,
+        "index": 0
+      },
+      "repo": "python-jsonschema/jsonschema",
+      "number": 1573,
+      "title": "RefResolver: stale _get_subschemas_cache after mutating referrer causes silently-wrong anchor resolution",
+      "url": "https://github.com/python-jsonschema/jsonschema/issues/1573",
+      "exception": {
+        "type": "jsonschema.exceptions._RefResolutionError",
+        "message": "Unresolvable JSON pointer: 'foo'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 49,
+      "pool": "NARROW",
+      "meta": {
+        "package": "trio-websocket",
+        "rank": 695,
+        "repo": "python-trio/trio-websocket",
+        "total": 7,
+        "index": 2
+      },
+      "repo": "python-trio/trio-websocket",
+      "number": 148,
+      "title": "connection fails on URL without a path component",
+      "url": "https://github.com/python-trio/trio-websocket/issues/148",
+      "exception": {
+        "type": "h11._util.LocalProtocolError",
+        "message": "Illegal target characters"
+      },
+      "closing_commit": "61258058db3fcd0e325057af14dd4d97034e3b04",
+      "fix_source": "merged_pr#149",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 50,
+      "pool": "NARROW",
+      "meta": {
+        "package": "joserfc",
+        "rank": 279,
+        "repo": "authlib/joserfc",
+        "total": 5,
+        "index": 1
+      },
+      "repo": "authlib/joserfc",
+      "number": 50,
+      "title": "Provide default size/crv for `JWKRegistry.generate_key`",
+      "url": "https://github.com/authlib/joserfc/issues/50",
+      "exception": {
+        "type": "TypeError",
+        "message": "JWKRegistry.generate_key() missing 1 required positional argument: 'crv_or_size'"
+      },
+      "closing_commit": "48a3a713d82671a436413094d7df1c48f2b68434",
+      "fix_source": "merged_pr#55",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 51,
+      "pool": "NARROW",
+      "meta": {
+        "package": "rfc3339-validator",
+        "rank": 403,
+        "repo": "naimetti/rfc3339-validator",
+        "total": 0
+      },
+      "verdict": "EMPTY_DRAW"
+    },
+    {
+      "draw": 52,
+      "pool": "NARROW",
+      "meta": {
+        "package": "cron-descriptor",
+        "rank": 937,
+        "repo": "Salamek/cron-descriptor",
+        "total": 6,
+        "index": 0
+      },
+      "repo": "Salamek/cron-descriptor",
+      "number": 86,
+      "title": "\"0 8-21/3,21 * * *\" raises Exception",
+      "url": "https://github.com/Salamek/cron-descriptor/issues/86",
+      "verdict": "INELIGIBLE_E1_NO_EXCEPTION_LINE"
+    },
+    {
+      "draw": 53,
+      "pool": "NARROW",
+      "meta": {
+        "package": "iniconfig",
+        "rank": 25,
+        "repo": "pytest-dev/iniconfig",
+        "total": 2,
+        "index": 1
+      },
+      "repo": "pytest-dev/iniconfig",
+      "number": 18,
+      "title": "Can't install 1.1.1 via pipenv for python 3.7+",
+      "url": "https://github.com/pytest-dev/iniconfig/issues/18",
+      "exception": {
+        "type": "pipenv.patched.notpip._internal.exceptions.InstallationError",
+        "message": "Command errored out with exit status 1: /home/some_user/.local/share/virtualenvs/python-sbaFuM9w/bin/python /home/some_user/.local/lib/python3.6/site-packages/pipenv/patched/notpip install --ignore-installed --no-user --prefix /tmp/pip-build-env-qhe95u1_/overlay --no-warn-script-location --no-binary :none: --only-binary :none: -i https://pypi.org/simple -- 'setuptools>=41.2.0' wheel 'setuptools_scm>3' Check the logs for full command output."
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 54,
+      "pool": "NARROW",
+      "meta": {
+        "package": "bleach",
+        "rank": 422,
+        "repo": "mozilla/bleach",
+        "total": 17,
+        "index": 12
+      },
+      "repo": "mozilla/bleach",
+      "number": 160,
+      "title": "Linkify fails on somewhat malformed HTML",
+      "url": "https://github.com/mozilla/bleach/issues/160",
+      "exception": {
+        "type": "TypeError",
+        "message": "unsupported operand type(s) for +=: 'NoneType' and 'unicode'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 55,
+      "pool": "NARROW",
+      "meta": {
+        "package": "opencensus-context",
+        "rank": 909,
+        "repo": "census-instrumentation/opencensus-python",
+        "total": 29,
+        "index": 20
+      },
+      "repo": "census-instrumentation/opencensus-python",
+      "number": 409,
+      "title": "StackdriverExporter fails to emit span from GKE container",
+      "url": "https://github.com/census-instrumentation/opencensus-python/issues/409",
+      "exception": {
+        "type": "TypeError",
+        "message": "must be str, not bytes"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 56,
+      "pool": "NARROW",
+      "meta": {
+        "package": "weaviate-client",
+        "rank": 348,
+        "repo": "weaviate/weaviate-python-client",
+        "total": 28,
+        "index": 24
+      },
+      "repo": "weaviate/weaviate-python-client",
+      "number": 85,
+      "title": "[BUG] `Batch` object not callable",
+      "url": "https://github.com/weaviate/weaviate-python-client/issues/85",
+      "exception": {
+        "type": "TypeError",
+        "message": "'Batch' object is not callable"
+      },
+      "closing_commit": "a9e4e00c699780beb4b2ff38f687eaab8447db52",
+      "fix_source": "closed_event",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 57,
+      "pool": "NARROW",
+      "meta": {
+        "package": "pydantic-ai-slim",
+        "rank": 293,
+        "repo": "pydantic/pydantic-ai",
+        "total": 153,
+        "index": 20
+      },
+      "repo": "pydantic/pydantic-ai",
+      "number": 4190,
+      "title": "`ModelMessagesTypeAdapter` deserialization incorrectly constructs `ImageUrl` objects, causing LLM request failures",
+      "url": "https://github.com/pydantic/pydantic-ai/issues/4190",
+      "exception": {
+        "type": "pydantic_core._pydantic_core.PydanticSerializationError",
+        "message": "Error serializing to JSON: ValueError: Could not infer media type from image URL: /some/path/12345. Explicitly provide a `media_type` instead."
+      },
+      "closing_commit": "dab3d727d5c56d362dac853357ff7c4ffd7c2481",
+      "fix_source": "merged_pr#4191",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 58,
+      "pool": "NARROW",
+      "meta": {
+        "package": "google-cloud-batch",
+        "rank": 298,
+        "repo": "googleapis/google-cloud-python",
+        "total": 853,
+        "index": 766
+      },
+      "repo": "googleapis/google-cloud-python",
+      "number": 6713,
+      "title": "Synthesis failed for dataproc",
+      "url": "https://github.com/googleapis/google-cloud-python/issues/6713",
+      "exception": {
+        "type": "FileNotFoundError",
+        "message": "[Errno 2] No such file or directory: 'nox'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 59,
+      "pool": "NARROW",
+      "meta": {
+        "package": "qrcode",
+        "rank": 748,
+        "repo": "lincolnloop/python-qrcode",
+        "total": 31,
+        "index": 23
+      },
+      "repo": "lincolnloop/python-qrcode",
+      "number": 66,
+      "title": "Generation of image file fails with Python 3",
+      "url": "https://github.com/lincolnloop/python-qrcode/issues/66",
+      "exception": {
+        "type": "TypeError",
+        "message": "must be str, not bytes"
+      },
+      "closing_commit": "0a9f17d3afb0ff01f68c2276ec0844d329a6add9",
+      "fix_source": "closed_event",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 60,
+      "pool": "NARROW",
+      "meta": {
+        "package": "dnspython",
+        "rank": 130,
+        "repo": "rthalley/dnspython",
+        "total": 115,
+        "index": 11
+      },
+      "repo": "rthalley/dnspython",
+      "number": 1143,
+      "title": "EDNS option backwards compatibility",
+      "url": "https://github.com/rthalley/dnspython/issues/1143",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'NSIDOption' object has no attribute 'data'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    }
+  ]
+}

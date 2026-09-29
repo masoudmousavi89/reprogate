@@ -1,0 +1,282 @@
+{
+  "seed": 202609293,
+  "pool": "APP",
+  "draws": [
+    {
+      "draw": 1,
+      "pool": "APP",
+      "meta": {
+        "repo": "pypa/pipx",
+        "total": 29,
+        "index": 12
+      },
+      "repo": "pypa/pipx",
+      "number": 1777,
+      "title": "AttributeError with latest brew installed pipx",
+      "url": "https://github.com/pypa/pipx/issues/1777",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'Namespace' object has no attribute 'is_global'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 2,
+      "pool": "APP",
+      "meta": {
+        "repo": "streamlink/streamlink",
+        "total": 39,
+        "index": 9
+      },
+      "repo": "streamlink/streamlink",
+      "number": 4938,
+      "title": "stream.hls: Exception in HLSStreamWriter",
+      "url": "https://github.com/streamlink/streamlink/issues/4938",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'_HTTPResponse' object has no attribute 'drain_conn'"
+      },
+      "closing_commit": "773c97b371b5ccf099a58227ce922cd5861d0e9b",
+      "fix_source": "merged_pr#4950",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 3,
+      "pool": "APP",
+      "meta": {
+        "repo": "harelba/q",
+        "total": 0
+      },
+      "verdict": "EMPTY_DRAW"
+    },
+    {
+      "draw": 4,
+      "pool": "APP",
+      "meta": {
+        "repo": "httpie/http-prompt",
+        "total": 5,
+        "index": 1
+      },
+      "repo": "httpie/http-prompt",
+      "number": 116,
+      "title": "--spec with absolute local file path crashes on Windows",
+      "url": "https://github.com/httpie/http-prompt/issues/116",
+      "exception": {
+        "type": "urllib.error.URLError",
+        "message": "<urlopen error unknown url type: c>"
+      },
+      "closing_commit": "b14fe5d43502f46301da249a09f7d8f8e55a4db9",
+      "fix_source": "closed_event",
+      "verdict": "ELIGIBLE"
+    },
+    {
+      "draw": 5,
+      "pool": "APP",
+      "meta": {
+        "repo": "saulpw/visidata",
+        "total": 164,
+        "index": 123
+      },
+      "repo": "saulpw/visidata",
+      "number": 851,
+      "title": "BrokenPipeError on writing to stdout",
+      "url": "https://github.com/saulpw/visidata/issues/851",
+      "exception": {
+        "type": "BrokenPipeError",
+        "message": "[Errno 32] Broken pipe"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 6,
+      "pool": "APP",
+      "meta": {
+        "repo": "ifixai-ai/iFixAi",
+        "total": 0
+      },
+      "verdict": "EMPTY_DRAW"
+    },
+    {
+      "draw": 7,
+      "pool": "APP",
+      "meta": {
+        "repo": "tqdm/tqdm",
+        "total": 0
+      },
+      "verdict": "EMPTY_DRAW"
+    },
+    {
+      "draw": 8,
+      "pool": "APP",
+      "meta": {
+        "repo": "chubin/cheat.sh",
+        "total": 0
+      },
+      "verdict": "EMPTY_DRAW"
+    },
+    {
+      "draw": 9,
+      "pool": "APP",
+      "meta": {
+        "repo": "fastapi/typer",
+        "total": 7,
+        "index": 3
+      },
+      "repo": "fastapi/typer",
+      "number": 194,
+      "title": "[BUG] Required typer.Option for Tuple raises TypeError: It would appear that nargs is set to conflict with the composite type arity",
+      "url": "https://github.com/fastapi/typer/issues/194",
+      "exception": {
+        "type": "TypeError",
+        "message": "It would appear that nargs is set to conflict with the composite type arity."
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 10,
+      "pool": "APP",
+      "meta": {
+        "repo": "ifixai-ai/iFixAi",
+        "total": 0
+      },
+      "verdict": "EMPTY_DRAW"
+    },
+    {
+      "draw": 11,
+      "pool": "APP",
+      "meta": {
+        "repo": "kellyjonbrazil/jc",
+        "total": 21,
+        "index": 4
+      },
+      "repo": "kellyjonbrazil/jc",
+      "number": 611,
+      "title": "uptime error parsing, in newer version",
+      "url": "https://github.com/kellyjonbrazil/jc/issues/611",
+      "exception": {
+        "type": "IndexError",
+        "message": "list index out of range`"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 12,
+      "pool": "APP",
+      "meta": {
+        "repo": "httpie/cli",
+        "total": 36,
+        "index": 32
+      },
+      "repo": "httpie/cli",
+      "number": 42,
+      "title": "UnicodeEncodeError when piping Unicode output",
+      "url": "https://github.com/httpie/cli/issues/42",
+      "verdict": "EXCLUDED_REPO"
+    },
+    {
+      "draw": 13,
+      "pool": "APP",
+      "meta": {
+        "repo": "kellyjonbrazil/jc",
+        "total": 21,
+        "index": 2
+      },
+      "repo": "kellyjonbrazil/jc",
+      "number": 694,
+      "title": "lsattr parser fails with filenames containing spaces or newlines",
+      "url": "https://github.com/kellyjonbrazil/jc/issues/694",
+      "verdict": "INELIGIBLE_E1_NO_EXCEPTION_LINE"
+    },
+    {
+      "draw": 14,
+      "pool": "APP",
+      "meta": {
+        "repo": "ifixai-ai/iFixAi",
+        "total": 0
+      },
+      "verdict": "EMPTY_DRAW"
+    },
+    {
+      "draw": 15,
+      "pool": "APP",
+      "meta": {
+        "repo": "Panniantong/Agent-Reach",
+        "total": 0
+      },
+      "verdict": "EMPTY_DRAW"
+    },
+    {
+      "draw": 16,
+      "pool": "APP",
+      "meta": {
+        "repo": "saulpw/visidata",
+        "total": 164,
+        "index": 21
+      },
+      "repo": "saulpw/visidata",
+      "number": 2363,
+      "title": "[dev] AttributeError: 'ExprColumn' object has no attribute 'column_letter'  when creating new column from Python expression",
+      "url": "https://github.com/saulpw/visidata/issues/2363",
+      "exception": {
+        "type": "AttributeError",
+        "message": "'ExprColumn' object has no attribute 'column_letter'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 17,
+      "pool": "APP",
+      "meta": {
+        "repo": "chubin/cheat.sh",
+        "total": 0
+      },
+      "verdict": "EMPTY_DRAW"
+    },
+    {
+      "draw": 18,
+      "pool": "APP",
+      "meta": {
+        "repo": "httpie/cli",
+        "total": 36,
+        "index": 24
+      },
+      "repo": "httpie/cli",
+      "number": 227,
+      "title": "Conditional requirements are broken with wheel",
+      "url": "https://github.com/httpie/cli/issues/227",
+      "verdict": "EXCLUDED_REPO"
+    },
+    {
+      "draw": 19,
+      "pool": "APP",
+      "meta": {
+        "repo": "soxoj/maigret",
+        "total": 10,
+        "index": 8
+      },
+      "repo": "soxoj/maigret",
+      "number": 106,
+      "title": "AttributeError: module 'maigret' has no attribute 'main'",
+      "url": "https://github.com/soxoj/maigret/issues/106",
+      "exception": {
+        "type": "AttributeError",
+        "message": "module 'maigret' has no attribute 'main'"
+      },
+      "verdict": "INELIGIBLE_E2_NO_FIX_COMMIT"
+    },
+    {
+      "draw": 20,
+      "pool": "APP",
+      "meta": {
+        "repo": "nbedos/termtosvg",
+        "total": 5,
+        "index": 0
+      },
+      "repo": "nbedos/termtosvg",
+      "number": 97,
+      "title": "Idle timeout expected as int, but is float",
+      "url": "https://github.com/nbedos/termtosvg/issues/97",
+      "verdict": "INELIGIBLE_E1_NO_EXCEPTION_LINE"
+    }
+  ]
+}
