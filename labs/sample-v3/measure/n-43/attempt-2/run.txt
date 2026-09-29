@@ -1,0 +1,15 @@
+$ PYTHONPATH=<SCRATCH>/dfb89e9b-df3a-5daa-97c8-5e3fa7cb0291/scratchpad/ic/src <SCRATCH>/dfb89e9b-df3a-5daa-97c8-5e3fa7cb0291/scratchpad/v/bin/python n-43/attempt-2/repro.py
+Traceback (most recent call last):
+  File "<WORK>/n-43/attempt-2/repro.py", line 18, in <module>
+    IniConfig(p)
+  File "<SCRATCH>/dfb89e9b-df3a-5daa-97c8-5e3fa7cb0291/scratchpad/ic/src/iniconfig/__init__.py", line 53, in __init__
+    tokens = self._parse(iter(f))
+             ^^^^^^^^^^^^^^^^^^^^
+  File "<SCRATCH>/dfb89e9b-df3a-5daa-97c8-5e3fa7cb0291/scratchpad/ic/src/iniconfig/__init__.py", line 81, in _parse
+    for lineno, line in enumerate(line_iter):
+  File "/usr/lib/python3.11/encodings/ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe4 in position 24: ordinal not in range(128)
+
+exit code: 1

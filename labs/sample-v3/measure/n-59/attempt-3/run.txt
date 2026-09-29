@@ -1,0 +1,15 @@
+## stdout
+## stderr
+Traceback (most recent call last):
+  File "<WORK>/n-59/attempt-3/repro.py", line 10, in <module>
+    console_scripts.main(["text"])
+  File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/qr/qrcode/console_scripts.py", line 60, in main
+    img.save(sys.stdout)
+  File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/qr/qrcode/image/pil.py", line 32, in save
+    self._img.save(stream, kind)
+  File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/v/lib/python3.11/site-packages/PIL/Image.py", line 2711, in save
+    save_handler(self, fp, filename)
+  File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/v/lib/python3.11/site-packages/PIL/PngImagePlugin.py", line 1396, in _save
+    fp.write(_MAGIC)
+TypeError: string argument expected, got 'bytes'
+## exit code: 1

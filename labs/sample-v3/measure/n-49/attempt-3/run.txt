@@ -1,0 +1,56 @@
+## stdout
+## stderr
+  + Exception Group Traceback (most recent call last):
+  |   File "<WORK>/n-49/attempt-3/repro.py", line 21, in <module>
+  |     trio.run(main)
+  |   File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/v/lib/python3.11/site-packages/trio/_core/_run.py", line 2543, in run
+  |     raise runner.main_task_outcome.error
+  |   File "<WORK>/n-49/attempt-3/repro.py", line 13, in main
+  |     async with trio.open_nursery() as nursery:
+  |   File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/v/lib/python3.11/site-packages/trio/_core/_run.py", line 1117, in __aexit__
+  |     raise combined_error_from_nursery
+  | ExceptionGroup: Exceptions from Trio nursery (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Exception Group Traceback (most recent call last):
+    |   File "<WORK>/n-49/attempt-3/repro.py", line 17, in main
+    |     async with trio_websocket.open_websocket_url("ws://127.0.0.1:%d" % port):
+    |   File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/v/lib/python3.11/site-packages/async_generator/_util.py", line 34, in __aenter__
+    |     return await self._agen.asend(None)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/v/lib/python3.11/site-packages/async_generator/_impl.py", line 366, in step
+    |     return await ANextIter(self._it, start_fn, *args)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/v/lib/python3.11/site-packages/async_generator/_impl.py", line 202, in send
+    |     return self._invoke(self._it.send, value)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/v/lib/python3.11/site-packages/async_generator/_impl.py", line 209, in _invoke
+    |     result = fn(*args)
+    |              ^^^^^^^^^
+    |   File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/tw/trio_websocket/_impl.py", line 105, in open_websocket
+    |     async with trio.open_nursery() as new_nursery:
+    |   File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/v/lib/python3.11/site-packages/trio/_core/_run.py", line 1117, in __aexit__
+    |     raise combined_error_from_nursery
+    | ExceptionGroup: Exceptions from Trio nursery (1 sub-exception)
+    +-+---------------- 1 ----------------
+      | Traceback (most recent call last):
+      |   File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/tw/trio_websocket/_impl.py", line 1182, in _reader_task
+      |     await self._send(self._initial_request)
+      |   File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/tw/trio_websocket/_impl.py", line 1238, in _send
+      |     data = self._wsproto.send(event)
+      |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+      |   File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/v/lib/python3.11/site-packages/wsproto/__init__.py", line 67, in send
+      |     data += self.handshake.send(event)
+      |             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+      |   File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/v/lib/python3.11/site-packages/wsproto/handshake.py", line 109, in send
+      |     data += self._initiate_connection(event)
+      |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      |   File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/v/lib/python3.11/site-packages/wsproto/handshake.py", line 381, in _initiate_connection
+      |     upgrade = h11.Request(
+      |               ^^^^^^^^^^^^
+      |   File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/v/lib/python3.11/site-packages/h11/_events.py", line 122, in __init__
+      |     validate(request_target_re, self.target, "Illegal target characters")
+      |   File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/v/lib/python3.11/site-packages/h11/_util.py", line 91, in validate
+      |     raise LocalProtocolError(msg)
+      | h11._util.LocalProtocolError: Illegal target characters
+      +------------------------------------
+## exit code: 1

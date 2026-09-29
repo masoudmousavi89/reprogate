@@ -1,0 +1,15 @@
+## stdout
+## stderr
+Traceback (most recent call last):
+  File "<WORK>/n-43/attempt-3/repro.py", line 11, in <module>
+    IniConfig(path)
+  File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/ic/src/iniconfig/__init__.py", line 53, in __init__
+    tokens = self._parse(iter(f))
+             ^^^^^^^^^^^^^^^^^^^^
+  File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/ic/src/iniconfig/__init__.py", line 81, in _parse
+    for lineno, line in enumerate(line_iter):
+  File "/usr/lib/python3.11/encodings/ascii.py", line 26, in decode
+    return codecs.ascii_decode(input, self.errors)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe4 in position 33: ordinal not in range(128)
+## exit code: 1

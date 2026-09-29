@@ -1,0 +1,14 @@
+$ PYTHONPATH=<SCRATCH>/dfb89e9b-df3a-5daa-97c8-5e3fa7cb0291/scratchpad/pe <SCRATCH>/dfb89e9b-df3a-5daa-97c8-5e3fa7cb0291/scratchpad/v/bin/python n-23/attempt-2/repro.py
+Traceback (most recent call last):
+  File "<WORK>/n-23/attempt-2/repro.py", line 7, in <module>
+    evaluator[node]
+    ~~~~~~~~~^^^^^^
+  File "<SCRATCH>/dfb89e9b-df3a-5daa-97c8-5e3fa7cb0291/scratchpad/pe/pure_eval/core.py", line 68, in __getitem__
+    self._cache[node] = result = self._handle(node)
+                                 ^^^^^^^^^^^^^^^^^^
+  File "<SCRATCH>/dfb89e9b-df3a-5daa-97c8-5e3fa7cb0291/scratchpad/pe/pure_eval/core.py", line 89, in _handle
+    return self.names[node.id]
+           ~~~~~~~~~~^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+
+exit code: 1

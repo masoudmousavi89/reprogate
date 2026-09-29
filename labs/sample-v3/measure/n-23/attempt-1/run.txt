@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "<WORK>/n-23/attempt-1/repro.py", line 7, in <module>
+    print(evaluator[node])
+          ~~~~~~~~~^^^^^^
+  File "<SCRATCH>/3d5ace11-6230-5494-a949-30d1d5ce111c/scratchpad/pe/pure_eval/core.py", line 68, in __getitem__
+    self._cache[node] = result = self._handle(node)
+                                 ^^^^^^^^^^^^^^^^^^
+  File "<SCRATCH>/3d5ace11-6230-5494-a949-30d1d5ce111c/scratchpad/pe/pure_eval/core.py", line 89, in _handle
+    return self.names[node.id]
+           ~~~~~~~~~~^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+exit code: 1

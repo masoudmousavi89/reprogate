@@ -1,0 +1,12 @@
+## stdout
+## stderr
+Traceback (most recent call last):
+  File "<WORK>/n-46/attempt-3/repro.py", line 12, in <module>
+    print(pickle.loads(pickle.dumps(OrderedSet(), protocol=0)))
+  File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/os/ordered_set.py", line 126, in __repr__
+    if not self:
+  File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/os/ordered_set.py", line 49, in __len__
+    return len(self.items)
+               ^^^^^^^^^^
+AttributeError: 'OrderedSet' object has no attribute 'items'
+## exit code: 1

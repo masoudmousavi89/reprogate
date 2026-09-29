@@ -1,0 +1,16 @@
+## stdout
+## stderr
+Traceback (most recent call last):
+  File "<WORK>/n-25/attempt-3/repro.py", line 26, in <module>
+    print(MySettings())
+          ^^^^^^^^^^^^
+  File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/ps/pydantic_settings/main.py", line 158, in __init__
+    super().__init__(
+  File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/v/lib/python3.11/site-packages/pydantic/main.py", line 212, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for MySettings
+sub_model.sub-list
+  Input should be a valid list [type=list_type, input_value='["a","b","c"]', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.9/v/list_type
+## exit code: 1

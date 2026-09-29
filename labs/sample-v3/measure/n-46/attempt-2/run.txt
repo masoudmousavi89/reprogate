@@ -1,0 +1,11 @@
+$ PYTHONPATH=<SCRATCH>/dfb89e9b-df3a-5daa-97c8-5e3fa7cb0291/scratchpad/os <HOME>/.local/share/uv/python/cpython-3.9.23-linux-x86_64-gnu/bin/python3.9 n-46/attempt-2/repro.py
+Traceback (most recent call last):
+  File "<WORK>/n-46/attempt-2/repro.py", line 5, in <module>
+    print(pickle.loads(pickle.dumps(OrderedSet(), 0)))
+  File "<SCRATCH>/dfb89e9b-df3a-5daa-97c8-5e3fa7cb0291/scratchpad/os/ordered_set.py", line 126, in __repr__
+    if not self:
+  File "<SCRATCH>/dfb89e9b-df3a-5daa-97c8-5e3fa7cb0291/scratchpad/os/ordered_set.py", line 49, in __len__
+    return len(self.items)
+AttributeError: 'OrderedSet' object has no attribute 'items'
+
+exit code: 1

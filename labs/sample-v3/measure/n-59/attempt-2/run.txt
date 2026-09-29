@@ -1,0 +1,15 @@
+$ PYTHONPATH=<SCRATCH>/dfb89e9b-df3a-5daa-97c8-5e3fa7cb0291/scratchpad/qr <SCRATCH>/dfb89e9b-df3a-5daa-97c8-5e3fa7cb0291/scratchpad/v/bin/python n-59/attempt-2/repro.py
+Traceback (most recent call last):
+  File "<WORK>/n-59/attempt-2/repro.py", line 8, in <module>
+    main(["text"])
+  File "<SCRATCH>/dfb89e9b-df3a-5daa-97c8-5e3fa7cb0291/scratchpad/qr/qrcode/console_scripts.py", line 60, in main
+    img.save(sys.stdout)
+  File "<SCRATCH>/dfb89e9b-df3a-5daa-97c8-5e3fa7cb0291/scratchpad/qr/qrcode/image/pil.py", line 32, in save
+    self._img.save(stream, kind)
+  File "<SCRATCH>/dfb89e9b-df3a-5daa-97c8-5e3fa7cb0291/scratchpad/v/lib/python3.11/site-packages/PIL/Image.py", line 2711, in save
+    save_handler(self, fp, filename)
+  File "<SCRATCH>/dfb89e9b-df3a-5daa-97c8-5e3fa7cb0291/scratchpad/v/lib/python3.11/site-packages/PIL/PngImagePlugin.py", line 1396, in _save
+    fp.write(_MAGIC)
+TypeError: string argument expected, got 'bytes'
+
+exit code: 1

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<WORK>/n-43/attempt-1/repro.py", line 17, in <module>
+    IniConfig(p)
+  File "<SCRATCH>/3d5ace11-6230-5494-a949-30d1d5ce111c/scratchpad/ic/src/iniconfig/__init__.py", line 53, in __init__
+    tokens = self._parse(iter(f))
+             ^^^^^^^^^^^^^^^^^^^^
+  File "<SCRATCH>/3d5ace11-6230-5494-a949-30d1d5ce111c/scratchpad/ic/src/iniconfig/__init__.py", line 81, in _parse
+    for lineno, line in enumerate(line_iter):
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xad in position 35: illegal multibyte sequence
+exit code: 1

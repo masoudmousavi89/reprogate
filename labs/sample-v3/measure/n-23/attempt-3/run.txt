@@ -1,0 +1,17 @@
+## stdout
+## stderr
+Traceback (most recent call last):
+  File "<WORK>/n-23/attempt-3/repro.py", line 10, in <module>
+    print(evaluator[node])
+          ~~~~~~~~~^^^^^^
+  File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/pe/pure_eval/core.py", line 68, in __getitem__
+    self._cache[node] = result = self._handle(node)
+                                 ^^^^^^^^^^^^^^^^^^
+  File "<SCRATCH>/eb52a7a4-35a0-5e3a-abbc-72851c7214a8/scratchpad/pe/pure_eval/core.py", line 89, in _handle
+    return self.names[node.id]
+           ~~~~~~~~~~^^^^^^^^^
+  File "/usr/lib/python3.11/collections/__init__.py", line 1003, in __getitem__
+    return mapping[key]             # can't use 'key in mapping' with defaultdict
+           ~~~~~~~^^^^^
+TypeError: list indices must be integers or slices, not str
+## exit code: 1
