@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1-proto",
+  "issue": {
+    "repo": "pallets/click",
+    "number": 942,
+    "title": "With argument autocompletion, context is not passed properly"
+  },
+  "target": {
+    "commit_selection_source": "RANDOM_SAMPLE_MERGE_COMMIT_FIRST_PARENT",
+    "affected_commit": "bc3dd479^",
+    "fix_commit": "bc3dd479"
+  },
+  "claim": {
+    "kind": "exception",
+    "exception_type": "TypeError",
+    "message": "'NoneType' object is not subscriptable",
+    "location": {
+      "file": "click/_bashcomplete.py",
+      "function": "get_user_autocompletions"
+    }
+  },
+  "anchors": [
+    {"field": "exception_type", "text": "TypeError"},
+    {"field": "message", "text": "'NoneType' object is not subscriptable"}
+  ],
+  "provenance_verified": false
+}

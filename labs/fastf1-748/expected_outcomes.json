@@ -1,0 +1,5 @@
+{
+  "_note": "Written BEFORE any run. Random-sample draw (theOehrly/Fast-F1#748, fix merge commit b7ed7c87 via PR 842). Not executed.",
+  "_prediction": "NOT_EVALUATED/CLAIM_NEEDS_INFO",
+  "_reason": "The symptom (fastf1.req.RateLimitExceededError only visible with DEBUG logging) occurs when the client hits a real remote API rate limit. It cannot be reproduced from the issue text without live network access to a third-party service, which the maintainer excluded from this sample."
+}

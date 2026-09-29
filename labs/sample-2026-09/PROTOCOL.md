@@ -33,3 +33,8 @@ commit is the fix). The same seed is used, so the sequence of drawn issues is th
   `NOT_EVALUATED` with the reason and counts in the totals.
 - No prediction, reproducer or claim is edited after its first run to make it pass; a mismatch is reported as a
   mismatch (and may become a finding).
+
+## Scope of the claim
+
+The sample has at most 4 bugs. It is far too small to support any generalisation; it only shows whether the tool
+behaves as predicted on bugs it was not tuned on.

@@ -1,0 +1,5 @@
+{
+  "_note": "Written BEFORE any run. Random-sample draw (taurus-org/taurus#909, fix merge commit 6e9f952d via PR 1027). Not executed.",
+  "_prediction": "NOT_EVALUATED/CLAIM_NEEDS_INFO",
+  "_reason": "The report needs a user-supplied pickled config file (m1y.pck) loaded by taurustrend with PyQt4/Qwt5 installed. The issue text gives no reproducible input, loading a pickle is not a harmless local import, and an ImportError of a missing module is classified ENV_FAILURE by the tool anyway."
+}

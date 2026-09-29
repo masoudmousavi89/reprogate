@@ -1,0 +1,11 @@
+{
+  "_note": "Written BEFORE the first run. Random-sample lab (pallets/click#942, merge commit bc3dd479, first parent as affected). Reproducer written from the issue script; the completion protocol (_TESTCLICK_COMPLETE=complete, COMP_WORDS, COMP_CWORD) comes from general knowledge of click, not from the issue text. PREDICTION: the oracle does NOT pass. The TypeError is raised inside the reproducer's own callback (_complete) AFTER click frames, so the origin rule (no REPRODUCER frame after the first TARGET frame) rejects it, the same class as F-011: the library bug (ctx.obj not passed) is real but its exception surfaces in user code. Post-fix run is expected to complete cleanly. Confidence medium: the gate could also reject the os.environ assignments, or click at this commit may behave differently from what I assume.",
+  "oracle": {
+    "before_outcome": ["NO_MATCHING_REPRODUCTION_FOUND", "NONE"],
+    "post_fix_classification": "CLEAN_COMPLETION",
+    "oracle_pass": false
+  },
+  "f01_direct_raise": {"outcome": "NOT_EVALUATED", "reason": "REPRODUCER_REJECTED"},
+  "f02_stdlib_same_type": {"outcome": "NO_MATCHING_REPRODUCTION_FOUND", "reason": "NONE"},
+  "f03_fake_traceback_stdout": {"outcome": "NO_MATCHING_REPRODUCTION_FOUND", "reason": "NONE"}
+}

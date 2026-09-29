@@ -1,0 +1,5 @@
+{
+  "_note": "Written BEFORE any run. Random-sample draw (httpie/cli#1388, fix merge commit b0b0f3dc via PR 1389). Not executed.",
+  "_prediction": "NOT_EVALUATED/CLAIM_NEEDS_INFO",
+  "_reason": "The traceback comes from httpie's update check (_fetch_updates), which first requests https://packages.httpie.io/latest.json from an external service; the issue text has no hermetic steps (the only step is 'http GET' against the reporter's server, and the failure happens in a spawned daemon process). A reproducer would need live network and a private function, or patching PACKAGE_INDEX_LINK, which the gate rejects (PATCHES_TARGET)."
+}
