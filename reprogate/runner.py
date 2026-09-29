@@ -106,6 +106,29 @@ def git_info(repo):
     return info
 
 
+def _group_kwargs():
+    if os.name == "nt":
+        return {"creationflags": getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0)}
+    return {"start_new_session": True}
+
+
+def _kill_tree(popen):
+    """Kill the harness and its worker (the supervisor/worker split has two processes)."""
+    try:
+        if os.name == "nt":
+            subprocess.run(["taskkill", "/F", "/T", "/PID", str(popen.pid)], stdout=subprocess.DEVNULL,
+                           stderr=subprocess.DEVNULL, timeout=30)
+        else:
+            import signal
+            os.killpg(popen.pid, signal.SIGKILL)
+    except (OSError, subprocess.SubprocessError):
+        pass
+    try:
+        popen.kill()
+    except OSError:
+        pass
+
+
 def _clip(b):
     return b[:MAX_CAPTURE] if b else b""
 
@@ -145,23 +168,34 @@ def run_once(python, repo, repro_bytes, run_dir, timeout, seed, pythonpath_extra
            "stdout": b"", "stderr": b"", "observation": None, "observation_error": None}
     start = time.time()
     try:
-        p = subprocess.run(cmd, cwd=popen_cwd, env=popen_env, stdin=subprocess.DEVNULL,
-                           stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout)
-        res["returncode"], res["stdout"], res["stderr"] = p.returncode, p.stdout, p.stderr
-        if container and p.returncode in sbx.LAUNCH_ERROR_CODES and not os.path.exists(obs_path):
-            res["launch_error"] = "docker: " + p.stderr.decode("utf-8", "replace").strip()[:300]
-    except subprocess.TimeoutExpired as e:
-        res["timed_out"] = True
-        if container:
-            sbx.kill(container)
-        res["stdout"], res["stderr"] = e.stdout or b"", e.stderr or b""
+        popen = subprocess.Popen(cmd, cwd=popen_cwd, env=popen_env, stdin=subprocess.DEVNULL,
+                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, **_group_kwargs())
+        try:
+            out, err = popen.communicate(timeout=timeout)
+            res["returncode"], res["stdout"], res["stderr"] = popen.returncode, out, err
+            if container and popen.returncode in sbx.LAUNCH_ERROR_CODES and not os.path.exists(obs_path):
+                res["launch_error"] = "docker: " + err.decode("utf-8", "replace").strip()[:300]
+        except subprocess.TimeoutExpired:
+            res["timed_out"] = True
+            if container:
+                sbx.kill(container)
+            _kill_tree(popen)
+            out, err = popen.communicate()
+            res["stdout"], res["stderr"] = out or b"", err or b""
     except OSError as e:
         res["launch_error"] = str(e)
     res["duration_s"] = round(time.time() - start, 3)
     if os.path.exists(obs_path):
         try:
             with open(obs_path, "r", encoding="utf-8") as f:
-                res["observation"] = json.load(f)
+                doc = json.load(f)
+            if res["returncode"] != 0 and not res["timed_out"]:
+                # the supervisor always exits 0 after writing the file; anything else means the file is not its work
+                res["observation_error"] = "harness exited with code %r; observation file not trusted" % res["returncode"]
+            elif "observation_error" in doc:
+                res["observation_error"] = doc["observation_error"]
+            else:
+                res["observation"] = doc
         except (OSError, ValueError) as e:
             res["observation_error"] = str(e)
     else:

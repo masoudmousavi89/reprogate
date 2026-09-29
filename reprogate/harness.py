@@ -12,11 +12,14 @@ import ast
 import json
 import os
 import runpy
+import subprocess
 import sys
+import tempfile
 import sysconfig
 import traceback
 
 HARNESS_VERSION = "0.1-proto"
+PROTOCOL = "rg-obs-1"
 _CODE_CACHE = {}
 
 
@@ -207,11 +210,12 @@ def _phase(frames, src):
     return "trigger"
 
 
-def main(argv=None):
+def worker_main(argv=None):
+    """Runs the reproducer and hands its observation to the supervisor (F-023)."""
     ap = argparse.ArgumentParser()
     ap.add_argument("--repo", required=True)
     ap.add_argument("--repro", required=True)
-    ap.add_argument("--out", required=True)
+    ap.add_argument("--result-file", required=True)
     ap.add_argument("--pythonpath-extra", action="append", default=[])
     a = ap.parse_args(argv)
 
@@ -280,12 +284,74 @@ def main(argv=None):
     except Exception:
         pass
     try:
-        with open(a.out, "w", encoding="utf-8") as f:
-            json.dump(obs, f)
+        fd = os.open(a.result_file, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump({"protocol": PROTOCOL, "obs": obs}, f)
     except Exception as e:
         sys.stderr.write("harness.py: cannot write observation: %s\n" % e)
         return 70
     return exit_code
+
+
+def _validate(path, rc):
+    """Accept the worker's observation only if the worker ended normally and told one consistent story."""
+    if rc is None or rc < 0:
+        return None, "worker ended abnormally (return code %s)" % rc
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            doc = json.load(f)
+    except FileNotFoundError:
+        return None, "worker wrote no observation (return code %s)" % rc
+    except (OSError, ValueError) as e:
+        return None, "unreadable observation: %s" % e
+    if not isinstance(doc, dict) or doc.get("protocol") != PROTOCOL or not isinstance(doc.get("obs"), dict):
+        return None, "malformed observation message"
+    obs = doc["obs"]
+    code = obs.get("exit_code")
+    if not isinstance(code, int) or not (code == rc or (os.name != "nt" and code % 256 == rc)):
+        return None, "reported exit code %r does not match the worker exit code %r" % (code, rc)
+    return obs, None
+
+
+def supervisor_main(argv=None):
+    """Trusted side: starts the worker, validates what it reports and writes the observation file itself."""
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--repo", required=True)
+    ap.add_argument("--repro", required=True)
+    ap.add_argument("--out", required=True)
+    ap.add_argument("--pythonpath-extra", action="append", default=[])
+    a = ap.parse_args(argv)
+    tmp = tempfile.mkdtemp(prefix="rg-obs-")
+    result_file = os.path.join(tmp, "result.json")
+    cmd = [sys.executable, os.path.abspath(__file__), "--repo", a.repo, "--repro", a.repro,
+           "--result-file", result_file]
+    for e in a.pythonpath_extra:
+        cmd += ["--pythonpath-extra", e]
+    try:
+        rc = subprocess.Popen(cmd, stdin=subprocess.DEVNULL).wait()
+        obs, err = _validate(result_file, rc)
+    finally:
+        try:
+            if os.path.exists(result_file):
+                os.remove(result_file)
+            os.rmdir(tmp)
+        except OSError:
+            pass
+    doc = {"observation_error": err} if obs is None else obs
+    if obs is not None:
+        doc["observer"] = {"design": "SUPERVISOR_WORKER_SPLIT", "worker_returncode": rc}
+    try:
+        with open(a.out, "w", encoding="utf-8") as f:
+            json.dump(doc, f)
+    except Exception as e:
+        sys.stderr.write("harness.py: cannot write observation: %s\n" % e)
+        return 70
+    return 0
+
+
+def main(argv=None):
+    args = list(sys.argv[1:] if argv is None else argv)
+    return worker_main(args) if "--result-file" in args else supervisor_main(args)
 
 
 if __name__ == "__main__":

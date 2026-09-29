@@ -24,3 +24,14 @@ kills the whole process tree on timeout.
   still SYMPTOM_REPRODUCED. This is the residual weakness: a reproducer that reimplements the protocol can still lie.
   A separate process raises the cost of forging; it is not a security boundary.
 - the 9 labs (host mode) and the earlier round-2 attacks: unchanged. Unit tests: existing ones pass.
+
+## Note on b01 after the change (recorded after the first post-change run)
+b01 reads `--out` from its OWN command line, which the worker no longer has, so it fails with a ValueError before
+forging anything (outcome NO_MATCHING_REPRODUCTION_FOUND). That run does not test the new design; the unit tests in
+`tests/test_observer_split.py` (forging the worker result file, abort, kill group) and the two attacks below do.
+
+## Additional attacks, predictions committed before their run
+- b03: reads the PARENT's command line to find `--out`, writes a forged observation there, then `os.abort()`.
+  Prediction: NOT SYMPTOM_REPRODUCED in host and Docker mode (the supervisor writes the file afterwards).
+- b04: same, then `os.killpg(os.getpgrp(), 9)`. Prediction: NOT SYMPTOM_REPRODUCED in host mode (harness exit code
+  is not 0, file not trusted); in Docker mode NOT SYMPTOM_REPRODUCED as well.
