@@ -63,3 +63,13 @@ lib-01 and lib-17 have no import beyond the top-level package here; no reproduce
 Prediction: seven INSTALL_OK and lib-10 NOT_EVALUATED (condition 4).
 - lib-17: predicted INSTALL_OK, result NOT_EVALUATED (condition 4, `json2html` sdist only). **Miss.**
 - The other seven matched: lib-01, lib-02, lib-05, lib-08, lib-13, app-04 INSTALL_OK; lib-10 NOT_EVALUATED (dependencies install, but the project's own native library is not built).
+
+## Maintainer note on the interpreter (2026-09-29)
+
+For lib-10, lib-13 and app-04 the project metadata declares no Python version >= 3.8 (no `python_requires` and classifiers
+that stop below 3.8, or none). Python 3.8 was used there as an agreed execution fallback, not because the project states
+support for it. For these three, INSTALL_OK (and lib-10's result) means "the declared dependencies install as wheels on
+Python 3.8 in this environment", not "the project supports Python 3.8".
+
+lib-17 stays NOT_EVALUATED: `json2html` being sdist-only is a measured outcome of condition 4 under the fixed method; the
+method is not changed. Its prediction miss is recorded separately above and does not alter that outcome.
