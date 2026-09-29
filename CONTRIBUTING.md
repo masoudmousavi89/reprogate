@@ -1,7 +1,8 @@
 # Feedback and contributions
 
-ReproGate is an early prototype (one lab, Python 3.8+, no sandbox). The most useful contribution
-right now is **criticism of the idea and the evidence**, not new features.
+ReproGate is an early prototype (Python 3.8+, host mode by default, optional Docker sandbox on Linux). The most useful
+contribution right now is **criticism of the idea and the evidence**, not new features. The two things the project
+cannot produce by itself are independent labels and reproducers it was not tuned on (see "Help wanted" in `README.md`).
 
 Questions I would like answered:
 
@@ -13,9 +14,10 @@ Questions I would like answered:
 
 How to help:
 
-- Open an issue (bypasses, wrong outcomes, unclear docs, lab suggestions).
+- Open an issue (bypasses, wrong outcomes, unclear docs, lab suggestions). Problems that can harm the person running
+  the tool go through `SECURITY.md`, not a public issue.
 - Run `python -m unittest discover -s tests -t .` on your Python and report failures.
 - Run the lab (`labs/jinja-843/README.md`) and send the result table.
 
 Rules of the project: architecture changes only with an entry in `findings.md` that cites evidence.
-Reproducers run as plain host processes with **no sandbox**; only run code you have read.
+In the default host mode reproducers run as plain host processes with **no sandbox**; only run code you have read.
