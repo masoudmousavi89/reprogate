@@ -18,11 +18,11 @@ This is an early **prototype**, deliberately small:
 
 | item | state |
 |---|---|
-| unit and end-to-end tests (synthetic libraries) | 64 tests pass on Linux, Python 3.8.20 (6 Docker tests skip when Docker or the image is missing); 52 tests passed on Windows 11 / Python 3.8 earlier (F-016) |
+| unit and end-to-end tests (synthetic libraries) | 68 tests pass on Linux, Python 3.8.20 (6 Docker tests skip when Docker or the image is missing); 52 tests passed on Windows 11 / Python 3.8 earlier (F-016) |
 | 9 hand-picked labs on real checkouts (jinja#843, tabulate x2, cachetools x2, more-itertools x2, sortedcontainers, dateutil) | predictions were committed before each run; one prediction missed (more-itertools#707, F-011/F-012, fixed); all rows match now (Linux host mode; jinja#843 also on Windows) |
 | claim provenance checked against the raw issue body | verified for jinja#843, tabulate#180, more-itertools#707; unverified for the other labs (their claims come from fix commits) (F-006, F-010, F-016) |
 | gate attack round 2 (10 attacks on one lab) | 9 of 10 predictions held; the miss led to a stricter message rule (F-020, F-021). Known weakness: a builtin callable supplied by the reproducer can produce a matching failure; only the before/after oracle rejects it (F-015) |
-| Docker sandbox runner (`--sandbox docker`) | Linux only; the 9 labs give the same outcomes as host mode (F-017); the harness still runs in the reproducer's process (`observation_integrity: BEST_EFFORT_IN_PROCESS`) |
+| Docker sandbox runner (`--sandbox docker`) | Linux only; the 9 labs give the same outcomes as host mode (F-017); the harness still runs in the reproducer's process (`observation_integrity: BEST_EFFORT_IN_PROCESS`); since F-024 a supervisor process validates the observation, which stops cheap file forgery but not a protocol-aware reproducer |
 | random sample of bugs the maintainer did not choose (`labs/sample-2026-09/`) | protocol fixed before the draw; 4 issues drawn, 1 executed (click#942, inconclusive), 3 not evaluated (need network or unsafe input); says nothing about accuracy (F-022) |
 | environment trust, portable evidence, signing, other claim kinds | not implemented (`environment_trust: UNVERIFIED`) |
 

@@ -60,3 +60,12 @@ look like the symptom (for example `gen.throw(StopIteration)` into a library gen
 `RuntimeError`). Only a bundle whose before/after oracle PASSES (symptom before the fix, clean completion
 after it) may be read as evidence of a bug; without a passing oracle treat `SYMPTOM_REPRODUCED` as
 "needs review". `SYMPTOM_REPRODUCED != BUG_CONFIRMED` in every case.
+
+## Observer design (F-023, F-024)
+
+`harness.py` runs as a supervisor plus a worker. The worker runs the reproducer under the target interpreter and
+creates a result file (`O_EXCL`). The supervisor accepts the observation only if the worker ended normally (no signal),
+the message is well formed and the reported exit code equals the worker's; it then writes `observation.json` itself.
+The runner trusts that file only when the harness exit code is 0 and kills the whole process tree on timeout.
+Limit: a reproducer that re-implements the protocol and exits through a hidden `os._exit` can still forge an
+observation (attack b02). Treat `observation_integrity: BEST_EFFORT_IN_PROCESS` as unchanged.

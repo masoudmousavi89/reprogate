@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 """ReproGate observation harness (prototype).
 
-Runs UNDER THE TARGET INTERPRETER, in the SAME PROCESS as the untrusted
-reproducer, so the observation is BEST_EFFORT_IN_PROCESS: it raises the cost of
-faking an exception, it is not a security boundary.
+Runs UNDER THE TARGET INTERPRETER. A supervisor process starts a worker that runs the
+untrusted reproducer in-process and reports through a result file; the supervisor
+validates it (F-024). The observation stays BEST_EFFORT_IN_PROCESS: it raises the cost
+of faking an exception, it is not a security boundary.
 
 Python 3.8 compatible, standard library only, no imports from the reprogate package.
 """
