@@ -1,0 +1,23 @@
+{
+  "_note": "Written BEFORE the first run of this lab. Runs on Python 3.12 (the fix commit requires >=3.10).",
+  "oracle": {
+    "before_outcome": [
+      "SYMPTOM_REPRODUCED",
+      "NONE"
+    ],
+    "post_fix_classification": "CLEAN_COMPLETION",
+    "oracle_pass": true
+  },
+  "f01_direct_raise": {
+    "outcome": "NOT_EVALUATED",
+    "reason": "REPRODUCER_REJECTED"
+  },
+  "f02_stdlib_same_type": {
+    "outcome": "NO_MATCHING_REPRODUCTION_FOUND",
+    "reason": "NONE"
+  },
+  "f03_fake_traceback_stdout": {
+    "outcome": "NO_MATCHING_REPRODUCTION_FOUND",
+    "reason": "NONE"
+  }
+}

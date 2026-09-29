@@ -1,0 +1,29 @@
+{
+  "schema_version": "0.1-proto",
+  "issue": {
+    "repo": "grantjenks/python-sortedcontainers",
+    "number": null,
+    "title": "SortedDict comparison with a dict with other keys raises KeyError",
+    "note": "claim derived from the fix commit and its regression test; raw issue body not fetched, provenance UNVERIFIED"
+  },
+  "target": {
+    "commit_selection_source": "LAB_MANUAL_FIRST_PARENT_OF_FIX",
+    "affected_commit": "a04f4a6^",
+    "fix_commit": "a04f4a6"
+  },
+  "claim": {
+    "kind": "exception",
+    "exception_type": "KeyError",
+    "location": {
+      "file": "sortedcontainers/sorteddict.py",
+      "function": "__eq__"
+    }
+  },
+  "anchors": [
+    {
+      "field": "exception_type",
+      "text": "KeyError"
+    }
+  ],
+  "provenance_verified": false
+}

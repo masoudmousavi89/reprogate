@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1-proto",
+  "issue": {
+    "repo": "tkem/cachetools",
+    "number": null,
+    "title": "ValueError from cachedmethod when value is too large",
+    "note": "claim derived from the fix commit and its regression test; raw issue body not fetched, provenance UNVERIFIED"
+  },
+  "target": {
+    "commit_selection_source": "LAB_MANUAL_FIRST_PARENT_OF_FIX",
+    "affected_commit": "5f80519^",
+    "fix_commit": "5f80519"
+  },
+  "claim": {
+    "kind": "exception",
+    "exception_type": "ValueError",
+    "message": "value too large",
+    "location": {}
+  },
+  "anchors": [
+    {
+      "field": "exception_type",
+      "text": "ValueError"
+    }
+  ],
+  "provenance_verified": false
+}
