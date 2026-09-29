@@ -20,3 +20,16 @@ tool fails, but not cleanly. Recorded, not changed here.
 Not covered: bundles from before F-021 (no `oracle_required` field; the check is skipped when the key is absent, and tested
 only on a synthetic dict); Docker-mode bundles; `claim_status` other than READY from a real run (the pipeline never produces
 it; a Claim Extractor is a real dependency).
+
+## Linux run (2026-09-29): `cases.py` and Linux jinja bundles
+
+`python3.8 labs/result-invariants/cases.py`: 15 of 15 valid outcomes VALID, 16 of 16 impossible ones INVALID with the
+predicted primary codes, `false rejects among valid: 0 | false accepts among invalid: 0`. Matches PREDICTIONS.md.
+
+Prediction "Linux jinja bundles" (committed in 500a517): `run_lab001.sh` on Linux, host mode, unverified provenance.
+Result: 7 bundles (oracle before/after, case_c_unpinned, f01-f04); `inspect --evidence` exit 0 and `invariants: OK` for all 7;
+`verify` on `oracle/before` (host mode, pinned venv): `VERIFY PASS`, exit 0, commit and environment match, replay outcome
+SYMPTOM_REPRODUCED. Deviation in wording, not in substance: the prediction spoke of `provenance_sufficient` staying False; bundles do not
+store that field, they store `claim_provenance: UNVERIFIED_ALLOWED`, `provenance_verified: false` and the qualifier `PROVENANCE_UNVERIFIED`,
+which is the valid combination the prediction meant. Own mistake during the run: the first `inspect` calls omitted `--evidence`
+(usage error, exit 2, no bundle involved); repeated correctly.

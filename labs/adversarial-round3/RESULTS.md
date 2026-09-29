@@ -27,3 +27,27 @@ Extra observations
 
 Not covered: the same attacks in Docker mode; kernel-level tampering; d03 with a poisoned dependency that raises from inside a
 target module (not possible without writing the repository, which the tree hash catches).
+
+## Linux run, host mode and Docker mode (2026-09-29)
+
+Predictions: section "Linux run, host mode and `--sandbox docker`" of `PREDICTIONS.md` (f64c0b3). Runner: `run_round3.sh host|docker`
+(added with this run; same commands as `run_round3.ps1`). Lab #1 pair on Linux, CPython 3.8.20, `MarkupSafe==2.0.1`, unverified
+provenance for the jinja claim (`PROVENANCE_UNVERIFIED`); d04 claim-check normal. Docker image `reprogate-jinja-pinned:local`
+(python:3.8-slim + MarkupSafe 2.0.1 wheel, `--no-index`).
+
+| attack | mode | predicted | actual | match |
+|---|---|---|---|---|
+| d01 | host | NO_MATCHING; file hash changes; env sha unchanged and equal to recorded | NO_MATCHING_REPRODUCTION_FOUND, 5 COMPLETED; `file_hash_changed=True env_sha_before_equals_after=True recorded_env_equals_after=True` (tampering undetected) | yes |
+| d01 | Docker | write fails (OSError in a reproducer frame); NO_MATCHING; image file hash unchanged | NO_MATCHING_REPRODUCTION_FOUND; exception `PermissionError [Errno 13]` (uid 65534 has no write permission; the prediction said "read-only file system", PermissionError is also an OSError); image SHA-256 of `markupsafe/__init__.py` identical before and after | yes (error text differs) |
+| d02 | host | marker length 8; NO_MATCHING | `marker_writes=8`; NO_MATCHING_REPRODUCTION_FOUND, 5 COMPLETED | yes |
+| d02 | Docker | write fails, no marker; NO_MATCHING | NO_MATCHING_REPRODUCTION_FOUND; `OSError [Errno 30] Read-only file system` on `sitecustomize.py`; image has no `sitecustomize.py` afterwards | yes |
+| d03 | host | NO_MATCHING; runs 2-5 COMPLETED, not ENV_FAILURE | NO_MATCHING_REPRODUCTION_FOUND, 5 COMPLETED (1 clean completion = run 1, before the poisoning), no ENV_FAILURE | yes |
+| d03 | Docker | poisoning write fails as in d01; NO_MATCHING (differs from the maintainer's "like Windows" expectation: premise absent) | NO_MATCHING_REPRODUCTION_FOUND, 5 COMPLETED with `PermissionError [Errno 13]`; image file hash unchanged; no import-phase failure occurred | yes |
+| d04 | host | claim-check 4 of 4 EXACT; SYMPTOM_REPRODUCED 5/5, `oracle_required` true; oracle FAIL | `provenance_sufficient: True`; SYMPTOM_REPRODUCED, 5 of 5 matching; oracle before SYMPTOM_REPRODUCED, after SYMPTOM_REPRODUCED, post-fix STILL_FAILS, ORACLE FAIL | yes |
+| d04 | Docker | same as host | SYMPTOM_REPRODUCED 5/5, `oracle_required: true`; ORACLE FAIL (post-fix STILL_FAILS) | yes |
+
+Evidence only, no decision taken (as instructed): (1) the environment fingerprint stays name/version based; in host mode d01 and d02 show the
+gap again on Linux (the tampered file is not detected, sitecustomize persists between "fresh" runs); Docker mode closes both only because the
+image is root-owned and mounted read-only, not because the tool detects tampering. (2) Import-phase failures that are not ImportError stay
+COMPLETED/NO_MATCHING in host mode (d03); in Docker mode the situation does not arise. (3) Docker gives no protection against a wrong claim (d04).
+Not covered: a dependency directory that is writable inside the container (for example an image running as root or a volume mounted read-write).
