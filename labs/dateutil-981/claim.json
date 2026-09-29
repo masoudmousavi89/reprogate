@@ -25,5 +25,10 @@
       "text": "TypeError"
     }
   ],
-  "provenance_verified": false
+  "provenance_verified": false,
+  "env": {
+    "pip": [
+      "six"
+    ]
+  }
 }
