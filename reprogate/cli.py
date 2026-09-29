@@ -84,7 +84,10 @@ def cmd_claim_check(a):
     frozen = check_claim(doc, body)
     write_json(a.out, frozen)
     for x in frozen["anchors"]:
-        span = "%s-%s" % (x.get("start_byte"), x.get("end_byte")) if x["found"] else "NOT FOUND"
+        if x.get("reject_reason"):
+            span = "%s (occurrences=%s)" % (x["reject_reason"], x.get("occurrences", 0))
+        else:
+            span = "%s-%s" % (x.get("start_byte"), x.get("end_byte")) if x["found"] else "NOT FOUND"
         print("%-20s %-12s %s" % (x["field"], x["provenance"], span))
     print("provenance_sufficient:", frozen["provenance_sufficient"])
     print("wrote", a.out)

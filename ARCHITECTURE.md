@@ -1,7 +1,7 @@
 # Architecture (prototype 0.1-proto, schema unstable)
 
 ```
-claim.json --claim-check(raw issue body)--> claim.frozen.json   (anchors EXACT_QUOTE or INFERRED, hashed)
+claim.json --claim-check(raw issue body)--> claim.frozen.json   (anchors EXACT_QUOTE, INFERRED or REJECTED with a reason EMPTY_OR_TOO_SHORT / AMBIGUOUS / MALFORMED; the claim hash also binds the issue body hash, F-027)
 reproducer --gate (AST, never executed)---> VALID | REJECTED | UNSAFE | NOT_AUDITABLE
                  |
                  v (VALID only)

@@ -37,3 +37,11 @@ closed `reject_reason`: EMPTY_OR_TOO_SHORT, AMBIGUOUS, MALFORMED. `provenance_su
 - other labs (2-9): their claims are not frozen against a raw body in the repository; not re-run here except
   tabulate#180 and more-itertools#707, whose bodies are fetched to check claim-check (prediction: unknown, may
   lose anchors that occur twice; that is recorded as observed, not tuned).
+
+## Results (recorded after the run)
+Baseline (before the code change): all 10 predictions held, including c01 (empty anchors, sufficient=True) and
+c05/c06 (KeyError / AttributeError). After the change: all predictions held (c00 True, c01-c06 False with the
+predicted reasons, c07 True, c08 hashes differ, c09 message and location_function AMBIGUOUS, sufficient True).
+91 unit tests OK (12 new), 11 skipped (5 POSIX-only, 6 Docker). jinja-843 lab: 6 of 6 rows unchanged.
+Unpredicted-in-detail (the prediction said "unknown"): tabulate#180 unchanged (2 of 2 EXACT); more-itertools#707
+`exception_type` `RuntimeError` occurs twice, so `provenance_sufficient` is now False. Recorded, not tuned (F-027).
