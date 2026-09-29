@@ -1,0 +1,5008 @@
+{
+ "source": "https://hugovk.dev/top-pypi-packages/top-pypi-packages.min.json",
+ "downloaded": "2026-09-29",
+ "dataset_last_update": "2026-09-01 06:34:08",
+ "top": 1000,
+ "rows": [
+  {
+   "rank": 1,
+   "project": "boto3",
+   "download_count": 3206668324
+  },
+  {
+   "rank": 2,
+   "project": "packaging",
+   "download_count": 2253382953
+  },
+  {
+   "rank": 3,
+   "project": "typing-extensions",
+   "download_count": 1846201011
+  },
+  {
+   "rank": 4,
+   "project": "certifi",
+   "download_count": 1822727244
+  },
+  {
+   "rank": 5,
+   "project": "idna",
+   "download_count": 1801007240
+  },
+  {
+   "rank": 6,
+   "project": "urllib3",
+   "download_count": 1793872890
+  },
+  {
+   "rank": 7,
+   "project": "requests",
+   "download_count": 1695910251
+  },
+  {
+   "rank": 8,
+   "project": "charset-normalizer",
+   "download_count": 1661797776
+  },
+  {
+   "rank": 9,
+   "project": "setuptools",
+   "download_count": 1486486710
+  },
+  {
+   "rank": 10,
+   "project": "cryptography",
+   "download_count": 1425744760
+  },
+  {
+   "rank": 11,
+   "project": "cffi",
+   "download_count": 1257767516
+  },
+  {
+   "rank": 12,
+   "project": "pluggy",
+   "download_count": 1229331424
+  },
+  {
+   "rank": 13,
+   "project": "pygments",
+   "download_count": 1214923121
+  },
+  {
+   "rank": 14,
+   "project": "pyyaml",
+   "download_count": 1174219173
+  },
+  {
+   "rank": 15,
+   "project": "botocore",
+   "download_count": 1164509324
+  },
+  {
+   "rank": 16,
+   "project": "python-dateutil",
+   "download_count": 1150450470
+  },
+  {
+   "rank": 17,
+   "project": "six",
+   "download_count": 1148797562
+  },
+  {
+   "rank": 18,
+   "project": "pydantic",
+   "download_count": 1114195695
+  },
+  {
+   "rank": 19,
+   "project": "numpy",
+   "download_count": 1110814152
+  },
+  {
+   "rank": 20,
+   "project": "click",
+   "download_count": 1094853348
+  },
+  {
+   "rank": 21,
+   "project": "pycparser",
+   "download_count": 1065683604
+  },
+  {
+   "rank": 22,
+   "project": "anyio",
+   "download_count": 1044927535
+  },
+  {
+   "rank": 23,
+   "project": "pytest",
+   "download_count": 1038243019
+  },
+  {
+   "rank": 24,
+   "project": "pydantic-core",
+   "download_count": 1035750020
+  },
+  {
+   "rank": 25,
+   "project": "iniconfig",
+   "download_count": 1002671783
+  },
+  {
+   "rank": 26,
+   "project": "aiobotocore",
+   "download_count": 971712783
+  },
+  {
+   "rank": 27,
+   "project": "annotated-types",
+   "download_count": 956369075
+  },
+  {
+   "rank": 28,
+   "project": "h11",
+   "download_count": 940603758
+  },
+  {
+   "rank": 29,
+   "project": "attrs",
+   "download_count": 921755628
+  },
+  {
+   "rank": 30,
+   "project": "typing-inspection",
+   "download_count": 897262655
+  },
+  {
+   "rank": 31,
+   "project": "protobuf",
+   "download_count": 853495139
+  },
+  {
+   "rank": 32,
+   "project": "fsspec",
+   "download_count": 840621039
+  },
+  {
+   "rank": 33,
+   "project": "httpx",
+   "download_count": 818096438
+  },
+  {
+   "rank": 34,
+   "project": "markupsafe",
+   "download_count": 814913300
+  },
+  {
+   "rank": 35,
+   "project": "httpcore",
+   "download_count": 807678508
+  },
+  {
+   "rank": 36,
+   "project": "s3transfer",
+   "download_count": 807303601
+  },
+  {
+   "rank": 37,
+   "project": "python-dotenv",
+   "download_count": 798622367
+  },
+  {
+   "rank": 38,
+   "project": "platformdirs",
+   "download_count": 750459128
+  },
+  {
+   "rank": 39,
+   "project": "pandas",
+   "download_count": 739713944
+  },
+  {
+   "rank": 40,
+   "project": "jinja2",
+   "download_count": 728251038
+  },
+  {
+   "rank": 41,
+   "project": "pathspec",
+   "download_count": 726767827
+  },
+  {
+   "rank": 42,
+   "project": "grpcio-status",
+   "download_count": 709374205
+  },
+  {
+   "rank": 43,
+   "project": "filelock",
+   "download_count": 693704941
+  },
+  {
+   "rank": 44,
+   "project": "pip",
+   "download_count": 674827281
+  },
+  {
+   "rank": 45,
+   "project": "pyjwt",
+   "download_count": 669313991
+  },
+  {
+   "rank": 46,
+   "project": "starlette",
+   "download_count": 650552737
+  },
+  {
+   "rank": 47,
+   "project": "uvicorn",
+   "download_count": 646255716
+  },
+  {
+   "rank": 48,
+   "project": "litellm",
+   "download_count": 639214652
+  },
+  {
+   "rank": 49,
+   "project": "aiohttp",
+   "download_count": 624758174
+  },
+  {
+   "rank": 50,
+   "project": "tqdm",
+   "download_count": 621081224
+  },
+  {
+   "rank": 51,
+   "project": "jmespath",
+   "download_count": 620909175
+  },
+  {
+   "rank": 52,
+   "project": "rpds-py",
+   "download_count": 612337340
+  },
+  {
+   "rank": 53,
+   "project": "yarl",
+   "download_count": 610025617
+  },
+  {
+   "rank": 54,
+   "project": "jsonschema",
+   "download_count": 599937253
+  },
+  {
+   "rank": 55,
+   "project": "rich",
+   "download_count": 598954653
+  },
+  {
+   "rank": 56,
+   "project": "markdown-it-py",
+   "download_count": 597608992
+  },
+  {
+   "rank": 57,
+   "project": "multidict",
+   "download_count": 594350125
+  },
+  {
+   "rank": 58,
+   "project": "propcache",
+   "download_count": 580843621
+  },
+  {
+   "rank": 59,
+   "project": "s3fs",
+   "download_count": 580754186
+  },
+  {
+   "rank": 60,
+   "project": "fastapi",
+   "download_count": 559014587
+  },
+  {
+   "rank": 61,
+   "project": "referencing",
+   "download_count": 558106184
+  },
+  {
+   "rank": 62,
+   "project": "tomlkit",
+   "download_count": 557963499
+  },
+  {
+   "rank": 63,
+   "project": "frozenlist",
+   "download_count": 557582927
+  },
+  {
+   "rank": 64,
+   "project": "jsonschema-specifications",
+   "download_count": 554721405
+  },
+  {
+   "rank": 65,
+   "project": "pyasn1",
+   "download_count": 549863516
+  },
+  {
+   "rank": 66,
+   "project": "wheel",
+   "download_count": 549282263
+  },
+  {
+   "rank": 67,
+   "project": "websockets",
+   "download_count": 548886699
+  },
+  {
+   "rank": 68,
+   "project": "aiohappyeyeballs",
+   "download_count": 547041857
+  },
+  {
+   "rank": 69,
+   "project": "mdurl",
+   "download_count": 545972194
+  },
+  {
+   "rank": 70,
+   "project": "aiosignal",
+   "download_count": 542268483
+  },
+  {
+   "rank": 71,
+   "project": "google-auth",
+   "download_count": 539589080
+  },
+  {
+   "rank": 72,
+   "project": "pillow",
+   "download_count": 535067156
+  },
+  {
+   "rank": 73,
+   "project": "googleapis-common-protos",
+   "download_count": 528842518
+  },
+  {
+   "rank": 74,
+   "project": "pytz",
+   "download_count": 522121417
+  },
+  {
+   "rank": 75,
+   "project": "sniffio",
+   "download_count": 513235820
+  },
+  {
+   "rank": 76,
+   "project": "importlib-metadata",
+   "download_count": 512807261
+  },
+  {
+   "rank": 77,
+   "project": "trove-classifiers",
+   "download_count": 507622746
+  },
+  {
+   "rank": 78,
+   "project": "zipp",
+   "download_count": 505251805
+  },
+  {
+   "rank": 79,
+   "project": "opentelemetry-semantic-conventions",
+   "download_count": 502049227
+  },
+  {
+   "rank": 80,
+   "project": "annotated-doc",
+   "download_count": 500427001
+  },
+  {
+   "rank": 81,
+   "project": "virtualenv",
+   "download_count": 488396969
+  },
+  {
+   "rank": 82,
+   "project": "hatchling",
+   "download_count": 488051250
+  },
+  {
+   "rank": 83,
+   "project": "pydantic-settings",
+   "download_count": 482296926
+  },
+  {
+   "rank": 84,
+   "project": "tzdata",
+   "download_count": 482201452
+  },
+  {
+   "rank": 85,
+   "project": "wrapt",
+   "download_count": 478565469
+  },
+  {
+   "rank": 86,
+   "project": "ghapi",
+   "download_count": 477909197
+  },
+  {
+   "rank": 87,
+   "project": "greenlet",
+   "download_count": 474969702
+  },
+  {
+   "rank": 88,
+   "project": "opentelemetry-api",
+   "download_count": 471097243
+  },
+  {
+   "rank": 89,
+   "project": "huggingface-hub",
+   "download_count": 470151608
+  },
+  {
+   "rank": 90,
+   "project": "opentelemetry-sdk",
+   "download_count": 453052910
+  },
+  {
+   "rank": 91,
+   "project": "pyasn1-modules",
+   "download_count": 452849787
+  },
+  {
+   "rank": 92,
+   "project": "tenacity",
+   "download_count": 446739627
+  },
+  {
+   "rank": 93,
+   "project": "google-api-core",
+   "download_count": 446395816
+  },
+  {
+   "rank": 94,
+   "project": "regex",
+   "download_count": 435690564
+  },
+  {
+   "rank": 95,
+   "project": "pyarrow",
+   "download_count": 435274043
+  },
+  {
+   "rank": 96,
+   "project": "python-multipart",
+   "download_count": 434342637
+  },
+  {
+   "rank": 97,
+   "project": "textual",
+   "download_count": 430496348
+  },
+  {
+   "rank": 98,
+   "project": "openai",
+   "download_count": 425458267
+  },
+  {
+   "rank": 99,
+   "project": "grpcio",
+   "download_count": 423413696
+  },
+  {
+   "rank": 100,
+   "project": "soupsieve",
+   "download_count": 421804203
+  },
+  {
+   "rank": 101,
+   "project": "beautifulsoup4",
+   "download_count": 414809672
+  },
+  {
+   "rank": 102,
+   "project": "jiter",
+   "download_count": 413868631
+  },
+  {
+   "rank": 103,
+   "project": "pyparsing",
+   "download_count": 412895764
+  },
+  {
+   "rank": 104,
+   "project": "sqlalchemy",
+   "download_count": 409830091
+  },
+  {
+   "rank": 105,
+   "project": "distro",
+   "download_count": 409421723
+  },
+  {
+   "rank": 106,
+   "project": "scipy",
+   "download_count": 407941830
+  },
+  {
+   "rank": 107,
+   "project": "colorama",
+   "download_count": 393954409
+  },
+  {
+   "rank": 108,
+   "project": "tomli",
+   "download_count": 391841491
+  },
+  {
+   "rank": 109,
+   "project": "lxml",
+   "download_count": 383194342
+  },
+  {
+   "rank": 110,
+   "project": "watchfiles",
+   "download_count": 380980476
+  },
+  {
+   "rank": 111,
+   "project": "opentelemetry-proto",
+   "download_count": 378786661
+  },
+  {
+   "rank": 112,
+   "project": "psutil",
+   "download_count": 370226053
+  },
+  {
+   "rank": 113,
+   "project": "shellingham",
+   "download_count": 358622713
+  },
+  {
+   "rank": 114,
+   "project": "opentelemetry-instrumentation",
+   "download_count": 350584520
+  },
+  {
+   "rank": 115,
+   "project": "editables",
+   "download_count": 345338601
+  },
+  {
+   "rank": 116,
+   "project": "typer",
+   "download_count": 345038407
+  },
+  {
+   "rank": 117,
+   "project": "requests-oauthlib",
+   "download_count": 342805880
+  },
+  {
+   "rank": 118,
+   "project": "opentelemetry-exporter-otlp-proto-http",
+   "download_count": 342365149
+  },
+  {
+   "rank": 119,
+   "project": "proto-plus",
+   "download_count": 341839424
+  },
+  {
+   "rank": 120,
+   "project": "openpyxl",
+   "download_count": 339316525
+  },
+  {
+   "rank": 121,
+   "project": "et-xmlfile",
+   "download_count": 334462857
+  },
+  {
+   "rank": 122,
+   "project": "mcp",
+   "download_count": 328144121
+  },
+  {
+   "rank": 123,
+   "project": "ruff",
+   "download_count": 325715567
+  },
+  {
+   "rank": 124,
+   "project": "opentelemetry-exporter-otlp-proto-common",
+   "download_count": 321708688
+  },
+  {
+   "rank": 125,
+   "project": "coverage",
+   "download_count": 321363538
+  },
+  {
+   "rank": 126,
+   "project": "exceptiongroup",
+   "download_count": 318755421
+  },
+  {
+   "rank": 127,
+   "project": "sglang",
+   "download_count": 314625244
+  },
+  {
+   "rank": 128,
+   "project": "oauthlib",
+   "download_count": 313605281
+  },
+  {
+   "rank": 129,
+   "project": "mypy-extensions",
+   "download_count": 312304660
+  },
+  {
+   "rank": 130,
+   "project": "dnspython",
+   "download_count": 310547397
+  },
+  {
+   "rank": 131,
+   "project": "more-itertools",
+   "download_count": 308158552
+  },
+  {
+   "rank": 132,
+   "project": "wcwidth",
+   "download_count": 307965274
+  },
+  {
+   "rank": 133,
+   "project": "cachetools",
+   "download_count": 307384646
+  },
+  {
+   "rank": 134,
+   "project": "distlib",
+   "download_count": 307162193
+  },
+  {
+   "rank": 135,
+   "project": "sse-starlette",
+   "download_count": 298931839
+  },
+  {
+   "rank": 136,
+   "project": "hf-xet",
+   "download_count": 292698850
+  },
+  {
+   "rank": 137,
+   "project": "multiprocess",
+   "download_count": 287287838
+  },
+  {
+   "rank": 138,
+   "project": "pytest-asyncio",
+   "download_count": 284610920
+  },
+  {
+   "rank": 139,
+   "project": "python-discovery",
+   "download_count": 282088696
+  },
+  {
+   "rank": 140,
+   "project": "docstring-parser",
+   "download_count": 269701101
+  },
+  {
+   "rank": 141,
+   "project": "sortedcontainers",
+   "download_count": 268947709
+  },
+  {
+   "rank": 142,
+   "project": "requests-toolbelt",
+   "download_count": 267222264
+  },
+  {
+   "rank": 143,
+   "project": "pyopenssl",
+   "download_count": 266284075
+  },
+  {
+   "rank": 144,
+   "project": "psycopg2-binary",
+   "download_count": 266278215
+  },
+  {
+   "rank": 145,
+   "project": "rsa",
+   "download_count": 265923086
+  },
+  {
+   "rank": 146,
+   "project": "uvloop",
+   "download_count": 265133175
+  },
+  {
+   "rank": 147,
+   "project": "msgpack",
+   "download_count": 264797545
+  },
+  {
+   "rank": 148,
+   "project": "opentelemetry-exporter-otlp-proto-grpc",
+   "download_count": 263866111
+  },
+  {
+   "rank": 149,
+   "project": "tiktoken",
+   "download_count": 263494853
+  },
+  {
+   "rank": 150,
+   "project": "httptools",
+   "download_count": 261375738
+  },
+  {
+   "rank": 151,
+   "project": "google-genai",
+   "download_count": 260327579
+  },
+  {
+   "rank": 152,
+   "project": "networkx",
+   "download_count": 256753630
+  },
+  {
+   "rank": 153,
+   "project": "werkzeug",
+   "download_count": 256313729
+  },
+  {
+   "rank": 154,
+   "project": "tokenizers",
+   "download_count": 255967395
+  },
+  {
+   "rank": 155,
+   "project": "redis",
+   "download_count": 253117505
+  },
+  {
+   "rank": 156,
+   "project": "gitpython",
+   "download_count": 244556664
+  },
+  {
+   "rank": 157,
+   "project": "fonttools",
+   "download_count": 244024171
+  },
+  {
+   "rank": 158,
+   "project": "langchain",
+   "download_count": 243393408
+  },
+  {
+   "rank": 159,
+   "project": "prompt-toolkit",
+   "download_count": 239661709
+  },
+  {
+   "rank": 160,
+   "project": "defusedxml",
+   "download_count": 238149603
+  },
+  {
+   "rank": 161,
+   "project": "grpcio-tools",
+   "download_count": 237001646
+  },
+  {
+   "rank": 162,
+   "project": "scikit-learn",
+   "download_count": 233220449
+  },
+  {
+   "rank": 163,
+   "project": "smmap",
+   "download_count": 231847582
+  },
+  {
+   "rank": 164,
+   "project": "pytest-cov",
+   "download_count": 230837726
+  },
+  {
+   "rank": 165,
+   "project": "google-cloud-storage",
+   "download_count": 229852503
+  },
+  {
+   "rank": 166,
+   "project": "matplotlib",
+   "download_count": 227869222
+  },
+  {
+   "rank": 167,
+   "project": "orjson",
+   "download_count": 226704857
+  },
+  {
+   "rank": 168,
+   "project": "email-validator",
+   "download_count": 224776775
+  },
+  {
+   "rank": 169,
+   "project": "pynacl",
+   "download_count": 224586068
+  },
+  {
+   "rank": 170,
+   "project": "httpx-sse",
+   "download_count": 223950839
+  },
+  {
+   "rank": 171,
+   "project": "isodate",
+   "download_count": 222555876
+  },
+  {
+   "rank": 172,
+   "project": "chardet",
+   "download_count": 222341791
+  },
+  {
+   "rank": 173,
+   "project": "azure-core",
+   "download_count": 219355105
+  },
+  {
+   "rank": 174,
+   "project": "gitdb",
+   "download_count": 219216033
+  },
+  {
+   "rank": 175,
+   "project": "tzlocal",
+   "download_count": 218678214
+  },
+  {
+   "rank": 176,
+   "project": "alembic",
+   "download_count": 217925302
+  },
+  {
+   "rank": 177,
+   "project": "itsdangerous",
+   "download_count": 217446380
+  },
+  {
+   "rank": 178,
+   "project": "dill",
+   "download_count": 217420051
+  },
+  {
+   "rank": 179,
+   "project": "websocket-client",
+   "download_count": 217151623
+  },
+  {
+   "rank": 180,
+   "project": "nodeenv",
+   "download_count": 215890582
+  },
+  {
+   "rank": 181,
+   "project": "joblib",
+   "download_count": 215080753
+  },
+  {
+   "rank": 182,
+   "project": "tabulate",
+   "download_count": 214071630
+  },
+  {
+   "rank": 183,
+   "project": "mako",
+   "download_count": 213717466
+  },
+  {
+   "rank": 184,
+   "project": "opentelemetry-instrumentation-requests",
+   "download_count": 212219899
+  },
+  {
+   "rank": 185,
+   "project": "threadpoolctl",
+   "download_count": 211518610
+  },
+  {
+   "rank": 186,
+   "project": "ruamel-yaml",
+   "download_count": 208009944
+  },
+  {
+   "rank": 187,
+   "project": "h2",
+   "download_count": 207999706
+  },
+  {
+   "rank": 188,
+   "project": "azure-identity",
+   "download_count": 207383741
+  },
+  {
+   "rank": 189,
+   "project": "keyring",
+   "download_count": 207315929
+  },
+  {
+   "rank": 190,
+   "project": "google-cloud-core",
+   "download_count": 205382735
+  },
+  {
+   "rank": 191,
+   "project": "mypy",
+   "download_count": 204494436
+  },
+  {
+   "rank": 192,
+   "project": "kiwisolver",
+   "download_count": 204186739
+  },
+  {
+   "rank": 193,
+   "project": "bcrypt",
+   "download_count": 203530048
+  },
+  {
+   "rank": 194,
+   "project": "hpack",
+   "download_count": 203484105
+  },
+  {
+   "rank": 195,
+   "project": "pytest-json-ctrf",
+   "download_count": 202463882
+  },
+  {
+   "rank": 196,
+   "project": "flask",
+   "download_count": 200523256
+  },
+  {
+   "rank": 197,
+   "project": "opentelemetry-util-http",
+   "download_count": 200128545
+  },
+  {
+   "rank": 198,
+   "project": "contourpy",
+   "download_count": 200022116
+  },
+  {
+   "rank": 199,
+   "project": "jaraco-classes",
+   "download_count": 199600844
+  },
+  {
+   "rank": 200,
+   "project": "msal",
+   "download_count": 199242492
+  },
+  {
+   "rank": 201,
+   "project": "docutils",
+   "download_count": 198217867
+  },
+  {
+   "rank": 202,
+   "project": "truststore",
+   "download_count": 197720472
+  },
+  {
+   "rank": 203,
+   "project": "hyperframe",
+   "download_count": 197534989
+  },
+  {
+   "rank": 204,
+   "project": "jeepney",
+   "download_count": 197093822
+  },
+  {
+   "rank": 205,
+   "project": "jaraco-functools",
+   "download_count": 196187223
+  },
+  {
+   "rank": 206,
+   "project": "decorator",
+   "download_count": 196037614
+  },
+  {
+   "rank": 207,
+   "project": "zstandard",
+   "download_count": 195786086
+  },
+  {
+   "rank": 208,
+   "project": "anthropic",
+   "download_count": 195645786
+  },
+  {
+   "rank": 209,
+   "project": "pre-commit",
+   "download_count": 195322256
+  },
+  {
+   "rank": 210,
+   "project": "secretstorage",
+   "download_count": 195293910
+  },
+  {
+   "rank": 211,
+   "project": "identify",
+   "download_count": 194767396
+  },
+  {
+   "rank": 212,
+   "project": "cfgv",
+   "download_count": 192050825
+  },
+  {
+   "rank": 213,
+   "project": "toml",
+   "download_count": 191302210
+  },
+  {
+   "rank": 214,
+   "project": "docker",
+   "download_count": 189303912
+  },
+  {
+   "rank": 215,
+   "project": "xxhash",
+   "download_count": 188742405
+  },
+  {
+   "rank": 216,
+   "project": "jaraco-context",
+   "download_count": 188136772
+  },
+  {
+   "rank": 217,
+   "project": "blinker",
+   "download_count": 186575795
+  },
+  {
+   "rank": 218,
+   "project": "uv",
+   "download_count": 186531484
+  },
+  {
+   "rank": 219,
+   "project": "cycler",
+   "download_count": 184961387
+  },
+  {
+   "rank": 220,
+   "project": "google-resumable-media",
+   "download_count": 183296572
+  },
+  {
+   "rank": 221,
+   "project": "httpx2",
+   "download_count": 182710126
+  },
+  {
+   "rank": 222,
+   "project": "ptyprocess",
+   "download_count": 182277014
+  },
+  {
+   "rank": 223,
+   "project": "google-crc32c",
+   "download_count": 181964869
+  },
+  {
+   "rank": 224,
+   "project": "sympy",
+   "download_count": 180437540
+  },
+  {
+   "rank": 225,
+   "project": "transformers",
+   "download_count": 180369167
+  },
+  {
+   "rank": 226,
+   "project": "httpcore2",
+   "download_count": 178502840
+  },
+  {
+   "rank": 227,
+   "project": "pexpect",
+   "download_count": 177619254
+  },
+  {
+   "rank": 228,
+   "project": "google-cloud-bigquery",
+   "download_count": 174004537
+  },
+  {
+   "rank": 229,
+   "project": "google-api-python-client",
+   "download_count": 173889852
+  },
+  {
+   "rank": 230,
+   "project": "uritemplate",
+   "download_count": 171437872
+  },
+  {
+   "rank": 231,
+   "project": "black",
+   "download_count": 170825455
+  },
+  {
+   "rank": 232,
+   "project": "prometheus-client",
+   "download_count": 170489438
+  },
+  {
+   "rank": 233,
+   "project": "jsonpointer",
+   "download_count": 170277336
+  },
+  {
+   "rank": 234,
+   "project": "google-auth-httplib2",
+   "download_count": 170223104
+  },
+  {
+   "rank": 235,
+   "project": "sentry-sdk",
+   "download_count": 169319258
+  },
+  {
+   "rank": 236,
+   "project": "langchain-core",
+   "download_count": 169249021
+  },
+  {
+   "rank": 237,
+   "project": "opentelemetry-instrumentation-threading",
+   "download_count": 168338444
+  },
+  {
+   "rank": 238,
+   "project": "deprecated",
+   "download_count": 167033922
+  },
+  {
+   "rank": 239,
+   "project": "backoff",
+   "download_count": 165729088
+  },
+  {
+   "rank": 240,
+   "project": "snowflake-connector-python",
+   "download_count": 165666341
+  },
+  {
+   "rank": 241,
+   "project": "async-timeout",
+   "download_count": 165645733
+  },
+  {
+   "rank": 242,
+   "project": "google-auth-oauthlib",
+   "download_count": 164430622
+  },
+  {
+   "rank": 243,
+   "project": "rapidfuzz",
+   "download_count": 163835611
+  },
+  {
+   "rank": 244,
+   "project": "mpmath",
+   "download_count": 162783183
+  },
+  {
+   "rank": 245,
+   "project": "asn1crypto",
+   "download_count": 162717077
+  },
+  {
+   "rank": 246,
+   "project": "httplib2",
+   "download_count": 162298069
+  },
+  {
+   "rank": 247,
+   "project": "opentelemetry-exporter-otlp",
+   "download_count": 160583849
+  },
+  {
+   "rank": 248,
+   "project": "ipython",
+   "download_count": 159133976
+  },
+  {
+   "rank": 249,
+   "project": "awscli",
+   "download_count": 158148077
+  },
+  {
+   "rank": 250,
+   "project": "pytest-xdist",
+   "download_count": 154565272
+  },
+  {
+   "rank": 251,
+   "project": "narwhals",
+   "download_count": 153648965
+  },
+  {
+   "rank": 252,
+   "project": "librt",
+   "download_count": 153417569
+  },
+  {
+   "rank": 253,
+   "project": "aiofiles",
+   "download_count": 152564686
+  },
+  {
+   "rank": 254,
+   "project": "types-requests",
+   "download_count": 152466661
+  },
+  {
+   "rank": 255,
+   "project": "msal-extensions",
+   "download_count": 152348430
+  },
+  {
+   "rank": 256,
+   "project": "poetry-core",
+   "download_count": 152263994
+  },
+  {
+   "rank": 257,
+   "project": "datasets",
+   "download_count": 151528657
+  },
+  {
+   "rank": 258,
+   "project": "pypdf",
+   "download_count": 151277866
+  },
+  {
+   "rank": 259,
+   "project": "execnet",
+   "download_count": 151155190
+  },
+  {
+   "rank": 260,
+   "project": "traitlets",
+   "download_count": 151052596
+  },
+  {
+   "rank": 261,
+   "project": "cloudpickle",
+   "download_count": 149618203
+  },
+  {
+   "rank": 262,
+   "project": "asgiref",
+   "download_count": 148428504
+  },
+  {
+   "rank": 263,
+   "project": "ydb",
+   "download_count": 146482615
+  },
+  {
+   "rank": 264,
+   "project": "paramiko",
+   "download_count": 146474339
+  },
+  {
+   "rank": 265,
+   "project": "jsonpatch",
+   "download_count": 144911881
+  },
+  {
+   "rank": 266,
+   "project": "sqlparse",
+   "download_count": 143920637
+  },
+  {
+   "rank": 267,
+   "project": "google-cloud-secret-manager",
+   "download_count": 143634412
+  },
+  {
+   "rank": 268,
+   "project": "pyproject-hooks",
+   "download_count": 143021617
+  },
+  {
+   "rank": 269,
+   "project": "webencodings",
+   "download_count": 141568128
+  },
+  {
+   "rank": 270,
+   "project": "fastjsonschema",
+   "download_count": 140802531
+  },
+  {
+   "rank": 271,
+   "project": "authlib",
+   "download_count": 140080677
+  },
+  {
+   "rank": 272,
+   "project": "psycopg",
+   "download_count": 135207089
+  },
+  {
+   "rank": 273,
+   "project": "build",
+   "download_count": 134700657
+  },
+  {
+   "rank": 274,
+   "project": "grpc-google-iam-v1",
+   "download_count": 134463208
+  },
+  {
+   "rank": 275,
+   "project": "gunicorn",
+   "download_count": 134447675
+  },
+  {
+   "rank": 276,
+   "project": "executing",
+   "download_count": 134059881
+  },
+  {
+   "rank": 277,
+   "project": "databricks-sdk",
+   "download_count": 133588841
+  },
+  {
+   "rank": 278,
+   "project": "isort",
+   "download_count": 133567372
+  },
+  {
+   "rank": 279,
+   "project": "joserfc",
+   "download_count": 133143252
+  },
+  {
+   "rank": 280,
+   "project": "azure-storage-blob",
+   "download_count": 130164036
+  },
+  {
+   "rank": 281,
+   "project": "jedi",
+   "download_count": 129086435
+  },
+  {
+   "rank": 282,
+   "project": "parso",
+   "download_count": 129065807
+  },
+  {
+   "rank": 283,
+   "project": "babel",
+   "download_count": 129003138
+  },
+  {
+   "rank": 284,
+   "project": "asttokens",
+   "download_count": 128880390
+  },
+  {
+   "rank": 285,
+   "project": "psycopg-binary",
+   "download_count": 128557130
+  },
+  {
+   "rank": 286,
+   "project": "google-cloud-aiplatform",
+   "download_count": 127180765
+  },
+  {
+   "rank": 287,
+   "project": "matplotlib-inline",
+   "download_count": 123016529
+  },
+  {
+   "rank": 288,
+   "project": "cython",
+   "download_count": 122993549
+  },
+  {
+   "rank": 289,
+   "project": "tornado",
+   "download_count": 122461253
+  },
+  {
+   "rank": 290,
+   "project": "markdown",
+   "download_count": 120434720
+  },
+  {
+   "rank": 291,
+   "project": "setuptools-scm",
+   "download_count": 120236019
+  },
+  {
+   "rank": 292,
+   "project": "xmltodict",
+   "download_count": 119344142
+  },
+  {
+   "rank": 293,
+   "project": "pydantic-ai-slim",
+   "download_count": 119139262
+  },
+  {
+   "rank": 294,
+   "project": "stack-data",
+   "download_count": 119055107
+  },
+  {
+   "rank": 295,
+   "project": "pure-eval",
+   "download_count": 118812475
+  },
+  {
+   "rank": 296,
+   "project": "asyncpg",
+   "download_count": 118573617
+  },
+  {
+   "rank": 297,
+   "project": "gcsfs",
+   "download_count": 116730935
+  },
+  {
+   "rank": 298,
+   "project": "google-cloud-batch",
+   "download_count": 116340203
+  },
+  {
+   "rank": 299,
+   "project": "marshmallow",
+   "download_count": 115605635
+  },
+  {
+   "rank": 300,
+   "project": "cachecontrol",
+   "download_count": 115008676
+  },
+  {
+   "rank": 301,
+   "project": "langsmith",
+   "download_count": 114400608
+  },
+  {
+   "rank": 302,
+   "project": "python-json-logger",
+   "download_count": 113763625
+  },
+  {
+   "rank": 303,
+   "project": "vcs-versioning",
+   "download_count": 113320470
+  },
+  {
+   "rank": 304,
+   "project": "fastuuid",
+   "download_count": 113290169
+  },
+  {
+   "rank": 305,
+   "project": "python-docx",
+   "download_count": 111130495
+  },
+  {
+   "rank": 306,
+   "project": "structlog",
+   "download_count": 110510850
+  },
+  {
+   "rank": 307,
+   "project": "watchdog",
+   "download_count": 110013826
+  },
+  {
+   "rank": 308,
+   "project": "playwright",
+   "download_count": 108699790
+  },
+  {
+   "rank": 309,
+   "project": "google-cloud-kms",
+   "download_count": 108398726
+  },
+  {
+   "rank": 310,
+   "project": "safetensors",
+   "download_count": 106632763
+  },
+  {
+   "rank": 311,
+   "project": "tinycss2",
+   "download_count": 106140749
+  },
+  {
+   "rank": 312,
+   "project": "termcolor",
+   "download_count": 105410888
+  },
+  {
+   "rank": 313,
+   "project": "google-analytics-admin",
+   "download_count": 104949925
+  },
+  {
+   "rank": 314,
+   "project": "google-cloud-compute",
+   "download_count": 104728951
+  },
+  {
+   "rank": 315,
+   "project": "pytokens",
+   "download_count": 103408267
+  },
+  {
+   "rank": 316,
+   "project": "aioitertools",
+   "download_count": 102422394
+  },
+  {
+   "rank": 317,
+   "project": "kubernetes",
+   "download_count": 102141604
+  },
+  {
+   "rank": 318,
+   "project": "brotli",
+   "download_count": 102019865
+  },
+  {
+   "rank": 319,
+   "project": "pymupdf",
+   "download_count": 101779570
+  },
+  {
+   "rank": 320,
+   "project": "pyzmq",
+   "download_count": 101355945
+  },
+  {
+   "rank": 321,
+   "project": "pyee",
+   "download_count": 100774990
+  },
+  {
+   "rank": 322,
+   "project": "xlsxwriter",
+   "download_count": 100771130
+  },
+  {
+   "rank": 323,
+   "project": "pymongo",
+   "download_count": 100054644
+  },
+  {
+   "rank": 324,
+   "project": "lz4",
+   "download_count": 99846544
+  },
+  {
+   "rank": 325,
+   "project": "mdit-py-plugins",
+   "download_count": 99609953
+  },
+  {
+   "rank": 326,
+   "project": "google-cloud-pubsub",
+   "download_count": 99077979
+  },
+  {
+   "rank": 327,
+   "project": "pydantic-graph",
+   "download_count": 97831314
+  },
+  {
+   "rank": 328,
+   "project": "cbor2",
+   "download_count": 97333828
+  },
+  {
+   "rank": 329,
+   "project": "pytest-mock",
+   "download_count": 96922647
+  },
+  {
+   "rank": 330,
+   "project": "pytest-timeout",
+   "download_count": 96856256
+  },
+  {
+   "rank": 331,
+   "project": "py4j",
+   "download_count": 96774279
+  },
+  {
+   "rank": 332,
+   "project": "pymysql",
+   "download_count": 95716808
+  },
+  {
+   "rank": 333,
+   "project": "linkify-it-py",
+   "download_count": 95617907
+  },
+  {
+   "rank": 334,
+   "project": "flatbuffers",
+   "download_count": 95019864
+  },
+  {
+   "rank": 335,
+   "project": "google-cloud-dlp",
+   "download_count": 95011553
+  },
+  {
+   "rank": 336,
+   "project": "pyperclip",
+   "download_count": 94008677
+  },
+  {
+   "rank": 337,
+   "project": "nest-asyncio",
+   "download_count": 93952060
+  },
+  {
+   "rank": 338,
+   "project": "google-cloud-speech",
+   "download_count": 93520087
+  },
+  {
+   "rank": 339,
+   "project": "dbt-adapters",
+   "download_count": 92655045
+  },
+  {
+   "rank": 340,
+   "project": "wsproto",
+   "download_count": 92527938
+  },
+  {
+   "rank": 341,
+   "project": "debugpy",
+   "download_count": 92290556
+  },
+  {
+   "rank": 342,
+   "project": "typedload",
+   "download_count": 91768619
+  },
+  {
+   "rank": 343,
+   "project": "google-cloud-texttospeech",
+   "download_count": 91579730
+  },
+  {
+   "rank": 344,
+   "project": "ruamel-yaml-clib",
+   "download_count": 91498684
+  },
+  {
+   "rank": 345,
+   "project": "croniter",
+   "download_count": 91477531
+  },
+  {
+   "rank": 346,
+   "project": "slack-sdk",
+   "download_count": 91249333
+  },
+  {
+   "rank": 347,
+   "project": "uc-micro-py",
+   "download_count": 91027046
+  },
+  {
+   "rank": 348,
+   "project": "weaviate-client",
+   "download_count": 89865085
+  },
+  {
+   "rank": 349,
+   "project": "griffelib",
+   "download_count": 89096838
+  },
+  {
+   "rank": 350,
+   "project": "tomli-w",
+   "download_count": 88968760
+  },
+  {
+   "rank": 351,
+   "project": "types-toml",
+   "download_count": 88712108
+  },
+  {
+   "rank": 352,
+   "project": "importlib-resources",
+   "download_count": 88678962
+  },
+  {
+   "rank": 353,
+   "project": "pycryptodome",
+   "download_count": 88641639
+  },
+  {
+   "rank": 354,
+   "project": "google-cloud-logging",
+   "download_count": 88279996
+  },
+  {
+   "rank": 355,
+   "project": "opentelemetry-instrumentation-fastapi",
+   "download_count": 87920138
+  },
+  {
+   "rank": 356,
+   "project": "reportlab",
+   "download_count": 87719908
+  },
+  {
+   "rank": 357,
+   "project": "awswrangler",
+   "download_count": 87699410
+  },
+  {
+   "rank": 358,
+   "project": "torch",
+   "download_count": 87450165
+  },
+  {
+   "rank": 359,
+   "project": "fastmcp",
+   "download_count": 87080875
+  },
+  {
+   "rank": 360,
+   "project": "mccabe",
+   "download_count": 87067259
+  },
+  {
+   "rank": 361,
+   "project": "tree-sitter",
+   "download_count": 86695401
+  },
+  {
+   "rank": 362,
+   "project": "jupyter-core",
+   "download_count": 86449658
+  },
+  {
+   "rank": 363,
+   "project": "deprecation",
+   "download_count": 85670434
+  },
+  {
+   "rank": 364,
+   "project": "beartype",
+   "download_count": 85263441
+  },
+  {
+   "rank": 365,
+   "project": "opentelemetry-instrumentation-asgi",
+   "download_count": 84639159
+  },
+  {
+   "rank": 366,
+   "project": "cyclopts",
+   "download_count": 84369940
+  },
+  {
+   "rank": 367,
+   "project": "text-unidecode",
+   "download_count": 84334380
+  },
+  {
+   "rank": 368,
+   "project": "semver",
+   "download_count": 83477769
+  },
+  {
+   "rank": 369,
+   "project": "loguru",
+   "download_count": 83460991
+  },
+  {
+   "rank": 370,
+   "project": "ast-serialize",
+   "download_count": 83338586
+  },
+  {
+   "rank": 371,
+   "project": "grpclib",
+   "download_count": 83000342
+  },
+  {
+   "rank": 372,
+   "project": "nbformat",
+   "download_count": 83000198
+  },
+  {
+   "rank": 373,
+   "project": "uuid-utils",
+   "download_count": 82887774
+  },
+  {
+   "rank": 374,
+   "project": "jsonschema-path",
+   "download_count": 82595902
+  },
+  {
+   "rank": 375,
+   "project": "sqlglot",
+   "download_count": 82369712
+  },
+  {
+   "rank": 376,
+   "project": "typing-inspect",
+   "download_count": 82298833
+  },
+  {
+   "rank": 377,
+   "project": "python-slugify",
+   "download_count": 82262812
+  },
+  {
+   "rank": 378,
+   "project": "onnxruntime",
+   "download_count": 82182688
+  },
+  {
+   "rank": 379,
+   "project": "dulwich",
+   "download_count": 81502121
+  },
+  {
+   "rank": 380,
+   "project": "xlrd",
+   "download_count": 81463499
+  },
+  {
+   "rank": 381,
+   "project": "types-certifi",
+   "download_count": 81427393
+  },
+  {
+   "rank": 382,
+   "project": "aiosqlite",
+   "download_count": 80665029
+  },
+  {
+   "rank": 383,
+   "project": "jsonref",
+   "download_count": 80196073
+  },
+  {
+   "rank": 384,
+   "project": "dbt-core",
+   "download_count": 80093636
+  },
+  {
+   "rank": 385,
+   "project": "invoke",
+   "download_count": 79881436
+  },
+  {
+   "rank": 386,
+   "project": "opentelemetry-exporter-prometheus",
+   "download_count": 79879888
+  },
+  {
+   "rank": 387,
+   "project": "jupyter-client",
+   "download_count": 78995081
+  },
+  {
+   "rank": 388,
+   "project": "google-cloud-monitoring",
+   "download_count": 78864169
+  },
+  {
+   "rank": 389,
+   "project": "pathable",
+   "download_count": 78471873
+  },
+  {
+   "rank": 390,
+   "project": "fastmcp-slim",
+   "download_count": 78429973
+  },
+  {
+   "rank": 391,
+   "project": "modal",
+   "download_count": 78288277
+  },
+  {
+   "rank": 392,
+   "project": "synchronicity",
+   "download_count": 77186608
+  },
+  {
+   "rank": 393,
+   "project": "graphql-core",
+   "download_count": 77035344
+  },
+  {
+   "rank": 394,
+   "project": "pycodestyle",
+   "download_count": 76811150
+  },
+  {
+   "rank": 395,
+   "project": "types-pyyaml",
+   "download_count": 76644993
+  },
+  {
+   "rank": 396,
+   "project": "google-cloud-tasks",
+   "download_count": 76596178
+  },
+  {
+   "rank": 397,
+   "project": "argcomplete",
+   "download_count": 76583598
+  },
+  {
+   "rank": 398,
+   "project": "faker",
+   "download_count": 76536302
+  },
+  {
+   "rank": 399,
+   "project": "fastapi-cli",
+   "download_count": 76323393
+  },
+  {
+   "rank": 400,
+   "project": "databricks-sql-connector",
+   "download_count": 76311541
+  },
+  {
+   "rank": 401,
+   "project": "pydantic-extra-types",
+   "download_count": 76309952
+  },
+  {
+   "rank": 402,
+   "project": "installer",
+   "download_count": 76209748
+  },
+  {
+   "rank": 403,
+   "project": "rfc3339-validator",
+   "download_count": 76137862
+  },
+  {
+   "rank": 404,
+   "project": "pkginfo",
+   "download_count": 76112866
+  },
+  {
+   "rank": 405,
+   "project": "lark",
+   "download_count": 76001902
+  },
+  {
+   "rank": 406,
+   "project": "rich-rst",
+   "download_count": 75925056
+  },
+  {
+   "rank": 407,
+   "project": "shapely",
+   "download_count": 75881240
+  },
+  {
+   "rank": 408,
+   "project": "py-key-value-aio",
+   "download_count": 75832463
+  },
+  {
+   "rank": 409,
+   "project": "backports-zstd",
+   "download_count": 74422370
+  },
+  {
+   "rank": 410,
+   "project": "ipython-pygments-lexers",
+   "download_count": 74177335
+  },
+  {
+   "rank": 411,
+   "project": "numba",
+   "download_count": 73963593
+  },
+  {
+   "rank": 412,
+   "project": "arrow",
+   "download_count": 73885309
+  },
+  {
+   "rank": 413,
+   "project": "markdownify",
+   "download_count": 73836607
+  },
+  {
+   "rank": 414,
+   "project": "deepdiff",
+   "download_count": 73694817
+  },
+  {
+   "rank": 415,
+   "project": "dbt-common",
+   "download_count": 73616546
+  },
+  {
+   "rank": 416,
+   "project": "smart-open",
+   "download_count": 73494056
+  },
+  {
+   "rank": 417,
+   "project": "requests-file",
+   "download_count": 73431151
+  },
+  {
+   "rank": 418,
+   "project": "rich-toolkit",
+   "download_count": 73138968
+  },
+  {
+   "rank": 419,
+   "project": "polars",
+   "download_count": 72195682
+  },
+  {
+   "rank": 420,
+   "project": "mistune",
+   "download_count": 72022587
+  },
+  {
+   "rank": 421,
+   "project": "argon2-cffi-bindings",
+   "download_count": 71897467
+  },
+  {
+   "rank": 422,
+   "project": "bleach",
+   "download_count": 71656536
+  },
+  {
+   "rank": 423,
+   "project": "durationpy",
+   "download_count": 71642186
+  },
+  {
+   "rank": 424,
+   "project": "msrest",
+   "download_count": 71510237
+  },
+  {
+   "rank": 425,
+   "project": "mmh3",
+   "download_count": 71412850
+  },
+  {
+   "rank": 426,
+   "project": "snowflake-snowpark-python",
+   "download_count": 71404630
+  },
+  {
+   "rank": 427,
+   "project": "pypdfium2",
+   "download_count": 70917704
+  },
+  {
+   "rank": 428,
+   "project": "llama-parse",
+   "download_count": 70914740
+  },
+  {
+   "rank": 429,
+   "project": "argon2-cffi",
+   "download_count": 70897661
+  },
+  {
+   "rank": 430,
+   "project": "llama-cloud-services",
+   "download_count": 70794695
+  },
+  {
+   "rank": 431,
+   "project": "google-cloud-bigtable",
+   "download_count": 69855908
+  },
+  {
+   "rank": 432,
+   "project": "langchain-openai",
+   "download_count": 69352842
+  },
+  {
+   "rank": 433,
+   "project": "poetry",
+   "download_count": 68492660
+  },
+  {
+   "rank": 434,
+   "project": "pendulum",
+   "download_count": 68300064
+  },
+  {
+   "rank": 435,
+   "project": "typeguard",
+   "download_count": 68230807
+  },
+  {
+   "rank": 436,
+   "project": "pygithub",
+   "download_count": 67767324
+  },
+  {
+   "rank": 437,
+   "project": "types-protobuf",
+   "download_count": 67439763
+  },
+  {
+   "rank": 438,
+   "project": "jsonpath-ng",
+   "download_count": 67415790
+  },
+  {
+   "rank": 439,
+   "project": "uncalled-for",
+   "download_count": 67343042
+  },
+  {
+   "rank": 440,
+   "project": "scramp",
+   "download_count": 67314026
+  },
+  {
+   "rank": 441,
+   "project": "llvmlite",
+   "download_count": 67275221
+  },
+  {
+   "rank": 442,
+   "project": "sphinx",
+   "download_count": 67252530
+  },
+  {
+   "rank": 443,
+   "project": "grpcio-health-checking",
+   "download_count": 67246651
+  },
+  {
+   "rank": 444,
+   "project": "nltk",
+   "download_count": 66908940
+  },
+  {
+   "rank": 445,
+   "project": "fastcore",
+   "download_count": 66803574
+  },
+  {
+   "rank": 446,
+   "project": "comm",
+   "download_count": 66789083
+  },
+  {
+   "rank": 447,
+   "project": "plotly",
+   "download_count": 66720907
+  },
+  {
+   "rank": 448,
+   "project": "crashtest",
+   "download_count": 66581254
+  },
+  {
+   "rank": 449,
+   "project": "ipykernel",
+   "download_count": 66055260
+  },
+  {
+   "rank": 450,
+   "project": "langgraph",
+   "download_count": 65628798
+  },
+  {
+   "rank": 451,
+   "project": "aiofile",
+   "download_count": 65022022
+  },
+  {
+   "rank": 452,
+   "project": "duckdb",
+   "download_count": 64906501
+  },
+  {
+   "rank": 453,
+   "project": "cleo",
+   "download_count": 64818627
+  },
+  {
+   "rank": 454,
+   "project": "pdfminer-six",
+   "download_count": 64475931
+  },
+  {
+   "rank": 455,
+   "project": "pyarrow-hotfix",
+   "download_count": 64390903
+  },
+  {
+   "rank": 456,
+   "project": "responses",
+   "download_count": 64264963
+  },
+  {
+   "rank": 457,
+   "project": "caio",
+   "download_count": 64166231
+  },
+  {
+   "rank": 458,
+   "project": "humanize",
+   "download_count": 63938482
+  },
+  {
+   "rank": 459,
+   "project": "psycopg2",
+   "download_count": 63666344
+  },
+  {
+   "rank": 460,
+   "project": "cfn-lint",
+   "download_count": 63641764
+  },
+  {
+   "rank": 461,
+   "project": "google-cloud-vision",
+   "download_count": 63100738
+  },
+  {
+   "rank": 462,
+   "project": "triton",
+   "download_count": 62685194
+  },
+  {
+   "rank": 463,
+   "project": "cattrs",
+   "download_count": 62508416
+  },
+  {
+   "rank": 464,
+   "project": "dataclasses-json",
+   "download_count": 62387142
+  },
+  {
+   "rank": 465,
+   "project": "portalocker",
+   "download_count": 61996841
+  },
+  {
+   "rank": 466,
+   "project": "google-cloud-resource-manager",
+   "download_count": 61942330
+  },
+  {
+   "rank": 467,
+   "project": "fastapi-cloud-cli",
+   "download_count": 61868236
+  },
+  {
+   "rank": 468,
+   "project": "datadog",
+   "download_count": 61801124
+  },
+  {
+   "rank": 469,
+   "project": "toolz",
+   "download_count": 61797872
+  },
+  {
+   "rank": 470,
+   "project": "google-cloud-run",
+   "download_count": 61626871
+  },
+  {
+   "rank": 471,
+   "project": "mcp-types",
+   "download_count": 61312154
+  },
+  {
+   "rank": 472,
+   "project": "poetry-plugin-export",
+   "download_count": 61190875
+  },
+  {
+   "rank": 473,
+   "project": "nbconvert",
+   "download_count": 60924994
+  },
+  {
+   "rank": 474,
+   "project": "python-pptx",
+   "download_count": 60629968
+  },
+  {
+   "rank": 475,
+   "project": "py",
+   "download_count": 60350852
+  },
+  {
+   "rank": 476,
+   "project": "langchain-protocol",
+   "download_count": 60245219
+  },
+  {
+   "rank": 477,
+   "project": "pycryptodomex",
+   "download_count": 60174167
+  },
+  {
+   "rank": 478,
+   "project": "polars-runtime-32",
+   "download_count": 60167047
+  },
+  {
+   "rank": 479,
+   "project": "pyflakes",
+   "download_count": 60007696
+  },
+  {
+   "rank": 480,
+   "project": "backports-tarfile",
+   "download_count": 59950580
+  },
+  {
+   "rank": 481,
+   "project": "snowflake-sqlalchemy",
+   "download_count": 59887351
+  },
+  {
+   "rank": 482,
+   "project": "future",
+   "download_count": 59875496
+  },
+  {
+   "rank": 483,
+   "project": "pysocks",
+   "download_count": 59712262
+  },
+  {
+   "rank": 484,
+   "project": "nbclient",
+   "download_count": 59463548
+  },
+  {
+   "rank": 485,
+   "project": "google-cloud-videointelligence",
+   "download_count": 59123856
+  },
+  {
+   "rank": 486,
+   "project": "google-cloud-language",
+   "download_count": 58993880
+  },
+  {
+   "rank": 487,
+   "project": "google-cloud-workflows",
+   "download_count": 58584115
+  },
+  {
+   "rank": 488,
+   "project": "colorlog",
+   "download_count": 58060559
+  },
+  {
+   "rank": 489,
+   "project": "unidiff",
+   "download_count": 58033972
+  },
+  {
+   "rank": 490,
+   "project": "sqlalchemy-bigquery",
+   "download_count": 57815267
+  },
+  {
+   "rank": 491,
+   "project": "confluent-kafka",
+   "download_count": 57720968
+  },
+  {
+   "rank": 492,
+   "project": "absl-py",
+   "download_count": 57594326
+  },
+  {
+   "rank": 493,
+   "project": "google-cloud-dataform",
+   "download_count": 57571420
+  },
+  {
+   "rank": 494,
+   "project": "zope-interface",
+   "download_count": 57557677
+  },
+  {
+   "rank": 495,
+   "project": "google-cloud-redis",
+   "download_count": 57381598
+  },
+  {
+   "rank": 496,
+   "project": "openapi-pydantic",
+   "download_count": 57344328
+  },
+  {
+   "rank": 497,
+   "project": "pbs-installer",
+   "download_count": 57197633
+  },
+  {
+   "rank": 498,
+   "project": "libcst",
+   "download_count": 57178512
+  },
+  {
+   "rank": 499,
+   "project": "google-cloud-os-login",
+   "download_count": 57010999
+  },
+  {
+   "rank": 500,
+   "project": "google-cloud-bigquery-datatransfer",
+   "download_count": 57004410
+  },
+  {
+   "rank": 501,
+   "project": "setproctitle",
+   "download_count": 56970516
+  },
+  {
+   "rank": 502,
+   "project": "freezegun",
+   "download_count": 56753880
+  },
+  {
+   "rank": 503,
+   "project": "pylint",
+   "download_count": 56644357
+  },
+  {
+   "rank": 504,
+   "project": "google-cloud-memcache",
+   "download_count": 56410157
+  },
+  {
+   "rank": 505,
+   "project": "azure-keyvault-secrets",
+   "download_count": 56280769
+  },
+  {
+   "rank": 506,
+   "project": "jupyterlab-pygments",
+   "download_count": 56271267
+  },
+  {
+   "rank": 507,
+   "project": "google-cloud-dataproc-metastore",
+   "download_count": 56214357
+  },
+  {
+   "rank": 508,
+   "project": "google-cloud-orchestration-airflow",
+   "download_count": 56075563
+  },
+  {
+   "rank": 509,
+   "project": "click-plugins",
+   "download_count": 56012950
+  },
+  {
+   "rank": 510,
+   "project": "langgraph-prebuilt",
+   "download_count": 55731521
+  },
+  {
+   "rank": 511,
+   "project": "pandocfilters",
+   "download_count": 55662422
+  },
+  {
+   "rank": 512,
+   "project": "prettytable",
+   "download_count": 55448733
+  },
+  {
+   "rank": 513,
+   "project": "simplejson",
+   "download_count": 55396319
+  },
+  {
+   "rank": 514,
+   "project": "flask-cors",
+   "download_count": 54669648
+  },
+  {
+   "rank": 515,
+   "project": "redshift-connector",
+   "download_count": 54586581
+  },
+  {
+   "rank": 516,
+   "project": "graphviz",
+   "download_count": 54392555
+  },
+  {
+   "rank": 517,
+   "project": "google-cloud-automl",
+   "download_count": 54380535
+  },
+  {
+   "rank": 518,
+   "project": "langgraph-sdk",
+   "download_count": 54314608
+  },
+  {
+   "rank": 519,
+   "project": "azure-common",
+   "download_count": 54292643
+  },
+  {
+   "rank": 520,
+   "project": "celery",
+   "download_count": 54243992
+  },
+  {
+   "rank": 521,
+   "project": "orderly-set",
+   "download_count": 53997750
+  },
+  {
+   "rank": 522,
+   "project": "kombu",
+   "download_count": 53710190
+  },
+  {
+   "rank": 523,
+   "project": "json5",
+   "download_count": 53489842
+  },
+  {
+   "rank": 524,
+   "project": "pdfplumber",
+   "download_count": 53392429
+  },
+  {
+   "rank": 525,
+   "project": "langgraph-checkpoint",
+   "download_count": 53039306
+  },
+  {
+   "rank": 526,
+   "project": "ecdsa",
+   "download_count": 52965159
+  },
+  {
+   "rank": 527,
+   "project": "opentelemetry-instrumentation-httpx",
+   "download_count": 52281650
+  },
+  {
+   "rank": 528,
+   "project": "humanfriendly",
+   "download_count": 52179562
+  },
+  {
+   "rank": 529,
+   "project": "trio",
+   "download_count": 52096616
+  },
+  {
+   "rank": 530,
+   "project": "flake8",
+   "download_count": 52090270
+  },
+  {
+   "rank": 531,
+   "project": "cssselect2",
+   "download_count": 51963630
+  },
+  {
+   "rank": 532,
+   "project": "pytest-rerunfailures",
+   "download_count": 51923424
+  },
+  {
+   "rank": 533,
+   "project": "selenium",
+   "download_count": 51890951
+  },
+  {
+   "rank": 534,
+   "project": "botocore-stubs",
+   "download_count": 51666155
+  },
+  {
+   "rank": 535,
+   "project": "google-cloud-appengine-logging",
+   "download_count": 51619428
+  },
+  {
+   "rank": 536,
+   "project": "browser-use",
+   "download_count": 51587879
+  },
+  {
+   "rank": 537,
+   "project": "django",
+   "download_count": 51434190
+  },
+  {
+   "rank": 538,
+   "project": "google-cloud-dataflow-client",
+   "download_count": 51189874
+  },
+  {
+   "rank": 539,
+   "project": "hypothesis",
+   "download_count": 51130653
+  },
+  {
+   "rank": 540,
+   "project": "antlr4-python3-runtime",
+   "download_count": 51099199
+  },
+  {
+   "rank": 541,
+   "project": "ray",
+   "download_count": 50809828
+  },
+  {
+   "rank": 542,
+   "project": "pymssql",
+   "download_count": 50746394
+  },
+  {
+   "rank": 543,
+   "project": "pandas-stubs",
+   "download_count": 50654332
+  },
+  {
+   "rank": 544,
+   "project": "altair",
+   "download_count": 50614329
+  },
+  {
+   "rank": 545,
+   "project": "amqp",
+   "download_count": 50537967
+  },
+  {
+   "rank": 546,
+   "project": "vine",
+   "download_count": 50337453
+  },
+  {
+   "rank": 547,
+   "project": "ormsgpack",
+   "download_count": 50317869
+  },
+  {
+   "rank": 548,
+   "project": "google-cloud-audit-log",
+   "download_count": 50287694
+  },
+  {
+   "rank": 549,
+   "project": "findpython",
+   "download_count": 50279147
+  },
+  {
+   "rank": 550,
+   "project": "requests-aws4auth",
+   "download_count": 50233948
+  },
+  {
+   "rank": 551,
+   "project": "apscheduler",
+   "download_count": 50129960
+  },
+  {
+   "rank": 552,
+   "project": "semantic-version",
+   "download_count": 50089717
+  },
+  {
+   "rank": 553,
+   "project": "elasticsearch",
+   "download_count": 50084942
+  },
+  {
+   "rank": 554,
+   "project": "billiard",
+   "download_count": 50002479
+  },
+  {
+   "rank": 555,
+   "project": "opencv-python",
+   "download_count": 49970776
+  },
+  {
+   "rank": 556,
+   "project": "astroid",
+   "download_count": 49659751
+  },
+  {
+   "rank": 557,
+   "project": "types-python-dateutil",
+   "download_count": 49561451
+  },
+  {
+   "rank": 558,
+   "project": "rignore",
+   "download_count": 49415307
+  },
+  {
+   "rank": 559,
+   "project": "click-didyoumean",
+   "download_count": 49402942
+  },
+  {
+   "rank": 560,
+   "project": "opensearch-py",
+   "download_count": 49215168
+  },
+  {
+   "rank": 561,
+   "project": "types-s3transfer",
+   "download_count": 49135654
+  },
+  {
+   "rank": 562,
+   "project": "cuda-bindings",
+   "download_count": 49002301
+  },
+  {
+   "rank": 563,
+   "project": "peewee",
+   "download_count": 48928046
+  },
+  {
+   "rank": 564,
+   "project": "click-repl",
+   "download_count": 48901195
+  },
+  {
+   "rank": 565,
+   "project": "cuda-pathfinder",
+   "download_count": 48641778
+  },
+  {
+   "rank": 566,
+   "project": "opencv-python-headless",
+   "download_count": 48556928
+  },
+  {
+   "rank": 567,
+   "project": "jupyter-server",
+   "download_count": 48325058
+  },
+  {
+   "rank": 568,
+   "project": "thrift",
+   "download_count": 48206968
+  },
+  {
+   "rank": 569,
+   "project": "notebook",
+   "download_count": 47812361
+  },
+  {
+   "rank": 570,
+   "project": "xgboost",
+   "download_count": 47691100
+  },
+  {
+   "rank": 571,
+   "project": "opentelemetry-instrumentation-dbapi",
+   "download_count": 47576845
+  },
+  {
+   "rank": 572,
+   "project": "posthog",
+   "download_count": 47418954
+  },
+  {
+   "rank": 573,
+   "project": "pyspark",
+   "download_count": 47273114
+  },
+  {
+   "rank": 574,
+   "project": "passlib",
+   "download_count": 47168582
+  },
+  {
+   "rank": 575,
+   "project": "opentelemetry-instrumentation-urllib3",
+   "download_count": 47128739
+  },
+  {
+   "rank": 576,
+   "project": "fastar",
+   "download_count": 46763397
+  },
+  {
+   "rank": 577,
+   "project": "webcolors",
+   "download_count": 46617338
+  },
+  {
+   "rank": 578,
+   "project": "opentelemetry-instrumentation-django",
+   "download_count": 46434991
+  },
+  {
+   "rank": 579,
+   "project": "bracex",
+   "download_count": 46411466
+  },
+  {
+   "rank": 580,
+   "project": "pg8000",
+   "download_count": 46346893
+  },
+  {
+   "rank": 581,
+   "project": "langchain-text-splitters",
+   "download_count": 46330036
+  },
+  {
+   "rank": 582,
+   "project": "azure-monitor-opentelemetry-exporter",
+   "download_count": 46292488
+  },
+  {
+   "rank": 583,
+   "project": "nh3",
+   "download_count": 46258714
+  },
+  {
+   "rank": 584,
+   "project": "opentelemetry-instrumentation-wsgi",
+   "download_count": 46121257
+  },
+  {
+   "rank": 585,
+   "project": "ijson",
+   "download_count": 46041407
+  },
+  {
+   "rank": 586,
+   "project": "isoduration",
+   "download_count": 45984763
+  },
+  {
+   "rank": 587,
+   "project": "opentelemetry-instrumentation-psycopg2",
+   "download_count": 45921455
+  },
+  {
+   "rank": 588,
+   "project": "inflection",
+   "download_count": 45843918
+  },
+  {
+   "rank": 589,
+   "project": "pywin32",
+   "download_count": 45833247
+  },
+  {
+   "rank": 590,
+   "project": "jupyterlab",
+   "download_count": 45664136
+  },
+  {
+   "rank": 591,
+   "project": "outcome",
+   "download_count": 45648969
+  },
+  {
+   "rank": 592,
+   "project": "mypy-boto3-s3",
+   "download_count": 45495097
+  },
+  {
+   "rank": 593,
+   "project": "flit-core",
+   "download_count": 45255204
+  },
+  {
+   "rank": 594,
+   "project": "google-cloud-spanner",
+   "download_count": 45135268
+  },
+  {
+   "rank": 595,
+   "project": "fakeredis",
+   "download_count": 45024604
+  },
+  {
+   "rank": 596,
+   "project": "wcmatch",
+   "download_count": 44883225
+  },
+  {
+   "rank": 597,
+   "project": "gevent",
+   "download_count": 44308571
+  },
+  {
+   "rank": 598,
+   "project": "opentelemetry-instrumentation-flask",
+   "download_count": 44266083
+  },
+  {
+   "rank": 599,
+   "project": "dateparser",
+   "download_count": 44243413
+  },
+  {
+   "rank": 600,
+   "project": "moto",
+   "download_count": 44170341
+  },
+  {
+   "rank": 601,
+   "project": "swebench",
+   "download_count": 43999505
+  },
+  {
+   "rank": 602,
+   "project": "curl-cffi",
+   "download_count": 43809614
+  },
+  {
+   "rank": 603,
+   "project": "boto3-stubs",
+   "download_count": 43743792
+  },
+  {
+   "rank": 604,
+   "project": "opentelemetry-instrumentation-urllib",
+   "download_count": 43741759
+  },
+  {
+   "rank": 605,
+   "project": "gspread",
+   "download_count": 43607009
+  },
+  {
+   "rank": 606,
+   "project": "mysql-connector-python",
+   "download_count": 43572872
+  },
+  {
+   "rank": 607,
+   "project": "limits",
+   "download_count": 43150124
+  },
+  {
+   "rank": 608,
+   "project": "fqdn",
+   "download_count": 42934177
+  },
+  {
+   "rank": 609,
+   "project": "filetype",
+   "download_count": 42889009
+  },
+  {
+   "rank": 610,
+   "project": "ddtrace",
+   "download_count": 42864736
+  },
+  {
+   "rank": 611,
+   "project": "async-lru",
+   "download_count": 42646509
+  },
+  {
+   "rank": 612,
+   "project": "uri-template",
+   "download_count": 42601110
+  },
+  {
+   "rank": 613,
+   "project": "langchain-community",
+   "download_count": 42500592
+  },
+  {
+   "rank": 614,
+   "project": "nvidia-nccl-cu13",
+   "download_count": 42182399
+  },
+  {
+   "rank": 615,
+   "project": "apache-airflow-providers-common-sql",
+   "download_count": 42029501
+  },
+  {
+   "rank": 616,
+   "project": "ty",
+   "download_count": 41979524
+  },
+  {
+   "rank": 617,
+   "project": "opentelemetry-instrumentation-logging",
+   "download_count": 41925415
+  },
+  {
+   "rank": 618,
+   "project": "db-dtypes",
+   "download_count": 41845123
+  },
+  {
+   "rank": 619,
+   "project": "types-awscrt",
+   "download_count": 41378221
+  },
+  {
+   "rank": 620,
+   "project": "python-jose",
+   "download_count": 41290146
+  },
+  {
+   "rank": 621,
+   "project": "google-cloud-firestore",
+   "download_count": 41160014
+  },
+  {
+   "rank": 622,
+   "project": "mlflow-skinny",
+   "download_count": 41133497
+  },
+  {
+   "rank": 623,
+   "project": "omegaconf",
+   "download_count": 41122093
+  },
+  {
+   "rank": 624,
+   "project": "fastavro",
+   "download_count": 40810200
+  },
+  {
+   "rank": 625,
+   "project": "pyotp",
+   "download_count": 40616710
+  },
+  {
+   "rank": 626,
+   "project": "nvidia-nccl-cu12",
+   "download_count": 40557742
+  },
+  {
+   "rank": 627,
+   "project": "rfc3986-validator",
+   "download_count": 40472995
+  },
+  {
+   "rank": 628,
+   "project": "imageio",
+   "download_count": 40469952
+  },
+  {
+   "rank": 629,
+   "project": "graphql-relay",
+   "download_count": 40431472
+  },
+  {
+   "rank": 630,
+   "project": "h5py",
+   "download_count": 40214886
+  },
+  {
+   "rank": 631,
+   "project": "psycopg-pool",
+   "download_count": 40138166
+  },
+  {
+   "rank": 632,
+   "project": "cuda-toolkit",
+   "download_count": 39939700
+  },
+  {
+   "rank": 633,
+   "project": "stripe",
+   "download_count": 39918896
+  },
+  {
+   "rank": 634,
+   "project": "send2trash",
+   "download_count": 39899843
+  },
+  {
+   "rank": 635,
+   "project": "statsmodels",
+   "download_count": 39879644
+  },
+  {
+   "rank": 636,
+   "project": "widgetsnbextension",
+   "download_count": 39808254
+  },
+  {
+   "rank": 637,
+   "project": "nvidia-cublas",
+   "download_count": 39803489
+  },
+  {
+   "rank": 638,
+   "project": "graphene",
+   "download_count": 39788323
+  },
+  {
+   "rank": 639,
+   "project": "mlflow",
+   "download_count": 39678721
+  },
+  {
+   "rank": 640,
+   "project": "zeep",
+   "download_count": 39660628
+  },
+  {
+   "rank": 641,
+   "project": "pyright",
+   "download_count": 39641565
+  },
+  {
+   "rank": 642,
+   "project": "coloredlogs",
+   "download_count": 39578293
+  },
+  {
+   "rank": 643,
+   "project": "nvidia-cudnn-cu13",
+   "download_count": 39514356
+  },
+  {
+   "rank": 644,
+   "project": "nvidia-cuda-nvrtc",
+   "download_count": 39341167
+  },
+  {
+   "rank": 645,
+   "project": "jupyterlab-widgets",
+   "download_count": 39325793
+  },
+  {
+   "rank": 646,
+   "project": "bytecode",
+   "download_count": 39286811
+  },
+  {
+   "rank": 647,
+   "project": "boolean-py",
+   "download_count": 39225265
+  },
+  {
+   "rank": 648,
+   "project": "license-expression",
+   "download_count": 39208718
+  },
+  {
+   "rank": 649,
+   "project": "msgspec",
+   "download_count": 39041517
+  },
+  {
+   "rank": 650,
+   "project": "ipywidgets",
+   "download_count": 38989519
+  },
+  {
+   "rank": 651,
+   "project": "nvidia-cusparselt-cu13",
+   "download_count": 38835410
+  },
+  {
+   "rank": 652,
+   "project": "pyodbc",
+   "download_count": 38764677
+  },
+  {
+   "rank": 653,
+   "project": "nvidia-nvshmem-cu13",
+   "download_count": 38756440
+  },
+  {
+   "rank": 654,
+   "project": "nvidia-nvjitlink",
+   "download_count": 38728903
+  },
+  {
+   "rank": 655,
+   "project": "phonenumbers",
+   "download_count": 38512971
+  },
+  {
+   "rank": 656,
+   "project": "nvidia-cuda-runtime",
+   "download_count": 38263761
+  },
+  {
+   "rank": 657,
+   "project": "nvidia-cusparse",
+   "download_count": 38258210
+  },
+  {
+   "rank": 658,
+   "project": "pycountry",
+   "download_count": 38202492
+  },
+  {
+   "rank": 659,
+   "project": "cyclonedx-python-lib",
+   "download_count": 38144108
+  },
+  {
+   "rank": 660,
+   "project": "mistralai",
+   "download_count": 38111452
+  },
+  {
+   "rank": 661,
+   "project": "aioboto3",
+   "download_count": 38029968
+  },
+  {
+   "rank": 662,
+   "project": "google-cloud-bigquery-storage",
+   "download_count": 37939835
+  },
+  {
+   "rank": 663,
+   "project": "terminado",
+   "download_count": 37936635
+  },
+  {
+   "rank": 664,
+   "project": "aiohttp-retry",
+   "download_count": 37929220
+  },
+  {
+   "rank": 665,
+   "project": "nvidia-cufft",
+   "download_count": 37925671
+  },
+  {
+   "rank": 666,
+   "project": "nvidia-cusolver",
+   "download_count": 37877663
+  },
+  {
+   "rank": 667,
+   "project": "pyphen",
+   "download_count": 37831442
+  },
+  {
+   "rank": 668,
+   "project": "lazy-object-proxy",
+   "download_count": 37742802
+  },
+  {
+   "rank": 669,
+   "project": "weasyprint",
+   "download_count": 37734986
+  },
+  {
+   "rank": 670,
+   "project": "nvidia-cuda-cupti",
+   "download_count": 37611476
+  },
+  {
+   "rank": 671,
+   "project": "jupyterlab-server",
+   "download_count": 37609746
+  },
+  {
+   "rank": 672,
+   "project": "json-repair",
+   "download_count": 37606147
+  },
+  {
+   "rank": 673,
+   "project": "nvidia-curand",
+   "download_count": 37542600
+  },
+  {
+   "rank": 674,
+   "project": "pyroaring",
+   "download_count": 37474707
+  },
+  {
+   "rank": 675,
+   "project": "overrides",
+   "download_count": 37426644
+  },
+  {
+   "rank": 676,
+   "project": "gcloud-aio-auth",
+   "download_count": 37297473
+  },
+  {
+   "rank": 677,
+   "project": "jupyter-events",
+   "download_count": 37283442
+  },
+  {
+   "rank": 678,
+   "project": "strands-agents",
+   "download_count": 37190013
+  },
+  {
+   "rank": 679,
+   "project": "tldextract",
+   "download_count": 37137976
+  },
+  {
+   "rank": 680,
+   "project": "nvidia-cufile",
+   "download_count": 37084455
+  },
+  {
+   "rank": 681,
+   "project": "envier",
+   "download_count": 37074220
+  },
+  {
+   "rank": 682,
+   "project": "adal",
+   "download_count": 37038062
+  },
+  {
+   "rank": 683,
+   "project": "nvidia-nvtx",
+   "download_count": 36882966
+  },
+  {
+   "rank": 684,
+   "project": "stevedore",
+   "download_count": 36831047
+  },
+  {
+   "rank": 685,
+   "project": "google-cloud-translate",
+   "download_count": 36793273
+  },
+  {
+   "rank": 686,
+   "project": "ply",
+   "download_count": 36762092
+  },
+  {
+   "rank": 687,
+   "project": "zopfli",
+   "download_count": 36692297
+  },
+  {
+   "rank": 688,
+   "project": "rfc3986",
+   "download_count": 36670817
+  },
+  {
+   "rank": 689,
+   "project": "packageurl-python",
+   "download_count": 36627935
+  },
+  {
+   "rank": 690,
+   "project": "delta-spark",
+   "download_count": 36532325
+  },
+  {
+   "rank": 691,
+   "project": "sentencepiece",
+   "download_count": 36493855
+  },
+  {
+   "rank": 692,
+   "project": "jupyter-server-terminals",
+   "download_count": 36365319
+  },
+  {
+   "rank": 693,
+   "project": "google-cloud-container",
+   "download_count": 36261755
+  },
+  {
+   "rank": 694,
+   "project": "ml-dtypes",
+   "download_count": 36253890
+  },
+  {
+   "rank": 695,
+   "project": "trio-websocket",
+   "download_count": 36234560
+  },
+  {
+   "rank": 696,
+   "project": "aenum",
+   "download_count": 36079811
+  },
+  {
+   "rank": 697,
+   "project": "pgvector",
+   "download_count": 36039826
+  },
+  {
+   "rank": 698,
+   "project": "openapi-spec-validator",
+   "download_count": 36011213
+  },
+  {
+   "rank": 699,
+   "project": "html5lib",
+   "download_count": 35913077
+  },
+  {
+   "rank": 700,
+   "project": "py-serializable",
+   "download_count": 35902676
+  },
+  {
+   "rank": 701,
+   "project": "entrypoints",
+   "download_count": 35824140
+  },
+  {
+   "rank": 702,
+   "project": "gcloud-aio-storage",
+   "download_count": 35782231
+  },
+  {
+   "rank": 703,
+   "project": "openai-agents",
+   "download_count": 35704311
+  },
+  {
+   "rank": 704,
+   "project": "pyiceberg",
+   "download_count": 35617824
+  },
+  {
+   "rank": 705,
+   "project": "seaborn",
+   "download_count": 35545180
+  },
+  {
+   "rank": 706,
+   "project": "cramjam",
+   "download_count": 35326856
+  },
+  {
+   "rank": 707,
+   "project": "strenum",
+   "download_count": 35325978
+  },
+  {
+   "rank": 708,
+   "project": "realtime",
+   "download_count": 35222913
+  },
+  {
+   "rank": 709,
+   "project": "ordered-set",
+   "download_count": 35198566
+  },
+  {
+   "rank": 710,
+   "project": "google-cloud-datacatalog",
+   "download_count": 35079015
+  },
+  {
+   "rank": 711,
+   "project": "temporalio",
+   "download_count": 35063961
+  },
+  {
+   "rank": 712,
+   "project": "python-magic",
+   "download_count": 35007593
+  },
+  {
+   "rank": 713,
+   "project": "pyrsistent",
+   "download_count": 34992754
+  },
+  {
+   "rank": 714,
+   "project": "patsy",
+   "download_count": 34924192
+  },
+  {
+   "rank": 715,
+   "project": "pybreaker",
+   "download_count": 34763939
+  },
+  {
+   "rank": 716,
+   "project": "notebook-shim",
+   "download_count": 34743561
+  },
+  {
+   "rank": 717,
+   "project": "mashumaro",
+   "download_count": 34611593
+  },
+  {
+   "rank": 718,
+   "project": "rfc3987-syntax",
+   "download_count": 34446162
+  },
+  {
+   "rank": 719,
+   "project": "rich-click",
+   "download_count": 34302323
+  },
+  {
+   "rank": 720,
+   "project": "retry",
+   "download_count": 34087701
+  },
+  {
+   "rank": 721,
+   "project": "python-telegram-bot",
+   "download_count": 34010813
+  },
+  {
+   "rank": 722,
+   "project": "oauth2client",
+   "download_count": 33987335
+  },
+  {
+   "rank": 723,
+   "project": "nest-asyncio2",
+   "download_count": 33960276
+  },
+  {
+   "rank": 724,
+   "project": "tableauserverclient",
+   "download_count": 33879151
+  },
+  {
+   "rank": 725,
+   "project": "azure-mgmt-core",
+   "download_count": 33676907
+  },
+  {
+   "rank": 726,
+   "project": "jupyter-lsp",
+   "download_count": 33648286
+  },
+  {
+   "rank": 727,
+   "project": "yamllint",
+   "download_count": 33647435
+  },
+  {
+   "rank": 728,
+   "project": "pydyf",
+   "download_count": 33567292
+  },
+  {
+   "rank": 729,
+   "project": "pip-requirements-parser",
+   "download_count": 33420692
+  },
+  {
+   "rank": 730,
+   "project": "types-pytz",
+   "download_count": 33378442
+  },
+  {
+   "rank": 731,
+   "project": "pytest-metadata",
+   "download_count": 33328373
+  },
+  {
+   "rank": 732,
+   "project": "elastic-transport",
+   "download_count": 33191890
+  },
+  {
+   "rank": 733,
+   "project": "google-cloud-storage-transfer",
+   "download_count": 33062858
+  },
+  {
+   "rank": 734,
+   "project": "appdirs",
+   "download_count": 33050216
+  },
+  {
+   "rank": 735,
+   "project": "langchain-google-vertexai",
+   "download_count": 32931000
+  },
+  {
+   "rank": 736,
+   "project": "readme-renderer",
+   "download_count": 32844805
+  },
+  {
+   "rank": 737,
+   "project": "soundfile",
+   "download_count": 32821833
+  },
+  {
+   "rank": 738,
+   "project": "snowballstemmer",
+   "download_count": 32787041
+  },
+  {
+   "rank": 739,
+   "project": "fastspec",
+   "download_count": 32633723
+  },
+  {
+   "rank": 740,
+   "project": "torchvision",
+   "download_count": 32627985
+  },
+  {
+   "rank": 741,
+   "project": "crc32c",
+   "download_count": 32516606
+  },
+  {
+   "rank": 742,
+   "project": "retrying",
+   "download_count": 32448335
+  },
+  {
+   "rank": 743,
+   "project": "testcontainers",
+   "download_count": 32334583
+  },
+  {
+   "rank": 744,
+   "project": "sentence-transformers",
+   "download_count": 32254658
+  },
+  {
+   "rank": 745,
+   "project": "av",
+   "download_count": 32166677
+  },
+  {
+   "rank": 746,
+   "project": "diskcache",
+   "download_count": 32046476
+  },
+  {
+   "rank": 747,
+   "project": "agate",
+   "download_count": 31994357
+  },
+  {
+   "rank": 748,
+   "project": "qrcode",
+   "download_count": 31947465
+  },
+  {
+   "rank": 749,
+   "project": "agent-client-protocol",
+   "download_count": 31846702
+  },
+  {
+   "rank": 750,
+   "project": "hiredis",
+   "download_count": 31836134
+  },
+  {
+   "rank": 751,
+   "project": "nexus-rpc",
+   "download_count": 31834553
+  },
+  {
+   "rank": 752,
+   "project": "supabase",
+   "download_count": 31660670
+  },
+  {
+   "rank": 753,
+   "project": "ujson",
+   "download_count": 31655542
+  },
+  {
+   "rank": 754,
+   "project": "azure-storage-file-datalake",
+   "download_count": 31641056
+  },
+  {
+   "rank": 755,
+   "project": "pybind11",
+   "download_count": 31576238
+  },
+  {
+   "rank": 756,
+   "project": "claude-agent-sdk",
+   "download_count": 31551133
+  },
+  {
+   "rank": 757,
+   "project": "google-ads",
+   "download_count": 31544466
+  },
+  {
+   "rank": 758,
+   "project": "clickhouse-connect",
+   "download_count": 31463485
+  },
+  {
+   "rank": 759,
+   "project": "azure-storage-queue",
+   "download_count": 31267663
+  },
+  {
+   "rank": 760,
+   "project": "griffe",
+   "download_count": 31175802
+  },
+  {
+   "rank": 761,
+   "project": "tinyhtml5",
+   "download_count": 31056962
+  },
+  {
+   "rank": 762,
+   "project": "lazy-loader",
+   "download_count": 30977164
+  },
+  {
+   "rank": 763,
+   "project": "mergedeep",
+   "download_count": 30956940
+  },
+  {
+   "rank": 764,
+   "project": "pytimeparse",
+   "download_count": 30952856
+  },
+  {
+   "rank": 765,
+   "project": "crewai-tools",
+   "download_count": 30854494
+  },
+  {
+   "rank": 766,
+   "project": "eval-type-backport",
+   "download_count": 30826466
+  },
+  {
+   "rank": 767,
+   "project": "unidecode",
+   "download_count": 30773302
+  },
+  {
+   "rank": 768,
+   "project": "lmnr",
+   "download_count": 30668483
+  },
+  {
+   "rank": 769,
+   "project": "events",
+   "download_count": 30559560
+  },
+  {
+   "rank": 770,
+   "project": "storage3",
+   "download_count": 30540304
+  },
+  {
+   "rank": 771,
+   "project": "postgrest",
+   "download_count": 30400708
+  },
+  {
+   "rank": 772,
+   "project": "semgrep",
+   "download_count": 30191733
+  },
+  {
+   "rank": 773,
+   "project": "pip-audit",
+   "download_count": 30186133
+  },
+  {
+   "rank": 774,
+   "project": "holidays",
+   "download_count": 30014328
+  },
+  {
+   "rank": 775,
+   "project": "bidict",
+   "download_count": 29954397
+  },
+  {
+   "rank": 776,
+   "project": "opentelemetry-instrumentation-sqlalchemy",
+   "download_count": 29951682
+  },
+  {
+   "rank": 777,
+   "project": "click-option-group",
+   "download_count": 29945325
+  },
+  {
+   "rank": 778,
+   "project": "pip-api",
+   "download_count": 29944232
+  },
+  {
+   "rank": 779,
+   "project": "tblib",
+   "download_count": 29872233
+  },
+  {
+   "rank": 780,
+   "project": "llama-index-indices-managed-llama-cloud",
+   "download_count": 29845718
+  },
+  {
+   "rank": 781,
+   "project": "pandas-gbq",
+   "download_count": 29726600
+  },
+  {
+   "rank": 782,
+   "project": "parsedatetime",
+   "download_count": 29655806
+  },
+  {
+   "rank": 783,
+   "project": "universal-pathlib",
+   "download_count": 29538710
+  },
+  {
+   "rank": 784,
+   "project": "twine",
+   "download_count": 29503944
+  },
+  {
+   "rank": 785,
+   "project": "mock",
+   "download_count": 29454058
+  },
+  {
+   "rank": 786,
+   "project": "inflect",
+   "download_count": 29436229
+  },
+  {
+   "rank": 787,
+   "project": "zope-event",
+   "download_count": 29402766
+  },
+  {
+   "rank": 788,
+   "project": "simple-salesforce",
+   "download_count": 29356550
+  },
+  {
+   "rank": 789,
+   "project": "types-setuptools",
+   "download_count": 29049137
+  },
+  {
+   "rank": 790,
+   "project": "cohere",
+   "download_count": 28982599
+  },
+  {
+   "rank": 791,
+   "project": "ninja",
+   "download_count": 28916519
+  },
+  {
+   "rank": 792,
+   "project": "socksio",
+   "download_count": 28889076
+  },
+  {
+   "rank": 793,
+   "project": "tree-sitter-languages",
+   "download_count": 28831258
+  },
+  {
+   "rank": 794,
+   "project": "streamlit",
+   "download_count": 28755765
+  },
+  {
+   "rank": 795,
+   "project": "dunamai",
+   "download_count": 28676501
+  },
+  {
+   "rank": 796,
+   "project": "python-engineio",
+   "download_count": 28619929
+  },
+  {
+   "rank": 797,
+   "project": "bandit",
+   "download_count": 28488503
+  },
+  {
+   "rank": 798,
+   "project": "crewai",
+   "download_count": 28379874
+  },
+  {
+   "rank": 799,
+   "project": "python-socketio",
+   "download_count": 28344100
+  },
+  {
+   "rank": 800,
+   "project": "simple-websocket",
+   "download_count": 28335310
+  },
+  {
+   "rank": 801,
+   "project": "llama-index-llms-openai",
+   "download_count": 28257294
+  },
+  {
+   "rank": 802,
+   "project": "google-cloud-dataplex",
+   "download_count": 28250258
+  },
+  {
+   "rank": 803,
+   "project": "pinotdb",
+   "download_count": 28249361
+  },
+  {
+   "rank": 804,
+   "project": "astor",
+   "download_count": 28096418
+  },
+  {
+   "rank": 805,
+   "project": "id",
+   "download_count": 28050167
+  },
+  {
+   "rank": 806,
+   "project": "imagesize",
+   "download_count": 28012995
+  },
+  {
+   "rank": 807,
+   "project": "dask",
+   "download_count": 27897455
+  },
+  {
+   "rank": 808,
+   "project": "amazon-ion",
+   "download_count": 27889915
+  },
+  {
+   "rank": 809,
+   "project": "tox",
+   "download_count": 27838499
+  },
+  {
+   "rank": 810,
+   "project": "tifffile",
+   "download_count": 27744478
+  },
+  {
+   "rank": 811,
+   "project": "djangorestframework",
+   "download_count": 27688203
+  },
+  {
+   "rank": 812,
+   "project": "dbt-protos",
+   "download_count": 27594529
+  },
+  {
+   "rank": 813,
+   "project": "supabase-auth",
+   "download_count": 27481361
+  },
+  {
+   "rank": 814,
+   "project": "supabase-functions",
+   "download_count": 27424510
+  },
+  {
+   "rank": 815,
+   "project": "einops",
+   "download_count": 27389268
+  },
+  {
+   "rank": 816,
+   "project": "olefile",
+   "download_count": 27302549
+  },
+  {
+   "rank": 817,
+   "project": "sshtunnel",
+   "download_count": 27273229
+  },
+  {
+   "rank": 818,
+   "project": "hvac",
+   "download_count": 27224551
+  },
+  {
+   "rank": 819,
+   "project": "validators",
+   "download_count": 27128079
+  },
+  {
+   "rank": 820,
+   "project": "hyperlink",
+   "download_count": 27073713
+  },
+  {
+   "rank": 821,
+   "project": "strictyaml",
+   "download_count": 27071938
+  },
+  {
+   "rank": 822,
+   "project": "py-spy",
+   "download_count": 27033724
+  },
+  {
+   "rank": 823,
+   "project": "pfzy",
+   "download_count": 27024226
+  },
+  {
+   "rank": 824,
+   "project": "tree-sitter-c-sharp",
+   "download_count": 26959436
+  },
+  {
+   "rank": 825,
+   "project": "scikit-image",
+   "download_count": 26936336
+  },
+  {
+   "rank": 826,
+   "project": "cloudpathlib",
+   "download_count": 26911140
+  },
+  {
+   "rank": 827,
+   "project": "lupa",
+   "download_count": 26901104
+  },
+  {
+   "rank": 828,
+   "project": "inquirerpy",
+   "download_count": 26801021
+  },
+  {
+   "rank": 829,
+   "project": "spacy",
+   "download_count": 26800743
+  },
+  {
+   "rank": 830,
+   "project": "instructor",
+   "download_count": 26637915
+  },
+  {
+   "rank": 831,
+   "project": "leather",
+   "download_count": 26552166
+  },
+  {
+   "rank": 832,
+   "project": "pytest-runner",
+   "download_count": 26403446
+  },
+  {
+   "rank": 833,
+   "project": "google-pasta",
+   "download_count": 26394548
+  },
+  {
+   "rank": 834,
+   "project": "yfinance",
+   "download_count": 26363466
+  },
+  {
+   "rank": 835,
+   "project": "diff-cover",
+   "download_count": 26352135
+  },
+  {
+   "rank": 836,
+   "project": "schema",
+   "download_count": 26348985
+  },
+  {
+   "rank": 837,
+   "project": "alabaster",
+   "download_count": 26297872
+  },
+  {
+   "rank": 838,
+   "project": "sphinxcontrib-serializinghtml",
+   "download_count": 26247235
+  },
+  {
+   "rank": 839,
+   "project": "vcrpy",
+   "download_count": 26139811
+  },
+  {
+   "rank": 840,
+   "project": "langfuse",
+   "download_count": 26124379
+  },
+  {
+   "rank": 841,
+   "project": "catalogue",
+   "download_count": 26110349
+  },
+  {
+   "rank": 842,
+   "project": "grpc-interceptor",
+   "download_count": 26078960
+  },
+  {
+   "rank": 843,
+   "project": "boltons",
+   "download_count": 26030177
+  },
+  {
+   "rank": 844,
+   "project": "python-http-client",
+   "download_count": 26012796
+  },
+  {
+   "rank": 845,
+   "project": "dbt-extractor",
+   "download_count": 25985944
+  },
+  {
+   "rank": 846,
+   "project": "opentelemetry-instrumentation-aiohttp-client",
+   "download_count": 25857909
+  },
+  {
+   "rank": 847,
+   "project": "feedparser",
+   "download_count": 25776699
+  },
+  {
+   "rank": 848,
+   "project": "service-identity",
+   "download_count": 25762941
+  },
+  {
+   "rank": 849,
+   "project": "pydata-google-auth",
+   "download_count": 25496218
+  },
+  {
+   "rank": 850,
+   "project": "py-cpuinfo",
+   "download_count": 25474990
+  },
+  {
+   "rank": 851,
+   "project": "tree-sitter-javascript",
+   "download_count": 25425619
+  },
+  {
+   "rank": 852,
+   "project": "great-expectations",
+   "download_count": 25400843
+  },
+  {
+   "rank": 853,
+   "project": "databricks-sqlalchemy",
+   "download_count": 25315717
+  },
+  {
+   "rank": 854,
+   "project": "aws-requests-auth",
+   "download_count": 25259010
+  },
+  {
+   "rank": 855,
+   "project": "thinc",
+   "download_count": 25258726
+  },
+  {
+   "rank": 856,
+   "project": "requests-mock",
+   "download_count": 25202361
+  },
+  {
+   "rank": 857,
+   "project": "lockfile",
+   "download_count": 25195571
+  },
+  {
+   "rank": 858,
+   "project": "sendgrid",
+   "download_count": 25189206
+  },
+  {
+   "rank": 859,
+   "project": "ldap3",
+   "download_count": 25187647
+  },
+  {
+   "rank": 860,
+   "project": "pydeck",
+   "download_count": 25180711
+  },
+  {
+   "rank": 861,
+   "project": "oracledb",
+   "download_count": 25097844
+  },
+  {
+   "rank": 862,
+   "project": "pymdown-extensions",
+   "download_count": 25056385
+  },
+  {
+   "rank": 863,
+   "project": "lightgbm",
+   "download_count": 24850560
+  },
+  {
+   "rank": 864,
+   "project": "youtube-transcript-api",
+   "download_count": 24803063
+  },
+  {
+   "rank": 865,
+   "project": "questionary",
+   "download_count": 24709296
+  },
+  {
+   "rank": 866,
+   "project": "weasel",
+   "download_count": 24675716
+  },
+  {
+   "rank": 867,
+   "project": "wandb",
+   "download_count": 24638081
+  },
+  {
+   "rank": 868,
+   "project": "mlflow-tracing",
+   "download_count": 24610900
+  },
+  {
+   "rank": 869,
+   "project": "opentelemetry-distro",
+   "download_count": 24599424
+  },
+  {
+   "rank": 870,
+   "project": "flask-sqlalchemy",
+   "download_count": 24583790
+  },
+  {
+   "rank": 871,
+   "project": "msrestazure",
+   "download_count": 24547874
+  },
+  {
+   "rank": 872,
+   "project": "accelerate",
+   "download_count": 24544479
+  },
+  {
+   "rank": 873,
+   "project": "aliyun-trace",
+   "download_count": 24519169
+  },
+  {
+   "rank": 874,
+   "project": "aliyun-semantic-conventions",
+   "download_count": 24519135
+  },
+  {
+   "rank": 875,
+   "project": "groq",
+   "download_count": 24477969
+  },
+  {
+   "rank": 876,
+   "project": "pyproj",
+   "download_count": 24473004
+  },
+  {
+   "rank": 877,
+   "project": "cached-property",
+   "download_count": 24459557
+  },
+  {
+   "rank": 878,
+   "project": "flask-login",
+   "download_count": 24395016
+  },
+  {
+   "rank": 879,
+   "project": "pbr",
+   "download_count": 24390032
+  },
+  {
+   "rank": 880,
+   "project": "murmurhash",
+   "download_count": 24388374
+  },
+  {
+   "rank": 881,
+   "project": "azure-keyvault-keys",
+   "download_count": 24360515
+  },
+  {
+   "rank": 882,
+   "project": "tensorboard",
+   "download_count": 24210902
+  },
+  {
+   "rank": 883,
+   "project": "types-urllib3",
+   "download_count": 24174539
+  },
+  {
+   "rank": 884,
+   "project": "sphinxcontrib-htmlhelp",
+   "download_count": 24156939
+  },
+  {
+   "rank": 885,
+   "project": "sphinxcontrib-qthelp",
+   "download_count": 24148866
+  },
+  {
+   "rank": 886,
+   "project": "sphinxcontrib-applehelp",
+   "download_count": 24125907
+  },
+  {
+   "rank": 887,
+   "project": "sphinxcontrib-devhelp",
+   "download_count": 24114327
+  },
+  {
+   "rank": 888,
+   "project": "sqlalchemy-utils",
+   "download_count": 24060629
+  },
+  {
+   "rank": 889,
+   "project": "pytest-split",
+   "download_count": 24035442
+  },
+  {
+   "rank": 890,
+   "project": "logfire-api",
+   "download_count": 23948494
+  },
+  {
+   "rank": 891,
+   "project": "blis",
+   "download_count": 23901770
+  },
+  {
+   "rank": 892,
+   "project": "texttable",
+   "download_count": 23847115
+  },
+  {
+   "rank": 893,
+   "project": "databricks-labs-blueprint",
+   "download_count": 23758668
+  },
+  {
+   "rank": 894,
+   "project": "glom",
+   "download_count": 23754461
+  },
+  {
+   "rank": 895,
+   "project": "kafka-python",
+   "download_count": 23723597
+  },
+  {
+   "rank": 896,
+   "project": "face",
+   "download_count": 23723153
+  },
+  {
+   "rank": 897,
+   "project": "cymem",
+   "download_count": 23625341
+  },
+  {
+   "rank": 898,
+   "project": "respx",
+   "download_count": 23595209
+  },
+  {
+   "rank": 899,
+   "project": "preshed",
+   "download_count": 23591648
+  },
+  {
+   "rank": 900,
+   "project": "sounddevice",
+   "download_count": 23570086
+  },
+  {
+   "rank": 901,
+   "project": "cssselect",
+   "download_count": 23569290
+  },
+  {
+   "rank": 902,
+   "project": "srsly",
+   "download_count": 23559645
+  },
+  {
+   "rank": 903,
+   "project": "genai-prices",
+   "download_count": 23534957
+  },
+  {
+   "rank": 904,
+   "project": "wasabi",
+   "download_count": 23369891
+  },
+  {
+   "rank": 905,
+   "project": "uv-build",
+   "download_count": 23342772
+  },
+  {
+   "rank": 906,
+   "project": "sphinxcontrib-jsmath",
+   "download_count": 23224842
+  },
+  {
+   "rank": 907,
+   "project": "daff",
+   "download_count": 23221421
+  },
+  {
+   "rank": 908,
+   "project": "pipenv",
+   "download_count": 23106175
+  },
+  {
+   "rank": 909,
+   "project": "opencensus-context",
+   "download_count": 23088121
+  },
+  {
+   "rank": 910,
+   "project": "llama-cloud",
+   "download_count": 23056930
+  },
+  {
+   "rank": 911,
+   "project": "openapi-schema-validator",
+   "download_count": 23049258
+  },
+  {
+   "rank": 912,
+   "project": "jupyter-builder",
+   "download_count": 23045096
+  },
+  {
+   "rank": 913,
+   "project": "pytest-httpx",
+   "download_count": 23003903
+  },
+  {
+   "rank": 914,
+   "project": "opencensus",
+   "download_count": 22979050
+  },
+  {
+   "rank": 915,
+   "project": "fpdf2",
+   "download_count": 22943614
+  },
+  {
+   "rank": 916,
+   "project": "pytest-env",
+   "download_count": 22916489
+  },
+  {
+   "rank": 917,
+   "project": "pydot",
+   "download_count": 22900116
+  },
+  {
+   "rank": 918,
+   "project": "langchain-anthropic",
+   "download_count": 22886591
+  },
+  {
+   "rank": 919,
+   "project": "google-cloud-dataproc",
+   "download_count": 22853293
+  },
+  {
+   "rank": 920,
+   "project": "pybase64",
+   "download_count": 22836730
+  },
+  {
+   "rank": 921,
+   "project": "spacy-legacy",
+   "download_count": 22835897
+  },
+  {
+   "rank": 922,
+   "project": "deltalake",
+   "download_count": 22820090
+  },
+  {
+   "rank": 923,
+   "project": "confection",
+   "download_count": 22808233
+  },
+  {
+   "rank": 924,
+   "project": "spacy-loggers",
+   "download_count": 22796912
+  },
+  {
+   "rank": 925,
+   "project": "tree-sitter-c",
+   "download_count": 22737920
+  },
+  {
+   "rank": 926,
+   "project": "sqlmodel",
+   "download_count": 22723704
+  },
+  {
+   "rank": 927,
+   "project": "partd",
+   "download_count": 22699245
+  },
+  {
+   "rank": 928,
+   "project": "uv-dynamic-versioning",
+   "download_count": 22631321
+  },
+  {
+   "rank": 929,
+   "project": "jsonpath-python",
+   "download_count": 22551106
+  },
+  {
+   "rank": 930,
+   "project": "datadog-api-client",
+   "download_count": 22549731
+  },
+  {
+   "rank": 931,
+   "project": "locket",
+   "download_count": 22536242
+  },
+  {
+   "rank": 932,
+   "project": "opencv-contrib-python",
+   "download_count": 22514539
+  },
+  {
+   "rank": 933,
+   "project": "factory-boy",
+   "download_count": 22480537
+  },
+  {
+   "rank": 934,
+   "project": "jira",
+   "download_count": 22450022
+  },
+  {
+   "rank": 935,
+   "project": "opentelemetry-instrumentation-redis",
+   "download_count": 22449891
+  },
+  {
+   "rank": 936,
+   "project": "opt-einsum",
+   "download_count": 22425982
+  },
+  {
+   "rank": 937,
+   "project": "cron-descriptor",
+   "download_count": 22356942
+  },
+  {
+   "rank": 938,
+   "project": "dacite",
+   "download_count": 22242938
+  },
+  {
+   "rank": 939,
+   "project": "pytest-django",
+   "download_count": 22162343
+  },
+  {
+   "rank": 940,
+   "project": "awscrt",
+   "download_count": 22154729
+  },
+  {
+   "rank": 941,
+   "project": "google-cloud-alloydb",
+   "download_count": 22151353
+  },
+  {
+   "rank": 942,
+   "project": "blake3",
+   "download_count": 22132115
+  },
+  {
+   "rank": 943,
+   "project": "emoji",
+   "download_count": 22044972
+  },
+  {
+   "rank": 944,
+   "project": "jpype1",
+   "download_count": 22004254
+  },
+  {
+   "rank": 945,
+   "project": "watchtower",
+   "download_count": 22003059
+  },
+  {
+   "rank": 946,
+   "project": "hydra-core",
+   "download_count": 21991889
+  },
+  {
+   "rank": 947,
+   "project": "azure-servicebus",
+   "download_count": 21991460
+  },
+  {
+   "rank": 948,
+   "project": "azure-batch",
+   "download_count": 21925703
+  },
+  {
+   "rank": 949,
+   "project": "pyathena",
+   "download_count": 21924129
+  },
+  {
+   "rank": 950,
+   "project": "slowapi",
+   "download_count": 21899951
+  },
+  {
+   "rank": 951,
+   "project": "tree-sitter-java",
+   "download_count": 21797179
+  },
+  {
+   "rank": 952,
+   "project": "nvidia-cublas-cu12",
+   "download_count": 21763984
+  },
+  {
+   "rank": 953,
+   "project": "azure-cosmos",
+   "download_count": 21667542
+  },
+  {
+   "rank": 954,
+   "project": "gql",
+   "download_count": 21655631
+  },
+  {
+   "rank": 955,
+   "project": "immutabledict",
+   "download_count": 21654960
+  },
+  {
+   "rank": 956,
+   "project": "ua-parser",
+   "download_count": 21585557
+  },
+  {
+   "rank": 957,
+   "project": "natsort",
+   "download_count": 21584802
+  },
+  {
+   "rank": 958,
+   "project": "bitarray",
+   "download_count": 21543458
+  },
+  {
+   "rank": 959,
+   "project": "backports-asyncio-runner",
+   "download_count": 21530920
+  },
+  {
+   "rank": 960,
+   "project": "pytesseract",
+   "download_count": 21487292
+  },
+  {
+   "rank": 961,
+   "project": "time-machine",
+   "download_count": 21478691
+  },
+  {
+   "rank": 962,
+   "project": "pypdf2",
+   "download_count": 21432498
+  },
+  {
+   "rank": 963,
+   "project": "snowplow-tracker",
+   "download_count": 21417422
+  },
+  {
+   "rank": 964,
+   "project": "nvidia-cudnn-cu12",
+   "download_count": 21358260
+  },
+  {
+   "rank": 965,
+   "project": "nvidia-cuda-nvrtc-cu12",
+   "download_count": 21242344
+  },
+  {
+   "rank": 966,
+   "project": "google-cloud-storage-control",
+   "download_count": 21225342
+  },
+  {
+   "rank": 967,
+   "project": "huey",
+   "download_count": 21213521
+  },
+  {
+   "rank": 968,
+   "project": "rich-argparse",
+   "download_count": 21119286
+  },
+  {
+   "rank": 969,
+   "project": "maxminddb",
+   "download_count": 21107931
+  },
+  {
+   "rank": 970,
+   "project": "pyspnego",
+   "download_count": 21099849
+  },
+  {
+   "rank": 971,
+   "project": "nvidia-cusparse-cu12",
+   "download_count": 21077857
+  },
+  {
+   "rank": 972,
+   "project": "skops",
+   "download_count": 21066516
+  },
+  {
+   "rank": 973,
+   "project": "twilio",
+   "download_count": 21054963
+  },
+  {
+   "rank": 974,
+   "project": "django-cors-headers",
+   "download_count": 21054962
+  },
+  {
+   "rank": 975,
+   "project": "types-paramiko",
+   "download_count": 21014730
+  },
+  {
+   "rank": 976,
+   "project": "typer-slim",
+   "download_count": 20994375
+  },
+  {
+   "rank": 977,
+   "project": "gcloud-aio-bigquery",
+   "download_count": 20966433
+  },
+  {
+   "rank": 978,
+   "project": "pydub",
+   "download_count": 20924610
+  },
+  {
+   "rank": 979,
+   "project": "hatch-vcs",
+   "download_count": 20883367
+  },
+  {
+   "rank": 980,
+   "project": "nvidia-nvjitlink-cu12",
+   "download_count": 20867998
+  },
+  {
+   "rank": 981,
+   "project": "maturin",
+   "download_count": 20821065
+  },
+  {
+   "rank": 982,
+   "project": "nvidia-cufft-cu12",
+   "download_count": 20818486
+  },
+  {
+   "rank": 983,
+   "project": "nvidia-cuda-runtime-cu12",
+   "download_count": 20815545
+  },
+  {
+   "rank": 984,
+   "project": "shortuuid",
+   "download_count": 20799215
+  },
+  {
+   "rank": 985,
+   "project": "python-utils",
+   "download_count": 20785308
+  },
+  {
+   "rank": 986,
+   "project": "firebase-admin",
+   "download_count": 20772370
+  },
+  {
+   "rank": 987,
+   "project": "opentelemetry-resourcedetector-gcp",
+   "download_count": 20703591
+  },
+  {
+   "rank": 988,
+   "project": "fire",
+   "download_count": 20683820
+  },
+  {
+   "rank": 989,
+   "project": "binaryornot",
+   "download_count": 20654546
+  },
+  {
+   "rank": 990,
+   "project": "multitasking",
+   "download_count": 20618498
+  },
+  {
+   "rank": 991,
+   "project": "bs4",
+   "download_count": 20558011
+  },
+  {
+   "rank": 992,
+   "project": "ollama",
+   "download_count": 20556820
+  },
+  {
+   "rank": 993,
+   "project": "py-partiql-parser",
+   "download_count": 20555228
+  },
+  {
+   "rank": 994,
+   "project": "aws-sam-translator",
+   "download_count": 20553229
+  },
+  {
+   "rank": 995,
+   "project": "nvidia-cusolver-cu12",
+   "download_count": 20518237
+  },
+  {
+   "rank": 996,
+   "project": "trino",
+   "download_count": 20492877
+  },
+  {
+   "rank": 997,
+   "project": "aws-lambda-powertools",
+   "download_count": 20479236
+  },
+  {
+   "rank": 998,
+   "project": "nvidia-curand-cu12",
+   "download_count": 20439192
+  },
+  {
+   "rank": 999,
+   "project": "pdf2image",
+   "download_count": 20405228
+  },
+  {
+   "rank": 1000,
+   "project": "userpath",
+   "download_count": 20352774
+  }
+ ]
+}

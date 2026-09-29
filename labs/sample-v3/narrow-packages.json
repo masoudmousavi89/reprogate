@@ -1,0 +1,6529 @@
+{
+ "built": "2026-09-29",
+ "from": "labs/sample-v3/top-pypi-snapshot.json",
+ "rules": "(fixed with the protocol):\n  wheel  the latest release has a wheel whose tags include python tag `py3`, abi `none` and platform `any`\n         (so `py2.py3-none-any` counts: it is a py3-none-any wheel);\n  repo   the first github.com/<owner>/<repo> link, looking at the PyPI project URLs in this key order: source, source\n         code, repository, code, github, then the remaining keys sorted by name, then the home page. Links whose\n         owner is a GitHub feature path (sponsors, orgs, apps, marketplace, features, topics) are skipped.\nPackages that fail a rule are listed with the reason, not dropped silently.",
+ "kept": 759,
+ "removed": 241,
+ "packages": [
+  {
+   "project": "boto3",
+   "version": "1.43.104",
+   "wheel": "boto3-1.43.104-py3-none-any.whl",
+   "repo": "boto/boto3",
+   "rank": 1
+  },
+  {
+   "project": "packaging",
+   "version": "26.3",
+   "wheel": "packaging-26.3-py3-none-any.whl",
+   "repo": "pypa/packaging",
+   "rank": 2
+  },
+  {
+   "project": "typing-extensions",
+   "version": "4.16.0",
+   "wheel": "typing_extensions-4.16.0-py3-none-any.whl",
+   "repo": "python/typing_extensions",
+   "rank": 3
+  },
+  {
+   "project": "certifi",
+   "version": "2026.7.22",
+   "wheel": "certifi-2026.7.22-py3-none-any.whl",
+   "repo": "certifi/python-certifi",
+   "rank": 4
+  },
+  {
+   "project": "idna",
+   "version": "3.20",
+   "wheel": "idna-3.20-py3-none-any.whl",
+   "repo": "kjd/idna",
+   "rank": 5
+  },
+  {
+   "project": "urllib3",
+   "version": "2.8.0",
+   "wheel": "urllib3-2.8.0-py3-none-any.whl",
+   "repo": "urllib3/urllib3",
+   "rank": 6
+  },
+  {
+   "project": "requests",
+   "version": "2.34.2",
+   "wheel": "requests-2.34.2-py3-none-any.whl",
+   "repo": "psf/requests",
+   "rank": 7
+  },
+  {
+   "project": "charset-normalizer",
+   "version": "3.5.1",
+   "wheel": "charset_normalizer-3.5.1-py3-none-any.whl",
+   "repo": "jawah/charset_normalizer",
+   "rank": 8
+  },
+  {
+   "project": "setuptools",
+   "version": "84.0.0",
+   "wheel": "setuptools-84.0.0-py3-none-any.whl",
+   "repo": "pypa/setuptools",
+   "rank": 9
+  },
+  {
+   "project": "pygments",
+   "version": "2.21.0",
+   "wheel": "pygments-2.21.0-py3-none-any.whl",
+   "repo": "pygments/pygments",
+   "rank": 13
+  },
+  {
+   "project": "botocore",
+   "version": "1.43.104",
+   "wheel": "botocore-1.43.104-py3-none-any.whl",
+   "repo": "boto/botocore",
+   "rank": 15
+  },
+  {
+   "project": "python-dateutil",
+   "version": "2.9.0.post0",
+   "wheel": "python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
+   "repo": "dateutil/dateutil",
+   "rank": 16
+  },
+  {
+   "project": "six",
+   "version": "1.17.0",
+   "wheel": "six-1.17.0-py2.py3-none-any.whl",
+   "repo": "benjaminp/six",
+   "rank": 17
+  },
+  {
+   "project": "pydantic",
+   "version": "2.13.5",
+   "wheel": "pydantic-2.13.5-py3-none-any.whl",
+   "repo": "pydantic/pydantic",
+   "rank": 18
+  },
+  {
+   "project": "click",
+   "version": "8.5.0",
+   "wheel": "click-8.5.0-py3-none-any.whl",
+   "repo": "pallets/click",
+   "rank": 20
+  },
+  {
+   "project": "pycparser",
+   "version": "3.0",
+   "wheel": "pycparser-3.0-py3-none-any.whl",
+   "repo": "eliben/pycparser",
+   "rank": 21
+  },
+  {
+   "project": "anyio",
+   "version": "4.15.1",
+   "wheel": "anyio-4.15.1-py3-none-any.whl",
+   "repo": "agronholm/anyio",
+   "rank": 22
+  },
+  {
+   "project": "pytest",
+   "version": "9.1.1",
+   "wheel": "pytest-9.1.1-py3-none-any.whl",
+   "repo": "pytest-dev/pytest",
+   "rank": 23
+  },
+  {
+   "project": "iniconfig",
+   "version": "2.3.0",
+   "wheel": "iniconfig-2.3.0-py3-none-any.whl",
+   "repo": "pytest-dev/iniconfig",
+   "rank": 25
+  },
+  {
+   "project": "aiobotocore",
+   "version": "3.9.1",
+   "wheel": "aiobotocore-3.9.1-py3-none-any.whl",
+   "repo": "aio-libs/aiobotocore",
+   "rank": 26
+  },
+  {
+   "project": "annotated-types",
+   "version": "0.8.0",
+   "wheel": "annotated_types-0.8.0-py3-none-any.whl",
+   "repo": "annotated-types/annotated-types",
+   "rank": 27
+  },
+  {
+   "project": "h11",
+   "version": "0.16.0",
+   "wheel": "h11-0.16.0-py3-none-any.whl",
+   "repo": "python-hyper/h11",
+   "rank": 28
+  },
+  {
+   "project": "attrs",
+   "version": "26.1.0",
+   "wheel": "attrs-26.1.0-py3-none-any.whl",
+   "repo": "python-attrs/attrs",
+   "rank": 29
+  },
+  {
+   "project": "typing-inspection",
+   "version": "0.4.4",
+   "wheel": "typing_inspection-0.4.4-py3-none-any.whl",
+   "repo": "pydantic/typing-inspection",
+   "rank": 30
+  },
+  {
+   "project": "fsspec",
+   "version": "2026.9.0",
+   "wheel": "fsspec-2026.9.0-py3-none-any.whl",
+   "repo": "fsspec/filesystem_spec",
+   "rank": 32
+  },
+  {
+   "project": "httpx",
+   "version": "0.28.1",
+   "wheel": "httpx-0.28.1-py3-none-any.whl",
+   "repo": "encode/httpx",
+   "rank": 33
+  },
+  {
+   "project": "httpcore",
+   "version": "1.0.9",
+   "wheel": "httpcore-1.0.9-py3-none-any.whl",
+   "repo": "encode/httpcore",
+   "rank": 35
+  },
+  {
+   "project": "s3transfer",
+   "version": "0.19.2",
+   "wheel": "s3transfer-0.19.2-py3-none-any.whl",
+   "repo": "boto/s3transfer",
+   "rank": 36
+  },
+  {
+   "project": "python-dotenv",
+   "version": "1.2.3",
+   "wheel": "python_dotenv-1.2.3-py3-none-any.whl",
+   "repo": "theskumar/python-dotenv",
+   "rank": 37
+  },
+  {
+   "project": "platformdirs",
+   "version": "4.12.1",
+   "wheel": "platformdirs-4.12.1-py3-none-any.whl",
+   "repo": "tox-dev/platformdirs",
+   "rank": 38
+  },
+  {
+   "project": "jinja2",
+   "version": "3.1.6",
+   "wheel": "jinja2-3.1.6-py3-none-any.whl",
+   "repo": "pallets/jinja",
+   "rank": 40
+  },
+  {
+   "project": "pathspec",
+   "version": "1.1.1",
+   "wheel": "pathspec-1.1.1-py3-none-any.whl",
+   "repo": "cpburnz/python-pathspec",
+   "rank": 41
+  },
+  {
+   "project": "filelock",
+   "version": "4.0.6",
+   "wheel": "filelock-4.0.6-py3-none-any.whl",
+   "repo": "tox-dev/py-filelock",
+   "rank": 43
+  },
+  {
+   "project": "pip",
+   "version": "26.2.1",
+   "wheel": "pip-26.2.1-py3-none-any.whl",
+   "repo": "pypa/pip",
+   "rank": 44
+  },
+  {
+   "project": "pyjwt",
+   "version": "2.15.1",
+   "wheel": "pyjwt-2.15.1-py3-none-any.whl",
+   "repo": "jpadilla/pyjwt",
+   "rank": 45
+  },
+  {
+   "project": "starlette",
+   "version": "1.7.0",
+   "wheel": "starlette-1.7.0-py3-none-any.whl",
+   "repo": "Kludex/starlette",
+   "rank": 46
+  },
+  {
+   "project": "uvicorn",
+   "version": "0.54.0",
+   "wheel": "uvicorn-0.54.0-py3-none-any.whl",
+   "repo": "Kludex/uvicorn",
+   "rank": 47
+  },
+  {
+   "project": "tqdm",
+   "version": "4.70.1",
+   "wheel": "tqdm-4.70.1-py3-none-any.whl",
+   "repo": "tqdm/tqdm",
+   "rank": 50
+  },
+  {
+   "project": "jmespath",
+   "version": "1.1.0",
+   "wheel": "jmespath-1.1.0-py3-none-any.whl",
+   "repo": "jmespath/jmespath.py",
+   "rank": 51
+  },
+  {
+   "project": "yarl",
+   "version": "1.25.1",
+   "wheel": "yarl-1.25.1-py3-none-any.whl",
+   "repo": "aio-libs/yarl",
+   "rank": 53
+  },
+  {
+   "project": "jsonschema",
+   "version": "4.26.0",
+   "wheel": "jsonschema-4.26.0-py3-none-any.whl",
+   "repo": "python-jsonschema/jsonschema",
+   "rank": 54
+  },
+  {
+   "project": "rich",
+   "version": "15.0.0",
+   "wheel": "rich-15.0.0-py3-none-any.whl",
+   "repo": "Textualize/rich",
+   "rank": 55
+  },
+  {
+   "project": "markdown-it-py",
+   "version": "4.2.0",
+   "wheel": "markdown_it_py-4.2.0-py3-none-any.whl",
+   "repo": "executablebooks/markdown-it-py",
+   "rank": 56
+  },
+  {
+   "project": "multidict",
+   "version": "7.0.0",
+   "wheel": "multidict-7.0.0-py3-none-any.whl",
+   "repo": "aio-libs/multidict",
+   "rank": 57
+  },
+  {
+   "project": "propcache",
+   "version": "0.5.4",
+   "wheel": "propcache-0.5.4-py3-none-any.whl",
+   "repo": "aio-libs/propcache",
+   "rank": 58
+  },
+  {
+   "project": "s3fs",
+   "version": "2026.9.0",
+   "wheel": "s3fs-2026.9.0-py3-none-any.whl",
+   "repo": "fsspec/s3fs",
+   "rank": 59
+  },
+  {
+   "project": "fastapi",
+   "version": "0.141.1",
+   "wheel": "fastapi-0.141.1-py3-none-any.whl",
+   "repo": "fastapi/fastapi",
+   "rank": 60
+  },
+  {
+   "project": "referencing",
+   "version": "0.37.0",
+   "wheel": "referencing-0.37.0-py3-none-any.whl",
+   "repo": "python-jsonschema/referencing",
+   "rank": 61
+  },
+  {
+   "project": "tomlkit",
+   "version": "0.15.1",
+   "wheel": "tomlkit-0.15.1-py3-none-any.whl",
+   "repo": "python-poetry/tomlkit",
+   "rank": 62
+  },
+  {
+   "project": "frozenlist",
+   "version": "1.8.0",
+   "wheel": "frozenlist-1.8.0-py3-none-any.whl",
+   "repo": "aio-libs/frozenlist",
+   "rank": 63
+  },
+  {
+   "project": "jsonschema-specifications",
+   "version": "2025.9.1",
+   "wheel": "jsonschema_specifications-2025.9.1-py3-none-any.whl",
+   "repo": "python-jsonschema/jsonschema-specifications",
+   "rank": 64
+  },
+  {
+   "project": "pyasn1",
+   "version": "0.6.4",
+   "wheel": "pyasn1-0.6.4-py3-none-any.whl",
+   "repo": "pyasn1/pyasn1",
+   "rank": 65
+  },
+  {
+   "project": "wheel",
+   "version": "0.48.0",
+   "wheel": "wheel-0.48.0-py3-none-any.whl",
+   "repo": "pypa/wheel",
+   "rank": 66
+  },
+  {
+   "project": "websockets",
+   "version": "17.1",
+   "wheel": "websockets-17.1-py3-none-any.whl",
+   "repo": "python-websockets/websockets",
+   "rank": 67
+  },
+  {
+   "project": "aiohappyeyeballs",
+   "version": "2.7.1",
+   "wheel": "aiohappyeyeballs-2.7.1-py3-none-any.whl",
+   "repo": "aio-libs/aiohappyeyeballs",
+   "rank": 68
+  },
+  {
+   "project": "mdurl",
+   "version": "0.1.2",
+   "wheel": "mdurl-0.1.2-py3-none-any.whl",
+   "repo": "executablebooks/mdurl",
+   "rank": 69
+  },
+  {
+   "project": "aiosignal",
+   "version": "1.4.0",
+   "wheel": "aiosignal-1.4.0-py3-none-any.whl",
+   "repo": "aio-libs/aiosignal",
+   "rank": 70
+  },
+  {
+   "project": "google-auth",
+   "version": "2.59.0",
+   "wheel": "google_auth-2.59.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 71
+  },
+  {
+   "project": "googleapis-common-protos",
+   "version": "1.75.4",
+   "wheel": "googleapis_common_protos-1.75.4-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 73
+  },
+  {
+   "project": "pytz",
+   "version": "2026.4",
+   "wheel": "pytz-2026.4-py2.py3-none-any.whl",
+   "repo": "stub42/pytz",
+   "rank": 74
+  },
+  {
+   "project": "sniffio",
+   "version": "1.3.1",
+   "wheel": "sniffio-1.3.1-py3-none-any.whl",
+   "repo": "python-trio/sniffio",
+   "rank": 75
+  },
+  {
+   "project": "importlib-metadata",
+   "version": "9.0.1",
+   "wheel": "importlib_metadata-9.0.1-py3-none-any.whl",
+   "repo": "python/importlib_metadata",
+   "rank": 76
+  },
+  {
+   "project": "trove-classifiers",
+   "version": "2026.9.21.13",
+   "wheel": "trove_classifiers-2026.9.21.13-py3-none-any.whl",
+   "repo": "pypa/trove-classifiers",
+   "rank": 77
+  },
+  {
+   "project": "zipp",
+   "version": "4.1.0",
+   "wheel": "zipp-4.1.0-py3-none-any.whl",
+   "repo": "jaraco/zipp",
+   "rank": 78
+  },
+  {
+   "project": "opentelemetry-semantic-conventions",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_semantic_conventions-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python",
+   "rank": 79
+  },
+  {
+   "project": "annotated-doc",
+   "version": "0.0.5",
+   "wheel": "annotated_doc-0.0.5-py3-none-any.whl",
+   "repo": "fastapi/annotated-doc",
+   "rank": 80
+  },
+  {
+   "project": "virtualenv",
+   "version": "21.13.0",
+   "wheel": "virtualenv-21.13.0-py3-none-any.whl",
+   "repo": "pypa/virtualenv",
+   "rank": 81
+  },
+  {
+   "project": "hatchling",
+   "version": "1.32.4",
+   "wheel": "hatchling-1.32.4-py3-none-any.whl",
+   "repo": "pypa/hatch",
+   "rank": 82
+  },
+  {
+   "project": "pydantic-settings",
+   "version": "2.15.0",
+   "wheel": "pydantic_settings-2.15.0-py3-none-any.whl",
+   "repo": "pydantic/pydantic-settings",
+   "rank": 83
+  },
+  {
+   "project": "tzdata",
+   "version": "2026.4",
+   "wheel": "tzdata-2026.4-py2.py3-none-any.whl",
+   "repo": "python/tzdata",
+   "rank": 84
+  },
+  {
+   "project": "wrapt",
+   "version": "2.5.0",
+   "wheel": "wrapt-2.5.0-py3-none-any.whl",
+   "repo": "GrahamDumpleton/wrapt",
+   "rank": 85
+  },
+  {
+   "project": "ghapi",
+   "version": "2.1.4",
+   "wheel": "ghapi-2.1.4-py3-none-any.whl",
+   "repo": "fastai/ghapi",
+   "rank": 86
+  },
+  {
+   "project": "opentelemetry-api",
+   "version": "1.45.0",
+   "wheel": "opentelemetry_api-1.45.0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python",
+   "rank": 88
+  },
+  {
+   "project": "huggingface-hub",
+   "version": "2.0.0",
+   "wheel": "huggingface_hub-2.0.0-py3-none-any.whl",
+   "repo": "huggingface/huggingface_hub",
+   "rank": 89
+  },
+  {
+   "project": "opentelemetry-sdk",
+   "version": "1.45.0",
+   "wheel": "opentelemetry_sdk-1.45.0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python",
+   "rank": 90
+  },
+  {
+   "project": "pyasn1-modules",
+   "version": "0.4.2",
+   "wheel": "pyasn1_modules-0.4.2-py3-none-any.whl",
+   "repo": "pyasn1/pyasn1-modules",
+   "rank": 91
+  },
+  {
+   "project": "tenacity",
+   "version": "9.1.4",
+   "wheel": "tenacity-9.1.4-py3-none-any.whl",
+   "repo": "jd/tenacity",
+   "rank": 92
+  },
+  {
+   "project": "google-api-core",
+   "version": "2.39.0",
+   "wheel": "google_api_core-2.39.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 93
+  },
+  {
+   "project": "python-multipart",
+   "version": "0.0.32",
+   "wheel": "python_multipart-0.0.32-py3-none-any.whl",
+   "repo": "Kludex/python-multipart",
+   "rank": 96
+  },
+  {
+   "project": "textual",
+   "version": "8.2.8",
+   "wheel": "textual-8.2.8-py3-none-any.whl",
+   "repo": "Textualize/textual",
+   "rank": 97
+  },
+  {
+   "project": "openai",
+   "version": "3.20.0",
+   "wheel": "openai-3.20.0-py3-none-any.whl",
+   "repo": "openai/openai-python",
+   "rank": 98
+  },
+  {
+   "project": "soupsieve",
+   "version": "2.10",
+   "wheel": "soupsieve-2.10-py3-none-any.whl",
+   "repo": "facelessuser/soupsieve",
+   "rank": 100
+  },
+  {
+   "project": "pyparsing",
+   "version": "3.3.3",
+   "wheel": "pyparsing-3.3.3-py3-none-any.whl",
+   "repo": "pyparsing/pyparsing",
+   "rank": 103
+  },
+  {
+   "project": "sqlalchemy",
+   "version": "2.1.1",
+   "wheel": "sqlalchemy-2.1.1-py3-none-any.whl",
+   "repo": "sqlalchemy/sqlalchemy",
+   "rank": 104
+  },
+  {
+   "project": "distro",
+   "version": "1.9.0",
+   "wheel": "distro-1.9.0-py3-none-any.whl",
+   "repo": "python-distro/distro",
+   "rank": 105
+  },
+  {
+   "project": "colorama",
+   "version": "0.4.6",
+   "wheel": "colorama-0.4.6-py2.py3-none-any.whl",
+   "repo": "tartley/colorama",
+   "rank": 107
+  },
+  {
+   "project": "tomli",
+   "version": "2.4.1",
+   "wheel": "tomli-2.4.1-py3-none-any.whl",
+   "repo": "hukkin/tomli",
+   "rank": 108
+  },
+  {
+   "project": "opentelemetry-proto",
+   "version": "1.45.0",
+   "wheel": "opentelemetry_proto-1.45.0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python",
+   "rank": 111
+  },
+  {
+   "project": "shellingham",
+   "version": "1.5.4",
+   "wheel": "shellingham-1.5.4-py2.py3-none-any.whl",
+   "repo": "sarugaku/shellingham",
+   "rank": 113
+  },
+  {
+   "project": "opentelemetry-instrumentation",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_instrumentation-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 114
+  },
+  {
+   "project": "editables",
+   "version": "0.6",
+   "wheel": "editables-0.6-py3-none-any.whl",
+   "repo": "pfmoore/editables",
+   "rank": 115
+  },
+  {
+   "project": "typer",
+   "version": "0.27.2",
+   "wheel": "typer-0.27.2-py3-none-any.whl",
+   "repo": "fastapi/typer",
+   "rank": 116
+  },
+  {
+   "project": "requests-oauthlib",
+   "version": "2.0.0",
+   "wheel": "requests_oauthlib-2.0.0-py2.py3-none-any.whl",
+   "repo": "requests/requests-oauthlib",
+   "rank": 117
+  },
+  {
+   "project": "opentelemetry-exporter-otlp-proto-http",
+   "version": "1.45.0",
+   "wheel": "opentelemetry_exporter_otlp_proto_http-1.45.0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python",
+   "rank": 118
+  },
+  {
+   "project": "proto-plus",
+   "version": "1.28.4",
+   "wheel": "proto_plus-1.28.4-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 119
+  },
+  {
+   "project": "mcp",
+   "version": "2.2.0",
+   "wheel": "mcp-2.2.0-py3-none-any.whl",
+   "repo": "modelcontextprotocol/python-sdk",
+   "rank": 122
+  },
+  {
+   "project": "opentelemetry-exporter-otlp-proto-common",
+   "version": "1.45.0",
+   "wheel": "opentelemetry_exporter_otlp_proto_common-1.45.0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python",
+   "rank": 124
+  },
+  {
+   "project": "coverage",
+   "version": "7.16.2",
+   "wheel": "coverage-7.16.2-py3-none-any.whl",
+   "repo": "coveragepy/coveragepy",
+   "rank": 125
+  },
+  {
+   "project": "exceptiongroup",
+   "version": "1.3.1",
+   "wheel": "exceptiongroup-1.3.1-py3-none-any.whl",
+   "repo": "agronholm/exceptiongroup",
+   "rank": 126
+  },
+  {
+   "project": "oauthlib",
+   "version": "4.0.0",
+   "wheel": "oauthlib-4.0.0-py3-none-any.whl",
+   "repo": "oauthlib/oauthlib",
+   "rank": 128
+  },
+  {
+   "project": "mypy-extensions",
+   "version": "1.1.0",
+   "wheel": "mypy_extensions-1.1.0-py3-none-any.whl",
+   "repo": "python/mypy_extensions",
+   "rank": 129
+  },
+  {
+   "project": "dnspython",
+   "version": "2.8.0",
+   "wheel": "dnspython-2.8.0-py3-none-any.whl",
+   "repo": "rthalley/dnspython",
+   "rank": 130
+  },
+  {
+   "project": "more-itertools",
+   "version": "11.1.0",
+   "wheel": "more_itertools-11.1.0-py3-none-any.whl",
+   "repo": "more-itertools/more-itertools",
+   "rank": 131
+  },
+  {
+   "project": "wcwidth",
+   "version": "0.9.1",
+   "wheel": "wcwidth-0.9.1-py3-none-any.whl",
+   "repo": "jquast/wcwidth",
+   "rank": 132
+  },
+  {
+   "project": "cachetools",
+   "version": "7.2.0",
+   "wheel": "cachetools-7.2.0-py3-none-any.whl",
+   "repo": "tkem/cachetools",
+   "rank": 133
+  },
+  {
+   "project": "distlib",
+   "version": "0.4.3",
+   "wheel": "distlib-0.4.3-py2.py3-none-any.whl",
+   "repo": "pypa/distlib",
+   "rank": 134
+  },
+  {
+   "project": "sse-starlette",
+   "version": "3.5.0",
+   "wheel": "sse_starlette-3.5.0-py3-none-any.whl",
+   "repo": "sysid/sse-starlette",
+   "rank": 135
+  },
+  {
+   "project": "pytest-asyncio",
+   "version": "1.4.0",
+   "wheel": "pytest_asyncio-1.4.0-py3-none-any.whl",
+   "repo": "pytest-dev/pytest-asyncio",
+   "rank": 138
+  },
+  {
+   "project": "python-discovery",
+   "version": "1.6.1",
+   "wheel": "python_discovery-1.6.1-py3-none-any.whl",
+   "repo": "tox-dev/python-discovery",
+   "rank": 139
+  },
+  {
+   "project": "docstring-parser",
+   "version": "0.18.0",
+   "wheel": "docstring_parser-0.18.0-py3-none-any.whl",
+   "repo": "rr-/docstring_parser",
+   "rank": 140
+  },
+  {
+   "project": "requests-toolbelt",
+   "version": "1.0.0",
+   "wheel": "requests_toolbelt-1.0.0-py2.py3-none-any.whl",
+   "repo": "requests/toolbelt",
+   "rank": 142
+  },
+  {
+   "project": "pyopenssl",
+   "version": "26.4.0",
+   "wheel": "pyopenssl-26.4.0-py3-none-any.whl",
+   "repo": "pyca/pyopenssl",
+   "rank": 143
+  },
+  {
+   "project": "rsa",
+   "version": "4.9.1",
+   "wheel": "rsa-4.9.1-py3-none-any.whl",
+   "repo": "sybrenstuvel/python-rsa",
+   "rank": 145
+  },
+  {
+   "project": "opentelemetry-exporter-otlp-proto-grpc",
+   "version": "1.45.0",
+   "wheel": "opentelemetry_exporter_otlp_proto_grpc-1.45.0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python",
+   "rank": 148
+  },
+  {
+   "project": "google-genai",
+   "version": "2.25.0",
+   "wheel": "google_genai-2.25.0-py3-none-any.whl",
+   "repo": "googleapis/python-genai",
+   "rank": 151
+  },
+  {
+   "project": "networkx",
+   "version": "3.7",
+   "wheel": "networkx-3.7-py3-none-any.whl",
+   "repo": "networkx/networkx",
+   "rank": 152
+  },
+  {
+   "project": "werkzeug",
+   "version": "3.1.9",
+   "wheel": "werkzeug-3.1.9-py3-none-any.whl",
+   "repo": "pallets/werkzeug",
+   "rank": 153
+  },
+  {
+   "project": "redis",
+   "version": "8.1.0",
+   "wheel": "redis-8.1.0-py3-none-any.whl",
+   "repo": "redis/redis-py",
+   "rank": 155
+  },
+  {
+   "project": "gitpython",
+   "version": "3.1.62",
+   "wheel": "gitpython-3.1.62-py3-none-any.whl",
+   "repo": "gitpython-developers/GitPython",
+   "rank": 156
+  },
+  {
+   "project": "fonttools",
+   "version": "4.66.0",
+   "wheel": "fonttools-4.66.0-py3-none-any.whl",
+   "repo": "fonttools/fonttools",
+   "rank": 157
+  },
+  {
+   "project": "langchain",
+   "version": "1.4.3",
+   "wheel": "langchain-1.4.3-py3-none-any.whl",
+   "repo": "langchain-ai/langchain",
+   "rank": 158
+  },
+  {
+   "project": "prompt-toolkit",
+   "version": "3.0.53",
+   "wheel": "prompt_toolkit-3.0.53-py3-none-any.whl",
+   "repo": "prompt-toolkit/python-prompt-toolkit",
+   "rank": 159
+  },
+  {
+   "project": "defusedxml",
+   "version": "0.7.1",
+   "wheel": "defusedxml-0.7.1-py2.py3-none-any.whl",
+   "repo": "tiran/defusedxml",
+   "rank": 160
+  },
+  {
+   "project": "smmap",
+   "version": "5.0.3",
+   "wheel": "smmap-5.0.3-py3-none-any.whl",
+   "repo": "gitpython-developers/smmap",
+   "rank": 163
+  },
+  {
+   "project": "pytest-cov",
+   "version": "7.1.0",
+   "wheel": "pytest_cov-7.1.0-py3-none-any.whl",
+   "repo": "pytest-dev/pytest-cov",
+   "rank": 164
+  },
+  {
+   "project": "google-cloud-storage",
+   "version": "3.15.0",
+   "wheel": "google_cloud_storage-3.15.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 165
+  },
+  {
+   "project": "email-validator",
+   "version": "2.3.0",
+   "wheel": "email_validator-2.3.0-py3-none-any.whl",
+   "repo": "JoshData/python-email-validator",
+   "rank": 168
+  },
+  {
+   "project": "httpx-sse",
+   "version": "0.4.3",
+   "wheel": "httpx_sse-0.4.3-py3-none-any.whl",
+   "repo": "florimondmanca/httpx-sse",
+   "rank": 170
+  },
+  {
+   "project": "isodate",
+   "version": "0.7.2",
+   "wheel": "isodate-0.7.2-py3-none-any.whl",
+   "repo": "gweis/isodate",
+   "rank": 171
+  },
+  {
+   "project": "chardet",
+   "version": "7.6.0",
+   "wheel": "chardet-7.6.0-py3-none-any.whl",
+   "repo": "chardet/chardet",
+   "rank": 172
+  },
+  {
+   "project": "azure-core",
+   "version": "1.41.0",
+   "wheel": "azure_core-1.41.0-py3-none-any.whl",
+   "repo": "Azure/azure-sdk-for-python",
+   "rank": 173
+  },
+  {
+   "project": "gitdb",
+   "version": "4.0.12",
+   "wheel": "gitdb-4.0.12-py3-none-any.whl",
+   "repo": "gitpython-developers/gitdb",
+   "rank": 174
+  },
+  {
+   "project": "tzlocal",
+   "version": "5.4.4",
+   "wheel": "tzlocal-5.4.4-py3-none-any.whl",
+   "repo": "regebro/tzlocal",
+   "rank": 175
+  },
+  {
+   "project": "alembic",
+   "version": "1.20.0",
+   "wheel": "alembic-1.20.0-py3-none-any.whl",
+   "repo": "sqlalchemy/alembic",
+   "rank": 176
+  },
+  {
+   "project": "itsdangerous",
+   "version": "2.2.0",
+   "wheel": "itsdangerous-2.2.0-py3-none-any.whl",
+   "repo": "pallets/itsdangerous",
+   "rank": 177
+  },
+  {
+   "project": "dill",
+   "version": "0.4.1",
+   "wheel": "dill-0.4.1-py3-none-any.whl",
+   "repo": "uqfoundation/dill",
+   "rank": 178
+  },
+  {
+   "project": "websocket-client",
+   "version": "1.9.2",
+   "wheel": "websocket_client-1.9.2-py3-none-any.whl",
+   "repo": "websocket-client/websocket-client",
+   "rank": 179
+  },
+  {
+   "project": "nodeenv",
+   "version": "1.11.0",
+   "wheel": "nodeenv-1.11.0-py2.py3-none-any.whl",
+   "repo": "ekalinin/nodeenv",
+   "rank": 180
+  },
+  {
+   "project": "joblib",
+   "version": "1.6.0",
+   "wheel": "joblib-1.6.0-py3-none-any.whl",
+   "repo": "joblib/joblib",
+   "rank": 181
+  },
+  {
+   "project": "tabulate",
+   "version": "0.10.0",
+   "wheel": "tabulate-0.10.0-py3-none-any.whl",
+   "repo": "astanin/python-tabulate",
+   "rank": 182
+  },
+  {
+   "project": "mako",
+   "version": "1.4.3",
+   "wheel": "mako-1.4.3-py3-none-any.whl",
+   "repo": "sqlalchemy/mako",
+   "rank": 183
+  },
+  {
+   "project": "opentelemetry-instrumentation-requests",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_instrumentation_requests-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 184
+  },
+  {
+   "project": "threadpoolctl",
+   "version": "3.7.0",
+   "wheel": "threadpoolctl-3.7.0-py3-none-any.whl",
+   "repo": "joblib/threadpoolctl",
+   "rank": 185
+  },
+  {
+   "project": "h2",
+   "version": "4.4.1",
+   "wheel": "h2-4.4.1-py3-none-any.whl",
+   "repo": "python-hyper/h2",
+   "rank": 187
+  },
+  {
+   "project": "azure-identity",
+   "version": "1.25.3",
+   "wheel": "azure_identity-1.25.3-py3-none-any.whl",
+   "repo": "Azure/azure-sdk-for-python",
+   "rank": 188
+  },
+  {
+   "project": "keyring",
+   "version": "25.7.0",
+   "wheel": "keyring-25.7.0-py3-none-any.whl",
+   "repo": "jaraco/keyring",
+   "rank": 189
+  },
+  {
+   "project": "google-cloud-core",
+   "version": "2.7.0",
+   "wheel": "google_cloud_core-2.7.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 190
+  },
+  {
+   "project": "mypy",
+   "version": "2.3.1",
+   "wheel": "mypy-2.3.1-py3-none-any.whl",
+   "repo": "python/mypy",
+   "rank": 191
+  },
+  {
+   "project": "hpack",
+   "version": "4.2.0",
+   "wheel": "hpack-4.2.0-py3-none-any.whl",
+   "repo": "python-hyper/hpack",
+   "rank": 194
+  },
+  {
+   "project": "pytest-json-ctrf",
+   "version": "0.5.3",
+   "wheel": "pytest_json_ctrf-0.5.3-py3-none-any.whl",
+   "repo": "infopulse/pytest-common-test-report-json",
+   "rank": 195
+  },
+  {
+   "project": "flask",
+   "version": "3.1.3",
+   "wheel": "flask-3.1.3-py3-none-any.whl",
+   "repo": "pallets/flask",
+   "rank": 196
+  },
+  {
+   "project": "opentelemetry-util-http",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_util_http-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 197
+  },
+  {
+   "project": "jaraco-classes",
+   "version": "3.4.0",
+   "wheel": "jaraco.classes-3.4.0-py3-none-any.whl",
+   "repo": "jaraco/jaraco.classes",
+   "rank": 199
+  },
+  {
+   "project": "msal",
+   "version": "1.39.0",
+   "wheel": "msal-1.39.0-py3-none-any.whl",
+   "repo": "AzureAD/microsoft-authentication-library-for-python",
+   "rank": 200
+  },
+  {
+   "project": "truststore",
+   "version": "0.10.4",
+   "wheel": "truststore-0.10.4-py3-none-any.whl",
+   "repo": "sethmlarson/truststore",
+   "rank": 202
+  },
+  {
+   "project": "hyperframe",
+   "version": "6.1.0",
+   "wheel": "hyperframe-6.1.0-py3-none-any.whl",
+   "repo": "python-hyper/hyperframe",
+   "rank": 203
+  },
+  {
+   "project": "jaraco-functools",
+   "version": "4.6.0",
+   "wheel": "jaraco_functools-4.6.0-py3-none-any.whl",
+   "repo": "jaraco/jaraco.functools",
+   "rank": 205
+  },
+  {
+   "project": "anthropic",
+   "version": "1.9.0",
+   "wheel": "anthropic-1.9.0-py3-none-any.whl",
+   "repo": "anthropics/anthropic-sdk-python",
+   "rank": 208
+  },
+  {
+   "project": "pre-commit",
+   "version": "4.6.2",
+   "wheel": "pre_commit-4.6.2-py2.py3-none-any.whl",
+   "repo": "pre-commit/pre-commit",
+   "rank": 209
+  },
+  {
+   "project": "secretstorage",
+   "version": "3.5.0",
+   "wheel": "secretstorage-3.5.0-py3-none-any.whl",
+   "repo": "mitya57/secretstorage",
+   "rank": 210
+  },
+  {
+   "project": "identify",
+   "version": "2.6.20",
+   "wheel": "identify-2.6.20-py2.py3-none-any.whl",
+   "repo": "pre-commit/identify",
+   "rank": 211
+  },
+  {
+   "project": "cfgv",
+   "version": "3.5.0",
+   "wheel": "cfgv-3.5.0-py2.py3-none-any.whl",
+   "repo": "asottile/cfgv",
+   "rank": 212
+  },
+  {
+   "project": "toml",
+   "version": "0.10.2",
+   "wheel": "toml-0.10.2-py2.py3-none-any.whl",
+   "repo": "uiri/toml",
+   "rank": 213
+  },
+  {
+   "project": "docker",
+   "version": "7.2.0",
+   "wheel": "docker-7.2.0-py3-none-any.whl",
+   "repo": "docker/docker-py",
+   "rank": 214
+  },
+  {
+   "project": "jaraco-context",
+   "version": "6.1.2",
+   "wheel": "jaraco_context-6.1.2-py3-none-any.whl",
+   "repo": "jaraco/jaraco.context",
+   "rank": 216
+  },
+  {
+   "project": "blinker",
+   "version": "1.9.0",
+   "wheel": "blinker-1.9.0-py3-none-any.whl",
+   "repo": "pallets-eco/blinker",
+   "rank": 217
+  },
+  {
+   "project": "cycler",
+   "version": "0.12.1",
+   "wheel": "cycler-0.12.1-py3-none-any.whl",
+   "repo": "matplotlib/cycler",
+   "rank": 219
+  },
+  {
+   "project": "google-resumable-media",
+   "version": "2.10.2",
+   "wheel": "google_resumable_media-2.10.2-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 220
+  },
+  {
+   "project": "httpx2",
+   "version": "2.13.1",
+   "wheel": "httpx2-2.13.1-py3-none-any.whl",
+   "repo": "pydantic/httpx2",
+   "rank": 221
+  },
+  {
+   "project": "ptyprocess",
+   "version": "0.7.0",
+   "wheel": "ptyprocess-0.7.0-py2.py3-none-any.whl",
+   "repo": "pexpect/ptyprocess",
+   "rank": 222
+  },
+  {
+   "project": "sympy",
+   "version": "1.14.0",
+   "wheel": "sympy-1.14.0-py3-none-any.whl",
+   "repo": "sympy/sympy",
+   "rank": 224
+  },
+  {
+   "project": "transformers",
+   "version": "5.17.0",
+   "wheel": "transformers-5.17.0-py3-none-any.whl",
+   "repo": "huggingface/transformers",
+   "rank": 225
+  },
+  {
+   "project": "httpcore2",
+   "version": "2.13.1",
+   "wheel": "httpcore2-2.13.1-py3-none-any.whl",
+   "repo": "pydantic/httpx2",
+   "rank": 226
+  },
+  {
+   "project": "pexpect",
+   "version": "4.9.0",
+   "wheel": "pexpect-4.9.0-py2.py3-none-any.whl",
+   "repo": "pexpect/pexpect",
+   "rank": 227
+  },
+  {
+   "project": "google-cloud-bigquery",
+   "version": "3.45.2",
+   "wheel": "google_cloud_bigquery-3.45.2-py3-none-any.whl",
+   "repo": "googleapis/python-bigquery",
+   "rank": 228
+  },
+  {
+   "project": "google-api-python-client",
+   "version": "2.200.0",
+   "wheel": "google_api_python_client-2.200.0-py3-none-any.whl",
+   "repo": "googleapis/google-api-python-client",
+   "rank": 229
+  },
+  {
+   "project": "uritemplate",
+   "version": "4.2.0",
+   "wheel": "uritemplate-4.2.0-py3-none-any.whl",
+   "repo": "python-hyper/uritemplate",
+   "rank": 230
+  },
+  {
+   "project": "black",
+   "version": "26.5.1",
+   "wheel": "black-26.5.1-py3-none-any.whl",
+   "repo": "psf/black",
+   "rank": 231
+  },
+  {
+   "project": "prometheus-client",
+   "version": "0.26.0",
+   "wheel": "prometheus_client-0.26.0-py3-none-any.whl",
+   "repo": "prometheus/client_python",
+   "rank": 232
+  },
+  {
+   "project": "jsonpointer",
+   "version": "3.1.1",
+   "wheel": "jsonpointer-3.1.1-py3-none-any.whl",
+   "repo": "stefankoegl/python-json-pointer",
+   "rank": 233
+  },
+  {
+   "project": "google-auth-httplib2",
+   "version": "0.4.2",
+   "wheel": "google_auth_httplib2-0.4.2-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 234
+  },
+  {
+   "project": "sentry-sdk",
+   "version": "2.71.0",
+   "wheel": "sentry_sdk-2.71.0-py3-none-any.whl",
+   "repo": "getsentry/sentry-python",
+   "rank": 235
+  },
+  {
+   "project": "langchain-core",
+   "version": "1.6.5",
+   "wheel": "langchain_core-1.6.5-py3-none-any.whl",
+   "repo": "langchain-ai/langchain",
+   "rank": 236
+  },
+  {
+   "project": "opentelemetry-instrumentation-threading",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_instrumentation_threading-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 237
+  },
+  {
+   "project": "deprecated",
+   "version": "3.0.0",
+   "wheel": "deprecated-3.0.0-py3-none-any.whl",
+   "repo": "laurent-laporte-pro/deprecated",
+   "rank": 238
+  },
+  {
+   "project": "backoff",
+   "version": "2.2.1",
+   "wheel": "backoff-2.2.1-py3-none-any.whl",
+   "repo": "litl/backoff",
+   "rank": 239
+  },
+  {
+   "project": "async-timeout",
+   "version": "5.0.1",
+   "wheel": "async_timeout-5.0.1-py3-none-any.whl",
+   "repo": "aio-libs/async-timeout",
+   "rank": 241
+  },
+  {
+   "project": "google-auth-oauthlib",
+   "version": "1.4.1",
+   "wheel": "google_auth_oauthlib-1.4.1-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 242
+  },
+  {
+   "project": "mpmath",
+   "version": "1.4.1",
+   "wheel": "mpmath-1.4.1-py3-none-any.whl",
+   "repo": "mpmath/mpmath",
+   "rank": 244
+  },
+  {
+   "project": "asn1crypto",
+   "version": "1.5.1",
+   "wheel": "asn1crypto-1.5.1-py2.py3-none-any.whl",
+   "repo": "wbond/asn1crypto",
+   "rank": 245
+  },
+  {
+   "project": "httplib2",
+   "version": "0.32.0",
+   "wheel": "httplib2-0.32.0-py3-none-any.whl",
+   "repo": "httplib2/httplib2",
+   "rank": 246
+  },
+  {
+   "project": "opentelemetry-exporter-otlp",
+   "version": "1.45.0",
+   "wheel": "opentelemetry_exporter_otlp-1.45.0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python",
+   "rank": 247
+  },
+  {
+   "project": "ipython",
+   "version": "9.17.1",
+   "wheel": "ipython-9.17.1-py3-none-any.whl",
+   "repo": "ipython/ipython",
+   "rank": 248
+  },
+  {
+   "project": "awscli",
+   "version": "1.46.1",
+   "wheel": "awscli-1.46.1-py3-none-any.whl",
+   "repo": "aws/aws-cli",
+   "rank": 249
+  },
+  {
+   "project": "pytest-xdist",
+   "version": "3.8.0",
+   "wheel": "pytest_xdist-3.8.0-py3-none-any.whl",
+   "repo": "pytest-dev/pytest-xdist",
+   "rank": 250
+  },
+  {
+   "project": "narwhals",
+   "version": "2.26.0",
+   "wheel": "narwhals-2.26.0-py3-none-any.whl",
+   "repo": "narwhals-dev/narwhals",
+   "rank": 251
+  },
+  {
+   "project": "aiofiles",
+   "version": "25.1.0",
+   "wheel": "aiofiles-25.1.0-py3-none-any.whl",
+   "repo": "Tinche/aiofiles",
+   "rank": 253
+  },
+  {
+   "project": "types-requests",
+   "version": "2.33.0.20260906",
+   "wheel": "types_requests-2.33.0.20260906-py3-none-any.whl",
+   "repo": "python/typeshed",
+   "rank": 254
+  },
+  {
+   "project": "msal-extensions",
+   "version": "1.3.1",
+   "wheel": "msal_extensions-1.3.1-py3-none-any.whl",
+   "repo": "AzureAD/microsoft-authentication-extensions-for-python",
+   "rank": 255
+  },
+  {
+   "project": "poetry-core",
+   "version": "2.5.0",
+   "wheel": "poetry_core-2.5.0-py3-none-any.whl",
+   "repo": "python-poetry/poetry-core",
+   "rank": 256
+  },
+  {
+   "project": "datasets",
+   "version": "5.0.1",
+   "wheel": "datasets-5.0.1-py3-none-any.whl",
+   "repo": "huggingface/datasets",
+   "rank": 257
+  },
+  {
+   "project": "pypdf",
+   "version": "6.19.0",
+   "wheel": "pypdf-6.19.0-py3-none-any.whl",
+   "repo": "py-pdf/pypdf",
+   "rank": 258
+  },
+  {
+   "project": "traitlets",
+   "version": "5.16.1",
+   "wheel": "traitlets-5.16.1-py3-none-any.whl",
+   "repo": "ipython/traitlets",
+   "rank": 260
+  },
+  {
+   "project": "cloudpickle",
+   "version": "3.1.2",
+   "wheel": "cloudpickle-3.1.2-py3-none-any.whl",
+   "repo": "cloudpipe/cloudpickle",
+   "rank": 261
+  },
+  {
+   "project": "asgiref",
+   "version": "3.12.1",
+   "wheel": "asgiref-3.12.1-py3-none-any.whl",
+   "repo": "django/asgiref",
+   "rank": 262
+  },
+  {
+   "project": "ydb",
+   "version": "3.33.0",
+   "wheel": "ydb-3.33.0-py3-none-any.whl",
+   "repo": "ydb-platform/ydb-python-sdk",
+   "rank": 263
+  },
+  {
+   "project": "paramiko",
+   "version": "5.0.0",
+   "wheel": "paramiko-5.0.0-py3-none-any.whl",
+   "repo": "paramiko/paramiko",
+   "rank": 264
+  },
+  {
+   "project": "jsonpatch",
+   "version": "1.33",
+   "wheel": "jsonpatch-1.33-py2.py3-none-any.whl",
+   "repo": "stefankoegl/python-json-patch",
+   "rank": 265
+  },
+  {
+   "project": "sqlparse",
+   "version": "0.6.0",
+   "wheel": "sqlparse-0.6.0-py3-none-any.whl",
+   "repo": "andialbrecht/sqlparse",
+   "rank": 266
+  },
+  {
+   "project": "google-cloud-secret-manager",
+   "version": "2.30.0",
+   "wheel": "google_cloud_secret_manager-2.30.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 267
+  },
+  {
+   "project": "pyproject-hooks",
+   "version": "1.3.3",
+   "wheel": "pyproject_hooks-1.3.3-py3-none-any.whl",
+   "repo": "pypa/pyproject-hooks",
+   "rank": 268
+  },
+  {
+   "project": "webencodings",
+   "version": "0.6.1",
+   "wheel": "webencodings-0.6.1-py3-none-any.whl",
+   "repo": "CourtBouillon/webencodings",
+   "rank": 269
+  },
+  {
+   "project": "fastjsonschema",
+   "version": "2.22.2",
+   "wheel": "fastjsonschema-2.22.2-py3-none-any.whl",
+   "repo": "horejsek/python-fastjsonschema",
+   "rank": 270
+  },
+  {
+   "project": "authlib",
+   "version": "1.8.0",
+   "wheel": "authlib-1.8.0-py2.py3-none-any.whl",
+   "repo": "authlib/authlib",
+   "rank": 271
+  },
+  {
+   "project": "psycopg",
+   "version": "3.3.6",
+   "wheel": "psycopg-3.3.6-py3-none-any.whl",
+   "repo": "psycopg/psycopg",
+   "rank": 272
+  },
+  {
+   "project": "build",
+   "version": "1.6.1",
+   "wheel": "build-1.6.1-py3-none-any.whl",
+   "repo": "pypa/build",
+   "rank": 273
+  },
+  {
+   "project": "grpc-google-iam-v1",
+   "version": "0.14.5",
+   "wheel": "grpc_google_iam_v1-0.14.5-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 274
+  },
+  {
+   "project": "gunicorn",
+   "version": "26.2.0",
+   "wheel": "gunicorn-26.2.0-py3-none-any.whl",
+   "repo": "benoitc/gunicorn",
+   "rank": 275
+  },
+  {
+   "project": "executing",
+   "version": "2.2.1",
+   "wheel": "executing-2.2.1-py2.py3-none-any.whl",
+   "repo": "alexmojaki/executing",
+   "rank": 276
+  },
+  {
+   "project": "isort",
+   "version": "9.0.2",
+   "wheel": "isort-9.0.2-py3-none-any.whl",
+   "repo": "PyCQA/isort",
+   "rank": 278
+  },
+  {
+   "project": "joserfc",
+   "version": "1.7.5",
+   "wheel": "joserfc-1.7.5-py3-none-any.whl",
+   "repo": "authlib/joserfc",
+   "rank": 279
+  },
+  {
+   "project": "azure-storage-blob",
+   "version": "12.30.3",
+   "wheel": "azure_storage_blob-12.30.3-py3-none-any.whl",
+   "repo": "Azure/azure-sdk-for-python",
+   "rank": 280
+  },
+  {
+   "project": "jedi",
+   "version": "0.20.0",
+   "wheel": "jedi-0.20.0-py2.py3-none-any.whl",
+   "repo": "davidhalter/jedi",
+   "rank": 281
+  },
+  {
+   "project": "parso",
+   "version": "0.8.7",
+   "wheel": "parso-0.8.7-py2.py3-none-any.whl",
+   "repo": "davidhalter/parso",
+   "rank": 282
+  },
+  {
+   "project": "babel",
+   "version": "2.18.0",
+   "wheel": "babel-2.18.0-py3-none-any.whl",
+   "repo": "python-babel/babel",
+   "rank": 283
+  },
+  {
+   "project": "asttokens",
+   "version": "3.0.2",
+   "wheel": "asttokens-3.0.2-py3-none-any.whl",
+   "repo": "gristlabs/asttokens",
+   "rank": 284
+  },
+  {
+   "project": "google-cloud-aiplatform",
+   "version": "2.2.0",
+   "wheel": "google_cloud_aiplatform-2.2.0-py2.py3-none-any.whl",
+   "repo": "googleapis/python-aiplatform",
+   "rank": 286
+  },
+  {
+   "project": "matplotlib-inline",
+   "version": "0.2.2",
+   "wheel": "matplotlib_inline-0.2.2-py3-none-any.whl",
+   "repo": "ipython/matplotlib-inline",
+   "rank": 287
+  },
+  {
+   "project": "cython",
+   "version": "3.3.0",
+   "wheel": "cython-3.3.0-py3-none-any.whl",
+   "repo": "cython/cython",
+   "rank": 288
+  },
+  {
+   "project": "markdown",
+   "version": "3.11",
+   "wheel": "markdown-3.11-py3-none-any.whl",
+   "repo": "Python-Markdown/markdown",
+   "rank": 290
+  },
+  {
+   "project": "setuptools-scm",
+   "version": "10.3.4",
+   "wheel": "setuptools_scm-10.3.4-py3-none-any.whl",
+   "repo": "pypa/setuptools-scm",
+   "rank": 291
+  },
+  {
+   "project": "xmltodict",
+   "version": "1.0.4",
+   "wheel": "xmltodict-1.0.4-py3-none-any.whl",
+   "repo": "martinblech/xmltodict",
+   "rank": 292
+  },
+  {
+   "project": "pydantic-ai-slim",
+   "version": "2.51.0",
+   "wheel": "pydantic_ai_slim-2.51.0-py3-none-any.whl",
+   "repo": "pydantic/pydantic-ai",
+   "rank": 293
+  },
+  {
+   "project": "stack-data",
+   "version": "0.6.3",
+   "wheel": "stack_data-0.6.3-py3-none-any.whl",
+   "repo": "alexmojaki/stack_data",
+   "rank": 294
+  },
+  {
+   "project": "pure-eval",
+   "version": "0.2.4",
+   "wheel": "pure_eval-0.2.4-py3-none-any.whl",
+   "repo": "alexmojaki/pure_eval",
+   "rank": 295
+  },
+  {
+   "project": "gcsfs",
+   "version": "2026.8.1",
+   "wheel": "gcsfs-2026.8.1-py3-none-any.whl",
+   "repo": "fsspec/gcsfs",
+   "rank": 297
+  },
+  {
+   "project": "google-cloud-batch",
+   "version": "0.22.3",
+   "wheel": "google_cloud_batch-0.22.3-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 298
+  },
+  {
+   "project": "marshmallow",
+   "version": "4.3.1",
+   "wheel": "marshmallow-4.3.1-py3-none-any.whl",
+   "repo": "marshmallow-code/marshmallow",
+   "rank": 299
+  },
+  {
+   "project": "cachecontrol",
+   "version": "0.14.4",
+   "wheel": "cachecontrol-0.14.4-py3-none-any.whl",
+   "repo": "psf/cachecontrol",
+   "rank": 300
+  },
+  {
+   "project": "langsmith",
+   "version": "0.14.1",
+   "wheel": "langsmith-0.14.1-py3-none-any.whl",
+   "repo": "langchain-ai/langsmith-sdk",
+   "rank": 301
+  },
+  {
+   "project": "python-json-logger",
+   "version": "4.2.0",
+   "wheel": "python_json_logger-4.2.0-py3-none-any.whl",
+   "repo": "nhairs/python-json-logger",
+   "rank": 302
+  },
+  {
+   "project": "vcs-versioning",
+   "version": "2.5.0",
+   "wheel": "vcs_versioning-2.5.0-py3-none-any.whl",
+   "repo": "pypa/setuptools-scm",
+   "rank": 303
+  },
+  {
+   "project": "python-docx",
+   "version": "1.2.0",
+   "wheel": "python_docx-1.2.0-py3-none-any.whl",
+   "repo": "python-openxml/python-docx",
+   "rank": 305
+  },
+  {
+   "project": "structlog",
+   "version": "26.1.0",
+   "wheel": "structlog-26.1.0-py3-none-any.whl",
+   "repo": "hynek/structlog",
+   "rank": 306
+  },
+  {
+   "project": "google-cloud-kms",
+   "version": "3.17.0",
+   "wheel": "google_cloud_kms-3.17.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 309
+  },
+  {
+   "project": "tinycss2",
+   "version": "1.5.1",
+   "wheel": "tinycss2-1.5.1-py3-none-any.whl",
+   "repo": "Kozea/tinycss2",
+   "rank": 311
+  },
+  {
+   "project": "termcolor",
+   "version": "3.3.0",
+   "wheel": "termcolor-3.3.0-py3-none-any.whl",
+   "repo": "termcolor/termcolor",
+   "rank": 312
+  },
+  {
+   "project": "google-analytics-admin",
+   "version": "0.30.1",
+   "wheel": "google_analytics_admin-0.30.1-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 313
+  },
+  {
+   "project": "google-cloud-compute",
+   "version": "1.54.0",
+   "wheel": "google_cloud_compute-1.54.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 314
+  },
+  {
+   "project": "pytokens",
+   "version": "0.4.1",
+   "wheel": "pytokens-0.4.1-py3-none-any.whl",
+   "repo": "tusharsadhwani/pytokens",
+   "rank": 315
+  },
+  {
+   "project": "aioitertools",
+   "version": "0.13.0",
+   "wheel": "aioitertools-0.13.0-py3-none-any.whl",
+   "repo": "omnilib/aioitertools",
+   "rank": 316
+  },
+  {
+   "project": "kubernetes",
+   "version": "36.0.3",
+   "wheel": "kubernetes-36.0.3-py2.py3-none-any.whl",
+   "repo": "kubernetes-client/python",
+   "rank": 317
+  },
+  {
+   "project": "pyee",
+   "version": "14.0.0",
+   "wheel": "pyee-14.0.0-py3-none-any.whl",
+   "repo": "jfhbrook/pyee",
+   "rank": 321
+  },
+  {
+   "project": "xlsxwriter",
+   "version": "3.2.9",
+   "wheel": "xlsxwriter-3.2.9-py3-none-any.whl",
+   "repo": "jmcnamara/XlsxWriter",
+   "rank": 322
+  },
+  {
+   "project": "mdit-py-plugins",
+   "version": "0.6.1",
+   "wheel": "mdit_py_plugins-0.6.1-py3-none-any.whl",
+   "repo": "executablebooks/mdit-py-plugins",
+   "rank": 325
+  },
+  {
+   "project": "google-cloud-pubsub",
+   "version": "2.41.0",
+   "wheel": "google_cloud_pubsub-2.41.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 326
+  },
+  {
+   "project": "pydantic-graph",
+   "version": "2.51.0",
+   "wheel": "pydantic_graph-2.51.0-py3-none-any.whl",
+   "repo": "pydantic/pydantic-ai",
+   "rank": 327
+  },
+  {
+   "project": "pytest-mock",
+   "version": "3.16.0",
+   "wheel": "pytest_mock-3.16.0-py3-none-any.whl",
+   "repo": "pytest-dev/pytest-mock",
+   "rank": 329
+  },
+  {
+   "project": "pytest-timeout",
+   "version": "2.4.0",
+   "wheel": "pytest_timeout-2.4.0-py3-none-any.whl",
+   "repo": "pytest-dev/pytest-timeout",
+   "rank": 330
+  },
+  {
+   "project": "pymysql",
+   "version": "1.2.3",
+   "wheel": "pymysql-1.2.3-py3-none-any.whl",
+   "repo": "PyMySQL/PyMySQL",
+   "rank": 332
+  },
+  {
+   "project": "linkify-it-py",
+   "version": "2.2.0",
+   "wheel": "linkify_it_py-2.2.0-py3-none-any.whl",
+   "repo": "tsutsu3/linkify-it-py",
+   "rank": 333
+  },
+  {
+   "project": "flatbuffers",
+   "version": "25.12.19",
+   "wheel": "flatbuffers-25.12.19-py2.py3-none-any.whl",
+   "repo": "google/flatbuffers",
+   "rank": 334
+  },
+  {
+   "project": "google-cloud-dlp",
+   "version": "3.39.0",
+   "wheel": "google_cloud_dlp-3.39.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 335
+  },
+  {
+   "project": "pyperclip",
+   "version": "1.11.0",
+   "wheel": "pyperclip-1.11.0-py3-none-any.whl",
+   "repo": "asweigart/pyperclip",
+   "rank": 336
+  },
+  {
+   "project": "nest-asyncio",
+   "version": "1.6.0",
+   "wheel": "nest_asyncio-1.6.0-py3-none-any.whl",
+   "repo": "erdewit/nest_asyncio",
+   "rank": 337
+  },
+  {
+   "project": "google-cloud-speech",
+   "version": "2.40.0",
+   "wheel": "google_cloud_speech-2.40.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 338
+  },
+  {
+   "project": "dbt-adapters",
+   "version": "1.24.5",
+   "wheel": "dbt_adapters-1.24.5-py3-none-any.whl",
+   "repo": "dbt-labs/dbt-adapters",
+   "rank": 339
+  },
+  {
+   "project": "wsproto",
+   "version": "1.3.2",
+   "wheel": "wsproto-1.3.2-py3-none-any.whl",
+   "repo": "python-hyper/wsproto",
+   "rank": 340
+  },
+  {
+   "project": "debugpy",
+   "version": "1.8.22",
+   "wheel": "debugpy-1.8.22-py2.py3-none-any.whl",
+   "repo": "microsoft/debugpy",
+   "rank": 341
+  },
+  {
+   "project": "google-cloud-texttospeech",
+   "version": "2.37.0",
+   "wheel": "google_cloud_texttospeech-2.37.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 343
+  },
+  {
+   "project": "croniter",
+   "version": "6.2.4",
+   "wheel": "croniter-6.2.4-py3-none-any.whl",
+   "repo": "pallets-eco/croniter",
+   "rank": 345
+  },
+  {
+   "project": "slack-sdk",
+   "version": "3.44.1",
+   "wheel": "slack_sdk-3.44.1-py2.py3-none-any.whl",
+   "repo": "slackapi/python-slack-sdk",
+   "rank": 346
+  },
+  {
+   "project": "uc-micro-py",
+   "version": "2.0.0",
+   "wheel": "uc_micro_py-2.0.0-py3-none-any.whl",
+   "repo": "tsutsu3/uc.micro-py",
+   "rank": 347
+  },
+  {
+   "project": "weaviate-client",
+   "version": "4.23.1",
+   "wheel": "weaviate_client-4.23.1-py3-none-any.whl",
+   "repo": "weaviate/weaviate-python-client",
+   "rank": 348
+  },
+  {
+   "project": "tomli-w",
+   "version": "1.2.0",
+   "wheel": "tomli_w-1.2.0-py3-none-any.whl",
+   "repo": "hukkin/tomli-w",
+   "rank": 350
+  },
+  {
+   "project": "types-toml",
+   "version": "0.10.8.20260518",
+   "wheel": "types_toml-0.10.8.20260518-py3-none-any.whl",
+   "repo": "python/typeshed",
+   "rank": 351
+  },
+  {
+   "project": "importlib-resources",
+   "version": "7.1.0",
+   "wheel": "importlib_resources-7.1.0-py3-none-any.whl",
+   "repo": "python/importlib_resources",
+   "rank": 352
+  },
+  {
+   "project": "google-cloud-logging",
+   "version": "3.16.3",
+   "wheel": "google_cloud_logging-3.16.3-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 354
+  },
+  {
+   "project": "opentelemetry-instrumentation-fastapi",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_instrumentation_fastapi-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 355
+  },
+  {
+   "project": "awswrangler",
+   "version": "3.17.1",
+   "wheel": "awswrangler-3.17.1-py3-none-any.whl",
+   "repo": "aws/aws-sdk-pandas",
+   "rank": 357
+  },
+  {
+   "project": "fastmcp",
+   "version": "4.0.10",
+   "wheel": "fastmcp-4.0.10-py3-none-any.whl",
+   "repo": "PrefectHQ/fastmcp",
+   "rank": 359
+  },
+  {
+   "project": "mccabe",
+   "version": "0.7.0",
+   "wheel": "mccabe-0.7.0-py2.py3-none-any.whl",
+   "repo": "pycqa/mccabe",
+   "rank": 360
+  },
+  {
+   "project": "jupyter-core",
+   "version": "5.9.1",
+   "wheel": "jupyter_core-5.9.1-py3-none-any.whl",
+   "repo": "jupyter/jupyter_core",
+   "rank": 362
+  },
+  {
+   "project": "deprecation",
+   "version": "2.1.0",
+   "wheel": "deprecation-2.1.0-py2.py3-none-any.whl",
+   "repo": "briancurtin/deprecation",
+   "rank": 363
+  },
+  {
+   "project": "beartype",
+   "version": "0.22.9",
+   "wheel": "beartype-0.22.9-py3-none-any.whl",
+   "repo": "beartype/beartype",
+   "rank": 364
+  },
+  {
+   "project": "opentelemetry-instrumentation-asgi",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_instrumentation_asgi-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 365
+  },
+  {
+   "project": "cyclopts",
+   "version": "5.0.0",
+   "wheel": "cyclopts-5.0.0-py3-none-any.whl",
+   "repo": "BrianPugh/cyclopts",
+   "rank": 366
+  },
+  {
+   "project": "text-unidecode",
+   "version": "1.3",
+   "wheel": "text_unidecode-1.3-py2.py3-none-any.whl",
+   "repo": "kmike/text-unidecode",
+   "rank": 367
+  },
+  {
+   "project": "semver",
+   "version": "3.1.0",
+   "wheel": "semver-3.1.0-py3-none-any.whl",
+   "repo": "python-semver/python-semver",
+   "rank": 368
+  },
+  {
+   "project": "loguru",
+   "version": "0.7.3",
+   "wheel": "loguru-0.7.3-py3-none-any.whl",
+   "repo": "Delgan/loguru",
+   "rank": 369
+  },
+  {
+   "project": "grpclib",
+   "version": "0.4.9",
+   "wheel": "grpclib-0.4.9-py3-none-any.whl",
+   "repo": "vmagamedov/grpclib",
+   "rank": 371
+  },
+  {
+   "project": "nbformat",
+   "version": "5.11.1",
+   "wheel": "nbformat-5.11.1-py3-none-any.whl",
+   "repo": "jupyter/nbformat",
+   "rank": 372
+  },
+  {
+   "project": "jsonschema-path",
+   "version": "0.5.0",
+   "wheel": "jsonschema_path-0.5.0-py3-none-any.whl",
+   "repo": "p1c2u/jsonschema-path",
+   "rank": 374
+  },
+  {
+   "project": "sqlglot",
+   "version": "30.20.0",
+   "wheel": "sqlglot-30.20.0-py3-none-any.whl",
+   "repo": "tobymao/sqlglot",
+   "rank": 375
+  },
+  {
+   "project": "typing-inspect",
+   "version": "0.9.0",
+   "wheel": "typing_inspect-0.9.0-py3-none-any.whl",
+   "repo": "ilevkivskyi/typing_inspect",
+   "rank": 376
+  },
+  {
+   "project": "python-slugify",
+   "version": "9.1.2",
+   "wheel": "python_slugify-9.1.2-py3-none-any.whl",
+   "repo": "un33k/python-slugify",
+   "rank": 377
+  },
+  {
+   "project": "dulwich",
+   "version": "1.2.15",
+   "wheel": "dulwich-1.2.15-py3-none-any.whl",
+   "repo": "dulwich/dulwich",
+   "rank": 379
+  },
+  {
+   "project": "types-certifi",
+   "version": "2021.10.8.3",
+   "wheel": "types_certifi-2021.10.8.3-py3-none-any.whl",
+   "repo": "python/typeshed",
+   "rank": 381
+  },
+  {
+   "project": "aiosqlite",
+   "version": "0.22.1",
+   "wheel": "aiosqlite-0.22.1-py3-none-any.whl",
+   "repo": "omnilib/aiosqlite",
+   "rank": 382
+  },
+  {
+   "project": "jsonref",
+   "version": "1.1.0",
+   "wheel": "jsonref-1.1.0-py3-none-any.whl",
+   "repo": "gazpachoking/jsonref",
+   "rank": 383
+  },
+  {
+   "project": "dbt-core",
+   "version": "1.12.5",
+   "wheel": "dbt_core-1.12.5-py3-none-any.whl",
+   "repo": "dbt-labs/dbt-core",
+   "rank": 384
+  },
+  {
+   "project": "invoke",
+   "version": "3.0.3",
+   "wheel": "invoke-3.0.3-py3-none-any.whl",
+   "repo": "pyinvoke/invoke",
+   "rank": 385
+  },
+  {
+   "project": "opentelemetry-exporter-prometheus",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_exporter_prometheus-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python",
+   "rank": 386
+  },
+  {
+   "project": "jupyter-client",
+   "version": "8.10.0",
+   "wheel": "jupyter_client-8.10.0-py3-none-any.whl",
+   "repo": "jupyter/jupyter_client",
+   "rank": 387
+  },
+  {
+   "project": "google-cloud-monitoring",
+   "version": "2.31.0",
+   "wheel": "google_cloud_monitoring-2.31.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 388
+  },
+  {
+   "project": "pathable",
+   "version": "0.6.0",
+   "wheel": "pathable-0.6.0-py3-none-any.whl",
+   "repo": "p1c2u/pathable",
+   "rank": 389
+  },
+  {
+   "project": "fastmcp-slim",
+   "version": "4.0.10",
+   "wheel": "fastmcp_slim-4.0.10-py3-none-any.whl",
+   "repo": "PrefectHQ/fastmcp",
+   "rank": 390
+  },
+  {
+   "project": "modal",
+   "version": "1.6.0",
+   "wheel": "modal-1.6.0-py3-none-any.whl",
+   "repo": "modal-labs/modal-client",
+   "rank": 391
+  },
+  {
+   "project": "graphql-core",
+   "version": "3.3.0",
+   "wheel": "graphql_core-3.3.0-py3-none-any.whl",
+   "repo": "graphql-python/graphql-core",
+   "rank": 393
+  },
+  {
+   "project": "types-pyyaml",
+   "version": "6.0.12.20260906",
+   "wheel": "types_pyyaml-6.0.12.20260906-py3-none-any.whl",
+   "repo": "python/typeshed",
+   "rank": 395
+  },
+  {
+   "project": "google-cloud-tasks",
+   "version": "2.25.0",
+   "wheel": "google_cloud_tasks-2.25.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 396
+  },
+  {
+   "project": "argcomplete",
+   "version": "3.7.2",
+   "wheel": "argcomplete-3.7.2-py3-none-any.whl",
+   "repo": "kislyuk/argcomplete",
+   "rank": 397
+  },
+  {
+   "project": "faker",
+   "version": "40.40.0",
+   "wheel": "faker-40.40.0-py3-none-any.whl",
+   "repo": "joke2k/faker",
+   "rank": 398
+  },
+  {
+   "project": "fastapi-cli",
+   "version": "0.0.32",
+   "wheel": "fastapi_cli-0.0.32-py3-none-any.whl",
+   "repo": "fastapi/fastapi-cli",
+   "rank": 399
+  },
+  {
+   "project": "databricks-sql-connector",
+   "version": "4.6.0",
+   "wheel": "databricks_sql_connector-4.6.0-py3-none-any.whl",
+   "repo": "databricks/databricks-sql-python",
+   "rank": 400
+  },
+  {
+   "project": "pydantic-extra-types",
+   "version": "2.11.1",
+   "wheel": "pydantic_extra_types-2.11.1-py3-none-any.whl",
+   "repo": "pydantic/pydantic-extra-types",
+   "rank": 401
+  },
+  {
+   "project": "installer",
+   "version": "1.0.1",
+   "wheel": "installer-1.0.1-py3-none-any.whl",
+   "repo": "pypa/installer",
+   "rank": 402
+  },
+  {
+   "project": "rfc3339-validator",
+   "version": "0.1.4",
+   "wheel": "rfc3339_validator-0.1.4-py2.py3-none-any.whl",
+   "repo": "naimetti/rfc3339-validator",
+   "rank": 403
+  },
+  {
+   "project": "lark",
+   "version": "1.3.1",
+   "wheel": "lark-1.3.1-py3-none-any.whl",
+   "repo": "lark-parser/lark",
+   "rank": 405
+  },
+  {
+   "project": "rich-rst",
+   "version": "2.2.0",
+   "wheel": "rich_rst-2.2.0-py3-none-any.whl",
+   "repo": "wasi-master/rich-rst",
+   "rank": 406
+  },
+  {
+   "project": "ipython-pygments-lexers",
+   "version": "1.1.1",
+   "wheel": "ipython_pygments_lexers-1.1.1-py3-none-any.whl",
+   "repo": "ipython/ipython-pygments-lexers",
+   "rank": 410
+  },
+  {
+   "project": "arrow",
+   "version": "1.4.0",
+   "wheel": "arrow-1.4.0-py3-none-any.whl",
+   "repo": "arrow-py/arrow",
+   "rank": 412
+  },
+  {
+   "project": "markdownify",
+   "version": "1.2.3",
+   "wheel": "markdownify-1.2.3-py3-none-any.whl",
+   "repo": "matthewwithanm/python-markdownify",
+   "rank": 413
+  },
+  {
+   "project": "deepdiff",
+   "version": "9.1.0",
+   "wheel": "deepdiff-9.1.0-py3-none-any.whl",
+   "repo": "qlustered/deepdiff",
+   "rank": 414
+  },
+  {
+   "project": "dbt-common",
+   "version": "1.39.0",
+   "wheel": "dbt_common-1.39.0-py3-none-any.whl",
+   "repo": "dbt-labs/dbt-common",
+   "rank": 415
+  },
+  {
+   "project": "smart-open",
+   "version": "8.0.1",
+   "wheel": "smart_open-8.0.1-py3-none-any.whl",
+   "repo": "piskvorky/smart_open",
+   "rank": 416
+  },
+  {
+   "project": "polars",
+   "version": "1.44.2",
+   "wheel": "polars-1.44.2-py3-none-any.whl",
+   "repo": "pola-rs/polars",
+   "rank": 419
+  },
+  {
+   "project": "mistune",
+   "version": "3.3.4",
+   "wheel": "mistune-3.3.4-py3-none-any.whl",
+   "repo": "lepture/mistune",
+   "rank": 420
+  },
+  {
+   "project": "bleach",
+   "version": "6.4.0",
+   "wheel": "bleach-6.4.0-py3-none-any.whl",
+   "repo": "mozilla/bleach",
+   "rank": 422
+  },
+  {
+   "project": "durationpy",
+   "version": "0.11",
+   "wheel": "durationpy-0.11-py3-none-any.whl",
+   "repo": "icholy/durationpy",
+   "rank": 423
+  },
+  {
+   "project": "msrest",
+   "version": "0.7.1",
+   "wheel": "msrest-0.7.1-py3-none-any.whl",
+   "repo": "Azure/msrest-for-python",
+   "rank": 424
+  },
+  {
+   "project": "snowflake-snowpark-python",
+   "version": "1.55.0",
+   "wheel": "snowflake_snowpark_python-1.55.0-py3-none-any.whl",
+   "repo": "snowflakedb/snowpark-python",
+   "rank": 426
+  },
+  {
+   "project": "argon2-cffi",
+   "version": "25.1.0",
+   "wheel": "argon2_cffi-25.1.0-py3-none-any.whl",
+   "repo": "hynek/argon2-cffi",
+   "rank": 429
+  },
+  {
+   "project": "google-cloud-bigtable",
+   "version": "2.47.0",
+   "wheel": "google_cloud_bigtable-2.47.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 431
+  },
+  {
+   "project": "langchain-openai",
+   "version": "1.6.6",
+   "wheel": "langchain_openai-1.6.6-py3-none-any.whl",
+   "repo": "langchain-ai/langchain",
+   "rank": 432
+  },
+  {
+   "project": "poetry",
+   "version": "2.5.1",
+   "wheel": "poetry-2.5.1-py3-none-any.whl",
+   "repo": "python-poetry/poetry",
+   "rank": 433
+  },
+  {
+   "project": "pendulum",
+   "version": "3.2.0",
+   "wheel": "pendulum-3.2.0-py3-none-any.whl",
+   "repo": "sdispater/pendulum",
+   "rank": 434
+  },
+  {
+   "project": "typeguard",
+   "version": "4.6.0",
+   "wheel": "typeguard-4.6.0-py3-none-any.whl",
+   "repo": "agronholm/typeguard",
+   "rank": 435
+  },
+  {
+   "project": "pygithub",
+   "version": "2.10.0",
+   "wheel": "pygithub-2.10.0-py3-none-any.whl",
+   "repo": "pygithub/pygithub",
+   "rank": 436
+  },
+  {
+   "project": "types-protobuf",
+   "version": "7.35.1.20260906",
+   "wheel": "types_protobuf-7.35.1.20260906-py3-none-any.whl",
+   "repo": "python/typeshed",
+   "rank": 437
+  },
+  {
+   "project": "jsonpath-ng",
+   "version": "1.8.0",
+   "wheel": "jsonpath_ng-1.8.0-py3-none-any.whl",
+   "repo": "h2non/jsonpath-ng",
+   "rank": 438
+  },
+  {
+   "project": "uncalled-for",
+   "version": "0.4.0",
+   "wheel": "uncalled_for-0.4.0-py3-none-any.whl",
+   "repo": "chrisguidry/uncalled-for",
+   "rank": 439
+  },
+  {
+   "project": "sphinx",
+   "version": "9.1.0",
+   "wheel": "sphinx-9.1.0-py3-none-any.whl",
+   "repo": "sphinx-doc/sphinx",
+   "rank": 442
+  },
+  {
+   "project": "nltk",
+   "version": "3.10.3",
+   "wheel": "nltk-3.10.3-py3-none-any.whl",
+   "repo": "nltk/nltk",
+   "rank": 444
+  },
+  {
+   "project": "fastcore",
+   "version": "2.2.31",
+   "wheel": "fastcore-2.2.31-py3-none-any.whl",
+   "repo": "AnswerDotAI/fastcore",
+   "rank": 445
+  },
+  {
+   "project": "comm",
+   "version": "0.2.3",
+   "wheel": "comm-0.2.3-py3-none-any.whl",
+   "repo": "ipython/comm",
+   "rank": 446
+  },
+  {
+   "project": "plotly",
+   "version": "7.1.0",
+   "wheel": "plotly-7.1.0-py3-none-any.whl",
+   "repo": "plotly/plotly.py",
+   "rank": 447
+  },
+  {
+   "project": "crashtest",
+   "version": "0.4.1",
+   "wheel": "crashtest-0.4.1-py3-none-any.whl",
+   "repo": "sdispater/crashtest",
+   "rank": 448
+  },
+  {
+   "project": "ipykernel",
+   "version": "7.3.0",
+   "wheel": "ipykernel-7.3.0-py3-none-any.whl",
+   "repo": "ipython/ipykernel",
+   "rank": 449
+  },
+  {
+   "project": "langgraph",
+   "version": "1.2.12",
+   "wheel": "langgraph-1.2.12-py3-none-any.whl",
+   "repo": "langchain-ai/langgraph",
+   "rank": 450
+  },
+  {
+   "project": "aiofile",
+   "version": "3.12.3",
+   "wheel": "aiofile-3.12.3-py3-none-any.whl",
+   "repo": "mosquito/aiofile",
+   "rank": 451
+  },
+  {
+   "project": "cleo",
+   "version": "2.1.0",
+   "wheel": "cleo-2.1.0-py3-none-any.whl",
+   "repo": "python-poetry/cleo",
+   "rank": 453
+  },
+  {
+   "project": "pdfminer-six",
+   "version": "20260107",
+   "wheel": "pdfminer_six-20260107-py3-none-any.whl",
+   "repo": "pdfminer/pdfminer.six",
+   "rank": 454
+  },
+  {
+   "project": "pyarrow-hotfix",
+   "version": "0.7",
+   "wheel": "pyarrow_hotfix-0.7-py3-none-any.whl",
+   "repo": "pitrou/pyarrow-hotfix",
+   "rank": 455
+  },
+  {
+   "project": "responses",
+   "version": "0.26.3",
+   "wheel": "responses-0.26.3-py3-none-any.whl",
+   "repo": "getsentry/responses",
+   "rank": 456
+  },
+  {
+   "project": "caio",
+   "version": "0.12.9",
+   "wheel": "caio-0.12.9-py3-none-any.whl",
+   "repo": "mosquito/caio",
+   "rank": 457
+  },
+  {
+   "project": "humanize",
+   "version": "4.16.0",
+   "wheel": "humanize-4.16.0-py3-none-any.whl",
+   "repo": "python-humanize/humanize",
+   "rank": 458
+  },
+  {
+   "project": "cfn-lint",
+   "version": "1.57.1",
+   "wheel": "cfn_lint-1.57.1-py3-none-any.whl",
+   "repo": "aws-cloudformation/cfn-lint",
+   "rank": 460
+  },
+  {
+   "project": "google-cloud-vision",
+   "version": "3.15.0",
+   "wheel": "google_cloud_vision-3.15.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 461
+  },
+  {
+   "project": "cattrs",
+   "version": "26.2.1",
+   "wheel": "cattrs-26.2.1-py3-none-any.whl",
+   "repo": "python-attrs/cattrs",
+   "rank": 463
+  },
+  {
+   "project": "dataclasses-json",
+   "version": "0.6.7",
+   "wheel": "dataclasses_json-0.6.7-py3-none-any.whl",
+   "repo": "lidatong/dataclasses-json",
+   "rank": 464
+  },
+  {
+   "project": "portalocker",
+   "version": "4.4.0",
+   "wheel": "portalocker-4.4.0-py3-none-any.whl",
+   "repo": "wolph/portalocker",
+   "rank": 465
+  },
+  {
+   "project": "google-cloud-resource-manager",
+   "version": "1.18.0",
+   "wheel": "google_cloud_resource_manager-1.18.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 466
+  },
+  {
+   "project": "fastapi-cloud-cli",
+   "version": "0.26.0",
+   "wheel": "fastapi_cloud_cli-0.26.0-py3-none-any.whl",
+   "repo": "fastapilabs/fastapi-cloud-cli",
+   "rank": 467
+  },
+  {
+   "project": "datadog",
+   "version": "0.54.0",
+   "wheel": "datadog-0.54.0-py2.py3-none-any.whl",
+   "repo": "DataDog/datadogpy",
+   "rank": 468
+  },
+  {
+   "project": "toolz",
+   "version": "1.1.0",
+   "wheel": "toolz-1.1.0-py3-none-any.whl",
+   "repo": "pytoolz/toolz",
+   "rank": 469
+  },
+  {
+   "project": "google-cloud-run",
+   "version": "0.16.1",
+   "wheel": "google_cloud_run-0.16.1-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 470
+  },
+  {
+   "project": "mcp-types",
+   "version": "2.2.0",
+   "wheel": "mcp_types-2.2.0-py3-none-any.whl",
+   "repo": "modelcontextprotocol/python-sdk",
+   "rank": 471
+  },
+  {
+   "project": "poetry-plugin-export",
+   "version": "1.10.1",
+   "wheel": "poetry_plugin_export-1.10.1-py3-none-any.whl",
+   "repo": "python-poetry/poetry-plugin-export",
+   "rank": 472
+  },
+  {
+   "project": "python-pptx",
+   "version": "1.0.2",
+   "wheel": "python_pptx-1.0.2-py3-none-any.whl",
+   "repo": "scanny/python-pptx",
+   "rank": 474
+  },
+  {
+   "project": "langchain-protocol",
+   "version": "0.0.19",
+   "wheel": "langchain_protocol-0.0.19-py3-none-any.whl",
+   "repo": "langchain-ai/agent-protocol",
+   "rank": 476
+  },
+  {
+   "project": "pyflakes",
+   "version": "4.0.0",
+   "wheel": "pyflakes-4.0.0-py2.py3-none-any.whl",
+   "repo": "PyCQA/pyflakes",
+   "rank": 479
+  },
+  {
+   "project": "backports-tarfile",
+   "version": "1.2.0",
+   "wheel": "backports.tarfile-1.2.0-py3-none-any.whl",
+   "repo": "jaraco/backports.tarfile",
+   "rank": 480
+  },
+  {
+   "project": "snowflake-sqlalchemy",
+   "version": "1.11.1",
+   "wheel": "snowflake_sqlalchemy-1.11.1-py3-none-any.whl",
+   "repo": "snowflakedb/snowflake-sqlalchemy",
+   "rank": 481
+  },
+  {
+   "project": "future",
+   "version": "1.0.0",
+   "wheel": "future-1.0.0-py3-none-any.whl",
+   "repo": "PythonCharmers/python-future",
+   "rank": 482
+  },
+  {
+   "project": "pysocks",
+   "version": "1.7.1",
+   "wheel": "PySocks-1.7.1-py3-none-any.whl",
+   "repo": "Anorov/PySocks",
+   "rank": 483
+  },
+  {
+   "project": "nbclient",
+   "version": "0.11.0",
+   "wheel": "nbclient-0.11.0-py3-none-any.whl",
+   "repo": "jupyter/nbclient",
+   "rank": 484
+  },
+  {
+   "project": "google-cloud-videointelligence",
+   "version": "2.20.0",
+   "wheel": "google_cloud_videointelligence-2.20.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 485
+  },
+  {
+   "project": "google-cloud-language",
+   "version": "2.21.0",
+   "wheel": "google_cloud_language-2.21.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 486
+  },
+  {
+   "project": "google-cloud-workflows",
+   "version": "1.23.0",
+   "wheel": "google_cloud_workflows-1.23.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 487
+  },
+  {
+   "project": "colorlog",
+   "version": "6.12.0",
+   "wheel": "colorlog-6.12.0-py3-none-any.whl",
+   "repo": "borntyping/python-colorlog",
+   "rank": 488
+  },
+  {
+   "project": "unidiff",
+   "version": "1.0.1",
+   "wheel": "unidiff-1.0.1-py3-none-any.whl",
+   "repo": "matiasb/python-unidiff",
+   "rank": 489
+  },
+  {
+   "project": "sqlalchemy-bigquery",
+   "version": "1.17.2",
+   "wheel": "sqlalchemy_bigquery-1.17.2-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 490
+  },
+  {
+   "project": "absl-py",
+   "version": "2.5.0",
+   "wheel": "absl_py-2.5.0-py3-none-any.whl",
+   "repo": "abseil/abseil-py",
+   "rank": 492
+  },
+  {
+   "project": "google-cloud-dataform",
+   "version": "0.11.3",
+   "wheel": "google_cloud_dataform-0.11.3-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 493
+  },
+  {
+   "project": "google-cloud-redis",
+   "version": "2.22.0",
+   "wheel": "google_cloud_redis-2.22.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 495
+  },
+  {
+   "project": "openapi-pydantic",
+   "version": "0.5.1",
+   "wheel": "openapi_pydantic-0.5.1-py3-none-any.whl",
+   "repo": "mike-oakley/openapi-pydantic",
+   "rank": 496
+  },
+  {
+   "project": "pbs-installer",
+   "version": "2026.9.24",
+   "wheel": "pbs_installer-2026.9.24-py3-none-any.whl",
+   "repo": "frostming/pbs-installer",
+   "rank": 497
+  },
+  {
+   "project": "google-cloud-os-login",
+   "version": "2.22.0",
+   "wheel": "google_cloud_os_login-2.22.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 499
+  },
+  {
+   "project": "google-cloud-bigquery-datatransfer",
+   "version": "3.23.0",
+   "wheel": "google_cloud_bigquery_datatransfer-3.23.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 500
+  },
+  {
+   "project": "freezegun",
+   "version": "1.5.5",
+   "wheel": "freezegun-1.5.5-py3-none-any.whl",
+   "repo": "spulec/freezegun",
+   "rank": 502
+  },
+  {
+   "project": "pylint",
+   "version": "4.0.9",
+   "wheel": "pylint-4.0.9-py3-none-any.whl",
+   "repo": "pylint-dev/pylint",
+   "rank": 503
+  },
+  {
+   "project": "google-cloud-memcache",
+   "version": "1.16.0",
+   "wheel": "google_cloud_memcache-1.16.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 504
+  },
+  {
+   "project": "azure-keyvault-secrets",
+   "version": "4.11.2",
+   "wheel": "azure_keyvault_secrets-4.11.2-py3-none-any.whl",
+   "repo": "Azure/azure-sdk-for-python",
+   "rank": 505
+  },
+  {
+   "project": "jupyterlab-pygments",
+   "version": "0.3.0",
+   "wheel": "jupyterlab_pygments-0.3.0-py3-none-any.whl",
+   "repo": "jupyterlab/jupyterlab_pygments",
+   "rank": 506
+  },
+  {
+   "project": "google-cloud-dataproc-metastore",
+   "version": "1.23.0",
+   "wheel": "google_cloud_dataproc_metastore-1.23.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 507
+  },
+  {
+   "project": "google-cloud-orchestration-airflow",
+   "version": "1.22.0",
+   "wheel": "google_cloud_orchestration_airflow-1.22.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 508
+  },
+  {
+   "project": "click-plugins",
+   "version": "1.1.1.2",
+   "wheel": "click_plugins-1.1.1.2-py2.py3-none-any.whl",
+   "repo": "click-contrib/click-plugins",
+   "rank": 509
+  },
+  {
+   "project": "langgraph-prebuilt",
+   "version": "1.1.0",
+   "wheel": "langgraph_prebuilt-1.1.0-py3-none-any.whl",
+   "repo": "langchain-ai/langgraph",
+   "rank": 510
+  },
+  {
+   "project": "pandocfilters",
+   "version": "1.5.1",
+   "wheel": "pandocfilters-1.5.1-py2.py3-none-any.whl",
+   "repo": "jgm/pandocfilters",
+   "rank": 511
+  },
+  {
+   "project": "prettytable",
+   "version": "3.18.0",
+   "wheel": "prettytable-3.18.0-py3-none-any.whl",
+   "repo": "prettytable/prettytable",
+   "rank": 512
+  },
+  {
+   "project": "simplejson",
+   "version": "4.1.2",
+   "wheel": "simplejson-4.1.2-py3-none-any.whl",
+   "repo": "simplejson/simplejson",
+   "rank": 513
+  },
+  {
+   "project": "flask-cors",
+   "version": "6.0.5",
+   "wheel": "flask_cors-6.0.5-py3-none-any.whl",
+   "repo": "corydolphin/flask-cors",
+   "rank": 514
+  },
+  {
+   "project": "redshift-connector",
+   "version": "2.1.17",
+   "wheel": "redshift_connector-2.1.17-py3-none-any.whl",
+   "repo": "aws/amazon-redshift-python-driver",
+   "rank": 515
+  },
+  {
+   "project": "graphviz",
+   "version": "0.21",
+   "wheel": "graphviz-0.21-py3-none-any.whl",
+   "repo": "xflr6/graphviz",
+   "rank": 516
+  },
+  {
+   "project": "google-cloud-automl",
+   "version": "2.20.1",
+   "wheel": "google_cloud_automl-2.20.1-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 517
+  },
+  {
+   "project": "langgraph-sdk",
+   "version": "0.4.5",
+   "wheel": "langgraph_sdk-0.4.5-py3-none-any.whl",
+   "repo": "langchain-ai/langgraph",
+   "rank": 518
+  },
+  {
+   "project": "azure-common",
+   "version": "1.1.28",
+   "wheel": "azure_common-1.1.28-py2.py3-none-any.whl",
+   "repo": "Azure/azure-sdk-for-python",
+   "rank": 519
+  },
+  {
+   "project": "celery",
+   "version": "5.6.3",
+   "wheel": "celery-5.6.3-py3-none-any.whl",
+   "repo": "celery/celery",
+   "rank": 520
+  },
+  {
+   "project": "orderly-set",
+   "version": "5.5.0",
+   "wheel": "orderly_set-5.5.0-py3-none-any.whl",
+   "repo": "seperman/orderly-set",
+   "rank": 521
+  },
+  {
+   "project": "kombu",
+   "version": "5.6.2",
+   "wheel": "kombu-5.6.2-py3-none-any.whl",
+   "repo": "celery/kombu",
+   "rank": 522
+  },
+  {
+   "project": "json5",
+   "version": "0.15.0",
+   "wheel": "json5-0.15.0-py3-none-any.whl",
+   "repo": "dpranke/pyjson5",
+   "rank": 523
+  },
+  {
+   "project": "pdfplumber",
+   "version": "0.11.10",
+   "wheel": "pdfplumber-0.11.10-py3-none-any.whl",
+   "repo": "jsvine/pdfplumber",
+   "rank": 524
+  },
+  {
+   "project": "langgraph-checkpoint",
+   "version": "4.2.0",
+   "wheel": "langgraph_checkpoint-4.2.0-py3-none-any.whl",
+   "repo": "langchain-ai/langgraph",
+   "rank": 525
+  },
+  {
+   "project": "ecdsa",
+   "version": "0.19.2",
+   "wheel": "ecdsa-0.19.2-py2.py3-none-any.whl",
+   "repo": "tlsfuzzer/python-ecdsa",
+   "rank": 526
+  },
+  {
+   "project": "opentelemetry-instrumentation-httpx",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_instrumentation_httpx-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 527
+  },
+  {
+   "project": "trio",
+   "version": "0.34.0",
+   "wheel": "trio-0.34.0-py3-none-any.whl",
+   "repo": "python-trio/trio",
+   "rank": 529
+  },
+  {
+   "project": "flake8",
+   "version": "7.4.1",
+   "wheel": "flake8-7.4.1-py2.py3-none-any.whl",
+   "repo": "pycqa/flake8",
+   "rank": 530
+  },
+  {
+   "project": "cssselect2",
+   "version": "0.10.1",
+   "wheel": "cssselect2-0.10.1-py3-none-any.whl",
+   "repo": "Kozea/cssselect2",
+   "rank": 531
+  },
+  {
+   "project": "pytest-rerunfailures",
+   "version": "16.7",
+   "wheel": "pytest_rerunfailures-16.7-py3-none-any.whl",
+   "repo": "pytest-dev/pytest-rerunfailures",
+   "rank": 532
+  },
+  {
+   "project": "botocore-stubs",
+   "version": "1.43.67",
+   "wheel": "botocore_stubs-1.43.67-py3-none-any.whl",
+   "repo": "youtype/botocore-stubs",
+   "rank": 534
+  },
+  {
+   "project": "google-cloud-appengine-logging",
+   "version": "1.10.0",
+   "wheel": "google_cloud_appengine_logging-1.10.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 535
+  },
+  {
+   "project": "browser-use",
+   "version": "0.13.10",
+   "wheel": "browser_use-0.13.10-py3-none-any.whl",
+   "repo": "browser-use/browser-use",
+   "rank": 536
+  },
+  {
+   "project": "django",
+   "version": "6.1.1",
+   "wheel": "django-6.1.1-py3-none-any.whl",
+   "repo": "django/django",
+   "rank": 537
+  },
+  {
+   "project": "google-cloud-dataflow-client",
+   "version": "0.14.0",
+   "wheel": "google_cloud_dataflow_client-0.14.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 538
+  },
+  {
+   "project": "pandas-stubs",
+   "version": "3.0.5.260914",
+   "wheel": "pandas_stubs-3.0.5.260914-py3-none-any.whl",
+   "repo": "pandas-dev/pandas-stubs",
+   "rank": 543
+  },
+  {
+   "project": "altair",
+   "version": "6.3.0",
+   "wheel": "altair-6.3.0-py3-none-any.whl",
+   "repo": "vega/altair",
+   "rank": 544
+  },
+  {
+   "project": "amqp",
+   "version": "5.4.0",
+   "wheel": "amqp-5.4.0-py3-none-any.whl",
+   "repo": "celery/py-amqp",
+   "rank": 545
+  },
+  {
+   "project": "vine",
+   "version": "5.1.0",
+   "wheel": "vine-5.1.0-py3-none-any.whl",
+   "repo": "celery/vine",
+   "rank": 546
+  },
+  {
+   "project": "google-cloud-audit-log",
+   "version": "0.6.2",
+   "wheel": "google_cloud_audit_log-0.6.2-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 548
+  },
+  {
+   "project": "findpython",
+   "version": "0.8.0",
+   "wheel": "findpython-0.8.0-py3-none-any.whl",
+   "repo": "frostming/findpython",
+   "rank": 549
+  },
+  {
+   "project": "requests-aws4auth",
+   "version": "1.3.2",
+   "wheel": "requests_aws4auth-1.3.2-py3-none-any.whl",
+   "repo": "tedder/requests-aws4auth",
+   "rank": 550
+  },
+  {
+   "project": "apscheduler",
+   "version": "3.11.3",
+   "wheel": "apscheduler-3.11.3-py3-none-any.whl",
+   "repo": "agronholm/apscheduler",
+   "rank": 551
+  },
+  {
+   "project": "semantic-version",
+   "version": "2.10.0",
+   "wheel": "semantic_version-2.10.0-py2.py3-none-any.whl",
+   "repo": "rbarrois/python-semanticversion",
+   "rank": 552
+  },
+  {
+   "project": "elasticsearch",
+   "version": "9.5.1",
+   "wheel": "elasticsearch-9.5.1-py3-none-any.whl",
+   "repo": "elastic/elasticsearch-py",
+   "rank": 553
+  },
+  {
+   "project": "billiard",
+   "version": "4.3.0",
+   "wheel": "billiard-4.3.0-py3-none-any.whl",
+   "repo": "celery/billiard",
+   "rank": 554
+  },
+  {
+   "project": "astroid",
+   "version": "4.3.2",
+   "wheel": "astroid-4.3.2-py3-none-any.whl",
+   "repo": "pylint-dev/astroid",
+   "rank": 556
+  },
+  {
+   "project": "types-python-dateutil",
+   "version": "2.9.0.20260807",
+   "wheel": "types_python_dateutil-2.9.0.20260807-py3-none-any.whl",
+   "repo": "python/typeshed",
+   "rank": 557
+  },
+  {
+   "project": "click-didyoumean",
+   "version": "0.3.1",
+   "wheel": "click_didyoumean-0.3.1-py3-none-any.whl",
+   "repo": "click-contrib/click-didyoumean",
+   "rank": 559
+  },
+  {
+   "project": "opensearch-py",
+   "version": "3.2.0",
+   "wheel": "opensearch_py-3.2.0-py3-none-any.whl",
+   "repo": "opensearch-project/opensearch-py",
+   "rank": 560
+  },
+  {
+   "project": "types-s3transfer",
+   "version": "0.16.0",
+   "wheel": "types_s3transfer-0.16.0-py3-none-any.whl",
+   "repo": "youtype/types-s3transfer",
+   "rank": 561
+  },
+  {
+   "project": "peewee",
+   "version": "4.5.2",
+   "wheel": "peewee-4.5.2-py3-none-any.whl",
+   "repo": "coleifer/peewee",
+   "rank": 563
+  },
+  {
+   "project": "click-repl",
+   "version": "0.4.0",
+   "wheel": "click_repl-0.4.0-py3-none-any.whl",
+   "repo": "click-contrib/click-repl",
+   "rank": 564
+  },
+  {
+   "project": "cuda-pathfinder",
+   "version": "1.8.2",
+   "wheel": "cuda_pathfinder-1.8.2-py3-none-any.whl",
+   "repo": "NVIDIA/cuda-python",
+   "rank": 565
+  },
+  {
+   "project": "jupyter-server",
+   "version": "2.21.1",
+   "wheel": "jupyter_server-2.21.1-py3-none-any.whl",
+   "repo": "jupyter-server/jupyter_server",
+   "rank": 567
+  },
+  {
+   "project": "notebook",
+   "version": "7.6.3",
+   "wheel": "notebook-7.6.3-py3-none-any.whl",
+   "repo": "jupyter/notebook",
+   "rank": 569
+  },
+  {
+   "project": "opentelemetry-instrumentation-dbapi",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_instrumentation_dbapi-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 571
+  },
+  {
+   "project": "posthog",
+   "version": "7.60.1",
+   "wheel": "posthog-7.60.1-py3-none-any.whl",
+   "repo": "posthog/posthog-python",
+   "rank": 572
+  },
+  {
+   "project": "opentelemetry-instrumentation-urllib3",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_instrumentation_urllib3-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 575
+  },
+  {
+   "project": "webcolors",
+   "version": "25.10.0",
+   "wheel": "webcolors-25.10.0-py3-none-any.whl",
+   "repo": "ubernostrum/webcolors",
+   "rank": 577
+  },
+  {
+   "project": "opentelemetry-instrumentation-django",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_instrumentation_django-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 578
+  },
+  {
+   "project": "bracex",
+   "version": "3.0.1",
+   "wheel": "bracex-3.0.1-py3-none-any.whl",
+   "repo": "facelessuser/bracex",
+   "rank": 579
+  },
+  {
+   "project": "langchain-text-splitters",
+   "version": "1.1.2",
+   "wheel": "langchain_text_splitters-1.1.2-py3-none-any.whl",
+   "repo": "langchain-ai/langchain",
+   "rank": 581
+  },
+  {
+   "project": "azure-monitor-opentelemetry-exporter",
+   "version": "1.0.0b57",
+   "wheel": "azure_monitor_opentelemetry_exporter-1.0.0b57-py2.py3-none-any.whl",
+   "repo": "Azure/azure-sdk-for-python",
+   "rank": 582
+  },
+  {
+   "project": "opentelemetry-instrumentation-wsgi",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_instrumentation_wsgi-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 584
+  },
+  {
+   "project": "isoduration",
+   "version": "20.11.0",
+   "wheel": "isoduration-20.11.0-py3-none-any.whl",
+   "repo": "bolsote/isoduration",
+   "rank": 586
+  },
+  {
+   "project": "opentelemetry-instrumentation-psycopg2",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_instrumentation_psycopg2-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 587
+  },
+  {
+   "project": "inflection",
+   "version": "0.5.1",
+   "wheel": "inflection-0.5.1-py2.py3-none-any.whl",
+   "repo": "jpvanhal/inflection",
+   "rank": 588
+  },
+  {
+   "project": "jupyterlab",
+   "version": "4.6.4",
+   "wheel": "jupyterlab-4.6.4-py3-none-any.whl",
+   "repo": "jupyterlab/jupyterlab",
+   "rank": 590
+  },
+  {
+   "project": "outcome",
+   "version": "1.3.0.post0",
+   "wheel": "outcome-1.3.0.post0-py2.py3-none-any.whl",
+   "repo": "python-trio/outcome",
+   "rank": 591
+  },
+  {
+   "project": "mypy-boto3-s3",
+   "version": "1.43.93",
+   "wheel": "mypy_boto3_s3-1.43.93-py3-none-any.whl",
+   "repo": "youtype/mypy_boto3_builder",
+   "rank": 592
+  },
+  {
+   "project": "flit-core",
+   "version": "4.1.0",
+   "wheel": "flit_core-4.1.0-py3-none-any.whl",
+   "repo": "pypa/flit",
+   "rank": 593
+  },
+  {
+   "project": "google-cloud-spanner",
+   "version": "3.71.0",
+   "wheel": "google_cloud_spanner-3.71.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 594
+  },
+  {
+   "project": "fakeredis",
+   "version": "2.38.0",
+   "wheel": "fakeredis-2.38.0-py3-none-any.whl",
+   "repo": "cunla/fakeredis-py",
+   "rank": 595
+  },
+  {
+   "project": "wcmatch",
+   "version": "11.0.1",
+   "wheel": "wcmatch-11.0.1-py3-none-any.whl",
+   "repo": "facelessuser/wcmatch",
+   "rank": 596
+  },
+  {
+   "project": "opentelemetry-instrumentation-flask",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_instrumentation_flask-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 598
+  },
+  {
+   "project": "dateparser",
+   "version": "1.4.3",
+   "wheel": "dateparser-1.4.3-py3-none-any.whl",
+   "repo": "scrapinghub/dateparser",
+   "rank": 599
+  },
+  {
+   "project": "moto",
+   "version": "5.2.3",
+   "wheel": "moto-5.2.3-py3-none-any.whl",
+   "repo": "getmoto/moto",
+   "rank": 600
+  },
+  {
+   "project": "swebench",
+   "version": "5.0.2",
+   "wheel": "swebench-5.0.2-py3-none-any.whl",
+   "repo": "swe-bench/SWE-bench",
+   "rank": 601
+  },
+  {
+   "project": "boto3-stubs",
+   "version": "1.43.104",
+   "wheel": "boto3_stubs-1.43.104-py3-none-any.whl",
+   "repo": "youtype/mypy_boto3_builder",
+   "rank": 603
+  },
+  {
+   "project": "opentelemetry-instrumentation-urllib",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_instrumentation_urllib-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 604
+  },
+  {
+   "project": "gspread",
+   "version": "6.2.1",
+   "wheel": "gspread-6.2.1-py3-none-any.whl",
+   "repo": "burnash/gspread",
+   "rank": 605
+  },
+  {
+   "project": "mysql-connector-python",
+   "version": "26.7.0",
+   "wheel": "mysql_connector_python-26.7.0-py2.py3-none-any.whl",
+   "repo": "mysql/mysql-connector-python",
+   "rank": 606
+  },
+  {
+   "project": "limits",
+   "version": "5.8.0",
+   "wheel": "limits-5.8.0-py3-none-any.whl",
+   "repo": "alisaifee/limits",
+   "rank": 607
+  },
+  {
+   "project": "fqdn",
+   "version": "1.6.0",
+   "wheel": "fqdn-1.6.0-py3-none-any.whl",
+   "repo": "ypcrts/fqdn",
+   "rank": 608
+  },
+  {
+   "project": "filetype",
+   "version": "1.2.0",
+   "wheel": "filetype-1.2.0-py2.py3-none-any.whl",
+   "repo": "h2non/filetype.py",
+   "rank": 609
+  },
+  {
+   "project": "async-lru",
+   "version": "2.3.0",
+   "wheel": "async_lru-2.3.0-py3-none-any.whl",
+   "repo": "aio-libs/async-lru",
+   "rank": 611
+  },
+  {
+   "project": "langchain-community",
+   "version": "0.4.2",
+   "wheel": "langchain_community-0.4.2-py3-none-any.whl",
+   "repo": "langchain-ai/langchain-community",
+   "rank": 613
+  },
+  {
+   "project": "apache-airflow-providers-common-sql",
+   "version": "2.2.0",
+   "wheel": "apache_airflow_providers_common_sql-2.2.0-py3-none-any.whl",
+   "repo": "apache/airflow",
+   "rank": 615
+  },
+  {
+   "project": "opentelemetry-instrumentation-logging",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_instrumentation_logging-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 617
+  },
+  {
+   "project": "db-dtypes",
+   "version": "1.7.1",
+   "wheel": "db_dtypes-1.7.1-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 618
+  },
+  {
+   "project": "types-awscrt",
+   "version": "0.36.2",
+   "wheel": "types_awscrt-0.36.2-py3-none-any.whl",
+   "repo": "youtype/types-awscrt",
+   "rank": 619
+  },
+  {
+   "project": "python-jose",
+   "version": "3.5.0",
+   "wheel": "python_jose-3.5.0-py2.py3-none-any.whl",
+   "repo": "mpdavis/python-jose",
+   "rank": 620
+  },
+  {
+   "project": "google-cloud-firestore",
+   "version": "2.32.0",
+   "wheel": "google_cloud_firestore-2.32.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 621
+  },
+  {
+   "project": "mlflow-skinny",
+   "version": "3.16.1",
+   "wheel": "mlflow_skinny-3.16.1-py3-none-any.whl",
+   "repo": "mlflow/mlflow",
+   "rank": 622
+  },
+  {
+   "project": "omegaconf",
+   "version": "2.3.1",
+   "wheel": "omegaconf-2.3.1-py3-none-any.whl",
+   "repo": "omry/omegaconf",
+   "rank": 623
+  },
+  {
+   "project": "pyotp",
+   "version": "2.10.0",
+   "wheel": "pyotp-2.10.0-py3-none-any.whl",
+   "repo": "pyauth/pyotp",
+   "rank": 625
+  },
+  {
+   "project": "rfc3986-validator",
+   "version": "0.1.1",
+   "wheel": "rfc3986_validator-0.1.1-py2.py3-none-any.whl",
+   "repo": "naimetti/rfc3986-validator",
+   "rank": 627
+  },
+  {
+   "project": "imageio",
+   "version": "2.38.0",
+   "wheel": "imageio-2.38.0-py3-none-any.whl",
+   "repo": "imageio/imageio",
+   "rank": 628
+  },
+  {
+   "project": "graphql-relay",
+   "version": "3.2.0",
+   "wheel": "graphql_relay-3.2.0-py3-none-any.whl",
+   "repo": "graphql-python/graphql-relay-py",
+   "rank": 629
+  },
+  {
+   "project": "psycopg-pool",
+   "version": "3.3.3",
+   "wheel": "psycopg_pool-3.3.3-py3-none-any.whl",
+   "repo": "psycopg/psycopg",
+   "rank": 631
+  },
+  {
+   "project": "stripe",
+   "version": "15.6.1",
+   "wheel": "stripe-15.6.1-py3-none-any.whl",
+   "repo": "stripe/stripe-python",
+   "rank": 633
+  },
+  {
+   "project": "send2trash",
+   "version": "2.1.0",
+   "wheel": "send2trash-2.1.0-py3-none-any.whl",
+   "repo": "arsenetar/send2trash",
+   "rank": 634
+  },
+  {
+   "project": "graphene",
+   "version": "3.4.3",
+   "wheel": "graphene-3.4.3-py2.py3-none-any.whl",
+   "repo": "graphql-python/graphene",
+   "rank": 638
+  },
+  {
+   "project": "mlflow",
+   "version": "3.16.1",
+   "wheel": "mlflow-3.16.1-py3-none-any.whl",
+   "repo": "mlflow/mlflow",
+   "rank": 639
+  },
+  {
+   "project": "zeep",
+   "version": "4.3.3",
+   "wheel": "zeep-4.3.3-py3-none-any.whl",
+   "repo": "mvantellingen/python-zeep",
+   "rank": 640
+  },
+  {
+   "project": "pyright",
+   "version": "1.1.414",
+   "wheel": "pyright-1.1.414-py3-none-any.whl",
+   "repo": "RobertCraigie/pyright-python",
+   "rank": 641
+  },
+  {
+   "project": "jupyterlab-widgets",
+   "version": "3.0.17",
+   "wheel": "jupyterlab_widgets-3.0.17-py3-none-any.whl",
+   "repo": "jupyter-widgets/ipywidgets",
+   "rank": 645
+  },
+  {
+   "project": "bytecode",
+   "version": "0.19.0",
+   "wheel": "bytecode-0.19.0-py3-none-any.whl",
+   "repo": "MatthieuDartiailh/bytecode",
+   "rank": 646
+  },
+  {
+   "project": "boolean-py",
+   "version": "5.0",
+   "wheel": "boolean_py-5.0-py3-none-any.whl",
+   "repo": "bastikr/boolean.py",
+   "rank": 647
+  },
+  {
+   "project": "license-expression",
+   "version": "30.4.4",
+   "wheel": "license_expression-30.4.4-py3-none-any.whl",
+   "repo": "aboutcode-org/license-expression",
+   "rank": 648
+  },
+  {
+   "project": "phonenumbers",
+   "version": "9.0.40",
+   "wheel": "phonenumbers-9.0.40-py2.py3-none-any.whl",
+   "repo": "daviddrysdale/python-phonenumbers",
+   "rank": 655
+  },
+  {
+   "project": "pycountry",
+   "version": "26.2.16",
+   "wheel": "pycountry-26.2.16-py3-none-any.whl",
+   "repo": "pycountry/pycountry",
+   "rank": 658
+  },
+  {
+   "project": "cyclonedx-python-lib",
+   "version": "11.12.0",
+   "wheel": "cyclonedx_python_lib-11.12.0-py3-none-any.whl",
+   "repo": "CycloneDX/cyclonedx-python-lib",
+   "rank": 659
+  },
+  {
+   "project": "mistralai",
+   "version": "3.0.0",
+   "wheel": "mistralai-3.0.0-py3-none-any.whl",
+   "repo": "mistralai/client-python",
+   "rank": 660
+  },
+  {
+   "project": "aioboto3",
+   "version": "15.5.0",
+   "wheel": "aioboto3-15.5.0-py3-none-any.whl",
+   "repo": "terricain/aioboto3",
+   "rank": 661
+  },
+  {
+   "project": "google-cloud-bigquery-storage",
+   "version": "2.41.0",
+   "wheel": "google_cloud_bigquery_storage-2.41.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 662
+  },
+  {
+   "project": "terminado",
+   "version": "0.18.1",
+   "wheel": "terminado-0.18.1-py3-none-any.whl",
+   "repo": "jupyter/terminado",
+   "rank": 663
+  },
+  {
+   "project": "aiohttp-retry",
+   "version": "2.9.1",
+   "wheel": "aiohttp_retry-2.9.1-py3-none-any.whl",
+   "repo": "inyutin/aiohttp_retry",
+   "rank": 664
+  },
+  {
+   "project": "pyphen",
+   "version": "0.18.1",
+   "wheel": "pyphen-0.18.1-py3-none-any.whl",
+   "repo": "Kozea/Pyphen",
+   "rank": 667
+  },
+  {
+   "project": "weasyprint",
+   "version": "70.0",
+   "wheel": "weasyprint-70.0-py3-none-any.whl",
+   "repo": "Kozea/WeasyPrint",
+   "rank": 669
+  },
+  {
+   "project": "jupyterlab-server",
+   "version": "2.28.1",
+   "wheel": "jupyterlab_server-2.28.1-py3-none-any.whl",
+   "repo": "jupyterlab/jupyterlab_server",
+   "rank": 671
+  },
+  {
+   "project": "json-repair",
+   "version": "0.63.5",
+   "wheel": "json_repair-0.63.5-py3-none-any.whl",
+   "repo": "mangiucugna/json_repair",
+   "rank": 672
+  },
+  {
+   "project": "overrides",
+   "version": "7.7.0",
+   "wheel": "overrides-7.7.0-py3-none-any.whl",
+   "repo": "mkorpela/overrides",
+   "rank": 675
+  },
+  {
+   "project": "gcloud-aio-auth",
+   "version": "5.5.0",
+   "wheel": "gcloud_aio_auth-5.5.0-py3-none-any.whl",
+   "repo": "talkiq/gcloud-aio",
+   "rank": 676
+  },
+  {
+   "project": "jupyter-events",
+   "version": "0.12.1",
+   "wheel": "jupyter_events-0.12.1-py3-none-any.whl",
+   "repo": "jupyter/jupyter_events",
+   "rank": 677
+  },
+  {
+   "project": "strands-agents",
+   "version": "1.57.1",
+   "wheel": "strands_agents-1.57.1-py3-none-any.whl",
+   "repo": "strands-agents/harness-sdk",
+   "rank": 678
+  },
+  {
+   "project": "tldextract",
+   "version": "5.3.2",
+   "wheel": "tldextract-5.3.2-py3-none-any.whl",
+   "repo": "john-kurkowski/tldextract",
+   "rank": 679
+  },
+  {
+   "project": "envier",
+   "version": "0.6.1",
+   "wheel": "envier-0.6.1-py3-none-any.whl",
+   "repo": "DataDog/envier",
+   "rank": 681
+  },
+  {
+   "project": "adal",
+   "version": "1.2.7",
+   "wheel": "adal-1.2.7-py2.py3-none-any.whl",
+   "repo": "AzureAD/azure-activedirectory-library-for-python",
+   "rank": 682
+  },
+  {
+   "project": "google-cloud-translate",
+   "version": "3.27.0",
+   "wheel": "google_cloud_translate-3.27.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 685
+  },
+  {
+   "project": "packageurl-python",
+   "version": "0.17.6",
+   "wheel": "packageurl_python-0.17.6-py3-none-any.whl",
+   "repo": "package-url/packageurl-python",
+   "rank": 689
+  },
+  {
+   "project": "delta-spark",
+   "version": "4.4.0",
+   "wheel": "delta_spark-4.4.0-py3-none-any.whl",
+   "repo": "delta-io/delta",
+   "rank": 690
+  },
+  {
+   "project": "jupyter-server-terminals",
+   "version": "0.5.4",
+   "wheel": "jupyter_server_terminals-0.5.4-py3-none-any.whl",
+   "repo": "jupyter-server/jupyter_server_terminals",
+   "rank": 692
+  },
+  {
+   "project": "google-cloud-container",
+   "version": "2.66.0",
+   "wheel": "google_cloud_container-2.66.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 693
+  },
+  {
+   "project": "trio-websocket",
+   "version": "0.12.2",
+   "wheel": "trio_websocket-0.12.2-py3-none-any.whl",
+   "repo": "python-trio/trio-websocket",
+   "rank": 695
+  },
+  {
+   "project": "aenum",
+   "version": "3.1.17",
+   "wheel": "aenum-3.1.17-py3-none-any.whl",
+   "repo": "ethanfurman/aenum",
+   "rank": 696
+  },
+  {
+   "project": "pgvector",
+   "version": "0.5.0",
+   "wheel": "pgvector-0.5.0-py3-none-any.whl",
+   "repo": "pgvector/pgvector-python",
+   "rank": 697
+  },
+  {
+   "project": "openapi-spec-validator",
+   "version": "0.9.0",
+   "wheel": "openapi_spec_validator-0.9.0-py3-none-any.whl",
+   "repo": "python-openapi/openapi-spec-validator",
+   "rank": 698
+  },
+  {
+   "project": "html5lib",
+   "version": "1.1",
+   "wheel": "html5lib-1.1-py2.py3-none-any.whl",
+   "repo": "html5lib/html5lib-python",
+   "rank": 699
+  },
+  {
+   "project": "py-serializable",
+   "version": "2.1.0",
+   "wheel": "py_serializable-2.1.0-py3-none-any.whl",
+   "repo": "madpah/serializable",
+   "rank": 700
+  },
+  {
+   "project": "entrypoints",
+   "version": "0.4",
+   "wheel": "entrypoints-0.4-py3-none-any.whl",
+   "repo": "takluyver/entrypoints",
+   "rank": 701
+  },
+  {
+   "project": "gcloud-aio-storage",
+   "version": "9.6.4",
+   "wheel": "gcloud_aio_storage-9.6.4-py3-none-any.whl",
+   "repo": "talkiq/gcloud-aio",
+   "rank": 702
+  },
+  {
+   "project": "openai-agents",
+   "version": "0.22.3",
+   "wheel": "openai_agents-0.22.3-py3-none-any.whl",
+   "repo": "openai/openai-agents-python",
+   "rank": 703
+  },
+  {
+   "project": "seaborn",
+   "version": "0.13.2",
+   "wheel": "seaborn-0.13.2-py3-none-any.whl",
+   "repo": "mwaskom/seaborn",
+   "rank": 705
+  },
+  {
+   "project": "strenum",
+   "version": "0.4.15",
+   "wheel": "StrEnum-0.4.15-py3-none-any.whl",
+   "repo": "irgeek/StrEnum",
+   "rank": 707
+  },
+  {
+   "project": "realtime",
+   "version": "2.31.0",
+   "wheel": "realtime-2.31.0-py3-none-any.whl",
+   "repo": "supabase/supabase-py",
+   "rank": 708
+  },
+  {
+   "project": "ordered-set",
+   "version": "4.1.0",
+   "wheel": "ordered_set-4.1.0-py3-none-any.whl",
+   "repo": "rspeer/ordered-set",
+   "rank": 709
+  },
+  {
+   "project": "google-cloud-datacatalog",
+   "version": "3.31.0",
+   "wheel": "google_cloud_datacatalog-3.31.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 710
+  },
+  {
+   "project": "python-magic",
+   "version": "0.4.27",
+   "wheel": "python_magic-0.4.27-py2.py3-none-any.whl",
+   "repo": "ahupp/python-magic",
+   "rank": 712
+  },
+  {
+   "project": "pyrsistent",
+   "version": "0.20.0",
+   "wheel": "pyrsistent-0.20.0-py3-none-any.whl",
+   "repo": "tobgu/pyrsistent",
+   "rank": 713
+  },
+  {
+   "project": "patsy",
+   "version": "1.0.3",
+   "wheel": "patsy-1.0.3-py2.py3-none-any.whl",
+   "repo": "pydata/patsy",
+   "rank": 714
+  },
+  {
+   "project": "pybreaker",
+   "version": "1.4.1",
+   "wheel": "pybreaker-1.4.1-py3-none-any.whl",
+   "repo": "danielfm/pybreaker",
+   "rank": 715
+  },
+  {
+   "project": "mashumaro",
+   "version": "3.22",
+   "wheel": "mashumaro-3.22-py3-none-any.whl",
+   "repo": "Fatal1ty/mashumaro",
+   "rank": 717
+  },
+  {
+   "project": "rfc3987-syntax",
+   "version": "1.1.0",
+   "wheel": "rfc3987_syntax-1.1.0-py3-none-any.whl",
+   "repo": "willynilly/rfc3987-syntax",
+   "rank": 718
+  },
+  {
+   "project": "rich-click",
+   "version": "1.9.9",
+   "wheel": "rich_click-1.9.9-py3-none-any.whl",
+   "repo": "ewels/rich-click",
+   "rank": 719
+  },
+  {
+   "project": "retry",
+   "version": "0.9.2",
+   "wheel": "retry-0.9.2-py2.py3-none-any.whl",
+   "repo": "invl/retry",
+   "rank": 720
+  },
+  {
+   "project": "python-telegram-bot",
+   "version": "22.8",
+   "wheel": "python_telegram_bot-22.8-py3-none-any.whl",
+   "repo": "python-telegram-bot/python-telegram-bot",
+   "rank": 721
+  },
+  {
+   "project": "oauth2client",
+   "version": "4.1.3",
+   "wheel": "oauth2client-4.1.3-py2.py3-none-any.whl",
+   "repo": "google/oauth2client",
+   "rank": 722
+  },
+  {
+   "project": "nest-asyncio2",
+   "version": "1.7.3",
+   "wheel": "nest_asyncio2-1.7.3-py3-none-any.whl",
+   "repo": "Chaoses-Ib/nest-asyncio2",
+   "rank": 723
+  },
+  {
+   "project": "tableauserverclient",
+   "version": "0.41",
+   "wheel": "tableauserverclient-0.41-py3-none-any.whl",
+   "repo": "tableau/server-client-python",
+   "rank": 724
+  },
+  {
+   "project": "azure-mgmt-core",
+   "version": "1.6.0",
+   "wheel": "azure_mgmt_core-1.6.0-py3-none-any.whl",
+   "repo": "Azure/azure-sdk-for-python",
+   "rank": 725
+  },
+  {
+   "project": "jupyter-lsp",
+   "version": "2.3.1",
+   "wheel": "jupyter_lsp-2.3.1-py3-none-any.whl",
+   "repo": "jupyter-lsp/jupyterlab-lsp",
+   "rank": 726
+  },
+  {
+   "project": "yamllint",
+   "version": "1.38.0",
+   "wheel": "yamllint-1.38.0-py3-none-any.whl",
+   "repo": "adrienverge/yamllint",
+   "rank": 727
+  },
+  {
+   "project": "pydyf",
+   "version": "0.12.1",
+   "wheel": "pydyf-0.12.1-py3-none-any.whl",
+   "repo": "CourtBouillon/pydyf",
+   "rank": 728
+  },
+  {
+   "project": "pip-requirements-parser",
+   "version": "32.0.1",
+   "wheel": "pip_requirements_parser-32.0.1-py3-none-any.whl",
+   "repo": "nexB/pip-requirements-parser",
+   "rank": 729
+  },
+  {
+   "project": "types-pytz",
+   "version": "2026.4.0.20260926",
+   "wheel": "types_pytz-2026.4.0.20260926-py3-none-any.whl",
+   "repo": "python/typeshed",
+   "rank": 730
+  },
+  {
+   "project": "pytest-metadata",
+   "version": "3.1.1",
+   "wheel": "pytest_metadata-3.1.1-py3-none-any.whl",
+   "repo": "pytest-dev/pytest-metadata",
+   "rank": 731
+  },
+  {
+   "project": "elastic-transport",
+   "version": "9.4.2",
+   "wheel": "elastic_transport-9.4.2-py3-none-any.whl",
+   "repo": "elastic/elastic-transport-python",
+   "rank": 732
+  },
+  {
+   "project": "google-cloud-storage-transfer",
+   "version": "1.21.0",
+   "wheel": "google_cloud_storage_transfer-1.21.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 733
+  },
+  {
+   "project": "appdirs",
+   "version": "1.4.4",
+   "wheel": "appdirs-1.4.4-py2.py3-none-any.whl",
+   "repo": "ActiveState/appdirs",
+   "rank": 734
+  },
+  {
+   "project": "langchain-google-vertexai",
+   "version": "3.2.4",
+   "wheel": "langchain_google_vertexai-3.2.4-py3-none-any.whl",
+   "repo": "langchain-ai/langchain-google",
+   "rank": 735
+  },
+  {
+   "project": "readme-renderer",
+   "version": "46.0",
+   "wheel": "readme_renderer-46.0-py3-none-any.whl",
+   "repo": "pypa/readme_renderer",
+   "rank": 736
+  },
+  {
+   "project": "soundfile",
+   "version": "0.14.0",
+   "wheel": "soundfile-0.14.0-py2.py3-none-any.whl",
+   "repo": "bastibe/python-soundfile",
+   "rank": 737
+  },
+  {
+   "project": "snowballstemmer",
+   "version": "3.1.1",
+   "wheel": "snowballstemmer-3.1.1-py3-none-any.whl",
+   "repo": "snowballstem/snowball",
+   "rank": 738
+  },
+  {
+   "project": "fastspec",
+   "version": "0.2.5",
+   "wheel": "fastspec-0.2.5-py3-none-any.whl",
+   "repo": "AnswerDotAI/fastspec",
+   "rank": 739
+  },
+  {
+   "project": "retrying",
+   "version": "1.4.2",
+   "wheel": "retrying-1.4.2-py3-none-any.whl",
+   "repo": "groodt/retrying",
+   "rank": 742
+  },
+  {
+   "project": "testcontainers",
+   "version": "4.15.0",
+   "wheel": "testcontainers-4.15.0-py3-none-any.whl",
+   "repo": "testcontainers/testcontainers-python",
+   "rank": 743
+  },
+  {
+   "project": "sentence-transformers",
+   "version": "6.1.0",
+   "wheel": "sentence_transformers-6.1.0-py3-none-any.whl",
+   "repo": "huggingface/sentence-transformers",
+   "rank": 744
+  },
+  {
+   "project": "diskcache",
+   "version": "5.6.3",
+   "wheel": "diskcache-5.6.3-py3-none-any.whl",
+   "repo": "grantjenks/python-diskcache",
+   "rank": 746
+  },
+  {
+   "project": "agate",
+   "version": "1.14.2",
+   "wheel": "agate-1.14.2-py3-none-any.whl",
+   "repo": "wireservice/agate",
+   "rank": 747
+  },
+  {
+   "project": "qrcode",
+   "version": "8.2",
+   "wheel": "qrcode-8.2-py3-none-any.whl",
+   "repo": "lincolnloop/python-qrcode",
+   "rank": 748
+  },
+  {
+   "project": "agent-client-protocol",
+   "version": "0.12.1",
+   "wheel": "agent_client_protocol-0.12.1-py3-none-any.whl",
+   "repo": "agentclientprotocol/python-sdk",
+   "rank": 749
+  },
+  {
+   "project": "supabase",
+   "version": "2.31.0",
+   "wheel": "supabase-2.31.0-py3-none-any.whl",
+   "repo": "supabase/supabase-py",
+   "rank": 752
+  },
+  {
+   "project": "azure-storage-file-datalake",
+   "version": "12.25.0",
+   "wheel": "azure_storage_file_datalake-12.25.0-py3-none-any.whl",
+   "repo": "Azure/azure-sdk-for-python",
+   "rank": 754
+  },
+  {
+   "project": "pybind11",
+   "version": "3.1.0",
+   "wheel": "pybind11-3.1.0-py3-none-any.whl",
+   "repo": "pybind/pybind11",
+   "rank": 755
+  },
+  {
+   "project": "google-ads",
+   "version": "33.0.0",
+   "wheel": "google_ads-33.0.0-py3-none-any.whl",
+   "repo": "googleads/google-ads-python",
+   "rank": 757
+  },
+  {
+   "project": "azure-storage-queue",
+   "version": "12.17.0",
+   "wheel": "azure_storage_queue-12.17.0-py3-none-any.whl",
+   "repo": "Azure/azure-sdk-for-python",
+   "rank": 759
+  },
+  {
+   "project": "griffe",
+   "version": "2.3.0",
+   "wheel": "griffe-2.3.0-py3-none-any.whl",
+   "repo": "mkdocstrings/griffe",
+   "rank": 760
+  },
+  {
+   "project": "tinyhtml5",
+   "version": "2.1.0",
+   "wheel": "tinyhtml5-2.1.0-py3-none-any.whl",
+   "repo": "CourtBouillon/tinyhtml5",
+   "rank": 761
+  },
+  {
+   "project": "lazy-loader",
+   "version": "0.6",
+   "wheel": "lazy_loader-0.6-py3-none-any.whl",
+   "repo": "scientific-python/lazy-loader",
+   "rank": 762
+  },
+  {
+   "project": "mergedeep",
+   "version": "1.3.4",
+   "wheel": "mergedeep-1.3.4-py3-none-any.whl",
+   "repo": "clarketm/mergedeep",
+   "rank": 763
+  },
+  {
+   "project": "pytimeparse",
+   "version": "1.1.8",
+   "wheel": "pytimeparse-1.1.8-py2.py3-none-any.whl",
+   "repo": "wroberts/pytimeparse",
+   "rank": 764
+  },
+  {
+   "project": "crewai-tools",
+   "version": "1.15.23",
+   "wheel": "crewai_tools-1.15.23-py3-none-any.whl",
+   "repo": "crewAIInc/crewAI",
+   "rank": 765
+  },
+  {
+   "project": "eval-type-backport",
+   "version": "0.4.0",
+   "wheel": "eval_type_backport-0.4.0-py3-none-any.whl",
+   "repo": "alexmojaki/eval_type_backport",
+   "rank": 766
+  },
+  {
+   "project": "events",
+   "version": "0.5",
+   "wheel": "Events-0.5-py3-none-any.whl",
+   "repo": "pyeve/events",
+   "rank": 769
+  },
+  {
+   "project": "storage3",
+   "version": "2.31.0",
+   "wheel": "storage3-2.31.0-py3-none-any.whl",
+   "repo": "supabase/supabase-py",
+   "rank": 770
+  },
+  {
+   "project": "postgrest",
+   "version": "2.31.0",
+   "wheel": "postgrest-2.31.0-py3-none-any.whl",
+   "repo": "supabase/supabase-py",
+   "rank": 771
+  },
+  {
+   "project": "pip-audit",
+   "version": "2.10.1",
+   "wheel": "pip_audit-2.10.1-py3-none-any.whl",
+   "repo": "pypa/pip-audit",
+   "rank": 773
+  },
+  {
+   "project": "holidays",
+   "version": "0.105",
+   "wheel": "holidays-0.105-py3-none-any.whl",
+   "repo": "vacanza/holidays",
+   "rank": 774
+  },
+  {
+   "project": "bidict",
+   "version": "0.24.1",
+   "wheel": "bidict-0.24.1-py3-none-any.whl",
+   "repo": "jab/bidict",
+   "rank": 775
+  },
+  {
+   "project": "opentelemetry-instrumentation-sqlalchemy",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_instrumentation_sqlalchemy-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 776
+  },
+  {
+   "project": "click-option-group",
+   "version": "0.5.9",
+   "wheel": "click_option_group-0.5.9-py3-none-any.whl",
+   "repo": "click-contrib/click-option-group",
+   "rank": 777
+  },
+  {
+   "project": "pip-api",
+   "version": "0.0.35",
+   "wheel": "pip_api-0.0.35-py3-none-any.whl",
+   "repo": "di/pip-api",
+   "rank": 778
+  },
+  {
+   "project": "tblib",
+   "version": "3.2.2",
+   "wheel": "tblib-3.2.2-py3-none-any.whl",
+   "repo": "ionelmc/python-tblib",
+   "rank": 779
+  },
+  {
+   "project": "pandas-gbq",
+   "version": "0.35.2",
+   "wheel": "pandas_gbq-0.35.2-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 781
+  },
+  {
+   "project": "parsedatetime",
+   "version": "2.6",
+   "wheel": "parsedatetime-2.6-py3-none-any.whl",
+   "repo": "bear/parsedatetime",
+   "rank": 782
+  },
+  {
+   "project": "universal-pathlib",
+   "version": "0.3.10",
+   "wheel": "universal_pathlib-0.3.10-py3-none-any.whl",
+   "repo": "fsspec/universal_pathlib",
+   "rank": 783
+  },
+  {
+   "project": "twine",
+   "version": "7.0.0",
+   "wheel": "twine-7.0.0-py3-none-any.whl",
+   "repo": "pypa/twine",
+   "rank": 784
+  },
+  {
+   "project": "mock",
+   "version": "5.2.0",
+   "wheel": "mock-5.2.0-py3-none-any.whl",
+   "repo": "testing-cabal/mock",
+   "rank": 785
+  },
+  {
+   "project": "inflect",
+   "version": "7.5.0",
+   "wheel": "inflect-7.5.0-py3-none-any.whl",
+   "repo": "jaraco/inflect",
+   "rank": 786
+  },
+  {
+   "project": "zope-event",
+   "version": "6.2",
+   "wheel": "zope_event-6.2-py3-none-any.whl",
+   "repo": "zopefoundation/zope.event",
+   "rank": 787
+  },
+  {
+   "project": "simple-salesforce",
+   "version": "1.12.10",
+   "wheel": "simple_salesforce-1.12.10-py3-none-any.whl",
+   "repo": "simple-salesforce/simple-salesforce",
+   "rank": 788
+  },
+  {
+   "project": "types-setuptools",
+   "version": "84.0.0.20260812",
+   "wheel": "types_setuptools-84.0.0.20260812-py3-none-any.whl",
+   "repo": "python/typeshed",
+   "rank": 789
+  },
+  {
+   "project": "cohere",
+   "version": "7.2.0",
+   "wheel": "cohere-7.2.0-py3-none-any.whl",
+   "repo": "cohere-ai/cohere-python",
+   "rank": 790
+  },
+  {
+   "project": "socksio",
+   "version": "1.0.0",
+   "wheel": "socksio-1.0.0-py3-none-any.whl",
+   "repo": "sethmlarson/socksio",
+   "rank": 792
+  },
+  {
+   "project": "streamlit",
+   "version": "1.64.0",
+   "wheel": "streamlit-1.64.0-py3-none-any.whl",
+   "repo": "streamlit/streamlit",
+   "rank": 794
+  },
+  {
+   "project": "dunamai",
+   "version": "1.26.2",
+   "wheel": "dunamai-1.26.2-py3-none-any.whl",
+   "repo": "mtkennerly/dunamai",
+   "rank": 795
+  },
+  {
+   "project": "python-engineio",
+   "version": "4.14.0",
+   "wheel": "python_engineio-4.14.0-py3-none-any.whl",
+   "repo": "miguelgrinberg/python-engineio",
+   "rank": 796
+  },
+  {
+   "project": "bandit",
+   "version": "1.9.4",
+   "wheel": "bandit-1.9.4-py3-none-any.whl",
+   "repo": "PyCQA/bandit",
+   "rank": 797
+  },
+  {
+   "project": "crewai",
+   "version": "1.15.23",
+   "wheel": "crewai-1.15.23-py3-none-any.whl",
+   "repo": "crewAIInc/crewAI",
+   "rank": 798
+  },
+  {
+   "project": "simple-websocket",
+   "version": "1.1.0",
+   "wheel": "simple_websocket-1.1.0-py3-none-any.whl",
+   "repo": "miguelgrinberg/simple-websocket",
+   "rank": 800
+  },
+  {
+   "project": "google-cloud-dataplex",
+   "version": "2.20.0",
+   "wheel": "google_cloud_dataplex-2.20.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 802
+  },
+  {
+   "project": "pinotdb",
+   "version": "9.1.2",
+   "wheel": "pinotdb-9.1.2-py3-none-any.whl",
+   "repo": "startreedata/pinot-dbapi",
+   "rank": 803
+  },
+  {
+   "project": "astor",
+   "version": "0.8.1",
+   "wheel": "astor-0.8.1-py2.py3-none-any.whl",
+   "repo": "berkerpeksag/astor",
+   "rank": 804
+  },
+  {
+   "project": "id",
+   "version": "1.6.1",
+   "wheel": "id-1.6.1-py3-none-any.whl",
+   "repo": "di/id",
+   "rank": 805
+  },
+  {
+   "project": "imagesize",
+   "version": "2.0.1",
+   "wheel": "imagesize-2.0.1-py3-none-any.whl",
+   "repo": "shibukawa/imagesize_py",
+   "rank": 806
+  },
+  {
+   "project": "dask",
+   "version": "2026.8.0",
+   "wheel": "dask-2026.8.0-py3-none-any.whl",
+   "repo": "dask/dask",
+   "rank": 807
+  },
+  {
+   "project": "tox",
+   "version": "4.64.4",
+   "wheel": "tox-4.64.4-py3-none-any.whl",
+   "repo": "tox-dev/tox",
+   "rank": 809
+  },
+  {
+   "project": "tifffile",
+   "version": "2026.9.20",
+   "wheel": "tifffile-2026.9.20-py3-none-any.whl",
+   "repo": "cgohlke/tifffile",
+   "rank": 810
+  },
+  {
+   "project": "djangorestframework",
+   "version": "3.18.1",
+   "wheel": "djangorestframework-3.18.1-py3-none-any.whl",
+   "repo": "encode/django-rest-framework",
+   "rank": 811
+  },
+  {
+   "project": "dbt-protos",
+   "version": "1.0.565",
+   "wheel": "dbt_protos-1.0.565-py3-none-any.whl",
+   "repo": "dbt-labs/proto-python-public",
+   "rank": 812
+  },
+  {
+   "project": "supabase-auth",
+   "version": "2.31.0",
+   "wheel": "supabase_auth-2.31.0-py3-none-any.whl",
+   "repo": "supabase/supabase-py",
+   "rank": 813
+  },
+  {
+   "project": "supabase-functions",
+   "version": "2.31.0",
+   "wheel": "supabase_functions-2.31.0-py3-none-any.whl",
+   "repo": "supabase/supabase-py",
+   "rank": 814
+  },
+  {
+   "project": "einops",
+   "version": "0.8.2",
+   "wheel": "einops-0.8.2-py3-none-any.whl",
+   "repo": "arogozhnikov/einops",
+   "rank": 815
+  },
+  {
+   "project": "olefile",
+   "version": "0.47",
+   "wheel": "olefile-0.47-py2.py3-none-any.whl",
+   "repo": "decalage2/olefile",
+   "rank": 816
+  },
+  {
+   "project": "sshtunnel",
+   "version": "0.4.0",
+   "wheel": "sshtunnel-0.4.0-py2.py3-none-any.whl",
+   "repo": "pahaz/sshtunnel",
+   "rank": 817
+  },
+  {
+   "project": "hvac",
+   "version": "2.4.0",
+   "wheel": "hvac-2.4.0-py3-none-any.whl",
+   "repo": "hvac/hvac",
+   "rank": 818
+  },
+  {
+   "project": "validators",
+   "version": "0.35.0",
+   "wheel": "validators-0.35.0-py3-none-any.whl",
+   "repo": "python-validators/validators",
+   "rank": 819
+  },
+  {
+   "project": "hyperlink",
+   "version": "21.0.0",
+   "wheel": "hyperlink-21.0.0-py2.py3-none-any.whl",
+   "repo": "python-hyper/hyperlink",
+   "rank": 820
+  },
+  {
+   "project": "strictyaml",
+   "version": "1.7.3",
+   "wheel": "strictyaml-1.7.3-py3-none-any.whl",
+   "repo": "crdoconnor/strictyaml",
+   "rank": 821
+  },
+  {
+   "project": "pfzy",
+   "version": "0.3.4",
+   "wheel": "pfzy-0.3.4-py3-none-any.whl",
+   "repo": "kazhala/pfzy",
+   "rank": 823
+  },
+  {
+   "project": "cloudpathlib",
+   "version": "0.25.0",
+   "wheel": "cloudpathlib-0.25.0-py3-none-any.whl",
+   "repo": "drivendataorg/cloudpathlib",
+   "rank": 826
+  },
+  {
+   "project": "inquirerpy",
+   "version": "0.3.4",
+   "wheel": "InquirerPy-0.3.4-py3-none-any.whl",
+   "repo": "kazhala/InquirerPy",
+   "rank": 828
+  },
+  {
+   "project": "instructor",
+   "version": "1.17.0",
+   "wheel": "instructor-1.17.0-py3-none-any.whl",
+   "repo": "567-labs/instructor",
+   "rank": 830
+  },
+  {
+   "project": "pytest-runner",
+   "version": "6.0.1",
+   "wheel": "pytest_runner-6.0.1-py3-none-any.whl",
+   "repo": "pytest-dev/pytest-runner",
+   "rank": 832
+  },
+  {
+   "project": "google-pasta",
+   "version": "0.2.0",
+   "wheel": "google_pasta-0.2.0-py3-none-any.whl",
+   "repo": "google/pasta",
+   "rank": 833
+  },
+  {
+   "project": "yfinance",
+   "version": "1.7.0",
+   "wheel": "yfinance-1.7.0-py3-none-any.whl",
+   "repo": "ranaroussi/yfinance",
+   "rank": 834
+  },
+  {
+   "project": "diff-cover",
+   "version": "10.6.0",
+   "wheel": "diff_cover-10.6.0-py3-none-any.whl",
+   "repo": "Bachmann1234/diff-cover",
+   "rank": 835
+  },
+  {
+   "project": "schema",
+   "version": "0.7.8",
+   "wheel": "schema-0.7.8-py2.py3-none-any.whl",
+   "repo": "keleshev/schema",
+   "rank": 836
+  },
+  {
+   "project": "alabaster",
+   "version": "1.0.0",
+   "wheel": "alabaster-1.0.0-py3-none-any.whl",
+   "repo": "sphinx-doc/alabaster",
+   "rank": 837
+  },
+  {
+   "project": "sphinxcontrib-serializinghtml",
+   "version": "2.0.0",
+   "wheel": "sphinxcontrib_serializinghtml-2.0.0-py3-none-any.whl",
+   "repo": "sphinx-doc/sphinxcontrib-serializinghtml",
+   "rank": 838
+  },
+  {
+   "project": "vcrpy",
+   "version": "8.3.0",
+   "wheel": "vcrpy-8.3.0-py3-none-any.whl",
+   "repo": "kevin1024/vcrpy",
+   "rank": 839
+  },
+  {
+   "project": "langfuse",
+   "version": "4.15.6",
+   "wheel": "langfuse-4.15.6-py3-none-any.whl",
+   "repo": "langfuse/langfuse-python",
+   "rank": 840
+  },
+  {
+   "project": "catalogue",
+   "version": "2.0.10",
+   "wheel": "catalogue-2.0.10-py3-none-any.whl",
+   "repo": "explosion/catalogue",
+   "rank": 841
+  },
+  {
+   "project": "grpc-interceptor",
+   "version": "0.15.4",
+   "wheel": "grpc_interceptor-0.15.4-py3-none-any.whl",
+   "repo": "d5h-foss/grpc-interceptor",
+   "rank": 842
+  },
+  {
+   "project": "boltons",
+   "version": "26.2.0",
+   "wheel": "boltons-26.2.0-py3-none-any.whl",
+   "repo": "mahmoud/boltons",
+   "rank": 843
+  },
+  {
+   "project": "python-http-client",
+   "version": "3.3.7",
+   "wheel": "python_http_client-3.3.7-py3-none-any.whl",
+   "repo": "sendgrid/python-http-client",
+   "rank": 844
+  },
+  {
+   "project": "opentelemetry-instrumentation-aiohttp-client",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_instrumentation_aiohttp_client-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 846
+  },
+  {
+   "project": "feedparser",
+   "version": "6.0.14",
+   "wheel": "feedparser-6.0.14-py3-none-any.whl",
+   "repo": "kurtmckee/feedparser",
+   "rank": 847
+  },
+  {
+   "project": "service-identity",
+   "version": "26.1.0",
+   "wheel": "service_identity-26.1.0-py3-none-any.whl",
+   "repo": "pyca/service-identity",
+   "rank": 848
+  },
+  {
+   "project": "pydata-google-auth",
+   "version": "1.9.1",
+   "wheel": "pydata_google_auth-1.9.1-py2.py3-none-any.whl",
+   "repo": "pydata/pydata-google-auth",
+   "rank": 849
+  },
+  {
+   "project": "py-cpuinfo",
+   "version": "9.0.0",
+   "wheel": "py_cpuinfo-9.0.0-py3-none-any.whl",
+   "repo": "workhorsy/py-cpuinfo",
+   "rank": 850
+  },
+  {
+   "project": "great-expectations",
+   "version": "1.23.2",
+   "wheel": "great_expectations-1.23.2-py3-none-any.whl",
+   "repo": "fivetran/great_expectations",
+   "rank": 852
+  },
+  {
+   "project": "databricks-sqlalchemy",
+   "version": "2.0.10",
+   "wheel": "databricks_sqlalchemy-2.0.10-py3-none-any.whl",
+   "repo": "databricks/databricks-sqlalchemy",
+   "rank": 853
+  },
+  {
+   "project": "aws-requests-auth",
+   "version": "0.4.3",
+   "wheel": "aws_requests_auth-0.4.3-py2.py3-none-any.whl",
+   "repo": "davidmuller/aws-requests-auth",
+   "rank": 854
+  },
+  {
+   "project": "requests-mock",
+   "version": "1.12.1",
+   "wheel": "requests_mock-1.12.1-py2.py3-none-any.whl",
+   "repo": "jamielennox/requests-mock",
+   "rank": 856
+  },
+  {
+   "project": "sendgrid",
+   "version": "6.12.5",
+   "wheel": "sendgrid-6.12.5-py3-none-any.whl",
+   "repo": "sendgrid/sendgrid-python",
+   "rank": 858
+  },
+  {
+   "project": "ldap3",
+   "version": "2.9.1",
+   "wheel": "ldap3-2.9.1-py2.py3-none-any.whl",
+   "repo": "cannatag/ldap3",
+   "rank": 859
+  },
+  {
+   "project": "pydeck",
+   "version": "0.9.3",
+   "wheel": "pydeck-0.9.3-py2.py3-none-any.whl",
+   "repo": "visgl/deck.gl",
+   "rank": 860
+  },
+  {
+   "project": "pymdown-extensions",
+   "version": "12.1",
+   "wheel": "pymdown_extensions-12.1-py3-none-any.whl",
+   "repo": "facelessuser/pymdown-extensions",
+   "rank": 862
+  },
+  {
+   "project": "youtube-transcript-api",
+   "version": "1.2.4",
+   "wheel": "youtube_transcript_api-1.2.4-py3-none-any.whl",
+   "repo": "jdepoix/youtube-transcript-api",
+   "rank": 864
+  },
+  {
+   "project": "questionary",
+   "version": "2.1.1",
+   "wheel": "questionary-2.1.1-py3-none-any.whl",
+   "repo": "tmbo/questionary",
+   "rank": 865
+  },
+  {
+   "project": "weasel",
+   "version": "1.0.0",
+   "wheel": "weasel-1.0.0-py3-none-any.whl",
+   "repo": "explosion/weasel",
+   "rank": 866
+  },
+  {
+   "project": "mlflow-tracing",
+   "version": "3.16.1",
+   "wheel": "mlflow_tracing-3.16.1-py3-none-any.whl",
+   "repo": "mlflow/mlflow",
+   "rank": 868
+  },
+  {
+   "project": "opentelemetry-distro",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_distro-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 869
+  },
+  {
+   "project": "flask-sqlalchemy",
+   "version": "3.1.1",
+   "wheel": "flask_sqlalchemy-3.1.1-py3-none-any.whl",
+   "repo": "pallets-eco/flask-sqlalchemy",
+   "rank": 870
+  },
+  {
+   "project": "msrestazure",
+   "version": "0.6.4.post1",
+   "wheel": "msrestazure-0.6.4.post1-py2.py3-none-any.whl",
+   "repo": "Azure/msrestazure-for-python",
+   "rank": 871
+  },
+  {
+   "project": "accelerate",
+   "version": "1.15.0",
+   "wheel": "accelerate-1.15.0-py3-none-any.whl",
+   "repo": "huggingface/accelerate",
+   "rank": 872
+  },
+  {
+   "project": "groq",
+   "version": "1.7.0",
+   "wheel": "groq-1.7.0-py3-none-any.whl",
+   "repo": "groq/groq-python",
+   "rank": 875
+  },
+  {
+   "project": "cached-property",
+   "version": "2.0.1",
+   "wheel": "cached_property-2.0.1-py3-none-any.whl",
+   "repo": "pydanny/cached-property",
+   "rank": 877
+  },
+  {
+   "project": "flask-login",
+   "version": "0.6.3",
+   "wheel": "Flask_Login-0.6.3-py3-none-any.whl",
+   "repo": "maxcountryman/flask-login",
+   "rank": 878
+  },
+  {
+   "project": "azure-keyvault-keys",
+   "version": "4.11.2",
+   "wheel": "azure_keyvault_keys-4.11.2-py3-none-any.whl",
+   "repo": "Azure/azure-sdk-for-python",
+   "rank": 881
+  },
+  {
+   "project": "tensorboard",
+   "version": "2.21.0",
+   "wheel": "tensorboard-2.21.0-py3-none-any.whl",
+   "repo": "tensorflow/tensorboard",
+   "rank": 882
+  },
+  {
+   "project": "types-urllib3",
+   "version": "1.26.25.14",
+   "wheel": "types_urllib3-1.26.25.14-py3-none-any.whl",
+   "repo": "python/typeshed",
+   "rank": 883
+  },
+  {
+   "project": "sphinxcontrib-htmlhelp",
+   "version": "2.1.0",
+   "wheel": "sphinxcontrib_htmlhelp-2.1.0-py3-none-any.whl",
+   "repo": "sphinx-doc/sphinxcontrib-htmlhelp",
+   "rank": 884
+  },
+  {
+   "project": "sphinxcontrib-qthelp",
+   "version": "2.0.0",
+   "wheel": "sphinxcontrib_qthelp-2.0.0-py3-none-any.whl",
+   "repo": "sphinx-doc/sphinxcontrib-qthelp",
+   "rank": 885
+  },
+  {
+   "project": "sphinxcontrib-applehelp",
+   "version": "2.0.0",
+   "wheel": "sphinxcontrib_applehelp-2.0.0-py3-none-any.whl",
+   "repo": "sphinx-doc/sphinxcontrib-applehelp",
+   "rank": 886
+  },
+  {
+   "project": "sphinxcontrib-devhelp",
+   "version": "2.0.0",
+   "wheel": "sphinxcontrib_devhelp-2.0.0-py3-none-any.whl",
+   "repo": "sphinx-doc/sphinxcontrib-devhelp",
+   "rank": 887
+  },
+  {
+   "project": "sqlalchemy-utils",
+   "version": "0.42.1",
+   "wheel": "sqlalchemy_utils-0.42.1-py3-none-any.whl",
+   "repo": "kvesteri/sqlalchemy-utils",
+   "rank": 888
+  },
+  {
+   "project": "pytest-split",
+   "version": "0.11.0",
+   "wheel": "pytest_split-0.11.0-py3-none-any.whl",
+   "repo": "jerry-git/pytest-split",
+   "rank": 889
+  },
+  {
+   "project": "texttable",
+   "version": "1.7.0",
+   "wheel": "texttable-1.7.0-py2.py3-none-any.whl",
+   "repo": "foutaise/texttable",
+   "rank": 892
+  },
+  {
+   "project": "databricks-labs-blueprint",
+   "version": "0.12.0",
+   "wheel": "databricks_labs_blueprint-0.12.0-py3-none-any.whl",
+   "repo": "databrickslabs/blueprint",
+   "rank": 893
+  },
+  {
+   "project": "glom",
+   "version": "25.12.0",
+   "wheel": "glom-25.12.0-py3-none-any.whl",
+   "repo": "mahmoud/glom",
+   "rank": 894
+  },
+  {
+   "project": "kafka-python",
+   "version": "3.0.11",
+   "wheel": "kafka_python-3.0.11-py3-none-any.whl",
+   "repo": "dpkp/kafka-python",
+   "rank": 895
+  },
+  {
+   "project": "face",
+   "version": "26.0.1",
+   "wheel": "face-26.0.1-py3-none-any.whl",
+   "repo": "mahmoud/face",
+   "rank": 896
+  },
+  {
+   "project": "respx",
+   "version": "0.23.1",
+   "wheel": "respx-0.23.1-py2.py3-none-any.whl",
+   "repo": "lundberg/respx",
+   "rank": 898
+  },
+  {
+   "project": "sounddevice",
+   "version": "0.5.6",
+   "wheel": "sounddevice-0.5.6-py3-none-any.whl",
+   "repo": "spatialaudio/python-sounddevice",
+   "rank": 900
+  },
+  {
+   "project": "cssselect",
+   "version": "1.5.0",
+   "wheel": "cssselect-1.5.0-py3-none-any.whl",
+   "repo": "scrapy/cssselect",
+   "rank": 901
+  },
+  {
+   "project": "genai-prices",
+   "version": "0.1.9",
+   "wheel": "genai_prices-0.1.9-py3-none-any.whl",
+   "repo": "pydantic/genai-prices",
+   "rank": 903
+  },
+  {
+   "project": "wasabi",
+   "version": "1.1.3",
+   "wheel": "wasabi-1.1.3-py3-none-any.whl",
+   "repo": "explosion/wasabi",
+   "rank": 904
+  },
+  {
+   "project": "daff",
+   "version": "1.4.2",
+   "wheel": "daff-1.4.2-py3-none-any.whl",
+   "repo": "paulfitz/daff",
+   "rank": 907
+  },
+  {
+   "project": "pipenv",
+   "version": "2026.8.0",
+   "wheel": "pipenv-2026.8.0-py3-none-any.whl",
+   "repo": "pypa/pipenv",
+   "rank": 908
+  },
+  {
+   "project": "opencensus-context",
+   "version": "0.1.3",
+   "wheel": "opencensus_context-0.1.3-py2.py3-none-any.whl",
+   "repo": "census-instrumentation/opencensus-python",
+   "rank": 909
+  },
+  {
+   "project": "llama-cloud",
+   "version": "2.16.0",
+   "wheel": "llama_cloud-2.16.0-py3-none-any.whl",
+   "repo": "run-llama/llama-parse-py",
+   "rank": 910
+  },
+  {
+   "project": "openapi-schema-validator",
+   "version": "0.9.0",
+   "wheel": "openapi_schema_validator-0.9.0-py3-none-any.whl",
+   "repo": "python-openapi/openapi-schema-validator",
+   "rank": 911
+  },
+  {
+   "project": "jupyter-builder",
+   "version": "1.2.3",
+   "wheel": "jupyter_builder-1.2.3-py3-none-any.whl",
+   "repo": "jupyterlab/jupyter-builder",
+   "rank": 912
+  },
+  {
+   "project": "pytest-httpx",
+   "version": "0.36.2",
+   "wheel": "pytest_httpx-0.36.2-py3-none-any.whl",
+   "repo": "Colin-b/pytest_httpx",
+   "rank": 913
+  },
+  {
+   "project": "opencensus",
+   "version": "0.11.4",
+   "wheel": "opencensus-0.11.4-py2.py3-none-any.whl",
+   "repo": "census-instrumentation/opencensus-python",
+   "rank": 914
+  },
+  {
+   "project": "fpdf2",
+   "version": "2.8.9",
+   "wheel": "fpdf2-2.8.9-py3-none-any.whl",
+   "repo": "py-pdf/fpdf2",
+   "rank": 915
+  },
+  {
+   "project": "pytest-env",
+   "version": "1.7.1",
+   "wheel": "pytest_env-1.7.1-py3-none-any.whl",
+   "repo": "pytest-dev/pytest-env",
+   "rank": 916
+  },
+  {
+   "project": "pydot",
+   "version": "4.0.1",
+   "wheel": "pydot-4.0.1-py3-none-any.whl",
+   "repo": "pydot/pydot",
+   "rank": 917
+  },
+  {
+   "project": "langchain-anthropic",
+   "version": "1.7.4",
+   "wheel": "langchain_anthropic-1.7.4-py3-none-any.whl",
+   "repo": "langchain-ai/langchain",
+   "rank": 918
+  },
+  {
+   "project": "google-cloud-dataproc",
+   "version": "5.30.0",
+   "wheel": "google_cloud_dataproc-5.30.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 919
+  },
+  {
+   "project": "confection",
+   "version": "1.3.3",
+   "wheel": "confection-1.3.3-py3-none-any.whl",
+   "repo": "explosion/confection",
+   "rank": 923
+  },
+  {
+   "project": "spacy-loggers",
+   "version": "1.0.5",
+   "wheel": "spacy_loggers-1.0.5-py3-none-any.whl",
+   "repo": "explosion/spacy-loggers",
+   "rank": 924
+  },
+  {
+   "project": "sqlmodel",
+   "version": "0.0.47",
+   "wheel": "sqlmodel-0.0.47-py3-none-any.whl",
+   "repo": "fastapi/sqlmodel",
+   "rank": 926
+  },
+  {
+   "project": "partd",
+   "version": "1.4.2",
+   "wheel": "partd-1.4.2-py3-none-any.whl",
+   "repo": "dask/partd",
+   "rank": 927
+  },
+  {
+   "project": "uv-dynamic-versioning",
+   "version": "0.14.1",
+   "wheel": "uv_dynamic_versioning-0.14.1-py3-none-any.whl",
+   "repo": "ninoseki/uv-dynamic-versioning",
+   "rank": 928
+  },
+  {
+   "project": "jsonpath-python",
+   "version": "1.1.6",
+   "wheel": "jsonpath_python-1.1.6-py3-none-any.whl",
+   "repo": "sean2077/jsonpath-python",
+   "rank": 929
+  },
+  {
+   "project": "datadog-api-client",
+   "version": "2.61.0",
+   "wheel": "datadog_api_client-2.61.0-py3-none-any.whl",
+   "repo": "DataDog/datadog-api-client-python",
+   "rank": 930
+  },
+  {
+   "project": "locket",
+   "version": "1.0.0",
+   "wheel": "locket-1.0.0-py2.py3-none-any.whl",
+   "repo": "mwilliamson/locket.py",
+   "rank": 931
+  },
+  {
+   "project": "factory-boy",
+   "version": "3.3.3",
+   "wheel": "factory_boy-3.3.3-py2.py3-none-any.whl",
+   "repo": "FactoryBoy/factory_boy",
+   "rank": 933
+  },
+  {
+   "project": "jira",
+   "version": "3.10.5",
+   "wheel": "jira-3.10.5-py3-none-any.whl",
+   "repo": "pycontribs/jira",
+   "rank": 934
+  },
+  {
+   "project": "opentelemetry-instrumentation-redis",
+   "version": "0.66b0",
+   "wheel": "opentelemetry_instrumentation_redis-0.66b0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 935
+  },
+  {
+   "project": "cron-descriptor",
+   "version": "2.1.0",
+   "wheel": "cron_descriptor-2.1.0-py3-none-any.whl",
+   "repo": "Salamek/cron-descriptor",
+   "rank": 937
+  },
+  {
+   "project": "dacite",
+   "version": "1.9.2",
+   "wheel": "dacite-1.9.2-py3-none-any.whl",
+   "repo": "konradhalas/dacite",
+   "rank": 938
+  },
+  {
+   "project": "pytest-django",
+   "version": "4.14.0",
+   "wheel": "pytest_django-4.14.0-py3-none-any.whl",
+   "repo": "pytest-dev/pytest-django",
+   "rank": 939
+  },
+  {
+   "project": "google-cloud-alloydb",
+   "version": "0.11.2",
+   "wheel": "google_cloud_alloydb-0.11.2-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 941
+  },
+  {
+   "project": "emoji",
+   "version": "2.16.0",
+   "wheel": "emoji-2.16.0-py3-none-any.whl",
+   "repo": "carpedm20/emoji",
+   "rank": 943
+  },
+  {
+   "project": "watchtower",
+   "version": "3.4.0",
+   "wheel": "watchtower-3.4.0-py3-none-any.whl",
+   "repo": "kislyuk/watchtower",
+   "rank": 945
+  },
+  {
+   "project": "hydra-core",
+   "version": "1.3.7",
+   "wheel": "hydra_core-1.3.7-py3-none-any.whl",
+   "repo": "facebookresearch/hydra",
+   "rank": 946
+  },
+  {
+   "project": "azure-servicebus",
+   "version": "7.14.3",
+   "wheel": "azure_servicebus-7.14.3-py3-none-any.whl",
+   "repo": "Azure/azure-sdk-for-python",
+   "rank": 947
+  },
+  {
+   "project": "azure-batch",
+   "version": "15.1.0",
+   "wheel": "azure_batch-15.1.0-py3-none-any.whl",
+   "repo": "Azure/azure-sdk-for-python",
+   "rank": 948
+  },
+  {
+   "project": "pyathena",
+   "version": "3.36.0",
+   "wheel": "pyathena-3.36.0-py3-none-any.whl",
+   "repo": "pyathena-dev/PyAthena",
+   "rank": 949
+  },
+  {
+   "project": "slowapi",
+   "version": "0.1.10",
+   "wheel": "slowapi-0.1.10-py3-none-any.whl",
+   "repo": "laurents/slowapi",
+   "rank": 950
+  },
+  {
+   "project": "azure-cosmos",
+   "version": "4.17.1",
+   "wheel": "azure_cosmos-4.17.1-py3-none-any.whl",
+   "repo": "Azure/azure-sdk-for-python",
+   "rank": 953
+  },
+  {
+   "project": "gql",
+   "version": "4.4.0",
+   "wheel": "gql-4.4.0-py3-none-any.whl",
+   "repo": "graphql-python/gql",
+   "rank": 954
+  },
+  {
+   "project": "immutabledict",
+   "version": "4.3.1",
+   "wheel": "immutabledict-4.3.1-py3-none-any.whl",
+   "repo": "corenting/immutabledict",
+   "rank": 955
+  },
+  {
+   "project": "ua-parser",
+   "version": "1.0.2",
+   "wheel": "ua_parser-1.0.2-py3-none-any.whl",
+   "repo": "ua-parser/uap-python",
+   "rank": 956
+  },
+  {
+   "project": "natsort",
+   "version": "8.4.0",
+   "wheel": "natsort-8.4.0-py3-none-any.whl",
+   "repo": "SethMMorton/natsort",
+   "rank": 957
+  },
+  {
+   "project": "backports-asyncio-runner",
+   "version": "1.2.0",
+   "wheel": "backports_asyncio_runner-1.2.0-py3-none-any.whl",
+   "repo": "samypr100/backports.asyncio.runner",
+   "rank": 959
+  },
+  {
+   "project": "pytesseract",
+   "version": "0.3.13",
+   "wheel": "pytesseract-0.3.13-py3-none-any.whl",
+   "repo": "madmaze/pytesseract",
+   "rank": 960
+  },
+  {
+   "project": "pypdf2",
+   "version": "3.0.1",
+   "wheel": "pypdf2-3.0.1-py3-none-any.whl",
+   "repo": "py-pdf/PyPDF2",
+   "rank": 962
+  },
+  {
+   "project": "google-cloud-storage-control",
+   "version": "1.15.0",
+   "wheel": "google_cloud_storage_control-1.15.0-py3-none-any.whl",
+   "repo": "googleapis/google-cloud-python",
+   "rank": 966
+  },
+  {
+   "project": "huey",
+   "version": "3.4.0",
+   "wheel": "huey-3.4.0-py3-none-any.whl",
+   "repo": "coleifer/huey",
+   "rank": 967
+  },
+  {
+   "project": "rich-argparse",
+   "version": "1.8.0",
+   "wheel": "rich_argparse-1.8.0-py3-none-any.whl",
+   "repo": "hamdanal/rich-argparse",
+   "rank": 968
+  },
+  {
+   "project": "pyspnego",
+   "version": "0.12.2",
+   "wheel": "pyspnego-0.12.2-py3-none-any.whl",
+   "repo": "jborean93/pyspnego",
+   "rank": 970
+  },
+  {
+   "project": "skops",
+   "version": "0.16.0",
+   "wheel": "skops-0.16.0-py3-none-any.whl",
+   "repo": "skops-dev/skops",
+   "rank": 972
+  },
+  {
+   "project": "twilio",
+   "version": "9.11.2",
+   "wheel": "twilio-9.11.2-py2.py3-none-any.whl",
+   "repo": "twilio/twilio-python",
+   "rank": 973
+  },
+  {
+   "project": "django-cors-headers",
+   "version": "4.9.0",
+   "wheel": "django_cors_headers-4.9.0-py3-none-any.whl",
+   "repo": "adamchainz/django-cors-headers",
+   "rank": 974
+  },
+  {
+   "project": "types-paramiko",
+   "version": "5.0.0.20260724",
+   "wheel": "types_paramiko-5.0.0.20260724-py3-none-any.whl",
+   "repo": "python/typeshed",
+   "rank": 975
+  },
+  {
+   "project": "typer-slim",
+   "version": "0.24.0",
+   "wheel": "typer_slim-0.24.0-py3-none-any.whl",
+   "repo": "fastapi/typer",
+   "rank": 976
+  },
+  {
+   "project": "gcloud-aio-bigquery",
+   "version": "7.1.0",
+   "wheel": "gcloud_aio_bigquery-7.1.0-py3-none-any.whl",
+   "repo": "talkiq/gcloud-aio",
+   "rank": 977
+  },
+  {
+   "project": "hatch-vcs",
+   "version": "0.5.0",
+   "wheel": "hatch_vcs-0.5.0-py3-none-any.whl",
+   "repo": "ofek/hatch-vcs",
+   "rank": 979
+  },
+  {
+   "project": "shortuuid",
+   "version": "1.0.13",
+   "wheel": "shortuuid-1.0.13-py3-none-any.whl",
+   "repo": "skorokithakis/shortuuid",
+   "rank": 984
+  },
+  {
+   "project": "python-utils",
+   "version": "4.0.1",
+   "wheel": "python_utils-4.0.1-py3-none-any.whl",
+   "repo": "WoLpH/python-utils",
+   "rank": 985
+  },
+  {
+   "project": "firebase-admin",
+   "version": "7.7.0",
+   "wheel": "firebase_admin-7.7.0-py3-none-any.whl",
+   "repo": "firebase/firebase-admin-python",
+   "rank": 986
+  },
+  {
+   "project": "opentelemetry-resourcedetector-gcp",
+   "version": "1.14.0",
+   "wheel": "opentelemetry_resourcedetector_gcp-1.14.0-py3-none-any.whl",
+   "repo": "open-telemetry/opentelemetry-python-contrib",
+   "rank": 987
+  },
+  {
+   "project": "fire",
+   "version": "0.7.1",
+   "wheel": "fire-0.7.1-py3-none-any.whl",
+   "repo": "google/python-fire",
+   "rank": 988
+  },
+  {
+   "project": "binaryornot",
+   "version": "0.6.0",
+   "wheel": "binaryornot-0.6.0-py3-none-any.whl",
+   "repo": "binaryornot/binaryornot",
+   "rank": 989
+  },
+  {
+   "project": "multitasking",
+   "version": "0.0.13",
+   "wheel": "multitasking-0.0.13-py3-none-any.whl",
+   "repo": "ranaroussi/multitasking",
+   "rank": 990
+  },
+  {
+   "project": "ollama",
+   "version": "0.6.3",
+   "wheel": "ollama-0.6.3-py3-none-any.whl",
+   "repo": "ollama/ollama-python",
+   "rank": 992
+  },
+  {
+   "project": "py-partiql-parser",
+   "version": "0.6.3",
+   "wheel": "py_partiql_parser-0.6.3-py2.py3-none-any.whl",
+   "repo": "getmoto/py-partiql-parser",
+   "rank": 993
+  },
+  {
+   "project": "aws-sam-translator",
+   "version": "1.113.0",
+   "wheel": "aws_sam_translator-1.113.0-py3-none-any.whl",
+   "repo": "awslabs/serverless-application-model",
+   "rank": 994
+  },
+  {
+   "project": "trino",
+   "version": "0.340.0",
+   "wheel": "trino-0.340.0-py3-none-any.whl",
+   "repo": "trinodb/trino-python-client",
+   "rank": 996
+  },
+  {
+   "project": "aws-lambda-powertools",
+   "version": "3.35.0",
+   "wheel": "aws_lambda_powertools-3.35.0-py3-none-any.whl",
+   "repo": "aws-powertools/powertools-lambda-python",
+   "rank": 997
+  },
+  {
+   "project": "pdf2image",
+   "version": "1.17.0",
+   "wheel": "pdf2image-1.17.0-py3-none-any.whl",
+   "repo": "Belval/pdf2image",
+   "rank": 999
+  },
+  {
+   "project": "userpath",
+   "version": "1.9.2",
+   "wheel": "userpath-1.9.2-py3-none-any.whl",
+   "repo": "ofek/userpath",
+   "rank": 1000
+  }
+ ],
+ "removed_packages": [
+  {
+   "rank": 10,
+   "project": "cryptography",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 11,
+   "project": "cffi",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 12,
+   "project": "pluggy",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 14,
+   "project": "pyyaml",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 19,
+   "project": "numpy",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 24,
+   "project": "pydantic-core",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 31,
+   "project": "protobuf",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 34,
+   "project": "markupsafe",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 39,
+   "project": "pandas",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 42,
+   "project": "grpcio-status",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 48,
+   "project": "litellm",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 49,
+   "project": "aiohttp",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 52,
+   "project": "rpds-py",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 72,
+   "project": "pillow",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 87,
+   "project": "greenlet",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 94,
+   "project": "regex",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 95,
+   "project": "pyarrow",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 99,
+   "project": "grpcio",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 101,
+   "project": "beautifulsoup4",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 102,
+   "project": "jiter",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 106,
+   "project": "scipy",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 109,
+   "project": "lxml",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 110,
+   "project": "watchfiles",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 112,
+   "project": "psutil",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 120,
+   "project": "openpyxl",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 121,
+   "project": "et-xmlfile",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 123,
+   "project": "ruff",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 127,
+   "project": "sglang",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 136,
+   "project": "hf-xet",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 137,
+   "project": "multiprocess",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 141,
+   "project": "sortedcontainers",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 144,
+   "project": "psycopg2-binary",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 146,
+   "project": "uvloop",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 147,
+   "project": "msgpack",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 149,
+   "project": "tiktoken",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 150,
+   "project": "httptools",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 154,
+   "project": "tokenizers",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 161,
+   "project": "grpcio-tools",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 162,
+   "project": "scikit-learn",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 166,
+   "project": "matplotlib",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 167,
+   "project": "orjson",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 169,
+   "project": "pynacl",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 186,
+   "project": "ruamel-yaml",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 192,
+   "project": "kiwisolver",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 193,
+   "project": "bcrypt",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 198,
+   "project": "contourpy",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 201,
+   "project": "docutils",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 204,
+   "project": "jeepney",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 206,
+   "project": "decorator",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 207,
+   "project": "zstandard",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 215,
+   "project": "xxhash",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 218,
+   "project": "uv",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 223,
+   "project": "google-crc32c",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 240,
+   "project": "snowflake-connector-python",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 243,
+   "project": "rapidfuzz",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 252,
+   "project": "librt",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 259,
+   "project": "execnet",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 277,
+   "project": "databricks-sdk",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 285,
+   "project": "psycopg-binary",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 289,
+   "project": "tornado",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 296,
+   "project": "asyncpg",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 304,
+   "project": "fastuuid",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 307,
+   "project": "watchdog",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 308,
+   "project": "playwright",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 310,
+   "project": "safetensors",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 318,
+   "project": "brotli",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 319,
+   "project": "pymupdf",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 320,
+   "project": "pyzmq",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 323,
+   "project": "pymongo",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 324,
+   "project": "lz4",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 328,
+   "project": "cbor2",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 331,
+   "project": "py4j",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 342,
+   "project": "typedload",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 344,
+   "project": "ruamel-yaml-clib",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 349,
+   "project": "griffelib",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 353,
+   "project": "pycryptodome",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 356,
+   "project": "reportlab",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 358,
+   "project": "torch",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 361,
+   "project": "tree-sitter",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 370,
+   "project": "ast-serialize",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 373,
+   "project": "uuid-utils",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 378,
+   "project": "onnxruntime",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 380,
+   "project": "xlrd",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 392,
+   "project": "synchronicity",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 394,
+   "project": "pycodestyle",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 404,
+   "project": "pkginfo",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 407,
+   "project": "shapely",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 408,
+   "project": "py-key-value-aio",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 409,
+   "project": "backports-zstd",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 411,
+   "project": "numba",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 417,
+   "project": "requests-file",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 418,
+   "project": "rich-toolkit",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 421,
+   "project": "argon2-cffi-bindings",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 425,
+   "project": "mmh3",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 427,
+   "project": "pypdfium2",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 428,
+   "project": "llama-parse",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 430,
+   "project": "llama-cloud-services",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 440,
+   "project": "scramp",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 441,
+   "project": "llvmlite",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 443,
+   "project": "grpcio-health-checking",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 452,
+   "project": "duckdb",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 459,
+   "project": "psycopg2",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 462,
+   "project": "triton",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 473,
+   "project": "nbconvert",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 475,
+   "project": "py",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 477,
+   "project": "pycryptodomex",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 478,
+   "project": "polars-runtime-32",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 491,
+   "project": "confluent-kafka",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 494,
+   "project": "zope-interface",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 498,
+   "project": "libcst",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 501,
+   "project": "setproctitle",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 528,
+   "project": "humanfriendly",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 533,
+   "project": "selenium",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 539,
+   "project": "hypothesis",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 540,
+   "project": "antlr4-python3-runtime",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 541,
+   "project": "ray",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 542,
+   "project": "pymssql",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 547,
+   "project": "ormsgpack",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 555,
+   "project": "opencv-python",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 558,
+   "project": "rignore",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 562,
+   "project": "cuda-bindings",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 566,
+   "project": "opencv-python-headless",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 568,
+   "project": "thrift",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 570,
+   "project": "xgboost",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 573,
+   "project": "pyspark",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 574,
+   "project": "passlib",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 576,
+   "project": "fastar",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 580,
+   "project": "pg8000",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 583,
+   "project": "nh3",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 585,
+   "project": "ijson",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 589,
+   "project": "pywin32",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 597,
+   "project": "gevent",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 602,
+   "project": "curl-cffi",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 610,
+   "project": "ddtrace",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 612,
+   "project": "uri-template",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 614,
+   "project": "nvidia-nccl-cu13",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 616,
+   "project": "ty",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 624,
+   "project": "fastavro",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 626,
+   "project": "nvidia-nccl-cu12",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 630,
+   "project": "h5py",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 632,
+   "project": "cuda-toolkit",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 635,
+   "project": "statsmodels",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 636,
+   "project": "widgetsnbextension",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 637,
+   "project": "nvidia-cublas",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 642,
+   "project": "coloredlogs",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 643,
+   "project": "nvidia-cudnn-cu13",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 644,
+   "project": "nvidia-cuda-nvrtc",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 649,
+   "project": "msgspec",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 650,
+   "project": "ipywidgets",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 651,
+   "project": "nvidia-cusparselt-cu13",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 652,
+   "project": "pyodbc",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 653,
+   "project": "nvidia-nvshmem-cu13",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 654,
+   "project": "nvidia-nvjitlink",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 656,
+   "project": "nvidia-cuda-runtime",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 657,
+   "project": "nvidia-cusparse",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 665,
+   "project": "nvidia-cufft",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 666,
+   "project": "nvidia-cusolver",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 668,
+   "project": "lazy-object-proxy",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 670,
+   "project": "nvidia-cuda-cupti",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 673,
+   "project": "nvidia-curand",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 674,
+   "project": "pyroaring",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 680,
+   "project": "nvidia-cufile",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 683,
+   "project": "nvidia-nvtx",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 684,
+   "project": "stevedore",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 686,
+   "project": "ply",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 687,
+   "project": "zopfli",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 688,
+   "project": "rfc3986",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 691,
+   "project": "sentencepiece",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 694,
+   "project": "ml-dtypes",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 704,
+   "project": "pyiceberg",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 706,
+   "project": "cramjam",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 711,
+   "project": "temporalio",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 716,
+   "project": "notebook-shim",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 740,
+   "project": "torchvision",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 741,
+   "project": "crc32c",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 745,
+   "project": "av",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 750,
+   "project": "hiredis",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 751,
+   "project": "nexus-rpc",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 753,
+   "project": "ujson",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 756,
+   "project": "claude-agent-sdk",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 758,
+   "project": "clickhouse-connect",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 767,
+   "project": "unidecode",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 768,
+   "project": "lmnr",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 772,
+   "project": "semgrep",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 780,
+   "project": "llama-index-indices-managed-llama-cloud",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 791,
+   "project": "ninja",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 793,
+   "project": "tree-sitter-languages",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 799,
+   "project": "python-socketio",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 801,
+   "project": "llama-index-llms-openai",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 808,
+   "project": "amazon-ion",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 822,
+   "project": "py-spy",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 824,
+   "project": "tree-sitter-c-sharp",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 825,
+   "project": "scikit-image",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 827,
+   "project": "lupa",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 829,
+   "project": "spacy",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 831,
+   "project": "leather",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 845,
+   "project": "dbt-extractor",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 851,
+   "project": "tree-sitter-javascript",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 855,
+   "project": "thinc",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 857,
+   "project": "lockfile",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 861,
+   "project": "oracledb",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 863,
+   "project": "lightgbm",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 867,
+   "project": "wandb",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 873,
+   "project": "aliyun-trace",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 874,
+   "project": "aliyun-semantic-conventions",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 876,
+   "project": "pyproj",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 879,
+   "project": "pbr",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 880,
+   "project": "murmurhash",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 890,
+   "project": "logfire-api",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 891,
+   "project": "blis",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 897,
+   "project": "cymem",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 899,
+   "project": "preshed",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 902,
+   "project": "srsly",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 905,
+   "project": "uv-build",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 906,
+   "project": "sphinxcontrib-jsmath",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 920,
+   "project": "pybase64",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 921,
+   "project": "spacy-legacy",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 922,
+   "project": "deltalake",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 925,
+   "project": "tree-sitter-c",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 932,
+   "project": "opencv-contrib-python",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 936,
+   "project": "opt-einsum",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 940,
+   "project": "awscrt",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 942,
+   "project": "blake3",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 944,
+   "project": "jpype1",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 951,
+   "project": "tree-sitter-java",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 952,
+   "project": "nvidia-cublas-cu12",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 958,
+   "project": "bitarray",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 961,
+   "project": "time-machine",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 963,
+   "project": "snowplow-tracker",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 964,
+   "project": "nvidia-cudnn-cu12",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 965,
+   "project": "nvidia-cuda-nvrtc-cu12",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 969,
+   "project": "maxminddb",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 971,
+   "project": "nvidia-cusparse-cu12",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 978,
+   "project": "pydub",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 980,
+   "project": "nvidia-nvjitlink-cu12",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 981,
+   "project": "maturin",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 982,
+   "project": "nvidia-cufft-cu12",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 983,
+   "project": "nvidia-cuda-runtime-cu12",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 991,
+   "project": "bs4",
+   "reason": "NO_GITHUB_REPO"
+  },
+  {
+   "rank": 995,
+   "project": "nvidia-cusolver-cu12",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  },
+  {
+   "rank": 998,
+   "project": "nvidia-curand-cu12",
+   "reason": "NO_PY3_NONE_ANY_WHEEL"
+  }
+ ]
+}

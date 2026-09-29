@@ -1,0 +1,12 @@
+[
+  "pallets/jinja",
+  "tkem/cachetools",
+  "astanin/python-tabulate",
+  "more-itertools/more-itertools",
+  "grantjenks/python-sortedcontainers",
+  "dateutil/dateutil",
+  "pallets/click",
+  "theOehrly/Fast-F1",
+  "taurus-org/taurus",
+  "httpie/cli"
+]

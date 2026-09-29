@@ -11,15 +11,25 @@ Mechanical eligibility (each draw is recorded, eligible or not, nothing is redra
   E2 a fix commit is identifiable: the `closed` event references a commit, or a merged PR of the same repository
      cross-references the issue (its merge commit is the fix; the affected commit is the merge commit's first parent).
 Usage: python tools/sample_issues.py --seed 20260929 --pool LIB --eligible 3 --out draws.json
-Unauthenticated GitHub API (search 10/min, core 60/h): calls are counted and the script stops on rate limit.
+Unauthenticated GitHub API (search 10/min, core 60/h). On a rate-limit answer the script waits for the reset time and
+repeats the same call, so waiting never changes the sample. A token in the GITHUB_TOKEN environment variable, if set,
+raises the limits; the script only reads it.
+
+v3 additions (labs/sample-v3/PROTOCOL.md):
+  pool NARROW: the RNG picks one package from --packages (labs/sample-v3/narrow-packages.json), then one closed issue of
+               its repository whose body contains a Python traceback (no label filter).
+  --exclude:   a JSON list of repositories; a draw on one of them is recorded as EXCLUDED_REPO and counts as a draw
+               (NARROW checks the package's repository before searching; LIB/APP check the drawn issue's repository).
 """
 import argparse
 import datetime
 import json
+import os
 import random
 import re
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -28,9 +38,20 @@ TB = re.compile(r"^\s*((?:[A-Za-z_][\w.]*\.)?[A-Za-z_]\w*(?:Error|Exception|Exit
 
 
 def get(path):
-    req = urllib.request.Request(API + path, headers={"Accept": "application/vnd.github+json", "User-Agent": "reprogate-sampler"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.load(r)
+    headers = {"Accept": "application/vnd.github+json", "User-Agent": "reprogate-sampler"}
+    if os.environ.get("GITHUB_TOKEN"):
+        headers["Authorization"] = "Bearer " + os.environ["GITHUB_TOKEN"]
+    while True:
+        try:
+            with urllib.request.urlopen(urllib.request.Request(API + path, headers=headers), timeout=30) as r:
+                return json.load(r)
+        except urllib.error.HTTPError as e:
+            if e.code in (403, 429) and e.headers.get("X-RateLimit-Remaining") == "0":
+                wait = max(5, int(e.headers.get("X-RateLimit-Reset", "0")) - int(time.time()) + 5)
+                print("rate limit, waiting %d s" % wait, file=sys.stderr)
+                time.sleep(wait)
+                continue
+            raise
 
 
 def last_exception(body):
@@ -87,10 +108,34 @@ def pick_app(rng, repos):
     return {"repo": repo, "total": total, "index": idx}, items[idx % 100] if idx % 100 < len(items) else None
 
 
+def pick_narrow(rng, packages, excluded):
+    pkg = rng.choice(packages)
+    repo = pkg["repo"]
+    meta = {"package": pkg["project"], "rank": pkg["rank"], "repo": repo}
+    if repo.lower() in excluded:
+        return meta, "EXCLUDED", None
+    q = 'repo:%s is:issue is:closed "Traceback (most recent call last)" in:body' % repo
+    try:
+        res = search(q)
+    except urllib.error.HTTPError as e:  # 422: repository renamed, removed or not searchable
+        meta["search_error"] = e.code
+        return meta, None, None
+    total = min(res.get("total_count", 0), 1000)
+    meta["total"] = total
+    if not total:
+        return meta, None, None
+    idx = rng.randrange(total)
+    meta["index"] = idx
+    items = res["items"] if idx < 100 else search(q, idx // 100 + 1)["items"]
+    return meta, None, items[idx % 100] if idx % 100 < len(items) else None
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--seed", type=int, required=True)
-    ap.add_argument("--pool", choices=["LIB", "APP"], required=True)
+    ap.add_argument("--pool", choices=["LIB", "APP", "NARROW"], required=True)
+    ap.add_argument("--packages", help="NARROW: the filtered package list")
+    ap.add_argument("--exclude", help="JSON list of excluded repositories (v3)")
     ap.add_argument("--eligible", type=int, default=3)
     ap.add_argument("--max-draws", type=int, default=12)
     ap.add_argument("--out", required=True)
@@ -100,17 +145,28 @@ def main():
     if a.pool == "APP":
         res = get("/search/repositories?q=%s&sort=stars&per_page=30" % urllib.parse.quote("topic:cli language:python stars:>3000"))
         repos = [r["full_name"] for r in res["items"]]
+    packages = json.load(open(a.packages, encoding="utf-8"))["packages"] if a.pool == "NARROW" else []
+    excluded = {r.lower() for r in json.load(open(a.exclude, encoding="utf-8"))} if a.exclude else set()
     draws, ok = [], 0
     while ok < a.eligible and len(draws) < a.max_draws:
-        meta, it = pick_lib(rng) if a.pool == "LIB" else pick_app(rng, repos)
+        flag = None
+        if a.pool == "NARROW":
+            meta, flag, it = pick_narrow(rng, packages, excluded)
+        else:
+            meta, it = pick_lib(rng) if a.pool == "LIB" else pick_app(rng, repos)
         rec = {"draw": len(draws) + 1, "pool": a.pool, "meta": meta}
-        if it is None:
+        if flag == "EXCLUDED":
+            rec["repo"] = meta["repo"]
+            rec["verdict"] = "EXCLUDED_REPO"
+        elif it is None:
             rec["verdict"] = "EMPTY_DRAW"
         else:
             repo = it["repository_url"].split("/repos/")[1]
             rec.update({"repo": repo, "number": it["number"], "title": it["title"], "url": it["html_url"]})
             exc = last_exception(it.get("body") or "")
-            if not exc:
+            if repo.lower() in excluded:
+                rec["verdict"] = "EXCLUDED_REPO"
+            elif not exc:
                 rec["verdict"] = "INELIGIBLE_E1_NO_EXCEPTION_LINE"
             else:
                 rec["exception"] = {"type": exc[0], "message": exc[1]}
