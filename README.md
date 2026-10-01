@@ -24,7 +24,7 @@ This is an early **prototype**, deliberately small:
 
 | item | state |
 |---|---|
-| unit and end-to-end tests (synthetic libraries) | 160 tests on Windows 11 / Python 3.8.10: OK, 11 skipped (5 POSIX-only, 6 Docker) (F-042). Linux / CPython 3.8.20 with Docker ran 152 tests: OK, 0 skipped (F-040); the 160 have not been run on Linux yet |
+| unit and end-to-end tests (synthetic libraries) | 160 tests. Windows 11 / Python 3.8.10: OK, 11 skipped (5 POSIX-only, 6 Docker). Linux / CPython 3.8.20 with Docker: OK, 0 skipped (F-042, 48f93a4) |
 | 9 hand-picked labs on real checkouts (jinja#843, tabulate x2, cachetools x2, more-itertools x2, sortedcontainers, dateutil) | predictions were committed before each run; one prediction missed (more-itertools#707, F-011/F-012, fixed). Linux host mode: labs 2-9 give 33 of 33 predicted rows (F-037). jinja#843: 6 of 6 rows on Windows (also from a fresh clone, with pre-built checkouts) and on Linux |
 | claim provenance checked against the raw issue body | verified for jinja#843 and tabulate#180; more-itertools#707 is INSUFFICIENT under the anchor guard (its `RuntimeError` anchor occurs twice in the raw body); unverified for the other labs (their claims come from fix commits) (F-006, F-010, F-016, F-027) |
 | attacks on the verifier | gate round 2: 9 of 10 predictions held (F-020, F-021). Observation forgery: cheap file forgery closed (F-024), fake frames rejected (F-026), a reproducer that imitates the protocol with a real file, function and line still passes (b05, F-030). Round 3 (dependency tampering, `sitecustomize`, poisoned dependency, malicious issue): no false accept in host or Docker mode, but the malicious-issue claim is rejected only by the before/after oracle (F-028, F-031) |
