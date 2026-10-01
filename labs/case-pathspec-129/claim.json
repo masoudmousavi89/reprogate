@@ -1,0 +1,16 @@
+{
+  "schema_version": "0.1-proto",
+  "issue": {"repo": "cpburnz/python-pathspec", "number": 129},
+  "claim": {
+    "kind": "wrong_output",
+    "target": {"file": "pathspec/pathspec.py", "function": "match_file"},
+    "input": "GitIgnoreSpec.from_lines([\"build\", \"!keep.log\"]).match_file(\"build/keep.log\")",
+    "expected": "True",
+    "actual": "False"
+  },
+  "anchors": [
+    {"field": "target_function", "text": "match_file"},
+    {"field": "actual", "text": "-> False"},
+    {"field": "expected", "text": "should be ignored"}
+  ]
+}
