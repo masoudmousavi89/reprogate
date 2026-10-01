@@ -68,3 +68,12 @@ prints `ERROR: claim changed after freezing ...`, exits with code 2 and writes n
 
 Not covered: Linux and Docker were not run for this change; a claim edited together with a recomputed claim_sha256 still
 passes (h07, stated before the run); the other frozen artifacts of a bundle were not re-checked here.
+
+## Linux results (recorded after the run)
+Linux container, uv CPython 3.8.20, Docker daemon running (stale pid and socket files removed first), image `mirror.gcr.io/library/python:3.8-slim`,
+2026-10-01, commit f89e6ff. No code changed.
+
+- Full suite: `Ran 160 tests`, `OK`, 0 skipped (the 5 POSIX-only and the 6 Docker tests ran).
+- `labs/claim-hash/cases.py`: 12 of 12 lines equal the predictions for the change (h00, h07, h10 VERIFIED; h01, h02, h03, h04, h06, h08, h11
+  ValueError; h05 INSUFFICIENT; h09 UNVERIFIED_ALLOWED). 0 misses.
+- Not run here: the jinja-843 lab, the CLI exit-code check, Docker mode of the change; h07 (claim edited with a recomputed hash) still passes by design.
