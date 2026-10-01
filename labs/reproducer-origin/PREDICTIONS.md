@@ -56,4 +56,19 @@ prove that file is really the issue's code block (that would need a span in the 
 - Lab #1 (`run_lab001.ps1`): unchanged rows 6 of 6 (it uses the default origin, which stays valid).
 
 ## Results (recorded after the run)
-(to be filled in after the run)
+Windows 11 / Python 3.8.10, 2026-10-01, predictions pushed first as 1b644ee.
+
+Baseline (before the code change): every line as predicted (o00, o05, o06 ran with evidence=None; o01, o02, o03, o04, o07
+TypeError; o08 and o10 had no bundle with the new fields). o05 is the gap: a verbatim label was accepted with no source.
+
+After the change: all lines as predicted, 0 misses (o00 NONE; o01 and o02 SOURCE_AND_DIFF with the diff non-empty and empty
+respectively; o03 IDENTICAL_TO_SOURCE; o04, o05, o07 ValueError with no outcome.json; o06 NOT_APPLICABLE; o08 hashes_ok=False
+problems=1; o09 hashes_ok=True same_outcome=True; o10a 0, o10b 1, o10c 1, o10d 0, o10e 1 violations).
+
+170 unit tests OK, 11 skipped (5 POSIX-only, 6 Docker): the 160 existing plus 10 new in tests/test_reproducer_origin.py
+(including the CLI check: `run` with ISSUE_VERBATIM_SNIPPET and no source exits with code 2 and writes no outcome.json).
+jinja-843 lab on the real checkouts: 6 of 6 rows equal to expected_outcomes.json, provenance_sufficient True.
+
+Not covered: Linux and Docker were not run for this change; the source file is whatever the maintainer supplies, so byte
+equality does not prove it is the issue's real code block; an AGENT_ADAPTED label with an unrelated source is accepted
+(the diff is for a human to read); the tool does not yet extract the snippet from the raw issue body.

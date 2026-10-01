@@ -1,4 +1,5 @@
 """Orchestration: gate -> environment freeze -> repeated fresh runs -> match -> outcome -> evidence."""
+import difflib
 import os
 import shutil
 import tempfile
@@ -95,18 +96,57 @@ def _run_record(index, raw, claim, tree_before, tree_after_hash):
     return rec
 
 
+ORIGIN_VERBATIM = "ISSUE_VERBATIM_SNIPPET"
+ORIGIN_ADAPTED = "AGENT_ADAPTED"
+
+
+def _origin_evidence(origin, origin_source, repro_bytes, repro_name):
+    """F-043: what the origin label is backed by. Returns (evidence, source bytes or None, diff bytes or None).
+    A verbatim snippet must be byte-identical to the supplied source; an adaptation keeps the source and a diff."""
+    src = None
+    if origin_source is not None:
+        with open(origin_source, "rb") as f:
+            src = f.read()
+    if origin == ORIGIN_VERBATIM:
+        if src is None:
+            raise ValueError("origin ISSUE_VERBATIM_SNIPPET needs --origin-source (the text the reproducer is copied from)")
+        if src != repro_bytes:
+            raise ValueError("origin ISSUE_VERBATIM_SNIPPET requires the reproducer to be byte-identical to "
+                             "--origin-source; it is not (use AGENT_ADAPTED for an adapted snippet)")
+        return "IDENTICAL_TO_SOURCE", src, None
+    if origin == ORIGIN_ADAPTED:
+        if src is None:
+            return "NONE", None, None  # an adaptation with no recorded source: allowed, recorded as not documented
+        diff = "".join(difflib.unified_diff(
+            src.decode("utf-8", "replace").splitlines(True), repro_bytes.decode("utf-8", "replace").splitlines(True),
+            fromfile="origin/source.txt", tofile="reproducer/" + repro_name))
+        return "SOURCE_AND_DIFF", src, diff.encode("utf-8")
+    if src is not None:
+        raise ValueError("--origin-source only applies to origins ISSUE_VERBATIM_SNIPPET and AGENT_ADAPTED")
+    return "NOT_APPLICABLE", None, None
+
+
 def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, min_completed=3,
              gate=True, allow_unverified_provenance=False, origin="AGENT_ADAPTED", attempts=0,
-             base_seed=1000, pythonpath_extra=None, sandbox=None, in_oracle=False, env_template=None):
+             base_seed=1000, pythonpath_extra=None, sandbox=None, in_oracle=False, env_template=None,
+             origin_source=None):
     """Evaluate one reproducer against one checkout. Returns the outcome dict (also written to out_dir)."""
     prov = provenance_state(claim_doc, allow_unverified_provenance)  # may raise ValueError
     claim_status, claim_note = claims.support(claim_doc["claim"])  # F-039: unknown kinds are UNSUPPORTED
     claim_kind = claims.kind(claim_doc["claim"])
     watch = claims.watch_target(claim_doc["claim"]) if claim_kind == claims.KIND_WRONG_OUTPUT else None
-    os.makedirs(out_dir, exist_ok=True)
     with open(repro_path, "rb") as f:
         repro_bytes = f.read()
     repro_name = os.path.basename(repro_path)
+    origin_evidence, origin_src, origin_diff = _origin_evidence(origin, origin_source, repro_bytes, repro_name)  # may raise
+    os.makedirs(out_dir, exist_ok=True)
+    if origin_src is not None:
+        os.makedirs(os.path.join(out_dir, "origin"), exist_ok=True)
+        with open(os.path.join(out_dir, "origin", "source.txt"), "wb") as f:
+            f.write(origin_src)
+        if origin_diff is not None:
+            with open(os.path.join(out_dir, "origin", "adaptation.diff"), "wb") as f:
+                f.write(origin_diff)
     os.makedirs(os.path.join(out_dir, "reproducer"), exist_ok=True)
     with open(os.path.join(out_dir, "reproducer", repro_name), "wb") as f:
         f.write(repro_bytes)
@@ -180,7 +220,12 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
         "reproducer_sha256": gate_res["reproducer_sha256"], "claim_sha256": claim_doc.get("claim_sha256"),
         # F-015/F-020: a single run can be a false positive; only a passing before/after oracle is evidence
         "oracle_required": (not in_oracle) and agg["outcome"] in (C.SYMPTOM_REPRODUCED, C.SYMPTOM_REPRODUCED_FLAKY),
+        "reproducer_origin_evidence": origin_evidence,
     }
+    if origin_src is not None:
+        outcome["reproducer_origin_source_sha256"] = sha256_bytes(origin_src)
+    if origin_diff is not None:
+        outcome["reproducer_origin_diff_sha256"] = sha256_bytes(origin_diff)
     write_json(os.path.join(out_dir, "outcome.json"), outcome)
     write_hashes(out_dir)
     return outcome
@@ -245,7 +290,9 @@ def replay(bundle, repo, python, runs=None, timeout=30, sandbox=None, env_templa
                        runs=runs or rec["runs_requested"], timeout=timeout,
                        min_completed=rec["min_completed"], allow_unverified_provenance=True,
                        origin=rec["reproducer_origin"], attempts=rec["attempts_before_submission"], sandbox=sandbox,
-                       env_template=env_template)
+                       env_template=env_template,
+                       origin_source=(os.path.join(bundle, "origin", "source.txt")
+                                      if os.path.isfile(os.path.join(bundle, "origin", "source.txt")) else None))
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     report["replay_outcome"] = [new["outcome"], new["outcome_reason"]]

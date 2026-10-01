@@ -37,6 +37,7 @@ GATE_REASON = {
     C.GATE_NOT_AUDITABLE: C.REPRODUCER_NOT_AUDITABLE,
 }
 
+ORIGIN_EVIDENCE = ("IDENTICAL_TO_SOURCE", "SOURCE_AND_DIFF", "NONE", "NOT_APPLICABLE")
 REQUIRED = ("outcome", "outcome_reason", "outcome_qualifier", "claim_status", "reproducer_status", "run_status",
             "counts", "min_completed", "claim_provenance")
 COUNT_KEYS = ("total", "completed", "env_failures", "timeouts", "invalid", "matching", "clean_completion_runs")
@@ -158,4 +159,17 @@ def validate_outcome(o):
         v.append("QUALIFIER: outcome_qualifier PROVENANCE_UNVERIFIED must be set exactly when claim_provenance is UNVERIFIED_ALLOWED")
     if o.get("oracle_required") is True and outcome not in (C.SYMPTOM_REPRODUCED, C.SYMPTOM_REPRODUCED_FLAKY):
         v.append("ORACLE: oracle_required is true but the outcome is %s" % outcome)
+
+    # F-043: reproducer origin evidence (optional, so outcomes recorded before it stay valid)
+    ev = o.get("reproducer_origin_evidence")
+    if ev is not None:
+        if ev not in ORIGIN_EVIDENCE:
+            v.append("ORIGIN: reproducer_origin_evidence=%r is not one of %s" % (ev, list(ORIGIN_EVIDENCE)))
+        elif ev == "IDENTICAL_TO_SOURCE":
+            if o.get("reproducer_origin_source_sha256") != o.get("reproducer_sha256"):
+                v.append("ORIGIN: IDENTICAL_TO_SOURCE requires reproducer_origin_source_sha256 equal to reproducer_sha256")
+        elif ev == "SOURCE_AND_DIFF":
+            if not (isinstance(o.get("reproducer_origin_source_sha256"), str)
+                    and isinstance(o.get("reproducer_origin_diff_sha256"), str)):
+                v.append("ORIGIN: SOURCE_AND_DIFF requires reproducer_origin_source_sha256 and reproducer_origin_diff_sha256")
     return v

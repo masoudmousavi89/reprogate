@@ -66,6 +66,8 @@ def _common_run_args(p):
     p.add_argument("--allow-unverified-provenance", action="store_true")
     p.add_argument("--origin", default="AGENT_ADAPTED",
                    choices=["ISSUE_VERBATIM_SNIPPET", "AGENT_ADAPTED", "AGENT_AUTHORED", "HUMAN_AUTHORED"])
+    p.add_argument("--origin-source", help="file the reproducer is taken from (for example the issue code block): required for "
+                                           "ISSUE_VERBATIM_SNIPPET (must be byte-identical), diffed for AGENT_ADAPTED")
     p.add_argument("--attempts", type=int, default=0)
     p.add_argument("--pythonpath-extra", action="append", default=[])
     _env_template_arg(p)
@@ -87,7 +89,7 @@ def _kw(a):
     return dict(runs=a.runs, timeout=a.timeout, min_completed=a.min_completed,
                 allow_unverified_provenance=a.allow_unverified_provenance, origin=a.origin,
                 attempts=a.attempts, pythonpath_extra=a.pythonpath_extra, sandbox=_sandbox(a),
-                env_template=a.env_template)
+                env_template=a.env_template, origin_source=a.origin_source)
 
 
 def cmd_claim_check(a):
