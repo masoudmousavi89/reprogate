@@ -16,8 +16,8 @@ Remaining work in the alpha:
 - **Environment:** build the target environment from a read-only wheelhouse without network, record its tree hash
   before the first run and check it before every run; a failing build or import is `ENV_FAILURE`.
 - **Reproducer origin:** record whether the reproducer is a verbatim issue snippet, adapted, or written from scratch,
-  with a diff and hash for any adaptation. Done on Windows (F-043, `--origin-source`); a verbatim label must be byte-identical
-  to its source. Still open: Linux, and extracting the snippet from the raw issue body.
+  with a diff and hash for any adaptation. Done (F-043, `--origin-source`, Windows and Linux); a verbatim label must be byte-identical
+  to its source. Still open: extracting the snippet from the raw issue body.
 - **`wrong_output` on real bugs:** a small pilot under a protocol committed before the run, with the regression tests
   that the project's own maintainers added in the fix as the answer key. Status stays EXPERIMENTAL.
 - **Human-label protocol:** a document that labels claim faithfulness, same-bug alignment and evidence sufficiency
