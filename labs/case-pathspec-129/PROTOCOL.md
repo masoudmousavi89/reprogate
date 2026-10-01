@@ -120,3 +120,38 @@ changes its bytes. The body has LF line endings only. The code block of the issu
 
 The claim, the predictions, the method and the result labels are unchanged. The result of attempt 1 stays on record above. Attempt 2 runs steps 4 and 5
 only; the answer key (step 3) was run in attempt 1 and is not repeated. The partial miss of attempt 1 stands: test `_c` passes before and after the fix.
+
+## Results of attempt 2
+
+Run 2026-10-01 by the cloud session, steps 4 and 5 only (the answer key of attempt 1 was not repeated). Label: **TOOL_AGREES**.
+
+**Environment.** Linux container, uv CPython 3.9.23, fresh venv with no packages, host mode (`--allow-host-execution`), project checkouts of
+`cpburnz/python-pathspec` BEFORE `93e0179cb2d7a6d830050c62f3eab950b9263bf3` and AFTER `f404ca47871a9f2f854bbadc5cb3d77155f64db3` (rev-parse equal), project not
+installed, no optional backends. The committed raw issue body was used (not fetched): `labs/case-pathspec-129/issue129.body.md`, sha256 `256c2e87...fb5451` (equals the
+pinned value). The first ```python block under "## Repro" was cut byte for byte: 164 bytes, sha256 `49f44db1...9f00b8` (equals the pinned value) for both `repro.py` and
+`origin-source.txt`; the file has no carriage returns. Reproducer: `from pathspec import GitIgnoreSpec`, `spec = GitIgnoreSpec.from_lines(["build", "!keep.log"])`,
+`spec.match_file("build/keep.log")   # -> False (treated as NOT ignored)`.
+
+**(a) frozen claim.** `claim-check` printed anchors `target_function` REJECTED / AMBIGUOUS (occurrences=3), `actual` EXACT_QUOTE (382-390), `expected` EXACT_QUOTE (438-455),
+`provenance_sufficient: False`, wrote `claim.frozen.json` and exited with code 1. The oracle then printed
+`before: ['INCONCLUSIVE', 'CLAIM_PROVENANCE_INSUFFICIENT'] | after: ['NO_MATCHING_REPRODUCTION_FOUND', 'NONE'] | post-fix: CLEAN_COMPLETION` and `ORACLE FAIL` (exit 1).
+Before: 5 of 5 runs COMPLETED and matching (counts completed 5, matching 5, clean 0), no qualifier, `claim_provenance: INSUFFICIENT`, return `False` from a TARGET frame
+(`pathspec/pathspec.py`, `match_file`); after: 5 clean completions, return `True` from a TARGET frame; gate VALID; `claim_kind` wrong_output, maturity EXPERIMENTAL;
+`reproducer_origin` ISSUE_VERBATIM_SNIPPET, `reproducer_origin_evidence` IDENTICAL_TO_SOURCE.
+
+**(b) unfrozen claim, `--allow-unverified-provenance`.** The oracle printed
+`before: ['SYMPTOM_REPRODUCED', 'NONE'] | after: ['NO_MATCHING_REPRODUCTION_FOUND', 'NONE'] | post-fix: CLEAN_COMPLETION` and `ORACLE PASS` (exit 0).
+Before: 5 of 5 COMPLETED and matching (clean 0), qualifier `PROVENANCE_UNVERIFIED`, `claim_provenance: UNVERIFIED_ALLOWED`, return `False` from a TARGET frame
+(`pathspec/pathspec.py`, `match_file`); after: 5 of 5 clean completions, return `True` from the same TARGET frame; gate VALID; maturity EXPERIMENTAL;
+`reproducer_origin_evidence` IDENTICAL_TO_SOURCE. `oracle_required` is false inside both oracle bundles (by design: it is true only for a plain `run` outcome).
+Together with the answer key of attempt 1 (the AFTER tests `_a` and `_b` fail on the BEFORE code and pass on AFTER; `_c`, a guard, passes on both), the label is TOOL_AGREES.
+
+**Predictions (not edited):**
+- (a) INCONCLUSIVE / CLAIM_PROVENANCE_INSUFFICIENT before, oracle does not pass, `provenance_sufficient` False: **held**. The stated cause ("needs an `exception_type`
+  anchor") is **not confirmed**: the only anchor the check reported as rejected is `target_function`, AMBIGUOUS because `match_file` occurs 3 times in the issue body; `actual` and `expected`
+  are exact. Whether the missing `exception_type` rule would also reject this claim was not tested.
+- (b) SYMPTOM_REPRODUCED 5 of 5, return `False` from an authentic TARGET frame of `PathSpec.match_file` before; clean completion with return `True` after; oracle PASS;
+  qualifier PROVENANCE_UNVERIFIED: **held**. The part "`oracle_required` is true for the single run outcome" was **not tested** (no plain `run` was made; it is false inside oracle bundles).
+- Origin `IDENTICAL_TO_SOURCE`: **held**. Static gate VALID: **held**.
+- Answer key: not repeated here (see attempt 1).
+- 0 misses. This is one bug chosen knowing it fits, with the reproducer taken from the issue itself; it says nothing about coverage or accuracy, and the tool stays EXPERIMENTAL.
