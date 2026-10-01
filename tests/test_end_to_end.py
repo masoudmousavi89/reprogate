@@ -51,6 +51,18 @@ class EndToEnd(unittest.TestCase):
         self.assertFalse(r["oracle_pass"])
         self.assertEqual(r["post_fix_classification"], "ENV_FAILURE")
 
+    def test_claim_edited_after_freezing_is_rejected_before_any_run(self):
+        # F-042: the stored claim hash is recomputed; nothing is executed for a tampered frozen claim
+        import copy
+        tampered = copy.deepcopy(self.claim)
+        tampered["claim"]["message"] = "something else"
+        repro = H.write_repro(self.tmp, "tampered.py", H.GOOD_REPRO)
+        out = os.path.join(self.tmp, "ev-tampered")
+        with self.assertRaises(ValueError) as cm:
+            evaluate(self.buggy, H.PYTHON, tampered, repro, out, **FAST)
+        self.assertIn("changed after freezing", str(cm.exception))
+        self.assertFalse(os.path.exists(os.path.join(out, "outcome.json")))
+
     # ---- fake / gamed reproducers
     def test_direct_raise_rejected_and_never_executed(self):
         o = self.run_case("f_raise", "from minilib import Box\nraise IndexError('pop from an empty deque')\n")

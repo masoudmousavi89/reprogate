@@ -93,5 +93,65 @@ class ClaimHashTests(unittest.TestCase):
         self.assertNotEqual(short["claim_sha256"], absent["claim_sha256"])
 
 
+
+class FrozenClaimCheckTests(unittest.TestCase):
+    """F-042: a frozen claim edited afterwards is rejected; sufficiency is recomputed from the anchors."""
+
+    @staticmethod
+    def frozen(anchors=(TYPE, MSG, FILE, FUNC)):
+        claim = {"kind": "exception", "exception_type": "IndexError", "message": "pop from an empty deque"}
+        return provenance.check_claim({"claim": claim, "anchors": list(anchors)}, BODY)
+
+    def state(self, doc):
+        return provenance.provenance_state(doc, False)
+
+    def test_unmodified_frozen_claim_is_verified(self):
+        self.assertEqual(self.state(self.frozen()), "VERIFIED")
+
+    def test_edits_after_freezing_are_rejected(self):
+        edits = {
+            "claim message": lambda d: d["claim"].update(message="something else"),
+            "anchor text": lambda d: d["anchors"][1].update(text="another text"),
+            "issue body hash": lambda d: d["issue"].update(body_sha256="0" * 64),
+            "hash removed": lambda d: d.pop("claim_sha256"),
+            "hash of the wrong type": lambda d: d.update(claim_sha256=123),
+        }
+        for name, edit in edits.items():
+            doc = self.frozen()
+            edit(doc)
+            with self.assertRaises(ValueError, msg=name) as cm:
+                self.state(doc)
+            self.assertIn("changed after freezing", str(cm.exception), name)
+
+    def test_inferred_anchor_flipped_to_exact_by_hand_is_rejected(self):
+        doc = self.frozen([TYPE, {"field": "message", "text": "not in the issue text"}])
+        doc["anchors"][1].update(provenance=EXACT, found=True)
+        with self.assertRaises(ValueError):
+            self.state(doc)
+
+    def test_sufficiency_is_recomputed_not_read_from_the_flag(self):
+        doc = self.frozen([TYPE])
+        self.assertFalse(doc["provenance_sufficient"])
+        doc["provenance_sufficient"] = True
+        self.assertEqual(self.state(doc), "INSUFFICIENT")
+
+    def test_fields_outside_the_hash_stay_editable(self):
+        doc = self.frozen()
+        doc["note"] = "free text"
+        self.assertEqual(self.state(doc), "VERIFIED")
+
+    def test_known_limit_edit_plus_recomputed_hash_passes(self):
+        doc = self.frozen()
+        doc["claim"]["message"] = "something else"
+        doc["claim_sha256"] = provenance.claim_hash(doc)
+        self.assertEqual(self.state(doc), "VERIFIED")
+
+    def test_unverified_documents_keep_their_behaviour(self):
+        doc = {"claim": {"kind": "exception"}, "anchors": [TYPE]}
+        with self.assertRaises(ValueError):
+            provenance.provenance_state(doc, False)
+        self.assertEqual(provenance.provenance_state(doc, True), "UNVERIFIED_ALLOWED")
+
+
 if __name__ == "__main__":
     unittest.main()

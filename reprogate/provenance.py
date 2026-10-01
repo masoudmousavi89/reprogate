@@ -78,7 +78,12 @@ def claim_hash(doc):
 def provenance_state(doc, allow_unverified):
     """VERIFIED | INSUFFICIENT | UNVERIFIED_ALLOWED. Raises ValueError if unverified and not allowed."""
     if doc.get("provenance_verified"):
-        return "VERIFIED" if doc.get("provenance_sufficient") else "INSUFFICIENT"
+        # F-042: the stored hash is recomputed, and sufficiency comes from the anchors, not from the stored flag.
+        stored = doc.get("claim_sha256")
+        if not isinstance(stored, str) or stored != claim_hash(doc):
+            raise ValueError("claim changed after freezing: claim_sha256 is missing or does not match the claim, "
+                             "its anchors and the issue snapshot. Run 'claim-check' again on the raw issue body.")
+        return "VERIFIED" if _sufficient(doc.get("anchors", [])) else "INSUFFICIENT"
     if allow_unverified:
         return "UNVERIFIED_ALLOWED"
     raise ValueError(

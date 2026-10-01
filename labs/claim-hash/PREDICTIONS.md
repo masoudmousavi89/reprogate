@@ -53,4 +53,18 @@ are the other checks.
   (decision_051, no compatibility shim).
 
 ## Results (recorded after the run)
-(to be filled in after the run)
+Windows 11 / Python 3.8.10, 2026-10-01, predictions pushed first as 9df5b27.
+
+Baseline (before the code change): 12 of 12 predictions held (h01, h02, h04, h05, h06, h11 VERIFIED, i.e. the gap; h03
+INSUFFICIENT; h07, h10 VERIFIED; h08 ValueError; h09 UNVERIFIED_ALLOWED).
+
+After the change: 12 of 12 predictions held (h00, h07, h10 VERIFIED; h01, h02, h03, h04, h06, h11 ValueError; h05
+INSUFFICIENT; h08 ValueError; h09 UNVERIFIED_ALLOWED). 0 misses.
+
+160 unit tests OK, 11 skipped (5 POSIX-only, 6 Docker): the 152 existing tests plus 8 new ones (7 in
+tests/test_provenance.py, 1 evaluate() case in tests/test_end_to_end.py). jinja-843 lab on the real checkouts: 6 of 6
+rows equal to expected_outcomes.json, provenance_sufficient True. CLI: `run` with a frozen claim whose message was edited
+prints `ERROR: claim changed after freezing ...`, exits with code 2 and writes no outcome.json.
+
+Not covered: Linux and Docker were not run for this change; a claim edited together with a recomputed claim_sha256 still
+passes (h07, stated before the run); the other frozen artifacts of a bundle were not re-checked here.
