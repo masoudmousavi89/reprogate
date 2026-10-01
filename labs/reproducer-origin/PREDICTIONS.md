@@ -72,3 +72,13 @@ jinja-843 lab on the real checkouts: 6 of 6 rows equal to expected_outcomes.json
 Not covered: Linux and Docker were not run for this change; the source file is whatever the maintainer supplies, so byte
 equality does not prove it is the issue's real code block; an AGENT_ADAPTED label with an unrelated source is accepted
 (the diff is for a human to read); the tool does not yet extract the snippet from the raw issue body.
+
+## Linux results (recorded after the run)
+Linux container, uv CPython 3.8.20, Docker daemon running (stale pid and socket files removed first), image `mirror.gcr.io/library/python:3.8-slim`,
+commit 79635e4. No code changed.
+
+- Full suite: `Ran 170 tests`, `OK`, 0 skipped (the 5 POSIX-only and the 6 Docker tests ran).
+- `labs/reproducer-origin/cases.py`: 15 of 15 lines equal the predictions for the change (o00-o03, o06 ok with the predicted evidence value and files;
+  o04, o05, o07 ValueError with no outcome.json; o08 `hashes_ok=False problems=1`; o09 `hashes_ok=True same_outcome=True`; o10a and o10d 0 violations;
+  o10b, o10c, o10e 1 violation). 0 misses.
+- Not run here: Lab #1 (`run_lab001`), Docker mode of the change.
