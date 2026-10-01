@@ -75,4 +75,37 @@ desktop session reviews the commit.
 - The run happens on Linux only. No threshold, no percentage, and no accuracy claim comes out of this case.
 
 ## Results (recorded after the run)
-(to be filled in after the run)
+Run 2026-10-01 by the cloud session. Label: **ENV_FAILED** (the raw issue body could not be fetched, so the reproducer could not be extracted
+byte for byte and the tool (steps 4-5) was not run). Only the answer key (step 3) was run.
+
+**Environment.** Linux container, uv CPython 3.9.23, fresh venv with no packages installed (the project has no runtime dependencies; hyperscan and re2 are not
+installed), the project checkouts on `PYTHONPATH`, project not installed. Clone of `cpburnz/python-pathspec` succeeded; BEFORE =
+`93e0179cb2d7a6d830050c62f3eab950b9263bf3`, AFTER = `f404ca47871a9f2f854bbadc5cb3d77155f64db3` (both `git rev-parse` equal to the protocol).
+
+**Answer key (step 3)**, `python -m unittest tests.test_06_gitignore.GitIgnoreSpecTest.test_10_issue_129_a ..._b ..._c`:
+- AFTER (merge commit): `Ran 3 tests`, `OK (skipped=18)`. The 18 skips are sub-tests of the optional backends (9 "No module named 're2'", 9 "No module named
+  'hyperscan'"); the pure-Python backends ran.
+- BEFORE (affected commit), literal run: `Ran 3 tests`, `FAILED (errors=3)`: `AttributeError: type object 'GitIgnoreSpecTest' has no attribute
+  'test_10_issue_129_a'` (and `_b`, `_c`), because the three tests are added by the pull request and do not exist at the affected commit. This is not a
+  behavioural failure.
+- BEFORE code with the AFTER `tests/` directory (operator interpretation, recorded separately; run in a copy, the checkouts were not touched): `Ran 3 tests`,
+  `FAILED (failures=4, skipped=18)`: test `_a` fails in the sub-tests `simple (unopt)` and `simple (minopt)`, test `_b` fails in the same two sub-tests
+  (missing `build/keep.log` and `a/b/keep.log` from the ignored set); test `_c` passes. No dev dependency was missing.
+
+**Step 4 (issue body).** `python tools/fetch_issue.py --repo cpburnz/python-pathspec --number 129 --out issue129` printed
+`could not fetch https://api.github.com/repos/cpburnz/python-pathspec/issues/129: HTTP Error 403: Forbidden`. A plain request for
+`https://github.com/cpburnz/python-pathspec/issues/129` through the same proxy also returned HTTP 403. Without `issue129.body.md` the first ```python block
+under "## Repro" cannot be extracted byte for byte; writing it from the protocol's one-line quotation would not be verbatim, so no `repro.py` or
+`origin-source.txt` was made and no `claim-check` or `oracle` run (a) or (b) was done. No result of the tool exists for this case.
+
+**Predictions (not edited):**
+- (a) frozen claim, INCONCLUSIVE/CLAIM_PROVENANCE_INSUFFICIENT: not tested (no issue body).
+- (b) unverified run, SYMPTOM_REPRODUCED 5 of 5, return `False` before / `True` after, oracle PASS, qualifier, `oracle_required`: not tested (no reproducer).
+- Origin `IDENTICAL_TO_SOURCE`, static gate VALID: not tested.
+- Answer key "the three tests fail on the affected commit and pass on the merge commit": **miss in part**. They pass on the merge commit (held). On the
+  affected commit the literal run errors because the tests do not exist there, and with the merge commit's tests on the affected code only `_a` and `_b` fail;
+  `_c` (the re-inclusion guard that "must keep working") passes before and after.
+- Optional-backend sub-tests: recorded, not predicted: skipped without re2 and hyperscan (18 skips).
+
+**What is needed to finish.** The raw body of issue 129 (any copy, for example saved from the desktop machine) placed as `issue129.body.md`; then steps 4-5 can be
+run unchanged on this environment (scratch checkouts and venv are recreated in minutes).
