@@ -18,8 +18,9 @@ Remaining work in the alpha:
 - **Reproducer origin:** record whether the reproducer is a verbatim issue snippet, adapted, or written from scratch,
   with a diff and hash for any adaptation. Done (F-043, `--origin-source`, Windows and Linux); a verbatim label must be byte-identical
   to its source. Still open: extracting the snippet from the raw issue body.
-- **`wrong_output` on real bugs:** a small pilot under a protocol committed before the run, with the regression tests
-  that the project's own maintainers added in the fix as the answer key. Status stays EXPERIMENTAL.
+- **`wrong_output` on real bugs:** two pilots under protocols committed before the run found no evaluable candidate (F-041,
+  F-044); one case study ran end to end on a real bug chosen knowing it fits (F-045). Open: provenance sufficiency is not
+  defined for `wrong_output` claims (F-046), and the claim format takes Python literals only. Status stays EXPERIMENTAL.
 - **Human-label protocol:** a document that labels claim faithfulness, same-bug alignment and evidence sufficiency
   separately, records disagreements, and names maintainer-only labels a preliminary annotation.
 - **Measurement:** the stop / continue verdict is due by 2026-10-13 (`STOP_CRITERIA.md`).

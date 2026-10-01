@@ -14,7 +14,8 @@ This is an early **prototype**, deliberately small:
 
 - Python 3.8+ and the standard library only (Docker is optional and only used by the sandbox mode).
 - Claim kinds: `exception` (a call raises the reported exception); `wrong_output` (a function returns a wrong value)
-  is EXPERIMENTAL, version 1, tested on synthetic cases only (F-039, F-040); every other kind is UNSUPPORTED.
+  is EXPERIMENTAL, version 1, tested on synthetic cases and on one real bug chosen knowing it fits (F-039, F-040, F-045);
+  every other kind is UNSUPPORTED.
 - Runs reproducers as plain host processes by default (no sandbox); `--sandbox docker` runs them in a network-less,
   read-only container (Linux); `--env-template` gives every host-mode run a fresh copy of the environment (F-032).
 - It exists to answer one question with real data: can an independent verifier tell a real reproduction, a clean fix,
@@ -31,6 +32,7 @@ This is an early **prototype**, deliberately small:
 | Docker sandbox runner (`--sandbox docker`) | Linux only; same outcomes as host mode on the labs (F-017, F-037); the harness still runs in the reproducer's process (`observation_integrity: BEST_EFFORT_IN_PROCESS`) |
 | evidence bundles | `inspect` and `verify` check hashes, cross-field invariants and bundle structure; exit code 1 = invalid bundle or failed verify, 2 = incomplete input (F-029, F-035, F-036) |
 | random samples of bugs the maintainer did not choose | `labs/sample-2026-09/`: 4 issues drawn, 1 executed, inconclusive (F-022). `labs/sample-v3/`: coverage M4 = 6 of 30 = 20 %, below the pre-registered 25 %, so work moved to `wrong_output`; M1/M2 not measured (see below) |
+| `wrong_output` on real bugs | two pilots found no evaluable candidate (30 issues, 40 pull requests; F-041, F-044). One case study on python-pathspec #129, chosen knowing it fits (not blind): on Linux / CPython 3.9 the before/after oracle passed (before the fix the call returns `False` from an authentic target frame in 5 of 5 runs, after it `True`, clean) and the maintainers' regression tests agree; with the claim frozen by `claim-check` the outcome is INCONCLUSIVE, because provenance sufficiency is defined for exception claims only (F-045, F-046). One bug says nothing about coverage or accuracy |
 | environment trust, signing, automatic claim extraction, an investigator agent, `unexpected_exit` | not implemented (`environment_trust: UNVERIFIED`); see `ROADMAP.md` |
 
 The hand-picked labs were chosen by the author, are pure-Python libraries and use exception claims only. They are not a

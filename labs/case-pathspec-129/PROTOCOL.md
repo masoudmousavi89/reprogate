@@ -155,3 +155,11 @@ Together with the answer key of attempt 1 (the AFTER tests `_a` and `_b` fail on
 - Origin `IDENTICAL_TO_SOURCE`: **held**. Static gate VALID: **held**.
 - Answer key: not repeated here (see attempt 1).
 - 0 misses. This is one bug chosen knowing it fits, with the reproducer taken from the issue itself; it says nothing about coverage or accuracy, and the tool stays EXPERIMENTAL.
+
+## Desktop check of the cause of (a) (after the run, not a prediction)
+
+The cloud session reported the stated cause of (a) as not confirmed, because the only rejected anchor was the ambiguous `target_function`. A pure call of
+`check_claim` on the committed body with a unique anchor for the target (the text "Root cause", which occurs once) gives all three anchors EXACT_QUOTE and still
+`provenance_sufficient = False`: `_sufficient` in `reprogate/provenance.py` requires an `exception_type` anchor and a `message` or `location_file`
+anchor, which a `wrong_output` claim never has. So the predicted cause holds: a frozen `wrong_output` claim can never be sufficient. The ambiguity of
+`match_file` (3 occurrences) was an additional, harmless rejection.
