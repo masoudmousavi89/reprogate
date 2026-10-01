@@ -109,3 +109,14 @@ under "## Repro" cannot be extracted byte for byte; writing it from the protocol
 
 **What is needed to finish.** The raw body of issue 129 (any copy, for example saved from the desktop machine) placed as `issue129.body.md`; then steps 4-5 can be
 run unchanged on this environment (scratch checkouts and venv are recreated in minutes).
+
+## Deviation after the first attempt (2026-10-01, desktop session)
+
+Attempt 1 ended `ENV_FAILED` for a reason that has nothing to do with the tool: the cloud environment cannot reach the GitHub API, so it could not
+fetch the raw issue body. The desktop session can. It fetched the body with `tools/fetch_issue.py` (updated_at 2026-09-05T13:47:17Z, 2401 bytes,
+sha256 256c2e873bf03a9bc1fb9e22c56399919cd38f72fe1c92308319a8f463fb5451) and committed it as `labs/case-pathspec-129/issue129.body.md`, with a `-text` entry in `.gitattributes` so that git never
+changes its bytes. The body has LF line endings only. The code block of the issue that the protocol means is the first `python` block under
+`## Repro`: 164 bytes, sha256 49f44db1899ec8d054856e415ccbe22556f10391c1b53f1d458167626b9f00b8 (the text between the fence lines, including the final newline).
+
+The claim, the predictions, the method and the result labels are unchanged. The result of attempt 1 stays on record above. Attempt 2 runs steps 4 and 5
+only; the answer key (step 3) was run in attempt 1 and is not repeated. The partial miss of attempt 1 stands: test `_c` passes before and after the fix.
