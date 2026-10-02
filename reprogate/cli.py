@@ -188,6 +188,8 @@ def cmd_inspect(a):
     print("runs               :", g("run_status"))
     print("counts             :", g("counts"))
     print("claim provenance   :", g("claim_provenance"))
+    print("aggregation rules  :", o.get("aggregation_rules") if isinstance(o, dict) and "aggregation_rules" in o else
+          "LEGACY (no aggregation_rules field: written before F-054; the timeout rule of that time may differ)")
     print("observation        :", g("observation_integrity"), "| environment trust:", g("environment_trust"))
     print("oracle required    :", o.get("oracle_required") if isinstance(o, dict) else None)
     print("sandbox            :", sandbox.get("kind", "-") if isinstance(sandbox, dict) else sandbox)

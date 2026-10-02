@@ -6,6 +6,7 @@
   "type": "object",
   "required": ["outcome", "outcome_reason", "outcome_qualifier", "claim_status", "reproducer_status", "run_status", "counts", "min_completed", "claim_provenance"],
   "properties": {
+    "aggregation_rules": {"enum": ["2"], "description": "req_011: version of the aggregation rules that produced the outcome; absent = LEGACY (written before F-054). 2: any TIMEOUT run gives INCONCLUSIVE / TIMEOUT_NOT_CLAIMED"},
     "outcome": {"enum": ["SYMPTOM_REPRODUCED", "SYMPTOM_REPRODUCED_FLAKY", "NO_MATCHING_REPRODUCTION_FOUND", "INCONCLUSIVE", "NOT_EVALUATED"]},
     "outcome_reason": {"enum": ["NONE", "CLAIM_NEEDS_INFO", "CLAIM_UNSUPPORTED", "CLAIM_PROVENANCE_INSUFFICIENT", "REPRODUCER_REJECTED", "REPRODUCER_UNSAFE", "REPRODUCER_NOT_AUDITABLE", "ENVIRONMENT_UNAVAILABLE", "INSUFFICIENT_VALID_RUNS", "SINGLE_MATCH_ONLY", "TIMEOUT_NOT_CLAIMED", "REPOSITORY_MODIFIED", "VERIFIER_INTERNAL_ERROR"]},
     "outcome_qualifier": {"enum": [null, "PROVENANCE_UNVERIFIED"]},
@@ -44,6 +45,7 @@
     "GATE_LINK: reproducer_status other than VALID requires NOT_EVALUATED, the matching REPRODUCER_* reason and no runs",
     "CLAIM_LINK: claim_status other than READY (gate passed) requires NOT_EVALUATED with CLAIM_UNSUPPORTED or CLAIM_NEEDS_INFO",
     "ENV_LINK: ENVIRONMENT_UNAVAILABLE requires at least one run and every run ENV_FAILURE",
+    "TIMEOUT_RULE: only when aggregation_rules is 2: with a passed gate and a READY claim, counts.timeouts > 0 requires TIMEOUT_NOT_CLAIMED (REPOSITORY_MODIFIED and VERIFIER_INTERNAL_ERROR dominate); a LEGACY bundle (no field) is never subject to it",
     "RUN_LINK: REPOSITORY_MODIFIED and VERIFIER_INTERNAL_ERROR require an INVALID run; TIMEOUT_NOT_CLAIMED requires at least one TIMEOUT run (any completed runs are allowed; before req_010 it also required none)",
     "PROVENANCE: SYMPTOM_REPRODUCED and SYMPTOM_REPRODUCED_FLAKY cannot be reported with claim_provenance INSUFFICIENT; CLAIM_PROVENANCE_INSUFFICIENT requires it",
     "QUALIFIER: outcome_qualifier is PROVENANCE_UNVERIFIED exactly when claim_provenance is UNVERIFIED_ALLOWED",

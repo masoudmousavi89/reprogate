@@ -209,6 +209,7 @@ def _evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, 
     anchors_verified, anchors_not_verified = _anchor_states(claim_doc)
     outcome = {
         "schema_version": SCHEMA_VERSION, "tool_version": __version__, "created_at": now_utc(),
+        "aggregation_rules": C.AGGREGATION_RULES,
         "outcome": agg["outcome"], "outcome_reason": agg["outcome_reason"],
         "outcome_qualifier": agg["outcome_qualifier"],
         "claim_status": claim_status, "reproducer_status": gate_res["status"],
@@ -298,6 +299,10 @@ def replay(bundle, repo, python, runs=None, timeout=30, sandbox=None, env_templa
         return report
     repro = os.path.join(bundle, "reproducer", rec["reproducer_name"])
     report["recorded_outcome"] = [rec["outcome"], rec["outcome_reason"]]
+    report["aggregation_rules"] = rec.get("aggregation_rules", "LEGACY")
+    if "aggregation_rules" not in rec:  # information only: the replay always uses the current rules
+        report["legacy_timeout_semantics"] = (rec["counts"]["timeouts"] > 0
+                                              and rec["outcome_reason"] != C.TIMEOUT_NOT_CLAIMED)
     now_commit = git_info(repo)["commit"]
     report["commit_matches"] = (env["git"]["commit"] == now_commit) if env["git"]["commit"] else None
     _, now_env_sha = capture_environment(python, sandbox)

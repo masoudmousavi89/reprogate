@@ -69,6 +69,8 @@ def validate_outcome(o):
     ok &= enum("reproducer_status", o["reproducer_status"], GATE_STATUSES)
     ok &= enum("claim_provenance", o["claim_provenance"], PROVENANCE_STATES)
     ok &= enum("outcome_qualifier", o["outcome_qualifier"], QUALIFIERS)
+    if "aggregation_rules" in o:  # req_011: absent = LEGACY (no check); present = a known version
+        ok &= enum("aggregation_rules", o["aggregation_rules"], C.AGGREGATION_RULES_KNOWN)
     runs, counts, minc = o["run_status"], o["counts"], o["min_completed"]
     if not isinstance(runs, list) or not all(r in RUN_STATUSES for r in runs):
         v.append("ENUM: run_status must be a list of %s" % list(RUN_STATUSES))
@@ -134,6 +136,9 @@ def validate_outcome(o):
             v.append("RUN_LINK: %s requires at least one INVALID run" % reason)
         if reason == C.TIMEOUT_NOT_CLAIMED and not c["timeouts"] > 0:
             v.append("RUN_LINK: TIMEOUT_NOT_CLAIMED requires at least one TIMEOUT run")
+        if (o.get("aggregation_rules") == "2" and c["timeouts"] > 0
+                and reason not in (C.TIMEOUT_NOT_CLAIMED, C.REPOSITORY_MODIFIED, C.VERIFIER_INTERNAL_ERROR)):
+            v.append("TIMEOUT_RULE: aggregation_rules 2 requires INCONCLUSIVE/TIMEOUT_NOT_CLAIMED when any run timed out")
         if reason == C.INSUFFICIENT_VALID_RUNS and not c["completed"] < minc:
             v.append("COUNTS_ORDER: INSUFFICIENT_VALID_RUNS requires completed (%d) < min_completed (%d)"
                      % (c["completed"], minc))

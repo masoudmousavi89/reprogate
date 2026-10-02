@@ -35,3 +35,7 @@ GATE_UNSAFE = "UNSAFE"
 GATE_NOT_AUDITABLE = "NOT_AUDITABLE"
 
 OBSERVATION_INTEGRITY = "BEST_EFFORT_IN_PROCESS"
+# Version of the aggregation rules that produced an outcome (req_011). "2": any TIMEOUT run gives INCONCLUSIVE/TIMEOUT_NOT_CLAIMED (F-054).
+# A bundle without the field is LEGACY (written before it; rules 1 were never written).
+AGGREGATION_RULES = "2"
+AGGREGATION_RULES_KNOWN = ("2",)
