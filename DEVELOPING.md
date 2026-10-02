@@ -83,5 +83,5 @@ when the harness exit code is 0 (F-024).
    under test. A corrected reproducer would be a new, labelled run.
 4. `wrong_output` is EXPERIMENTAL (F-039): synthetic cases only, exact equality, a protocol-aware reproducer can still
    forge a return (as for exceptions, F-026); no real bug has been evaluated with it.
-5. `--checkout-sha` is tested on Windows only (F-048); a worktree shares the source repository `.git` (host mode exposure not mitigated).
+5. `--checkout-sha` (blobs of the commit, no `.git`, F-052) is tested on Windows only; `--repo` with a hand-made checkout still exposes that checkout's own `.git`.
 6. Docker mode on Windows/macOS; a stronger sandbox (gVisor / VM) than a shared-kernel container.

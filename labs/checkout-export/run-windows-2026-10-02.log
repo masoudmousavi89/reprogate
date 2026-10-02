@@ -1,0 +1,20 @@
+=== oracle from two SHAs
+before: ['SYMPTOM_REPRODUCED', 'NONE'] | after: ['NO_MATCHING_REPRODUCTION_FOUND', 'NONE'] | post-fix: CLEAN_COMPLETION
+ORACLE PASS
+SOURCE head_unchanged=True tree_unchanged=True worktrees_before=1 after=1
+CHECKOUT before requested=81825095d24f4dbccb40f787fff70db54989b91c head=81825095d24f4dbccb40f787fff70db54989b91c cleanup=REMOVED git.commit=81825095d24f4dbccb40f787fff70db54989b91c
+TREE before evaluated=dbc9cd7de8574222da889f9f94b65d4fd5054e50f4a09128da7b90f10d983b06
+CHECKOUT after requested=9a7dd7b28b50fd8adc019ab2702b50ae5c6ed782 head=9a7dd7b28b50fd8adc019ab2702b50ae5c6ed782 cleanup=REMOVED git.commit=9a7dd7b28b50fd8adc019ab2702b50ae5c6ed782
+TREE after evaluated=bf8ae6f92378232b5eb2275a763eda0e8ce40ba5766f0b02ffa535d130fee973
+TREE reference_archive_before=dbc9cd7de8574222da889f9f94b65d4fd5054e50f4a09128da7b90f10d983b06
+TREE reference_archive_after=bf8ae6f92378232b5eb2275a763eda0e8ce40ba5766f0b02ffa535d130fee973
+TREE hand_made_jinja-before=2153ebe4910d06ec722c9af70d5543eb7a04ee6ad09e758501dde58946527ae8
+TREE hand_made_jinja-after=08a0996a09f4fc1c3f9a1763102426c0e523e3ac65bcba225c724657077cd9fa
+=== refused inputs
+ERROR: a checkout needs the full 40-character commit SHA (no abbreviation, branch, tag or HEAD): '81825095'
+EXIT abbreviated=2
+ERROR: a checkout needs the full 40-character commit SHA (no abbreviation, branch, tag or HEAD): 'master'
+EXIT branch=2
+WORKTREES after refusals=1
+
+Evidence folder: C:\Users\masou\Desktop\reprogate\repo\labs\checkout-sha\evidence-20261002-203406  (temp dir: C:\Users\masou\AppData\Local\Temp\reprogate-checkout-lab-20261002-203406)
