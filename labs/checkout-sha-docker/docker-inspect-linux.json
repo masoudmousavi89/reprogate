@@ -29,10 +29,10 @@
     "/work": "rw,size=64m,noexec,nosuid"
    }
   },
-  "Id": "d526a6d5747d24a1a182e1a8668b80058014cd4018d0dd1673adb544954ede24",
+  "Id": "b73e8c16a68c21914a69e54ca5108ec4845c815e9e0a89d474870f680e244b54",
   "Image": "reprogate-jinja-pinned:cosha",
   "Mounts": [],
-  "Name": "/reprogate-39e0b419c433",
+  "Name": "/reprogate-ef14e2a40d61",
   "User": "65534:65534",
   "WorkingDir": "/work"
  },
@@ -50,149 +50,7 @@
   "HostConfig": {
    "AutoRemove": true,
    "Binds": [
-    "<CHECKOUT_TMP>/repo:/repo:ro",
-    "/home/user/reprogate/reprogate/harness.py:/rg/harness.py:ro",
-    "<HOME><EVIDENCE>/runs/run-0N/repro/repro.py:/rg/repro.py:ro",
-    "<HOME><EVIDENCE>/runs/run-0N/out:/out:rw"
-   ],
-   "CapAdd": null,
-   "CapDrop": [
-    "ALL"
-   ],
-   "Memory": 536870912,
-   "MemorySwap": 536870912,
-   "NanoCpus": 1000000000,
-   "NetworkMode": "none",
-   "PidsLimit": 128,
-   "Privileged": false,
-   "PublishAllPorts": false,
-   "ReadonlyRootfs": true,
-   "SecurityOpt": [
-    "no-new-privileges"
-   ],
-   "Tmpfs": {
-    "/tmp": "rw,size=64m,noexec,nosuid",
-    "/work": "rw,size=64m,noexec,nosuid"
-   }
-  },
-  "Id": "9b3470539198d119b975225a654895a2400495ec4ac2fd7c58a500674194405c",
-  "Image": "reprogate-jinja-pinned:cosha",
-  "Mounts": [
-   {
-    "Destination": "/repo",
-    "RW": false,
-    "Source": "<CHECKOUT_TMP>/repo",
-    "Type": "bind"
-   },
-   {
-    "Destination": "/rg/harness.py",
-    "RW": false,
-    "Source": "/home/user/reprogate/reprogate/harness.py",
-    "Type": "bind"
-   },
-   {
-    "Destination": "/rg/repro.py",
-    "RW": false,
-    "Source": "<HOME><EVIDENCE>/runs/run-0N/repro/repro.py",
-    "Type": "bind"
-   },
-   {
-    "Destination": "/out",
-    "RW": true,
-    "Source": "<HOME><EVIDENCE>/runs/run-0N/out",
-    "Type": "bind"
-   }
-  ],
-  "Name": "/reprogate-7476742e2844",
-  "User": "65534:65534",
-  "WorkingDir": "/work"
- },
- {
-  "Env_names": [
-   "GPG_KEY",
-   "LANG",
-   "PATH",
-   "PYTHONDONTWRITEBYTECODE",
-   "PYTHONHASHSEED",
-   "PYTHONIOENCODING",
-   "PYTHONNOUSERSITE",
-   "PYTHON_VERSION"
-  ],
-  "HostConfig": {
-   "AutoRemove": true,
-   "Binds": [
-    "<HOME><EVIDENCE>/runs/run-0N/out:/out:rw",
-    "<CHECKOUT_TMP>/repo:/repo:ro",
-    "/home/user/reprogate/reprogate/harness.py:/rg/harness.py:ro",
-    "<HOME><EVIDENCE>/runs/run-0N/repro/repro.py:/rg/repro.py:ro"
-   ],
-   "CapAdd": null,
-   "CapDrop": [
-    "ALL"
-   ],
-   "Memory": 536870912,
-   "MemorySwap": 536870912,
-   "NanoCpus": 1000000000,
-   "NetworkMode": "none",
-   "PidsLimit": 128,
-   "Privileged": false,
-   "PublishAllPorts": false,
-   "ReadonlyRootfs": true,
-   "SecurityOpt": [
-    "no-new-privileges"
-   ],
-   "Tmpfs": {
-    "/tmp": "rw,size=64m,noexec,nosuid",
-    "/work": "rw,size=64m,noexec,nosuid"
-   }
-  },
-  "Id": "c8959b713e7375aff2d297a06cdf99837ce06ca6e65e0ce5d5621632fdc753d9",
-  "Image": "reprogate-jinja-pinned:cosha",
-  "Mounts": [
-   {
-    "Destination": "/rg/repro.py",
-    "RW": false,
-    "Source": "<HOME><EVIDENCE>/runs/run-0N/repro/repro.py",
-    "Type": "bind"
-   },
-   {
-    "Destination": "/out",
-    "RW": true,
-    "Source": "<HOME><EVIDENCE>/runs/run-0N/out",
-    "Type": "bind"
-   },
-   {
-    "Destination": "/repo",
-    "RW": false,
-    "Source": "<CHECKOUT_TMP>/repo",
-    "Type": "bind"
-   },
-   {
-    "Destination": "/rg/harness.py",
-    "RW": false,
-    "Source": "/home/user/reprogate/reprogate/harness.py",
-    "Type": "bind"
-   }
-  ],
-  "Name": "/reprogate-87dbb7febb8b",
-  "User": "65534:65534",
-  "WorkingDir": "/work"
- },
- {
-  "Env_names": [
-   "GPG_KEY",
-   "LANG",
-   "PATH",
-   "PYTHONDONTWRITEBYTECODE",
-   "PYTHONHASHSEED",
-   "PYTHONIOENCODING",
-   "PYTHONNOUSERSITE",
-   "PYTHON_VERSION"
-  ],
-  "HostConfig": {
-   "AutoRemove": true,
-   "Binds": [
-    "/home/user/reprogate/reprogate/harness.py:/rg/harness.py:ro",
+    "<REPO>/reprogate/harness.py:/rg/harness.py:ro",
     "<HOME><EVIDENCE>/runs/run-0N/repro/repro.py:/rg/repro.py:ro",
     "<HOME><EVIDENCE>/runs/run-0N/out:/out:rw",
     "<CHECKOUT_TMP>/repo:/repo:ro"
@@ -217,15 +75,151 @@
     "/work": "rw,size=64m,noexec,nosuid"
    }
   },
-  "Id": "837da829da2d94272f1eec287d570ea31404c9d52a5890a16badbfa001ef47f2",
+  "Id": "1ab3dbca3771b1663c3a383d906e9eefed033a7595cc528e284a90147b1aa5ca",
   "Image": "reprogate-jinja-pinned:cosha",
   "Mounts": [
    {
-    "Destination": "/rg/harness.py",
-    "RW": false,
-    "Source": "/home/user/reprogate/reprogate/harness.py",
+    "Destination": "/out",
+    "RW": true,
+    "Source": "<HOME><EVIDENCE>/runs/run-0N/out",
     "Type": "bind"
    },
+   {
+    "Destination": "/repo",
+    "RW": false,
+    "Source": "<CHECKOUT_TMP>/repo",
+    "Type": "bind"
+   },
+   {
+    "Destination": "/rg/harness.py",
+    "RW": false,
+    "Source": "<REPO>/reprogate/harness.py",
+    "Type": "bind"
+   },
+   {
+    "Destination": "/rg/repro.py",
+    "RW": false,
+    "Source": "<HOME><EVIDENCE>/runs/run-0N/repro/repro.py",
+    "Type": "bind"
+   }
+  ],
+  "Name": "/reprogate-08f021b1fb9c",
+  "User": "65534:65534",
+  "WorkingDir": "/work"
+ },
+ {
+  "Env_names": [
+   "GPG_KEY",
+   "LANG",
+   "PATH",
+   "PYTHONDONTWRITEBYTECODE",
+   "PYTHONHASHSEED",
+   "PYTHONIOENCODING",
+   "PYTHONNOUSERSITE",
+   "PYTHON_VERSION"
+  ],
+  "HostConfig": {
+   "AutoRemove": true,
+   "Binds": [
+    "<CHECKOUT_TMP>/repo:/repo:ro",
+    "<REPO>/reprogate/harness.py:/rg/harness.py:ro",
+    "<HOME><EVIDENCE>/runs/run-0N/repro/repro.py:/rg/repro.py:ro",
+    "<HOME><EVIDENCE>/runs/run-0N/out:/out:rw"
+   ],
+   "CapAdd": null,
+   "CapDrop": [
+    "ALL"
+   ],
+   "Memory": 536870912,
+   "MemorySwap": 536870912,
+   "NanoCpus": 1000000000,
+   "NetworkMode": "none",
+   "PidsLimit": 128,
+   "Privileged": false,
+   "PublishAllPorts": false,
+   "ReadonlyRootfs": true,
+   "SecurityOpt": [
+    "no-new-privileges"
+   ],
+   "Tmpfs": {
+    "/tmp": "rw,size=64m,noexec,nosuid",
+    "/work": "rw,size=64m,noexec,nosuid"
+   }
+  },
+  "Id": "c352d42f48d46d39b4e24a1a36088335dabbee231887c69977ecf9c3b925efaf",
+  "Image": "reprogate-jinja-pinned:cosha",
+  "Mounts": [
+   {
+    "Destination": "/repo",
+    "RW": false,
+    "Source": "<CHECKOUT_TMP>/repo",
+    "Type": "bind"
+   },
+   {
+    "Destination": "/rg/harness.py",
+    "RW": false,
+    "Source": "<REPO>/reprogate/harness.py",
+    "Type": "bind"
+   },
+   {
+    "Destination": "/rg/repro.py",
+    "RW": false,
+    "Source": "<HOME><EVIDENCE>/runs/run-0N/repro/repro.py",
+    "Type": "bind"
+   },
+   {
+    "Destination": "/out",
+    "RW": true,
+    "Source": "<HOME><EVIDENCE>/runs/run-0N/out",
+    "Type": "bind"
+   }
+  ],
+  "Name": "/reprogate-e992d3333674",
+  "User": "65534:65534",
+  "WorkingDir": "/work"
+ },
+ {
+  "Env_names": [
+   "GPG_KEY",
+   "LANG",
+   "PATH",
+   "PYTHONDONTWRITEBYTECODE",
+   "PYTHONHASHSEED",
+   "PYTHONIOENCODING",
+   "PYTHONNOUSERSITE",
+   "PYTHON_VERSION"
+  ],
+  "HostConfig": {
+   "AutoRemove": true,
+   "Binds": [
+    "<CHECKOUT_TMP>/repo:/repo:ro",
+    "<REPO>/reprogate/harness.py:/rg/harness.py:ro",
+    "<HOME><EVIDENCE>/runs/run-0N/repro/repro.py:/rg/repro.py:ro",
+    "<HOME><EVIDENCE>/runs/run-0N/out:/out:rw"
+   ],
+   "CapAdd": null,
+   "CapDrop": [
+    "ALL"
+   ],
+   "Memory": 536870912,
+   "MemorySwap": 536870912,
+   "NanoCpus": 1000000000,
+   "NetworkMode": "none",
+   "PidsLimit": 128,
+   "Privileged": false,
+   "PublishAllPorts": false,
+   "ReadonlyRootfs": true,
+   "SecurityOpt": [
+    "no-new-privileges"
+   ],
+   "Tmpfs": {
+    "/tmp": "rw,size=64m,noexec,nosuid",
+    "/work": "rw,size=64m,noexec,nosuid"
+   }
+  },
+  "Id": "240d79c150eb3d8ad946250ba6e5cfd071c7e473fb24b4c00d2b5bd07bf73cba",
+  "Image": "reprogate-jinja-pinned:cosha",
+  "Mounts": [
    {
     "Destination": "/rg/repro.py",
     "RW": false,
@@ -243,9 +237,15 @@
     "RW": false,
     "Source": "<CHECKOUT_TMP>/repo",
     "Type": "bind"
+   },
+   {
+    "Destination": "/rg/harness.py",
+    "RW": false,
+    "Source": "<REPO>/reprogate/harness.py",
+    "Type": "bind"
    }
   ],
-  "Name": "/reprogate-478e7b5a7035",
+  "Name": "/reprogate-811c27eb0a5c",
   "User": "65534:65534",
   "WorkingDir": "/work"
  }

@@ -19,11 +19,12 @@ try:
     r["connect"] = "CONNECTED"
 except OSError as e:
     r["connect"] = "FAILED " + errno.errorcode.get(e.errno, str(e.errno))
-for name in ("memory.max", "memory.swap.max", "pids.max", "cpu.max"):
+for name in ("memory.max", "memory.swap.max", "pids.max", "cpu.max", "memory/memory.limit_in_bytes", "memory/memory.memsw.limit_in_bytes",
+             "pids/pids.max", "cpu/cpu.cfs_quota_us", "cpu/cpu.cfs_period_us"):
     try:
-        r["cgroup_" + name] = open("/sys/fs/cgroup/" + name).read().strip()
+        r["cgroup_" + name.replace("/", "_")] = open("/sys/fs/cgroup/" + name).read().strip()
     except OSError as e:
-        r["cgroup_" + name] = "unreadable " + errno.errorcode.get(e.errno, str(e.errno))
+        r["cgroup_" + name.replace("/", "_")] = "unreadable " + errno.errorcode.get(e.errno, str(e.errno))
 mounts = {}
 for line in open("/proc/mounts"):
     f = line.split()

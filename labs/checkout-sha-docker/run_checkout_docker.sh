@@ -23,7 +23,7 @@ if ! docker image inspect "$IMG" >/dev/null 2>&1; then
   printf 'FROM %s\nCOPY wheels /wheels\nRUN pip install --no-cache-dir --no-index --find-links /wheels "MarkupSafe==2.0.1" && rm -rf /wheels\n' "$BASE" > "$WORK/ctx/Dockerfile"
   docker build -q -t "$IMG" "$WORK/ctx" >/dev/null || { echo "image build failed"; exit 2; }
 fi
-SRC="$WORK/jinja"; rm -rf "$SRC"; git clone -q https://github.com/pallets/jinja "$SRC" || { echo "clone failed"; exit 2; }
+rm -rf "$WORK"/out-a "$WORK"/out-c "$WORK"/out-e; SRC="$WORK/jinja"; rm -rf "$SRC"; git clone -q https://github.com/pallets/jinja "$SRC" || { echo "clone failed"; exit 2; }
 
 say "# Linux + Docker results for the checkout-by-SHA change (raw output of run_checkout_docker.sh)"
 say ""
@@ -35,5 +35,7 @@ section "(c) write attempts through the real tool (real gate), Docker mode"; "$P
 section "(d) and (d-docker) reachability of the source .git from a worktree (throwaway repository)"; "$PY" "$HERE/host_exposure.py" "$BASE" >> "$raw" 2>&1; endsec
 section "(e) req_005 clauses, Docker mode, docker inspect saved in docker-inspect-linux.json"; "$PY" "$HERE/step_e.py" "$SRC" "$IMG" "$WORK/out-e" "$HERE/docker-inspect-linux.json" >> "$raw" 2>&1; endsec
 section "(f) worktree vs git archive"; "$PY" "$HERE/step_f.py" "$SRC" >> "$raw" 2>&1; endsec
-sed "s#$HOME#<HOME>#g; s#$WORK#<WORK>#g" "$raw" > "$OUTMD"
+section "(f2) hand-made Lab #1 checkouts, if present (compare with the hashes of (f))"; "$PY" "$HERE/step_f2.py" "$HOME/reprogate-lab" >> "$raw" 2>&1; endsec
+sed "s#$HOME#<HOME>#g; s#$WORK#<WORK>#g; s#$PROJ#<REPO>#g" "$raw" > "$OUTMD"
+sed -i "s#$HOME#<HOME>#g; s#$WORK#<WORK>#g; s#$PROJ#<REPO>#g" "$HERE/docker-inspect-linux.json"
 echo "written $OUTMD"
