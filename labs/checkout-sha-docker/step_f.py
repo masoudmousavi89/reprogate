@@ -27,6 +27,8 @@ for sha in ("81825095d24f4dbccb40f787fff70db54989b91c", "9a7dd7b28b50fd8adc019ab
             for dp, dn, fn in os.walk(root):
                 dn[:] = [x for x in dn if x != ".git"]
                 for n in fn:
+                    if n == ".git" and dp == root:
+                        continue  # the worktree's own .git pointer file
                     p = os.path.join(dp, n)
                     rel = os.path.relpath(p, root)
                     if os.path.islink(p):

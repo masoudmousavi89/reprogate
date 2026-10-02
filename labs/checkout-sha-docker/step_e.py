@@ -58,7 +58,7 @@ for k in keep:
     print(" ", k["Name"], "network", h["NetworkMode"], "ro_root", h["ReadonlyRootfs"], "CapDrop", h["CapDrop"], "CapAdd", h["CapAdd"], "secopt", h["SecurityOpt"],
           "user", k["User"], "mem", h["Memory"], "swap", h["MemorySwap"], "nanocpus", h["NanoCpus"], "pids", h["PidsLimit"], "autoremove", h["AutoRemove"],
           "privileged", h["Privileged"])
-    print("    tmpfs", h["Tmpfs"], "| binds", [mask(b).split("/")[-1] if False else re.sub(r"^.*?:/", "/", b) for b in h["Binds"]])
+    print("    tmpfs", h["Tmpfs"], "| binds", [mask(b).split("/")[-1] if False else re.sub(r"^.*?:/", "/", b) for b in (h["Binds"] or [])])
 print("outcome", o["outcome"], o["outcome_reason"], "run_status", o["run_status"], "counts", o["counts"])
 env0 = None
 for i in (1, 2, 3):

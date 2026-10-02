@@ -72,7 +72,22 @@ def make_src(tmp):
     return src, buggy, fixed
 
 
-def attack(name, template, mode):
+D4 = HEAD_ + '''common = os.path.normpath(os.path.join(gitdir, "..", ".."))
+fd = os.open(os.path.join(gitdir, "HEAD"), os.O_RDONLY)
+sha = os.read(fd, 100).decode().strip()
+os.close(fd)
+# the source repository's current branch file: master or main, whichever exists
+for br in ("master", "main"):
+    path = os.path.join(common, "refs", "heads", br)
+    if os.path.exists(path):
+        w("d4_overwrite_branch_ref_in_source_git", path, os.O_WRONLY | os.O_TRUNC, b"1" * 40 + b"\\n")
+        break
+from minilib import Box
+Box(2)["a"] = 1
+'''
+
+
+def attack(name, template, mode, gate=False):
     tmp = tempfile.mkdtemp(prefix="rg-d-")
     try:
         src, buggy, fixed = make_src(tmp)
@@ -89,11 +104,11 @@ def attack(name, template, mode):
             py = H.PYTHON
         g = gate_source(code.encode())["status"]
         out = os.path.join(tmp, "ev")
-        o = evaluate(src, py, H.verified_claim(), rp, out, checkout_sha=buggy, gate=False, **kw)
+        o = evaluate(src, py, H.verified_claim(), rp, out, checkout_sha=buggy, gate=gate, **kw)
         stdout = open(os.path.join(out, "runs", "run-01", "stdout.txt")).read()
         c = json.load(open(os.path.join(out, "checkout.json")))
         s1 = snapshot(src)
-        print("=== %s [%s]" % (name, mode))
+        print("=== %s [%s] (evaluate gate=%s)" % (name, mode, gate))
         print("real gate on this reproducer:", g)
         print("reproducer stdout (run 1):", mask(stdout.strip()).replace(src, "<SRC>").replace(tmp, "<TMP>"))
         print("outcome", o["outcome"], o["outcome_reason"], "run_status", o["run_status"])
@@ -103,6 +118,9 @@ def attack(name, template, mode):
               "| refs before/after", len(s0["refs"]), len(s1["refs"]))
         if s0["refs"] != s1["refs"]:
             print("  new refs:", sorted(set(s1["refs"]) - set(s0["refs"])))
+        print("checkout.json source_head before/after:", c["source_head_before"][:12] if c["source_head_before"] else None, c["source_head_after"][:12] if c["source_head_after"] else None)
+        rc, rp_, rpe = git(src, "rev-parse", "HEAD")
+        print("git rev-parse HEAD of the source: rc", rc, (rp_ or rpe)[:80])
         rc, fsck, ferr = git(src, "fsck", "--no-dangling")
         print("git fsck of the source: rc", rc, "|", mask((fsck + " " + ferr).replace(tmp, "<TMP>"))[:300].replace("\n", " ; "))
         rc, t, err = git(src, "cat-file", "-t", fixed)
@@ -119,3 +137,4 @@ def attack(name, template, mode):
 for mode in ("host", "docker"):
     for name, t in (("d1", D1), ("d2", D2), ("d3", D3)):
         attack(name, t, mode)
+    attack("d4", D4, mode, gate=True)
