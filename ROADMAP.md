@@ -15,6 +15,8 @@ Remaining work in the alpha:
   provenance) instead of a fixed `READY`.
 - **Environment:** build the target environment from a read-only wheelhouse without network, record its tree hash
   before the first run and check it before every run; a failing build or import is `ENV_FAILURE`.
+- **Fresh checkout of an exact SHA:** `run --checkout-sha` and `oracle --before-sha/--after-sha` evaluate a fresh detached git worktree
+  of a full SHA (F-048, Windows). Open: Linux and Docker evidence for this path (`labs/checkout-sha/LINUX_DOCKER_PROMPT.md`), `verify` with a SHA.
 - **Reproducer origin:** record whether the reproducer is a verbatim issue snippet, adapted, or written from scratch,
   with a diff and hash for any adaptation. Done (F-043, `--origin-source`, Windows and Linux); a verbatim label must be byte-identical
   to its source. Still open: extracting the snippet from the raw issue body.

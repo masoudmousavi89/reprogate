@@ -34,10 +34,10 @@ function TreeSha($dir) {
 function ArchiveSha($sha, $name) {
     # independent reference: the bytes of the commit exactly as git stores them (git archive), no worktree involved
     $d = Join-Path $tmp $name
-    New-Item -ItemType Directory -Force -Path $d | Out-Null
-    $tar = Join-Path $tmp ($name + ".tar")
-    & git -c core.autocrlf=false -C $src archive --format=tar -o $tar $sha
-    & tar -xf $tar -C $d
+    $zip = Join-Path $tmp ($name + ".zip")
+    & git -c core.autocrlf=false -C $src archive --format=zip -o $zip $sha
+    Add-Type -AssemblyName System.IO.Compression.FileSystem
+    [System.IO.Compression.ZipFile]::ExtractToDirectory($zip, $d)
     return (TreeSha $d)
 }
 
