@@ -1,0 +1,186 @@
+=== 1. download
+DOWNLOAD 2.0.0 exit=0
+DOWNLOAD 2.0.1 exit=0
+DOWNLOAD 2.1.0 exit=0
+DOWNLOAD 2.1.1 exit=0
+DOWNLOAD 2.1.2 exit=0
+DOWNLOAD 2.1.3 exit=0
+DOWNLOAD 2.1.4 exit=0
+DOWNLOAD 2.1.5 exit=0
+UNCONSTRAINED resolves to: MarkupSafe-2.1.5-cp38-cp38-win_amd64.whl
+58bc9fce3e1557d463ef5cee05391a05745fd95ed660f23c1742c711712c0abb  MarkupSafe-2.0.0-cp38-cp38-win_amd64.whl
+984d76483eb32f1bcb536dc27e4ad56bba4baa70be32fa87152832cdd9db0833  MarkupSafe-2.0.1-cp38-cp38-win_amd64.whl
+fabbe18087c3d33c5824cb145ffca52eccd053061df1d79d4b66dafa5ad2a5ea  MarkupSafe-2.1.0-cp38-cp38-win_amd64.whl
+fc7b548b17d238737688817ab67deebb30e8073c95749d55538ed473130ec0c7  MarkupSafe-2.1.1-cp38-cp38-win_amd64.whl
+bb06feb762bade6bf3c8b844462274db0c76acc95c52abe8dbed28ae3d44a147  MarkupSafe-2.1.2-cp38-cp38-win_amd64.whl
+1b40069d487e7edb2676d3fbdb2b0829ffa2cd63a2ec26c4938b2d34391b4ecc  MarkupSafe-2.1.3-cp38-cp38-win_amd64.whl
+3a66c36a3864df95e4f62f9167c734b3b1192cb0851b43d7cc08040c074c6279  MarkupSafe-2.1.4-cp38-cp38-win_amd64.whl
+619bc166c4f2de5caa5a633b8b7326fbe98e0ccbfacabd87268a2b15ff73a029  MarkupSafe-2.1.5-cp38-cp38-win_amd64.whl
+WHEELHOUSE files=8 all_read_only=True
+=== 2. import jinja2 (pre-fix checkout) per version
+INSTALL v_2.0.0 exit=0
+IMPORT_OK C:\Users\masou\reprogate-lab\jinja-before\jinja2\__init__.py
+IMPORT 2.0.0 exit=0
+INSTALL v_2.0.1 exit=0
+IMPORT_OK C:\Users\masou\reprogate-lab\jinja-before\jinja2\__init__.py
+IMPORT 2.0.1 exit=0
+INSTALL v_2.1.0 exit=0
+ImportError: cannot import name 'soft_unicode' from 'markupsafe' (C:\Users\masou\AppData\Local\Temp\reprogate-wheelhous
+e-20261002-193001\v_2.1.0\lib\site-packages\markupsafe\__init__.py)
+IMPORT 2.1.0 exit=1
+INSTALL v_2.1.1 exit=0
+ImportError: cannot import name 'soft_unicode' from 'markupsafe' (C:\Users\masou\AppData\Local\Temp\reprogate-wheelhous
+e-20261002-193001\v_2.1.1\lib\site-packages\markupsafe\__init__.py)
+IMPORT 2.1.1 exit=1
+INSTALL v_2.1.2 exit=0
+ImportError: cannot import name 'soft_unicode' from 'markupsafe' (C:\Users\masou\AppData\Local\Temp\reprogate-wheelhous
+e-20261002-193001\v_2.1.2\lib\site-packages\markupsafe\__init__.py)
+IMPORT 2.1.2 exit=1
+INSTALL v_2.1.3 exit=0
+ImportError: cannot import name 'soft_unicode' from 'markupsafe' (C:\Users\masou\AppData\Local\Temp\reprogate-wheelhous
+e-20261002-193001\v_2.1.3\lib\site-packages\markupsafe\__init__.py)
+IMPORT 2.1.3 exit=1
+INSTALL v_2.1.4 exit=0
+ImportError: cannot import name 'soft_unicode' from 'markupsafe' (C:\Users\masou\AppData\Local\Temp\reprogate-wheelhous
+e-20261002-193001\v_2.1.4\lib\site-packages\markupsafe\__init__.py)
+IMPORT 2.1.4 exit=1
+INSTALL v_2.1.5 exit=0
+ImportError: cannot import name 'soft_unicode' from 'markupsafe' (C:\Users\masou\AppData\Local\Temp\reprogate-wheelhous
+e-20261002-193001\v_2.1.5\lib\site-packages\markupsafe\__init__.py)
+IMPORT 2.1.5 exit=1
+=== 3. rebuild determinism (2.0.1 twice)
+INSTALL tmpl_a exit=0
+INSTALL tmpl_b exit=0
+REBUILD installed_markupsafe_files_identical=True
+=== 4a. oracle with the wheelhouse-built 2.0.1 template
+before: ['SYMPTOM_REPRODUCED', 'NONE'] | after: ['NO_MATCHING_REPRODUCTION_FOUND', 'NONE'] | post-fix: CLEAN_COMPLETION
+ORACLE PASS
+TEMPLATE tree_hash_before=1ec8da5c37e00ffb4153bb5ed51f962a3a774717289690351b82352d6731a6a9 after=1ec8da5c37e00ffb4153bb5ed51f962a3a774717289690351b82352d6731a6a9 unchanged=True
+ENVIRONMENT_JSON C:\Users\masou\Desktop\reprogate\repo\labs\wheelhouse\evidence-20261002-193001\oracle\after\environment.json
+{
+  "environment_isolation": {
+    "mode": "FRESH_COPY_PER_RUN",
+    "template_files_hashed": 584,
+    "template_tree_sha256": "1ec8da5c37e00ffb4153bb5ed51f962a3a774717289690351b82352d6731a6a9"
+  },
+  "environment_sha256": "bf1f08fa49da151ecab755b2e7006e21b9c8903673022eb7d1becd185c7df477",
+  "environment_trust": "UNVERIFIED",
+  "environment_variables_allowed": [
+    "COMSPEC",
+    "LANG",
+    "LC_ALL",
+    "PATH",
+    "PATHEXT",
+    "PYTHONDONTWRITEBYTECODE",
+    "PYTHONHASHSEED",
+    "PYTHONIOENCODING",
+    "PYTHONNOUSERSITE",
+    "SYSTEMDRIVE",
+    "SYSTEMROOT",
+    "TEMP",
+    "TMP"
+  ],
+  "git": {
+    "commit": "9a7dd7b28b50fd8adc019ab2702b50ae5c6ed782",
+    "dirty_tracked_files": 0
+  },
+  "interpreter": {
+    "errors": [],
+    "packages": [
+      [
+        "markupsafe",
+        "2.0.1"
+      ],
+      [
+        "pip",
+        "21.1.1"
+      ],
+      [
+        "setuptools",
+        "56.0.0"
+      ]
+    ],
+    "python": {
+      "executable": "C:\\Users\\masou\\AppData\\Local\\Temp\\reprogate-wheelhouse-20261002-193001\\tmpl_a\\Scripts\\python.exe",
+      "implementation": "cpython",
+      "system": "Windows",
+      "version": "3.8.10"
+    }
+  },
+  "repository_files_hashed": 127,
+  "repository_tree_sha256_before": "08a0996a09f4fc1c3f9a1763102426c0e523e3ac65bcba225c724657077cd9fa",
+  "sandbox": {
+    "filesystem_isolation": "NONE",
+    "kind": "HOST_PROCESS",
+    "network_isolation": "NONE",
+    "note": "prototype host mode: not a sandbox"
+  }
+}
+
+ENVIRONMENT_JSON C:\Users\masou\Desktop\reprogate\repo\labs\wheelhouse\evidence-20261002-193001\oracle\before\environment.json
+{
+  "environment_isolation": {
+    "mode": "FRESH_COPY_PER_RUN",
+    "template_files_hashed": 584,
+    "template_tree_sha256": "1ec8da5c37e00ffb4153bb5ed51f962a3a774717289690351b82352d6731a6a9"
+  },
+  "environment_sha256": "bf1f08fa49da151ecab755b2e7006e21b9c8903673022eb7d1becd185c7df477",
+  "environment_trust": "UNVERIFIED",
+  "environment_variables_allowed": [
+    "COMSPEC",
+    "LANG",
+    "LC_ALL",
+    "PATH",
+    "PATHEXT",
+    "PYTHONDONTWRITEBYTECODE",
+    "PYTHONHASHSEED",
+    "PYTHONIOENCODING",
+    "PYTHONNOUSERSITE",
+    "SYSTEMDRIVE",
+    "SYSTEMROOT",
+    "TEMP",
+    "TMP"
+  ],
+  "git": {
+    "commit": "81825095d24f4dbccb40f787fff70db54989b91c",
+    "dirty_tracked_files": 0
+  },
+  "interpreter": {
+    "errors": [],
+    "packages": [
+      [
+        "markupsafe",
+        "2.0.1"
+      ],
+      [
+        "pip",
+        "21.1.1"
+      ],
+      [
+        "setuptools",
+        "56.0.0"
+      ]
+    ],
+    "python": {
+      "executable": "C:\\Users\\masou\\AppData\\Local\\Temp\\reprogate-wheelhouse-20261002-193001\\tmpl_a\\Scripts\\python.exe",
+      "implementation": "cpython",
+      "system": "Windows",
+      "version": "3.8.10"
+    }
+  },
+  "repository_files_hashed": 127,
+  "repository_tree_sha256_before": "2153ebe4910d06ec722c9af70d5543eb7a04ee6ad09e758501dde58946527ae8",
+  "sandbox": {
+    "filesystem_isolation": "NONE",
+    "kind": "HOST_PROCESS",
+    "network_isolation": "NONE",
+    "note": "prototype host mode: not a sandbox"
+  }
+}
+
+=== 4b. run with the 2.1.5 template
+outcome: NOT_EVALUATED | reason: ENVIRONMENT_UNAVAILABLE | qualifier: None
+runs: ['ENV_FAILURE', 'ENV_FAILURE', 'ENV_FAILURE', 'ENV_FAILURE', 'ENV_FAILURE'] | counts: {'total': 5, 'completed': 0, 'env_failures': 5, 'timeouts': 0, 'invalid': 0, 'matching': 0, 'clean_completion_runs': 0}
+evidence: C:\Users\masou\Desktop\reprogate\repo\labs\wheelhouse\evidence-20261002-193001\case_2_1_5
+
+Evidence folder: C:\Users\masou\Desktop\reprogate\repo\labs\wheelhouse\evidence-20261002-193001  (temp dir kept for inspection: C:\Users\masou\AppData\Local\Temp\reprogate-wheelhouse-20261002-193001)
