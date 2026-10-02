@@ -132,8 +132,8 @@ def validate_outcome(o):
                 v.append("ENV_LINK: ENVIRONMENT_UNAVAILABLE requires at least one run and every run ENV_FAILURE")
         if reason in (C.REPOSITORY_MODIFIED, C.VERIFIER_INTERNAL_ERROR) and c["invalid"] < 1:
             v.append("RUN_LINK: %s requires at least one INVALID run" % reason)
-        if reason == C.TIMEOUT_NOT_CLAIMED and not (c["completed"] == 0 and c["timeouts"] > 0):
-            v.append("RUN_LINK: TIMEOUT_NOT_CLAIMED requires no completed run and at least one TIMEOUT")
+        if reason == C.TIMEOUT_NOT_CLAIMED and not c["timeouts"] > 0:
+            v.append("RUN_LINK: TIMEOUT_NOT_CLAIMED requires at least one TIMEOUT run")
         if reason == C.INSUFFICIENT_VALID_RUNS and not c["completed"] < minc:
             v.append("COUNTS_ORDER: INSUFFICIENT_VALID_RUNS requires completed (%d) < min_completed (%d)"
                      % (c["completed"], minc))

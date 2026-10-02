@@ -39,11 +39,31 @@ def watch_target(claim):
     return None
 
 
+def _exception_fields(claim):
+    """Required fields of an exception claim (req_003): None when fine, else a one-sentence reason."""
+    t = claim.get("exception_type")
+    if not isinstance(t, str) or not t.strip():
+        return "exception claim needs exception_type as a non-empty string"
+    if claim.get("message") is not None and not isinstance(claim["message"], str):
+        return "exception claim: message must be a string when given"
+    loc = claim.get("location")
+    if loc is not None:
+        if not isinstance(loc, dict):
+            return "exception claim: location must be an object when given"
+        for part in ("file", "function"):
+            if part in loc and (not isinstance(loc[part], str) or not loc[part].strip()):
+                return "exception claim: location.%s must be a non-empty string when given" % part
+    return None
+
+
 def support(claim):
     """READY or UNSUPPORTED for the tool as it is, with a short note."""
+    if not isinstance(claim, dict):
+        return UNSUPPORTED, "claim is not an object"
     k = kind(claim)
     if k == KIND_EXCEPTION:
-        return READY, None
+        problem = _exception_fields(claim)
+        return (UNSUPPORTED, problem) if problem else (READY, None)
     if k != KIND_WRONG_OUTPUT:
         return UNSUPPORTED, "claim kind %r is not supported" % (k,)
     if watch_target(claim) is None:

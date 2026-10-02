@@ -37,7 +37,7 @@ def aggregate(runs, min_completed=3, provenance="VERIFIED", reproducer_status=C.
         return done(C.INCONCLUSIVE, C.VERIFIER_INTERNAL_ERROR)
     if runs and counts["env_failures"] == counts["total"]:
         return done(C.NOT_EVALUATED, C.ENVIRONMENT_UNAVAILABLE)
-    if counts["completed"] == 0 and counts["timeouts"] > 0:
+    if counts["timeouts"] > 0:  # req_010: no claim kind is a timeout claim, so any TIMEOUT run makes the result inconclusive
         return done(C.INCONCLUSIVE, C.TIMEOUT_NOT_CLAIMED)
     if counts["completed"] < min_completed:
         return done(C.INCONCLUSIVE, C.INSUFFICIENT_VALID_RUNS)

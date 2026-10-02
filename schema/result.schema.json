@@ -44,7 +44,7 @@
     "GATE_LINK: reproducer_status other than VALID requires NOT_EVALUATED, the matching REPRODUCER_* reason and no runs",
     "CLAIM_LINK: claim_status other than READY (gate passed) requires NOT_EVALUATED with CLAIM_UNSUPPORTED or CLAIM_NEEDS_INFO",
     "ENV_LINK: ENVIRONMENT_UNAVAILABLE requires at least one run and every run ENV_FAILURE",
-    "RUN_LINK: REPOSITORY_MODIFIED and VERIFIER_INTERNAL_ERROR require an INVALID run; TIMEOUT_NOT_CLAIMED requires no completed run and a TIMEOUT",
+    "RUN_LINK: REPOSITORY_MODIFIED and VERIFIER_INTERNAL_ERROR require an INVALID run; TIMEOUT_NOT_CLAIMED requires at least one TIMEOUT run (any completed runs are allowed; before req_010 it also required none)",
     "PROVENANCE: SYMPTOM_REPRODUCED and SYMPTOM_REPRODUCED_FLAKY cannot be reported with claim_provenance INSUFFICIENT; CLAIM_PROVENANCE_INSUFFICIENT requires it",
     "QUALIFIER: outcome_qualifier is PROVENANCE_UNVERIFIED exactly when claim_provenance is UNVERIFIED_ALLOWED",
     "ORACLE: oracle_required true only for SYMPTOM_REPRODUCED or SYMPTOM_REPRODUCED_FLAKY (false inside an oracle bundle is allowed)"
