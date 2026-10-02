@@ -30,7 +30,7 @@ def run_prefix(sb, name, mounts=(), env=None):
            "--cap-drop", "ALL", "--security-opt", "no-new-privileges",
            "--pids-limit", str(sb["pids"]), "--memory", sb["memory"], "--memory-swap", sb["memory"],
            "--cpus", str(sb["cpus"]), "--user", "65534:65534",
-           "--tmpfs", "/tmp:rw,size=64m,noexec,nosuid", "--tmpfs", "/work:rw,size=64m,noexec,nosuid",
+           "--tmpfs", "/tmp:rw,size=64m,noexec,nosuid", "--tmpfs", "/work:rw,size=64m,noexec,nosuid,mode=1777",
            "-w", "/work"]
     for k, v in sorted((env or {}).items()):
         cmd += ["-e", "%s=%s" % (k, v)]

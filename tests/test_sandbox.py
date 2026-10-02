@@ -31,6 +31,12 @@ class CommandShapeTests(unittest.TestCase):
             self.assertIn(flag, cmd)
         self.assertEqual(cmd[-1], "img")
 
+    def test_work_and_tmp_are_writable_for_the_unprivileged_user(self):  # F-051
+        cmd = sbx.run_prefix(sbx.make("img"), "n")
+        self.assertIn("/work:rw,size=64m,noexec,nosuid,mode=1777", cmd)
+        self.assertIn("/tmp:rw,size=64m,noexec,nosuid", cmd)
+        self.assertEqual(cmd.count("--tmpfs"), 2)
+
 
 @unittest.skipUnless(docker_ready(), "docker or test image not available")
 class DockerSandboxTests(unittest.TestCase):

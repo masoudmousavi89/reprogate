@@ -164,6 +164,8 @@ def _evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, 
     env_info, env_sha = capture_environment(python, sandbox)
     sandbox_rec = sbx.record(sandbox)
     git = git_info(repo)
+    if checkout is not None:  # the export has no .git: the commit is the verified SHA, the blobs were checked one by one
+        git = {"commit": checkout.head_sha, "dirty_tracked_files": 0}
     tree_before, n_files = tree_hash(repo)
     write_json(os.path.join(out_dir, "environment.json"), {
         "interpreter": env_info, "environment_sha256": env_sha, "git": git,
