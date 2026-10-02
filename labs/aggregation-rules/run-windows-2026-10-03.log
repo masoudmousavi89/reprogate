@@ -1,0 +1,12 @@
+== untouched real bundle
+   inspect exit 0 | aggregation rules  : 2 | invariants         : OK
+   verify: invariants_ok=True same_outcome=True aggregation_rules=2 legacy_timeout_semantics=None
+== LEGACY: field removed, old shape (4 matching + 1 TIMEOUT, SYMPTOM_REPRODUCED)
+   inspect exit 0 | aggregation rules  : LEGACY (no aggregation_rules field: written before F-054; the timeout rule of that time may differ) | invariants         : OK
+   verify: invariants_ok=True same_outcome=True aggregation_rules=LEGACY legacy_timeout_semantics=True
+== versioned 2, same old shape
+   inspect exit 1 | aggregation rules  : 2 | invariants         : VIOLATIONS: ['TIMEOUT_RULE: aggregation_rules 2 requires INCONCLUSIVE/TIMEOUT_NOT_CLAIMED when any run timed out']
+   verify: invariants_ok=False same_outcome=None aggregation_rules=None legacy_timeout_semantics=None
+== aggregation_rules = 3
+   inspect exit 1 | aggregation rules  : 3 | invariants         : VIOLATIONS: ["ENUM: aggregation_rules='3' is not one of ['2']"]
+   verify: invariants_ok=False same_outcome=None aggregation_rules=None legacy_timeout_semantics=None
