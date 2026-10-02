@@ -36,3 +36,13 @@ resource-limit enforcement under load (only the configured values are read back,
 |---|---|
 | d-docker | The same three reproducers of d1-d3, run in Docker mode (`--sandbox docker`, image `mirror.gcr.io/library/python:3.8-slim`, `--checkout-sha`) against the same kind of throwaway repository: every write fails (the `.git` pointer leads to a path that does not exist in the container, `/repo` is read-only); no new ref, no deleted object; the hash of every file under the source `.git` is identical before and after; `git fsck` of the source is clean. |
 | method | Reproducers for c and e are run through the real tool with the real gate where the gate accepts them; where a probe needs something the gate rejects (for example `socket`, `time.sleep`), it is run from a script with `gate=False` (as in `tests/test_end_to_end.py`); the gate itself is not changed. The throwaway repository for d reuses `tests/helpers.py` (`make_repo`, `verified_claim`) as a library, read-only. |
+
+## Second addendum (written after the first run of (a)-(f), before d4 and the repeats below were run)
+Observed in the first run, which prompted this addendum (details in the results file): in d3 the real gate rejects `os.remove` (UNSAFE); the first run of
+step (e) stopped on a script error (`Binds` is `None` for a container without bind mounts) and (f) listed the worktree's own `.git` file as a difference (a script
+artifact). Both scripts are fixed and re-run; no prediction is changed.
+
+| id | prediction |
+|---|---|
+| d4 | A reproducer that uses only `os.open`, `os.read` and `os.write` (real gate: VALID, and it is run through the real tool WITHOUT `gate=False`, host mode, `--checkout-sha`, throwaway repository) overwrites `<source>/.git/refs/heads/<current branch>` through the `.git` file's path with a bogus 40-hex value. It succeeds, persists after the worktree is removed, and the source repository is then broken (`git rev-parse HEAD`/`git status` of the source fail or point to a missing object; `git fsck` reports it). The outcome stays NO_MATCHING_REPRODUCTION_FOUND (not flagged); the source tree hash is unchanged (`tree_hash` skips `.git`); `checkout.json` shows the damage only indirectly: `source_head_after` differs from `source_head_before` or is null. This is damage reachable with a gate-valid reproducer, which d3 (needs `os.remove`, gate UNSAFE) is not. The same reproducer in Docker mode fails and the source is unchanged. |
+| e (repeat) | The environment capture (`python -c` in a container, before the runs) is also a container made by `sandbox.run_prefix`, so `docker inspect` sees 1 + 3 = 4 containers with 4 different ids; all four carry the same hardening flags; only the three run containers have bind mounts. |
