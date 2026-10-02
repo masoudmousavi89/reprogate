@@ -62,3 +62,23 @@ Disclosure: this change is made after data was seen. M4 was already measured (6 
 `labs/sample-v3/CHECKLIST-WIDE.md`) and the M1/M2 labelling had already stopped with 6 evaluable bugs, below the sample
 minimum (see `labs/sample-v3/DEVIATIONS.md`). Only the date changes, so those results stand as measured. With the
 current sample the M1/M2 verdict at the new date is expected to be INCONCLUSIVE.
+
+## Clarification 2026-10-03: what counts as a "lab" in the 20-lab limit
+
+What is clarified: the time limit says "or after 20 new labs, whichever comes first". A **lab** is a real bug that was evaluated
+end to end under the procedure of `DEVELOPING.md` section 5: a `claim.json`, a reproducer, an `expected_outcomes.json` and
+predictions committed before the first run. A new directory under `labs/` that is not such an evaluation (a design lab, a
+protocol, a change verification, a corpus index, a pilot that found no evaluable candidate) is not a lab for this limit. "New"
+means added after the pre-registration commit be19069.
+
+Why: the phrase had no definition, and counting every new directory would let ordinary development work reach 20 by accident.
+The clarification is made so the limit cannot be reached by counting, in either direction. It is not a change of any threshold.
+
+What does not change: the metrics, their definitions, the thresholds, the sample minimums, the held-out rule, the combination
+rule, the rule on public claims, and the date 2026-10-13.
+
+Disclosure: this clarification is written after data was seen. Counted from git on 2026-10-03: 15 new directories under
+`labs/` since be19069 (13 since the dated change of 2026-09-29, 97699cd); of them 1 is a lab in the sense above
+(`labs/case-pathspec-129`, a case study chosen knowing it fits, not a blind draw); the two `wrong-output` pilots found no evaluable
+candidate (F-041, F-044). So 1 lab counts, the 20-lab limit has not been reached under this definition (nor under the
+count of directories), and the date 2026-10-13 decides.
