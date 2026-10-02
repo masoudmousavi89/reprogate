@@ -120,7 +120,7 @@ def cmd_run(a):
     if not _need_host_flag(a):
         return 2
     try:
-        out = evaluate(a.repo, _python(a), _load_claim(a.claim), a.reproducer, a.out, **_kw(a))
+        out = evaluate(a.repo, _python(a), _load_claim(a.claim), a.reproducer, a.out, checkout_sha=a.checkout_sha, **_kw(a))
     except ValueError as e:
         print("ERROR:", e, file=sys.stderr)
         return 2
@@ -138,7 +138,7 @@ def cmd_oracle(a):
         return 2
     try:
         res = oracle(a.before_repo, a.after_repo, _python(a), _load_claim(a.claim), a.reproducer, a.out,
-                     after_python=a.after_python, **_kw(a))
+                     after_python=a.after_python, before_sha=a.before_sha, after_sha=a.after_sha, **_kw(a))
     except ValueError as e:
         print("ERROR:", e, file=sys.stderr)
         return 2
@@ -212,7 +212,8 @@ def main(argv=None):
     p.set_defaults(fn=cmd_gate)
 
     p = sub.add_parser("run", help="evaluate one reproducer on one checkout")
-    p.add_argument("--repo", required=True)
+    p.add_argument("--repo", required=True, help="the checkout, or with --checkout-sha the source repository")
+    p.add_argument("--checkout-sha", help="full 40-hex commit SHA: evaluate a fresh detached git worktree of it (removed afterwards)")
     p.add_argument("--python", help="target interpreter (e.g. the venv python); not needed with --sandbox docker")
     p.add_argument("--out", required=True)
     _common_run_args(p)
@@ -221,6 +222,8 @@ def main(argv=None):
     p = sub.add_parser("oracle", help="before/after-fix oracle")
     p.add_argument("--before-repo", required=True)
     p.add_argument("--after-repo", required=True)
+    p.add_argument("--before-sha", help="full commit SHA: fresh worktree of it made from --before-repo")
+    p.add_argument("--after-sha", help="full commit SHA: fresh worktree of it made from --after-repo")
     p.add_argument("--python")
     p.add_argument("--after-python")
     p.add_argument("--out", required=True)

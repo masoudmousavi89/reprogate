@@ -7,6 +7,7 @@ import time
 
 from . import SCHEMA_VERSION, __version__
 from . import claims
+from .checkout import Checkout
 from . import constants as C
 from .evidence import verify_hashes, write_hashes
 from .gate import gate_source
@@ -126,10 +127,10 @@ def _origin_evidence(origin, origin_source, repro_bytes, repro_name):
     return "NOT_APPLICABLE", None, None
 
 
-def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, min_completed=3,
+def _evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, min_completed=3,
              gate=True, allow_unverified_provenance=False, origin="AGENT_ADAPTED", attempts=0,
              base_seed=1000, pythonpath_extra=None, sandbox=None, in_oracle=False, env_template=None,
-             origin_source=None):
+             origin_source=None, checkout=None):
     """Evaluate one reproducer against one checkout. Returns the outcome dict (also written to out_dir)."""
     prov = provenance_state(claim_doc, allow_unverified_provenance)  # may raise ValueError
     claim_status, claim_note = claims.support(claim_doc["claim"])  # F-039: unknown kinds are UNSUPPORTED
@@ -198,6 +199,9 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
                         "clean_completion": False, "reasons": ["INTERPRETER_LAUNCH_FAILED"],
                         "invalid_reason": None} for i in range(runs)]
 
+    if checkout is not None:
+        write_json(os.path.join(out_dir, "checkout.json"), checkout.finish())
+
     agg = aggregate(run_records, min_completed=min_completed, provenance=prov,
                     reproducer_status=gate_res["status"], claim_status=claim_status)
     anchors_verified, anchors_not_verified = _anchor_states(claim_doc)
@@ -229,6 +233,18 @@ def evaluate(repo, python, claim_doc, repro_path, out_dir, runs=5, timeout=30, m
     write_json(os.path.join(out_dir, "outcome.json"), outcome)
     write_hashes(out_dir)
     return outcome
+
+
+def evaluate(repo, python, claim_doc, repro_path, out_dir, checkout_sha=None, **kw):
+    """checkout_sha (req_005): evaluate a fresh detached worktree of that full SHA made from repo (the source repository),
+    removed afterwards; without it repo is used as given."""
+    if checkout_sha is None:
+        return _evaluate(repo, python, claim_doc, repro_path, out_dir, **kw)
+    co = Checkout(repo, checkout_sha)
+    try:
+        return _evaluate(co.path, python, claim_doc, repro_path, out_dir, checkout=co, **kw)
+    finally:
+        co.finish()
 
 
 def _is_int(x, minimum):
@@ -304,11 +320,14 @@ def replay(bundle, repo, python, runs=None, timeout=30, sandbox=None, env_templa
     return report
 
 
-def oracle(before_repo, after_repo, python, claim_doc, repro_path, out_dir, after_python=None, **kw):
+def oracle(before_repo, after_repo, python, claim_doc, repro_path, out_dir, after_python=None, before_sha=None,
+           after_sha=None, **kw):
     """Before/after-fix oracle: the same reproducer must reproduce the symptom before the fix and
     complete CLEANLY after it ('no longer matches' is not enough: an ImportError is not a fix)."""
-    before = evaluate(before_repo, python, claim_doc, repro_path, os.path.join(out_dir, "before"), in_oracle=True, **kw)
-    after = evaluate(after_repo, after_python or python, claim_doc, repro_path, os.path.join(out_dir, "after"), in_oracle=True, **kw)
+    before = evaluate(before_repo, python, claim_doc, repro_path, os.path.join(out_dir, "before"), in_oracle=True,
+                      checkout_sha=before_sha, **kw)
+    after = evaluate(after_repo, after_python or python, claim_doc, repro_path, os.path.join(out_dir, "after"), in_oracle=True,
+                     checkout_sha=after_sha, **kw)
     ac = after["counts"]
     if ac["total"] and ac["clean_completion_runs"] == ac["total"] and ac["completed"] == ac["total"]:
         post = "CLEAN_COMPLETION"
