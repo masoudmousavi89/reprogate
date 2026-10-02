@@ -1,4 +1,4 @@
-# Prompt for a Linux session with Docker (paste everything below the line into a fresh Claude session)
+# Prompt for a Linux session with Docker (paste everything below the line into a fresh AI session)
 
 ---
 
