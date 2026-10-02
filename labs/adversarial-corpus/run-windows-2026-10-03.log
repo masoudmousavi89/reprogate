@@ -1,0 +1,4 @@
+real_gate | gate: REJECTED | outcome: NOT_EVALUATED/REPRODUCER_REJECTED | runs: [] | counts: {'total': 0, 'completed': 0, 'env_failures': 0, 'timeouts': 0, 'invalid': 0, 'matching': 0, 'clean_completion_runs': 0}
+   gate findings: [('PATCHES_TARGET', 9)]
+gate_bypassed | gate: VALID | outcome: NO_MATCHING_REPRODUCTION_FOUND/NONE | runs: ['COMPLETED', 'COMPLETED', 'COMPLETED', 'COMPLETED', 'COMPLETED'] | counts: {'total': 5, 'completed': 5, 'env_failures': 0, 'timeouts': 0, 'invalid': 0, 'matching': 0, 'clean_completion_runs': 0}
+   gate findings: []
