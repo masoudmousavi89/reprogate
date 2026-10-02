@@ -30,3 +30,9 @@ Windows/macOS Docker; `verify`/replay with `--checkout-sha`; submodules, shallow
 escape the container itself (kernel boundary, as in F-017); containers started by another user than root on the host (this session runs as root, which makes file permissions
 less meaningful on the host side: attacks d1-d3 act as the same user that owns the source repository, which is also the case for a normal user running the tool);
 resource-limit enforcement under load (only the configured values are read back, no memory/pids bomb is run here).
+
+## Addition before any run (same day, before the first experiment was executed)
+| id | prediction |
+|---|---|
+| d-docker | The same three reproducers of d1-d3, run in Docker mode (`--sandbox docker`, image `mirror.gcr.io/library/python:3.8-slim`, `--checkout-sha`) against the same kind of throwaway repository: every write fails (the `.git` pointer leads to a path that does not exist in the container, `/repo` is read-only); no new ref, no deleted object; the hash of every file under the source `.git` is identical before and after; `git fsck` of the source is clean. |
+| method | Reproducers for c and e are run through the real tool with the real gate where the gate accepts them; where a probe needs something the gate rejects (for example `socket`, `time.sleep`), it is run from a script with `gate=False` (as in `tests/test_end_to_end.py`); the gate itself is not changed. The throwaway repository for d reuses `tests/helpers.py` (`make_repo`, `verified_claim`) as a library, read-only. |
